@@ -1,0 +1,32 @@
+node_modules
+*.tgz
+npm-debug.log
+.npmignore
+.gitignore
+
+#tests
+coverage
+
+# caches
+.awcache
+
+# build tools
+.jenkins.yml
+
+#linters
+.jscsrc
+.jshintrc
+.eslintrc*
+tslint.json
+tsconfig.json
+.stylelintrc
+.stylelintignore
+
+#editor settings
+.idea
+.editorconfig
+
+# webpack
+webpack.base.js
+webpack.client.js
+webpack.server.js

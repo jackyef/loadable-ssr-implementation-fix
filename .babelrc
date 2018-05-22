@@ -1,0 +1,52 @@
+{
+	"plugins": [
+		"transform-decorators",
+		"transform-class-properties",
+		"transform-object-rest-spread",
+		"react-loadable/babel"
+	],
+
+	"presets": [
+		"env",
+		"stage-0",
+		"react",
+		[
+			"env",
+			{
+				"modules": false,
+				"targets": {
+					"browsers": [
+						"> 5%"
+					]
+				}
+			}
+		]
+	],
+
+	"env": {
+		"production": {
+			"presets": ["react-optimize"]
+		},
+
+		"test": {
+			"plugins": [
+				"dynamic-import-node",
+				"transform-es2015-modules-commonjs"
+			],
+			"presets": [
+				"react",
+				[
+					"env",
+					{
+						"targets": {
+							"browsers": [
+								"> 5%"
+							]
+						},
+						"modules": false
+					}
+				]
+			]
+		}
+	}
+}

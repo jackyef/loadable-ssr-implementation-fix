@@ -1,0 +1,48 @@
+@import (reference) '../__palettes__/base';
+
+#el {
+	#scenes {
+		#errors {
+
+			// ------------------------------- Base -------------------------------
+			#base {
+				.el() {
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					align-items: center;
+
+					width: 100vw;
+					height: 100vh;
+				}
+
+				// ------------------------------- Base / Title -------------------------------
+				#title {
+					.el() {
+						font-size: 100px;
+						font-weight: 300;
+
+						color: @main_on_dark;
+					}
+				}
+
+				// ------------------------------- Base / Btn -------------------------------
+				#btn {
+					.el() {
+						width: 164px;
+						margin-top: 16px;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Page styles
+.container { #el > #scenes > #errors > #base > .el(); }
+
+// Title (404, 500 etc.)
+.title { #el > #scenes > #errors > #base > #title > .el(); }
+
+// Button (back to the home page)
+.btn { #el > #scenes > #errors > #base > #btn > .el(); }

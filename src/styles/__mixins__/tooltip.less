@@ -1,0 +1,68 @@
+@import (reference)  '../__palettes__/base';
+
+.mixin-tooltip-container(@position: relative) {
+	position: @position;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.mixin-tooltip(@bg: @main_on_dark, @text_color: #fff, @left: 60px) {
+	position: absolute;
+	left: @left;
+
+	visibility: hidden;
+	opacity: 0;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	width: 0;
+	height: 0;
+	padding: 0;
+
+	font-size: 12px;
+	font-weight: 400;
+	white-space: nowrap;
+
+	background: @bg;
+	color: @text_color;
+
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	box-shadow: 0 1px 16px rgba(0, 0, 0, .3);
+
+	transform: translateX(10px);
+	transition: transform 0ms, opacity 0ms, visibility 0ms;
+
+	&::before {
+		content: '';
+
+		position: absolute;
+		left: -11px;
+		top: 5px;
+
+		width: 21px;
+		height: 21px;
+
+		background: @main_on_dark;
+
+		transform: scaleX(.6) rotate(45deg);
+	}
+}
+
+.mixin-tooltip-hover {
+	visibility: visible;
+	opacity: 1;
+
+	width: auto;
+	height: 31px;
+	padding: 8px 12px 8px 14px;
+
+	transform: translateX(0);
+
+	transition: transform 500ms ease-in-out, opacity 250ms ease-in-out, visibility 250ms ease-in-out;
+}

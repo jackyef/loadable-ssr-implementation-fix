@@ -1,0 +1,124 @@
+@import (reference) '../../__palettes__/base';
+@import (reference) '../../__mixins__/tooltip';
+
+// Common
+.self {
+	@diameter: 46px;
+
+	position: relative;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: @diameter;
+	height: @diameter;
+
+	cursor: pointer;
+
+	background: @bg_on_dark;
+	border-radius: @diameter/2;
+
+	// Name first letter
+	> span {
+		margin: 1px 0 0 1px;
+
+		font-size: 16px;
+		font-weight: 400;
+
+		color: @bg_on_dark_color;
+	}
+
+	// Icon
+	> i {
+		margin-left: 2px;
+
+		font-size: 13px;
+	}
+
+	// Tooltip
+	> div {
+		.mixin-tooltip;
+	}
+
+	&:hover {
+		> span {
+			color: @main_on_dark;
+		}
+
+		> div {
+			.mixin-tooltip-hover;
+		}
+	}
+}
+
+// With shadow on hover
+.with_shadow {
+	border: 1px solid @bg_on_dark;
+
+	transition: border 250ms ease-in-out, box-shadow 250ms ease-in-out;
+
+	&:hover {
+		border: 1px solid @main_on_dark;
+		box-shadow: 0 0 12px @main_on_dark;
+	}
+}
+
+// Solid main color
+.solid {
+	background: @main_on_dark;
+	> span, > i { color: #fff; }
+
+	&:hover {
+		background: @main_on_dark;
+		> span, > i { color: #fff; }
+	}
+}
+
+// Bordered
+.bordered {
+	width: 40px;
+	height: 40px;
+
+	background: none;
+	border: 1px solid @bg_on_dark;
+
+	transition: border 250ms ease-in-out, box-shadow 250ms ease-in-out;
+
+	> div {
+		left: 56px;
+	}
+
+	> span, > i {
+		color: @bg_on_dark;
+
+		transition: color 250ms ease-in-out;
+	}
+
+	&:hover {
+		border: 1px solid @main_on_dark;
+		> span, > i { color: @main_on_dark }
+	}
+}
+
+// Icon only
+.icon {
+	background: none;
+
+	> i {
+		font-size: 16px;
+		color: @bg_on_dark;
+
+		transition: color 250ms ease-in-out;
+	}
+
+	> div {
+		left: 50px;
+	}
+
+	&:hover {
+		> i {
+			color: @main_on_dark;
+		}
+	}
+}

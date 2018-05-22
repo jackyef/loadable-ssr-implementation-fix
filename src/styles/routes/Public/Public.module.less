@@ -1,0 +1,65 @@
+@import (reference) '~@scc/scc-ui-kit/styles';
+@import (reference) '../../__palettes__/base';
+
+// Header
+.header {
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+	padding: 30px 30px;
+
+	background: @dark_bg;
+}
+
+// Navigation
+.nav {
+	> ul {
+		position: relative;
+
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+
+		> li {
+			&:not(:last-child) {
+				margin-right: 10px;
+			}
+
+			> a,
+			> button {
+				#btn > .compose_theme(
+					@colors: { #btn > .colors(#fff, @main_on_dark); },
+					@border: { #btn > .border(3px); },
+					@size: { #btn > .size(16px, 16px) },
+					@text: { #btn > .text(14px, 400) }
+				);
+			}
+
+			// Sign In
+			&:first-child {
+				> a,
+				> button {
+					#btn > .colors(@main_on_dark, none);
+				}
+			}
+
+			// Sign Up
+			&:last-child {
+				> a,
+				> button {
+
+				}
+			}
+		}
+	}
+}
+
+// Content
+.content {
+
+}

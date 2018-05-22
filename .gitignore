@@ -1,0 +1,9 @@
+.idea/
+node_modules/
+bundle/
+bundle_client/
+bundle_server/
+npm-debug.log
+.awcache/
+coverage/
+.DS_Store

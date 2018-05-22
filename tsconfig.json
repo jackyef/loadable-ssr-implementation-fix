@@ -1,0 +1,58 @@
+{
+	"compilerOptions": {
+		"outDir": "bundle_client/",
+		"allowSyntheticDefaultImports": true,
+		"allowJs": true,
+		"checkJs": false,
+		"declaration": false,
+		"emitDecoratorMetadata": false,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"noEmitHelpers": true,
+		"jsx": "react",
+		"lib": [
+			"dom",
+			"es2017"
+		],
+		"target": "es2015",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"noEmitOnError": false,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"strictNullChecks": false,
+		"pretty": true,
+		"removeComments": true,
+		"sourceMap": true,
+		"baseUrl": "./typings"
+	},
+
+	"include": [
+		"src/**/*"
+	],
+
+	"exclude": [
+		"__tests__/**/*",
+		"node_modules/**/*",
+		".awcache/**/*",
+		"bundle/**/*",
+		"coverage/**/*",
+		"express/**/*",
+		"jest_setup/**/*",
+		"resources/**/*"
+	],
+
+	"awesomeTypescriptLoaderOptions": {
+		"useWebpackText": true,
+		"forkChecker": true,
+		"useCache": true,
+		"useBabel": true
+	},
+
+	"compileOnSave": false,
+	"buildOnSave": false
+}
