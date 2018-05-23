@@ -16,6 +16,7 @@ RUN apt-get install -y git
 # Provide SSH key
 RUN mkdir /root/.ssh/
 ADD id_rsa /root/.ssh/id_rsa
+RUN chmod 600 /root/.ssh/id_rsa
 RUN touch /root/.ssh/known_hosts
 RUN ssh-keyscan -T 60 bitbucket.org >> /root/.ssh/known_hosts
 
