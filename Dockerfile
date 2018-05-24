@@ -30,6 +30,9 @@ RUN git clone git@bitbucket.org:sccockpit/ui-kit.git
 # Install dependencies
 RUN yarn install
 
+# RUN npm install --only=dev
+# RUN npm install --only=prod
+
 # Add repo to node_modules
 RUN mkdir -p ./node_modules/@scc
 RUN mv ./ui-kit ./node_modules/@scc/scc-ui-kit
@@ -37,6 +40,9 @@ RUN mv ./ui-kit ./node_modules/@scc/scc-ui-kit
 # Build express app
 RUN yarn run prd:build-client
 RUN yarn run prd:build-server
+
+# RUN npm run prd:build-client
+# RUN npm run prd:build-server
 
 # Stage 2 - Forever
 FROM node:9.11.1
@@ -52,5 +58,8 @@ WORKDIR /usr/src
 
 RUN yarn global add forever
 RUN yarn install --production=true
+
+# RUN npm install -g forever
+# RUN npm install --only=prod
 
 CMD ["forever", "bundle_server/server.js"]
