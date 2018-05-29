@@ -1,6 +1,7 @@
 /**
  * Authentication process the very first route (Sign in)
  */
+import _ from 'lodash';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
@@ -8,7 +9,7 @@ import { BtnNav, FormRoot, Input, Submit } from '@scc/scc-ui-kit';
 import { canUseDOM } from '@scc/scc-ui-kit/utils';
 
 import Logo from '../../../components/Logo';
-import { routes, api } from '../../../config';
+import { routes, api, axiosInstance } from '../../../config';
 import { authFormStore, notifyStore } from '../../../stores';
 import { history } from '../../../routes';
 
@@ -58,10 +59,10 @@ const SignIn: React.SFC<{}> = () => {
 					url={ api.auth.login }
 					styles={{ theme: containerStyles.btn }}
 
-					onSuccess={() => {
+					onSuccess={ data => {
 
 						// Login user OK
-						if (canUseDOM()) {
+						if (canUseDOM() && data.status !== 'unfinished') {
 							localStorage.setItem('authenticated', 'yes');
 							history.push(routes.workflow.self);
 							notifyStore.awake({
@@ -71,6 +72,28 @@ const SignIn: React.SFC<{}> = () => {
 								state: 'success',
 								delay: 3000
 							});
+						}
+
+						// Unfinished registration
+						else if (data.status === 'unfinished') {
+
+							// Get location
+							axiosInstance.get(api.external.location)
+								.then(response => {
+									history ? history.push({
+										pathname: routes.auth.signup.phone,
+										state: {
+											id: data.id,
+											code: response.data.calling_code,
+											country: {
+												value: response.data.country_code,
+												disp: response.data.country_name
+											}
+										}
+									}) : null;
+								})
+								.catch(err => console.log(_.get(err, 'response.data.message', err)))
+							;
 						}
 					}}
 
