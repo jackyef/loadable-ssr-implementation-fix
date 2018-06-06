@@ -1,8 +1,8 @@
 /**
  * Notifications store
  */
-import { NotifyStore } from '@scc/scc-ui-kit';
+import { StoreNotify } from '@scc/scc-ui-kit';
 
-const store = new NotifyStore();
+const store = new StoreNotify();
 
 export default store;

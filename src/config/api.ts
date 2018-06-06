@@ -3,6 +3,9 @@ import axios from 'axios';
 // API domains
 const domain = '/api';
 
+// Bot name
+export const botName = 'TgCreditsBot';
+
 /**
  * API routes
  */
@@ -22,7 +25,6 @@ export const api = {
 	// Authentication
 	auth: {
 		google: `${ domain }/auth/google`,
-		twitter: `${ domain }/auth/twitter`,
 		register: `${ domain }/auth/register`,
 		checkUser: `${ domain }/auth/check`,
 		signup: `${ domain }/auth/signup`,

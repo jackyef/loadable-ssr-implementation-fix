@@ -1,6 +1,5 @@
 /**
  * Root app route
- * @type {string}
  */
 const indexRoute = '/app';
 

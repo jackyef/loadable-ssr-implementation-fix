@@ -6,9 +6,9 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { RouteProps } from 'react-router';
 
-import { FormRoot, Dropdown, Input, Submit } from '@scc/scc-ui-kit';
-import { required, length } from '@scc/scc-ui-kit/validators';
-import { canUseDOM } from '@scc/scc-ui-kit/utils';
+import { FormRoot, canUseDOM } from '@scc/scc-ui-kit';
+import { FieldDropdown as Dropdown, FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
+import { required, length } from '@scc/scc-ui-kit/addons/validators';
 
 import { integersOnly } from '../../../../helpers/masks';
 

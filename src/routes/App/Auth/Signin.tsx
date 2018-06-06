@@ -4,12 +4,13 @@
 import _ from 'lodash';
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import TelegramLoginButton from '../../../helpers/TelegramLoginWidget';
 
-import { BtnNav, FormRoot, Input, Submit } from '@scc/scc-ui-kit';
-import { canUseDOM } from '@scc/scc-ui-kit/utils';
+import { BtnNav, FormRoot, canUseDOM } from '@scc/scc-ui-kit';
+import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 
 import Logo from '../../../components/Logo';
-import { routes, api, axiosInstance } from '../../../config';
+import { routes, api, axiosInstance, botName } from '../../../config';
 import { authFormStore, notifyStore } from '../../../stores';
 import { history } from '../../../routes';
 
@@ -47,6 +48,9 @@ const SignIn: React.SFC<{}> = () => {
 					url={ api.auth.google }
 					styles={{ theme: containerStyles.socials_google }}
 				/>
+
+				{/* Telegram Login Widget */}
+				<TelegramLoginButton botName={ botName } authUrl="/auth/telegram" />
 
 				<hr />
 

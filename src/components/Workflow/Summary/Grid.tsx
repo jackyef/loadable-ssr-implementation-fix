@@ -4,8 +4,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Grid, GridStore, GridStoreAPI } from '@scc/scc-ui-kit';
-import { IGridStore } from '@scc/scc-ui-kit/types';
+import { Grid, StoreGrid, IStoreGrid, StoreGridAPI } from '@scc/scc-ui-kit';
 
 import { axiosInstance, api } from '../../../config';
 
@@ -13,11 +12,11 @@ import Row from './GridRow';
 import Header from './GridHeader';
 
 // API store
-const apiStore = new GridStoreAPI(axiosInstance);
+const apiStore = new StoreGridAPI(axiosInstance);
 apiStore.fetchURL = api.data.posts;
 
 // Grid store
-export const store = new GridStore('summary', null, apiStore);
+export const store = new StoreGrid('summary', null, apiStore);
 store.chooser = data => _.get(data, 'result', null);
 
 type Props = {
@@ -25,7 +24,7 @@ type Props = {
 	/**
 	 * Grid store instance
 	 */
-	store?: IGridStore;
+	store?: IStoreGrid;
 };
 
 /**

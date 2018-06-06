@@ -4,7 +4,7 @@ import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 import Cookies from 'js-cookie';
 
-import { canUseDOM } from '@scc/scc-ui-kit/utils';
+import { canUseDOM } from '@scc/scc-ui-kit';
 
 import { authFormStore } from '../stores';
 import { routes, api, axiosInstance } from '../config';

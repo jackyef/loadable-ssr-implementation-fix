@@ -11,14 +11,11 @@
 		"no-trailing-whitespace": false,
 		"no-console": false,
 		"no-submodule-imports": [true,
-			"@scc/scc-ui-kit/validators",
-			"@scc/scc-ui-kit/formatters",
-			"@scc/scc-ui-kit/utils",
-			"@scc/scc-ui-kit/types",
-			"@scc/scc-ui-kit/styles",
 			"react-dom/server",
-			"isomorphic-loader/lib/extend-require",
-			"react-loadable/webpack"
+			"react-loadable/webpack",
+			"@scc/scc-ui-kit/addons",
+			"@scc/scc-ui-kit/addons/validators",
+			"@scc/scc-ui-kit/addons/formatters"
 		],
 		"no-implicit-dependencies": false,
 		"no-shadowed-variable": false,

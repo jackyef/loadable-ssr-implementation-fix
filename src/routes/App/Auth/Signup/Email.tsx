@@ -5,8 +5,9 @@ import _ from 'lodash';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { FormRoot, BtnNav, Input, Submit } from '@scc/scc-ui-kit';
-import { required, email } from '@scc/scc-ui-kit/validators';
+import { FormRoot, BtnNav } from '@scc/scc-ui-kit';
+import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
+import { required, email } from '@scc/scc-ui-kit/addons/validators';
 
 import { history } from '../../../';
 import { authFormStore, notifyStore } from '../../../../stores';
