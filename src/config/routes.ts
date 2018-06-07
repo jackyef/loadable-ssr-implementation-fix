@@ -18,13 +18,5 @@ export const routes = {
 			email: `${ indexRoute }/auth/up/email`,
 			phone: `${ indexRoute }/auth/up/phone`
 		}
-	},
-	workflow: {
-		self: `${ indexRoute }/workflow`,
-		summary: `${ indexRoute }/workflow/summary`,
-		stats: `${ indexRoute }/workflow/stats`,
-		post: {
-			create: `${ indexRoute }/workflow/post/new`
-		}
 	}
 };

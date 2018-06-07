@@ -5,11 +5,11 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { Btn, BtnNav } from '@scc/scc-ui-kit';
+import { renderRoutes, logout, authenticated } from '@tg/ui-kit/utils';
+import { Logo } from '@tg/ui-kit';
 
-import Logo from '../../../components/Logo';
-import { routes } from '../../../config';
-import { authenticated, logout } from '../../';
-import renderRoutes from '../../../helpers/utils/renderRoutes';
+import { routes, api, axiosInstance } from '../../../config';
+import { history } from '../..';
 
 import { styles } from '../../../styles/routes/Public/Public';
 
@@ -39,8 +39,8 @@ const Container: React.SFC<Props> = ({ route }) => {
 								<li><BtnNav title="Sign Up" exact url={ routes.auth.signup.self } /></li>
 							</>)
 							: (<>
-								<li><Btn title="Log out" onClick={ logout } /></li>
-								<li><BtnNav title="Workflow" exact url={ routes.workflow.self } /></li>
+								<li><Btn title="Log out" onClick={ () => logout(axiosInstance, history, api.auth.logout) } /></li>
+								<li><BtnNav title="Workflow" exact url={ '' } /></li>
 							</>)
 					}
 				</ul>

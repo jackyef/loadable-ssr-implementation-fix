@@ -30,11 +30,6 @@ export const api = {
 		signup: `${ domain }/auth/signup`,
 		logout: `${ domain }/auth/logout`,
 		login: `${ domain }/auth/login`
-	},
-
-	// Posts and channels
-	data: {
-		posts: `${ domain }/posts/1185462958`
 	}
 };
 

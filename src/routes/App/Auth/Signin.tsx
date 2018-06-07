@@ -8,8 +8,8 @@ import TelegramLoginButton from '../../../helpers/TelegramLoginWidget';
 
 import { BtnNav, FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
+import { Logo } from '@tg/ui-kit';
 
-import Logo from '../../../components/Logo';
 import { routes, api, axiosInstance, botName } from '../../../config';
 import { authFormStore, notifyStore } from '../../../stores';
 import { history } from '../../../routes';
@@ -68,7 +68,7 @@ const SignIn: React.SFC<{}> = () => {
 						// Login user OK
 						if (canUseDOM() && data.status !== 'unfinished') {
 							localStorage.setItem('authenticated', 'yes');
-							history.push(routes.workflow.self);
+							history.push('/');
 							notifyStore.awake({
 								name: 'loginSucceed',
 								header: 'You are successfully logged in',

@@ -181,7 +181,7 @@ export default class Phone extends React.Component<Props, State> {
 											axiosInstance.put(api.auth.signup, { id: this.userId, ...data })
 												.then(() => {
 													canUseDOM() && localStorage.setItem('authenticated', 'yes');
-													history.push(routes.workflow.self);
+													history.push('/');
 												})
 												.catch(err => this.setState({ msg: CANT_ACTIVATE_NEW_USER_AFTER_SIGNUP }))
 											;

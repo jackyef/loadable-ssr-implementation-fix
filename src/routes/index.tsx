@@ -2,44 +2,23 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
-import Cookies from 'js-cookie';
 
 import { canUseDOM } from '@scc/scc-ui-kit';
+import { Loading, NotFoundRoute as NotFound } from '@tg/ui-kit';
+import { authenticated } from '@tg/ui-kit/utils';
 
 import { authFormStore } from '../stores';
-import { routes, api, axiosInstance } from '../config';
+import { routes } from '../config';
 
-// Loading Route component
-import Loading from '../components/Loading';
-
-// Not Found Route
-import NotFound from './App/404';
+// Routes
 import Email from './App/Auth/Signup/Email';
 import Phone from './App/Auth/Signup/Phone';
-const RouteNotFound = { component: () => <Redirect to={ '/app/nf' } /> };
 
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory() : null;
 
-// Authentication status (for UI only)
-export const authenticated = () => canUseDOM() && Cookies.get('status');
-
-// Logout
-export const logout = () => {
-	return axiosInstance.get(api.auth.logout)
-		.then(resp => {
-			if (canUseDOM()) {
-				Cookies.remove('status');
-				history.push(routes.home);
-			}
-		})
-		.catch(e => console.error(e))
-	;
-};
-
 // List of loadable routes with authentication condition
 const LoadableAuth = Loadable({ loader: () => import('./App/Auth'), loading: Loading });
-const LoadableWorkflow = Loadable({ loader: () => import('./App/Workflow'), loading: Loading });
 
 // Routes map
 export default [
@@ -188,61 +167,6 @@ export default [
 							}
 						]
 					}
-				]
-			},
-
-			// Workflow
-			{
-				path: routes.workflow.self,
-				component: (props: any) => (
-					authenticated() === 'ok'
-						? <LoadableWorkflow { ...props } />
-						: authenticated() === 'nophone'
-							? <Redirect to={ routes.phone } />
-							: <Redirect to={ routes.home } />
-				),
-
-				routes: [
-
-					// Root
-					{
-						component: () => <Redirect to={ routes.workflow.summary } />,
-						path: routes.workflow.self,
-						exact: true
-					},
-
-					// Summary
-					{
-						exact: true,
-						path: routes.workflow.summary,
-						component: Loadable({
-							loader: () => import('./App/Workflow/Summary'),
-							loading: Loading
-						})
-					},
-
-					// New Post
-					{
-						path: routes.workflow.post.create,
-						exact: true,
-						component: Loadable({
-							loader: () => import('./App/Workflow/NewPost'),
-							loading: Loading
-						})
-					},
-
-					// Stats
-					{
-						path: routes.workflow.stats,
-						exact: true,
-						component: Loadable({
-							loader: () => import('./App/Workflow/Stats'),
-							loading: Loading
-						})
-					},
-
-					// Not Found (404)
-					{ ...RouteNotFound }
 				]
 			},
 

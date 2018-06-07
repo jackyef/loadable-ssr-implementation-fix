@@ -5,11 +5,10 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { BtnNav } from '@scc/scc-ui-kit';
+import { Logo } from '@tg/ui-kit';
+import { renderRoutes, authenticated } from '@tg/ui-kit/utils';
 
 import { routes } from '../../../../config';
-import { authenticated } from '../../../';
-import Logo from '../../../../components/Logo';
-import renderRoutes from '../../../../helpers/utils/renderRoutes';
 
 import { styles as containerStyles } from '../../../../styles/routes/Auth/Auth';
 
