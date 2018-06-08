@@ -4,7 +4,7 @@
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { renderRoutes } from '@tg/ui-kit/utils';
+import { renderRoutes } from '@tg/ui/utils';
 
 import { styles } from '../../../styles/routes/Auth/Auth';
 

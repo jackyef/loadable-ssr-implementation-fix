@@ -25,7 +25,7 @@ function createFileLoader(rootPath) {
 		loader: 'file-loader',
 		options: {
 			name: rootPath.toString() + '/[name].[ext]',
-			publicPath: '/static',
+			publicPath: '/static/public',
 			useRelativePath: false
 		}
 	}];
@@ -56,7 +56,7 @@ const config = {
     },
 
 	output: {
-		publicPath: '/static/',
+		publicPath: '/static/public/',
 		path: path.resolve(__dirname, 'bundle_client'),
 		filename: process.env.NODE_ENV === 'development' ? '[name].js' : '[name].[contenthash].js',
 		chunkFilename: process.env.NODE_ENV === 'development' ? 'chunks/[id].js' : 'chunks/[id].[chunkhash].js'

@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import Raven from 'raven-js';
 
 import { NotifyBox } from '@scc/scc-ui-kit';
-import { renderRoutes } from '@tg/ui-kit/utils';
+import { renderRoutes } from '@tg/ui/utils';
 
 import { axiosInstance, api } from '../../config';
 import { notifyStore } from '../../stores';

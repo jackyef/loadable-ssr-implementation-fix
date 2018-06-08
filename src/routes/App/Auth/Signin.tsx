@@ -8,7 +8,7 @@ import TelegramLoginButton from '../../../helpers/TelegramLoginWidget';
 
 import { BtnNav, FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
-import { Logo } from '@tg/ui-kit';
+import { Logo } from '@tg/ui';
 
 import { routes, api, axiosInstance, botName } from '../../../config';
 import { authFormStore, notifyStore } from '../../../stores';

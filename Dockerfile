@@ -24,8 +24,9 @@ RUN ssh-keyscan -T 60 bitbucket.org >> /root/.ssh/known_hosts
 COPY . /usr/src
 WORKDIR /usr/src
 
-# Clone repo
+# Clone repos (ui-kit and @tg/ui)
 RUN git clone git@bitbucket.org:sccockpit/ui-kit.git
+RUN git clone git@bitbucket.org:souldevsteam/tg-ui.git
 
 # Install dependencies
 RUN yarn install
@@ -33,9 +34,12 @@ RUN yarn install
 # RUN npm install --only=dev
 # RUN npm install --only=prod
 
-# Add repo to node_modules
+# Add repos to node_modules
 RUN mkdir -p ./node_modules/@scc
 RUN mv ./ui-kit ./node_modules/@scc/scc-ui-kit
+
+RUN mkdir -p ./node_modules/@tg
+RUN mv ./tg-ui ./node_modules/@tg/ui
 
 # Build express app
 RUN yarn run prd:build-client

@@ -13,6 +13,8 @@
 		"no-submodule-imports": [true,
 			"react-dom/server",
 			"react-loadable/webpack",
+			"@tg/ui",
+			"@tg/ui/utils",
 			"@scc/scc-ui-kit/addons",
 			"@scc/scc-ui-kit/addons/validators",
 			"@scc/scc-ui-kit/addons/formatters"

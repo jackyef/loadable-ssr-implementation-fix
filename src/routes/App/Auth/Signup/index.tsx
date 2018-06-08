@@ -5,8 +5,8 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { BtnNav } from '@scc/scc-ui-kit';
-import { Logo } from '@tg/ui-kit';
-import { renderRoutes, authenticated } from '@tg/ui-kit/utils';
+import { Logo } from '@tg/ui';
+import { renderRoutes, authenticated } from '@tg/ui/utils';
 
 import { routes } from '../../../../config';
 

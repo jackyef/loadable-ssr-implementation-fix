@@ -12,7 +12,7 @@ import { getBundles } from 'react-loadable/webpack';
 const stats = require('../../bundle_client/react-loadable.json');
 
 import Routes from '../routes';
-import { renderRoutes } from '@tg/ui-kit/utils';
+import { renderRoutes } from '@tg/ui/utils';
 
 export default (req: Request, store: any, context: any) => {
 
