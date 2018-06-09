@@ -17,14 +17,20 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const APP_DIR = path.resolve(__dirname);
 const BUILD_DIR = path.resolve(__dirname, 'bundle_client');
 
-const LINKED_MODULES = process.env.NODE_ENV === 'development' ? ['/Users/vashchukmaksim/Documents/repos/ui-kit-next'] : [];
+const LINKED_MODULES = process.env.NODE_ENV === 'development'
+	? [
+		'/Users/vashchukmaksim/Documents/repos/ui-kit',
+		'/Users/vashchukmaksim/Documents/repos/tg/tg-ui'
+	]
+	: []
+;
 
 // File loader
 function createFileLoader(rootPath) {
 	return [{
 		loader: 'file-loader',
 		options: {
-			name: rootPath.toString() + '/[name].[ext]',
+			name: (rootPath ? rootPath.toString() : '') + (rootPath ? '/' : '') + '[name].[ext]',
 			publicPath: '/static/public',
 			useRelativePath: false
 		}
@@ -171,9 +177,17 @@ const config = {
 			{
 				test: /\.inline.svg$/,
 				use: [{loader: 'svg-react-loader'}]
+			},
+
+			// browserconfig.xml
+			{
+				test: /browserconfig\.xml$/,
+				use: createFileLoader().concat([
+					{ loader: 'web-app-browserconfig-loader' }
+				])
 			}
-        ]
-    },
+		]
+	},
 
 	devServer: {
 		port: 5000,

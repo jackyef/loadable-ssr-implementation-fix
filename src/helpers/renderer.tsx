@@ -34,6 +34,7 @@ export default (req: Request, store: any, context: any) => {
 	const helmet = Helmet.renderStatic();
 
 	const assets = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
+	const publicPath = '/static/public';
 
 	// Template
 	return `
@@ -42,12 +43,15 @@ export default (req: Request, store: any, context: any) => {
 				${ helmet.title.toString() }
 				${ helmet.meta.toString() }
 				<link rel="stylesheet" href="${ assets.app.css }" />
-				<link rel="favicon" href="/static/images/favicon.png" />
-				<link rel="manifest" href="/static/manifest.json" />
+				<link rel="favicon" href="${ publicPath }/images/favicon.png" />
+				<link rel="manifest" href="${ publicPath }/manifest.json" />
 				${
 					bundles.map((bundle: any, index: number) => {
 						const splitted = bundle.file.split('.');
-						return splitted[splitted.length - 1] === 'css' ? `<link rel="stylesheet" href="/static/${ bundle.file }" />` : '';
+						return splitted[splitted.length - 1] === 'css'
+							? `<link rel="stylesheet" href="${ publicPath }/${ bundle.file }" />`
+							: ''
+						;
 					}).join('\n')
 				}
 			</head>
@@ -64,7 +68,10 @@ export default (req: Request, store: any, context: any) => {
 				${
 					bundles.map((bundle: any, index: number) => {
 						const splitted = bundle.file.split('.');
-						return splitted[splitted.length - 1] === 'js' ? `<script src="/static/${ bundle.file }"></script>` : '';
+						return splitted[splitted.length - 1] === 'js'
+							? `<script src="${ publicPath }/${ bundle.file }"></script>`
+							: ''
+						;
 					}).join('\n')
 				}
 			</body>

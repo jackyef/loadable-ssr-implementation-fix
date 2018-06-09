@@ -8,7 +8,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const APP_DIR = path.resolve(__dirname);
 const BUILD_DIR = path.resolve(__dirname, 'bundle_server');
 
-const LINKED_MODULES = process.env.NODE_ENV === 'development' ? ['/Users/vashchukmaksim/Documents/repos/ui-kit-next'] : [];
+const LINKED_MODULES = process.env.NODE_ENV === 'development'
+	? [
+		'/Users/vashchukmaksim/Documents/repos/ui-kit',
+		'/Users/vashchukmaksim/Documents/repos/tg/tg-ui'
+	]
+	: []
+;
 
 // PostCSS options
 const postcssOptions = {
@@ -95,7 +101,7 @@ const config = {
     // but we don't care. What we do care is that webpack bundle
     // works faster
     externals: [webpackNodeExternals({
-		whitelist: [/^@scc\/scc-ui-kit/]
+		whitelist: [/^@scc\/scc-ui-kit/, /^@tg\/ui/]
     })]
 };
 
