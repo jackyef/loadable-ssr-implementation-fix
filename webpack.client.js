@@ -57,9 +57,10 @@ const postcssOptions = {
 const config = {
 	target: 'web',
 
-    entry: {
-        app: './src/index.tsx'
-    },
+	entry: {
+		app: './src/index.tsx',
+		resources: './resources/index.js'
+	},
 
 	output: {
 		publicPath: '/static/public/',
@@ -68,11 +69,11 @@ const config = {
 		chunkFilename: process.env.NODE_ENV === 'development' ? 'chunks/[id].js' : 'chunks/[id].[chunkhash].js'
 	},
 
-    module: {
+	module: {
 		noParse: /node_modules\/localforage\/dist\/localforage.js/,
 
-        rules: [
-            // LESS
+		rules: [
+			// LESS
 			{
 				test: /^((?!\.module).)*less$/,
 				include: [APP_DIR].concat(LINKED_MODULES),
