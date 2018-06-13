@@ -15,11 +15,11 @@ const app = express();
 app.use('/static', express.static('bundle_client'));
 
 app.get('/', (req: Request, res: Response) => {
-	res.redirect('/app/auth');
+	res.redirect('/post');
 });
 
 // Location
-app.get('/app/*', (req: Request, res: Response) => {
+app.get('/post/*', (req: Request, res: Response) => {
 	const store = {};
 
 	const promises = matchRoutes(Routes as any, req.path).map(({ route }: any) => {

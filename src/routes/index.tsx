@@ -10,10 +10,6 @@ import { authenticated } from '@tg/ui/utils';
 import { authFormStore } from '../stores';
 import { routes } from '../config';
 
-// Routes
-import Email from './App/Auth/Signup/Email';
-import Phone from './App/Auth/Signup/Phone';
-
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory() : null;
 
@@ -66,9 +62,7 @@ export default [
 				render: (props: any) => (
 					authenticated() === 'ok'
 						? <Redirect to={ routes.home } />
-						: authenticated() === 'nophone'
-							? <Redirect to={ routes.phone } />
-							: <LoadableAuth { ...props } />
+						: <LoadableAuth { ...props } />
 				),
 
 				routes: [
@@ -82,7 +76,7 @@ export default [
 
 					// Sign Up
 					{
-						path: routes.auth.signup.self,
+						path: routes.auth.signup,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signup'),
 							loading: Loading,
@@ -90,31 +84,7 @@ export default [
 								const Component = loaded.default;
 								return <Component { ...props } store={ authFormStore } />;
 							}
-						}),
-
-						routes: [
-
-							// Root
-							{
-								component: () => <Redirect to={ routes.auth.signup.email } />,
-								path: routes.auth.signup.self,
-								exact: true
-							},
-
-							// Email (socials)
-							{
-								path: routes.auth.signup.email,
-								exact: true,
-								component: Email
-							},
-
-							// Phone (link TG account)
-							{
-								path: routes.auth.signup.phone,
-								exact: true,
-								component: Phone
-							}
-						]
+						})
 					},
 
 					// Sign In
@@ -129,43 +99,6 @@ export default [
 								return <Component store={ authFormStore } />;
 							}
 						})
-					}
-				]
-			},
-
-			// Register phone
-			// This component repeats Auth -> Signup -> Phone routes chain
-			// but has different authentication condition and no inner paths.
-			// It's more comfortable to duplicate this part of code here then
-			// to ajust authentication conditions to the existing Auth routes section
-			{
-
-				path: routes.phone,
-				render: (props: any) => (
-					authenticated() !== 'nophone'
-						? <Redirect to={ routes.home } />
-						: <LoadableAuth { ...props } />
-				),
-
-				routes: [
-					{
-						component: Loadable({
-							loader: () => import('./App/Auth/Signup'),
-							loading: Loading,
-							render(loaded: any, props: any) {
-								const Component = loaded.default;
-								return <Component { ...props } store={ authFormStore } />;
-							}
-						}),
-
-						routes: [
-							{
-								component: Loadable({
-									loader: () => import('./App/Auth/Signup/Phone'),
-									loading: Loading
-								})
-							}
-						]
 					}
 				]
 			},

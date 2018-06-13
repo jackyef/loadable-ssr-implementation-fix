@@ -36,7 +36,7 @@ const Container: React.SFC<Props> = ({ route }) => {
 						!authenticated()
 							? (<>
 								<li><BtnNav title="Sign In" exact url={ routes.auth.signin } /></li>
-								<li><BtnNav title="Sign Up" exact url={ routes.auth.signup.self } /></li>
+								<li><BtnNav title="Sign Up" exact url={ routes.auth.signup } /></li>
 							</>)
 							: (<>
 								<li><Btn title="Log out" onClick={ () => logout(axiosInstance, history, api.auth.logout) } /></li>

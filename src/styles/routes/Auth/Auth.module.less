@@ -115,22 +115,6 @@
 			);
 		}
 	}
-
-	#phone {
-		.form {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			justify-content: space-between;
-
-			> div[data-name] {
-				&[data-name="country"] { width: 100%; }
-				&[data-name="code"] { width: 30%; }
-				&[data-name="phone"] { width: 60%; }
-				&[data-name="secure_code"] { width: 100% }
-			}
-		}
-	}
 }
 
 // Modules
@@ -139,4 +123,3 @@
 .illustration { #auth > .illustration }
 .socials_google { #auth > #socials > .google }
 .btn { #auth > #socials > .email }
-.phone_form { #auth > #phone > .form }
