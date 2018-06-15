@@ -2,6 +2,7 @@ import express, { Request, Response } from 'express';
 import { matchRoutes } from 'react-router-config';
 import Loadable from 'react-loadable';
 
+import { indexRoute } from './config';
 import renderer from './helpers/renderer';
 import Routes from './routes';
 
@@ -12,10 +13,10 @@ const EXPRESS_SSR_PORT = process.env.EXPRESS_SSR_PORT || 3000;
 const app = express();
 
 // Static
-app.use('/static/public', express.static('bundle_client'));
+app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 
 // Location
-app.get('/p/*', (req: Request, res: Response) => {
+app.get(`/${ indexRoute }/*`, (req: Request, res: Response) => {
 	const store = {};
 
 	const promises = matchRoutes(Routes as any, req.path).map(({ route }: any) => {

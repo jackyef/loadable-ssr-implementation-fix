@@ -8,10 +8,10 @@ import { Loading, NotFoundRoute as NotFound } from '@tg/ui';
 import { authenticated } from '@tg/ui/utils';
 
 import { authFormStore } from '../stores';
-import { routes } from '../config';
+import { routes, indexRoute } from '../config';
 
 // Not Found Route
-const RouteNotFound = { component: () => <Redirect to={ '/p/nf' } /> };
+const RouteNotFound = { component: () => <Redirect to={ `/${ indexRoute }/nf` } /> };
 
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory() : null;

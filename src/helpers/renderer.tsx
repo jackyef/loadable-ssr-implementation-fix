@@ -11,8 +11,10 @@ import Loadable from 'react-loadable';
 import { getBundles } from 'react-loadable/webpack';
 const stats = require('../../bundle_client/react-loadable.json');
 
-import Routes from '../routes';
 import { renderRoutes } from '@tg/ui/utils';
+
+import { indexRoute } from '../config';
+import Routes from '../routes';
 
 export default (req: Request, store: any, context: any) => {
 
@@ -34,7 +36,7 @@ export default (req: Request, store: any, context: any) => {
 	const helmet = Helmet.renderStatic();
 
 	const assets = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
-	const publicPath = '/static/public';
+	const publicPath = `/static/${ indexRoute }`;
 
 	// Template
 	return `

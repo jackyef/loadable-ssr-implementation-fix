@@ -1,17 +1,17 @@
 /**
  * Root app URL prefix path
  */
-const idx = `/p`;
+export const indexRoute = `/public`;
 
 /**
  * App routes
  */
 export const routes = {
-	index: `${idx}`,
-	home: `${idx}/home`,
+	index: `${ indexRoute }`,
+	home: `${ indexRoute }`,
 	auth: {
-		self: `${idx}/auth`,
-		signin: `${idx}/auth/in`,
-		signup: `${idx}/auth/up`
+		self: `${ indexRoute }/auth`,
+		signin: `${ indexRoute }/auth/in`,
+		signup: `${ indexRoute }/auth/up`
 	}
 };
