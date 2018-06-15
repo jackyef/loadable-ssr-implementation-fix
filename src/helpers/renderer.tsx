@@ -36,8 +36,6 @@ export default (req: Request, store: any, context: any) => {
 	const assets = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
 	const publicPath = '/static/public';
 
-	console.warn(assets);
-
 	// Template
 	return `
 		<html>

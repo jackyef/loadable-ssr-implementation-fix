@@ -1,12 +1,17 @@
 /**
+ * Root app URL prefix path
+ */
+const idx = `/p`;
+
+/**
  * App routes
  */
 export const routes = {
-	index: '/app',
-	home: '/app/home',
+	index: `${idx}`,
+	home: `${idx}/home`,
 	auth: {
-		self: '/app/auth',
-		signin: '/app/auth/in',
-		signup: '/app/auth/up'
+		self: `${idx}/auth`,
+		signin: `${idx}/auth/in`,
+		signup: `${idx}/auth/up`
 	}
 };

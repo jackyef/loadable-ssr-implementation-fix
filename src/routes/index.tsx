@@ -10,6 +10,9 @@ import { authenticated } from '@tg/ui/utils';
 import { authFormStore } from '../stores';
 import { routes } from '../config';
 
+// Not Found Route
+const RouteNotFound = { component: () => <Redirect to={ '/p/nf' } /> };
+
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory() : null;
 
@@ -99,7 +102,10 @@ export default [
 								return <Component store={ authFormStore } />;
 							}
 						})
-					}
+					},
+
+					// Not Found (404)
+					{ ...RouteNotFound }
 				]
 			},
 

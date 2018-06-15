@@ -11,8 +11,11 @@ const EXPRESS_SSR_PORT = process.env.EXPRESS_SSR_PORT || 3000;
 // Create express app
 const app = express();
 
+// Static
+app.use('/static/public', express.static('bundle_client'));
+
 // Location
-app.get('*', (req: Request, res: Response) => {
+app.get('/p/*', (req: Request, res: Response) => {
 	const store = {};
 
 	const promises = matchRoutes(Routes as any, req.path).map(({ route }: any) => {
