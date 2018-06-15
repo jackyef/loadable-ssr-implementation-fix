@@ -1,17 +1,12 @@
 /**
- * Root app route
- */
-const indexRoute = '/';
-
-/**
  * App routes
  */
 export const routes = {
-	index: indexRoute,
-	home: `${ indexRoute }/home`,
+	index: '/app',
+	home: '/app/home',
 	auth: {
-		self: `${ indexRoute }/auth`,
-		signin: `${ indexRoute }/auth/in`,
-		signup: `${ indexRoute }/auth/up`
+		self: '/app/auth',
+		signin: '/app/auth/in',
+		signup: '/app/auth/up'
 	}
 };
