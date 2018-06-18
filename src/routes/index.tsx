@@ -33,7 +33,7 @@ export default [
 			// Root
 			{
 				component: () => <Redirect to={ routes.home } />,
-				path: routes.auth.self,
+				path: routes.index,
 				exact: true
 			},
 

@@ -19,8 +19,8 @@ const BUILD_DIR = path.resolve(__dirname, 'bundle_client');
 
 const LINKED_MODULES = process.env.NODE_ENV === 'development'
 	? [
-		'/Users/vashchukmaksim/Documents/repos/ui-kit',
-		'/Users/vashchukmaksim/Documents/repos/tg/tg-ui'
+		'/Users/max/Documents/repos/ui-kit',
+		'/Users/max/Documents/repos/tg/tg-ui'
 	]
 	: []
 ;

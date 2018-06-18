@@ -16,7 +16,7 @@ const app = express();
 app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 
 // Location
-app.get(`/${ indexRoute }/*`, (req: Request, res: Response) => {
+app.get(`*`, (req: Request, res: Response) => {
 	const store = {};
 
 	const promises = matchRoutes(Routes as any, req.path).map(({ route }: any) => {
