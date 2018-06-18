@@ -110,7 +110,7 @@ export default [
 			},
 
 			// Not Found (404)
-			{ ...NotFound }
+			{ component: () => <NotFound to={`/${ indexRoute }`} /> }
 		]
 	}
 ];
