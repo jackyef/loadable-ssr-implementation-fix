@@ -1,0 +1,37 @@
+@import (reference) '~@tg/ui/palettes.less';
+
+.self {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+
+	> ul {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		> li {
+			display: inline-flex;
+
+			margin: 0 13px;
+		}
+
+		// Products
+		&:first-child {
+			margin-left: 100px;
+
+			> li:first-child {
+				margin-left: 0;
+			}
+		}
+
+		// Public pages
+		&:last-child {
+			> li:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}

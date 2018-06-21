@@ -13,8 +13,6 @@ import { routes, api, botName } from '../../../config';
 import { authFormStore, notifyStore } from '../../../stores';
 import { history } from '../../../routes';
 
-import { styles as containerStyles } from '../../../styles/routes/Auth/Auth';
-
 /**
  * Sign in authentication route
  */
@@ -26,13 +24,13 @@ const SignIn: React.SFC<{}> = () => {
 		</Helmet>
 
 		{/* Illustration */}
-		<section className={ containerStyles.illustration }>
+		<section>
 			{/* Logo */}
 			<Logo />
 		</section>
 
 		{/* Form */}
-		<section className={ containerStyles.form }>
+		<section>
 
 			<BtnNav url={ routes.auth.signup } title="Create account" />
 
@@ -43,10 +41,7 @@ const SignIn: React.SFC<{}> = () => {
 				<h1>{ 'Sign In' }</h1>
 
 				{/* Google */}
-				<BtnNav external title="Continue with Google" icon="fab fa-google"
-					url={ api.auth.google }
-					styles={{ theme: containerStyles.socials_google }}
-				/>
+				<BtnNav external title="Continue with Google" icon="fab fa-google" url={ api.auth.google } />
 
 				{/* Telegram Login Widget */}
 				<TelegramLoginButton botName={ botName } authUrl="/auth/telegram" />
@@ -58,10 +53,7 @@ const SignIn: React.SFC<{}> = () => {
 				<Input name="password" type="password" placeholder="Password" icon="fas fa-lock" />
 
 				{/* Submit */}
-				<Submit form={ authFormStore } title="Continue with email"
-					url={ api.auth.login }
-					styles={{ theme: containerStyles.btn }}
-
+				<Submit form={ authFormStore } title="Continue with email" url={ api.auth.login }
 					onSuccess={() => {
 
 						// Login user OK

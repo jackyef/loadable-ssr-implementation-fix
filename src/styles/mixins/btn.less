@@ -1,0 +1,15 @@
+@import (reference) '~@scc/scc-ui-kit/styles.less';
+@import (reference) '~@tg/ui/palettes.less';
+@import (reference) '../constants.less';
+
+.btn {
+	#btn > .compose_theme(
+		@colors: { #btn > .colors(@text-dark, @main-on-primary) },
+		@text: { #btn > .text(20px, 500) },
+		@size: { #btn > .size(18px 34px) },
+		@border: { #btn > .border(10px) }
+	);
+
+	// Common additional styles
+	line-height: 1.2em;
+}

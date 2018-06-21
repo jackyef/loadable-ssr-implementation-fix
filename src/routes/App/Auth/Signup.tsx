@@ -17,8 +17,6 @@ import { api, routes } from '../../../config';
 
 import { SIGNUP_FAILED_ON_EMAIL } from '../../../config/messages';
 
-import { styles as containerStyles } from '../../../styles/routes/Auth/Auth';
-
 type Props = {
 	route: RouteConfig & { render?: any };
 };
@@ -30,7 +28,7 @@ const SignUp: React.SFC<Props> = () => {
 	return (
 	<>
 		{/* Form */}
-		<section className={ containerStyles.form }>
+		<section>
 
 			{/* Logo */}
 			<Logo />
@@ -57,10 +55,7 @@ const SignUp: React.SFC<Props> = () => {
 				<h1>{ 'Sign Up' }</h1>
 
 				{/* Socials */}
-				<BtnNav external title="Continue with Google" icon="fab fa-google"
-					url={ api.auth.google }
-					styles={{ theme: containerStyles.socials_google }}
-				/>
+				<BtnNav external title="Continue with Google" icon="fab fa-google" url={ api.auth.google } />
 
 				{/* Divider */}
 				<hr />
@@ -83,17 +78,14 @@ const SignUp: React.SFC<Props> = () => {
 				/>
 
 				{/* Submit */}
-				<Submit form={ authFormStore } title="Continue with email"
-					url={ api.auth.register }
-					styles={{ theme: containerStyles.btn }}
-				/>
+				<Submit form={ authFormStore } title="Continue with email" url={ api.auth.register } />
 
 			</FormRoot>
 
 		</section>
 
 		{/* Illustration */}
-		<section className={ containerStyles.illustration }>
+		<section>
 			{ !authenticated() ? <BtnNav url={ routes.auth.signin } title="Already have an account?" /> : null }
 		</section>
 	</>

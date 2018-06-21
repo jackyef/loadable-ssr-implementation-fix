@@ -1,10 +1,12 @@
-@import '~@scc/scc-ui-kit/reset';
+@import '~@scc/scc-ui-kit/reset.less';
+@import '~@tg/ui/palettes.less';
 
 body {
-
-	// Size
-	min-width: 420px;
+	min-width: 1200px;
 	-webkit-font-smoothing: antialiased;
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, sans-serif;
+
+	background: @primary;
 
 	> main {
 		min-height: 100vh;

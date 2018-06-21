@@ -157,32 +157,40 @@ const config = {
 			{
 				test: /\.ttf$|\.eot$|\.woff$|\.woff2|^(?!.*\.inline\.svg$).*\.svg$/,
 				include: /\/node_modules\//,
+				exclude: /\resources\/favicon\//,
 				use: createFileLoader('fonts')
 			},
 
 			// Font
 			{
 				test: /\.ttf$|\.eot$|\.woff$|\.woff2|^(?!.*\.inline\.svg$).*\.svg$/,
-				exclude: /\/node_modules\//,
+				exclude: [/\/node_modules\//, /\resources\/favicon\//],
 				use: createFileLoader('fonts')
 			},
 
 			// Images
 			{
 				test: /\.jpe?g$|\.gif$|\.ico$|\.png$|^(?!.*\.inline\.svg$).*\.svg$/,
-				exclude: /\/node_modules\//,
+				exclude: [/\/node_modules\//, /resources\/favicon/],
 				use: createFileLoader('images')
 			},
 
 			// SVG Inline
 			{
 				test: /\.inline.svg$/,
-				use: [{loader: 'svg-react-loader'}]
+				use: [{ loader: 'svg-react-loader' }]
+			},
+
+			// Favicons
+			{
+				test: /\.ico|\.webmanifest|\.png|^(?!.*\.inline\.svg$).*\.svg/,
+				exclude: [/\/node_modules\//, /\resources\/favicon\//],
+				use: createFileLoader('favicon')
 			},
 
 			// browserconfig.xml
 			{
-				test: /browserconfig\.xml$/,
+				test: /resources\/favicon\/browserconfig\.xml$/,
 				use: createFileLoader().concat([
 					{ loader: 'web-app-browserconfig-loader' }
 				])

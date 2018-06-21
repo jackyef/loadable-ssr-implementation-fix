@@ -4,7 +4,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { styles } from '../../../styles/routes/Public/Landing';
+import Promo from '../../../components/Promo';
+import Poster from '../../../components/Poster';
 
 /**
  * Landing route
@@ -13,12 +14,16 @@ const Landing: React.SFC<{}> = () => {
 	return (
 	<>
 		<Helmet>
-			<title>{ 'Home' }</title>
+			<title>{ 'Telegram channel manager and ad market' }</title>
 		</Helmet>
 
-		<section className={ styles.top }>
-			<p>{ 'Brand New Telegram Channel Manager' }</p>
-		</section>
+		{/* Promo */}
+		<Promo />
+
+		{/* Content */}
+		<main>
+			<Poster />
+		</main>
 	</>
 	);
 };

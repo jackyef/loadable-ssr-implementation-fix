@@ -6,8 +6,6 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/ui/utils';
 
-import { styles } from '../../../styles/routes/Auth/Auth';
-
 type Props = {
 	route: RouteConfig & { render?: any };
 };
@@ -16,7 +14,7 @@ type Props = {
  * Authentication container
  */
 const Auth: React.SFC<Props> = ({ route }) => (
-	<main className={ styles.self }>
+	<main>
 		{ renderRoutes(route.routes) }
 	</main>
 );

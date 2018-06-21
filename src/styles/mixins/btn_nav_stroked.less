@@ -1,0 +1,14 @@
+@import (reference) '~@scc/scc-ui-kit/styles.less';
+@import (reference) '~@tg/ui/palettes.less';
+@import (reference) '../constants.less';
+
+.btn_nav_stroked {
+	#btn > .compose_theme(
+		@colors: { #btn > .colors(@main-on-primary, none) },
+		@text: { #btn > .text(18px, 500) },
+		@border: { #btn > .border(@border-radius, @main-on-primary, @main-on-primary, 2px) },
+		@size: { #btn > .size(9px 20px 11px 20px) }
+	);
+
+	line-height: 1.2em;
+}

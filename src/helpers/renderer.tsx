@@ -44,8 +44,19 @@ export default (req: Request, store: any, context: any) => {
 			<head>
 				${ helmet.title.toString() }
 				${ helmet.meta.toString() }
+				<link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
 				<link rel="stylesheet" href="${ assets.app.css }" />
-				<link rel="favicon" href="${ publicPath }/images/favicon.png" />
+
+				<link rel="apple-touch-icon" sizes="180x180" href="${ publicPath }/favicon/apple-touch-icon.png">
+				<link rel="icon" type="image/png" sizes="32x32" href="${ publicPath }/favicon/favicon-32x32.png">
+				<link rel="icon" type="image/png" sizes="16x16" href="${ publicPath }/favicon/favicon-16x16.png">
+				<link rel="manifest" href="${ publicPath }/favicon/site.webmanifest">
+				<link rel="mask-icon" href="${ publicPath }/favicon/safari-pinned-tab.svg" color="#2051cb">
+				<link rel="shortcut icon" href="${ publicPath }/favicon/favicon.ico">
+				<meta name="msapplication-TileColor" content="#2051cb">
+				<meta name="msapplication-config" content="${ publicPath }/favicon/browserconfig.xml">
+				<meta name="theme-color" content="#ff0000">
+
 				<link rel="manifest" href="${ publicPath }/manifest.json" />
 				${
 					bundles.map((bundle: any, index: number) => {
