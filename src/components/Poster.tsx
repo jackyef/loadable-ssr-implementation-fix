@@ -7,8 +7,6 @@ import { BtnNav } from '@scc/scc-ui-kit';
 
 import { routes } from '../config';
 
-import { IconReadMore } from '../../resources';
-
 import { styles } from '../styles/components/Poster';
 
 /**
@@ -20,7 +18,7 @@ const Poster: React.SFC<{}> = () => {
 
 			{/* Scroll */}
 			<div className={ styles.scroll }>
-				<IconReadMore />
+				<img src="/static/public/images/icon_read_more.svg" />
 			</div>
 
 			{/* Header */}
@@ -33,8 +31,10 @@ const Poster: React.SFC<{}> = () => {
 
 			{/* Intro */}
 			<div className={ styles.intro }>
-				<p>{ 'Spend less time writing and posting to Telegram and more time growing your channel.' }</p>
-				<BtnNav url={ routes.poster } title="About Poster" icon={ <IconReadMore /> } iconPos="right" />
+				<p>{ 'Spend less time writing and posting to Telegram and more \ntime growing your channel.' }</p>
+				<BtnNav url={ routes.poster } title="About Poster"
+					icon="/static/public/images/icon_read_more.svg" iconPos="right"
+				/>
 			</div>
 
 			{/* Features */}
@@ -59,7 +59,9 @@ const Poster: React.SFC<{}> = () => {
 			{/* Footer */}
 			<footer className={ styles.footer } >
 				<p>{ 'Poster Telegram App provides the tools to help every channel unleash their full potential.' }</p>
-				<BtnNav url={ routes.auth.signup } title="Get Started" icon={ <IconReadMore/> } iconPos="right" />
+				<BtnNav url={ routes.auth.signup } title="Get Started"
+					icon="/static/public/images/icon_read_more.svg" iconPos="right"
+				/>
 			</footer>
 
 		</section>

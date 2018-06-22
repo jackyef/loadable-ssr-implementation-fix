@@ -1,0 +1,17 @@
+@import (reference) '~@tg/ui/palettes.less';
+@import (reference) '../constants.less';
+
+.content-hf-border(@what: 'header') {
+	& when (@what = 'header') { bottom: 0; }
+	& when (@what = 'footer') { top: 0; }
+
+	content: '';
+
+	position: absolute;
+	left: @content-side-padding;
+
+	width: ~'calc(100% - @{content-side-padding}*2)';
+	height: 1px;
+
+	background: @details-on-bg-main-info-dimmed;
+}

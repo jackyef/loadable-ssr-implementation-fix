@@ -30,8 +30,9 @@ function createFileLoader(rootPath) {
 	return [{
 		loader: 'file-loader',
 		options: {
-			name: (rootPath ? rootPath.toString() : '') + (rootPath ? '/' : '') + '[name].[ext]',
+			name: '[name].[ext]',
 			publicPath: '/static/public',
+			outputPath: rootPath ? rootPath.toString() : '',
 			useRelativePath: false
 		}
 	}];
@@ -155,16 +156,15 @@ const config = {
 
 			// Font (node_modules)
 			{
-				test: /\.ttf$|\.eot$|\.woff$|\.woff2|^(?!.*\.inline\.svg$).*\.svg$/,
+				test: /\.ttf$|.\eot$|.\woff$|.\woff2$|^(?!.*\.inline\.svg$).*\.svg$/,
 				include: /\/node_modules\//,
-				exclude: /\resources\/favicon\//,
 				use: createFileLoader('fonts')
 			},
 
 			// Font
 			{
-				test: /\.ttf$|\.eot$|\.woff$|\.woff2|^(?!.*\.inline\.svg$).*\.svg$/,
-				exclude: [/\/node_modules\//, /\resources\/favicon\//],
+				test: /\.ttf$|\.eot$|.\woff$|.\woff2$|^(?!.*\.inline\.svg$).*\.svg$/,
+				include: /resources\/fonts/,
 				use: createFileLoader('fonts')
 			},
 
@@ -178,19 +178,22 @@ const config = {
 			// SVG Inline
 			{
 				test: /\.inline.svg$/,
-				use: [{ loader: 'svg-react-loader' }]
+				use: [
+					{ loader: 'babel-loader' },
+					{ loader: "react-svg-loader", options: { jsx: true } }
+				]
 			},
 
-			// Favicons
+			// Favicon
 			{
-				test: /\.ico|\.webmanifest|\.png|^(?!.*\.inline\.svg$).*\.svg/,
-				exclude: [/\/node_modules\//, /\resources\/favicon\//],
+				test: /\.(ico|webmanifest|png|svg)$/,
+				include: /resources\/favicon/,
 				use: createFileLoader('favicon')
 			},
 
 			// browserconfig.xml
 			{
-				test: /resources\/favicon\/browserconfig\.xml$/,
+				test: /browserconfig\.xml$/,
 				use: createFileLoader().concat([
 					{ loader: 'web-app-browserconfig-loader' }
 				])

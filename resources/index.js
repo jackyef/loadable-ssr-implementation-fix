@@ -24,7 +24,7 @@ import './images/bg_lines.svg';
 import './images/icon_poster.svg';
 
 // Inline icons
-import IconReadMore from './images/icon_read_more.inline.svg';
+import './inline_svg/icon_read_more.svg';
 
 export {
 	IconReadMore

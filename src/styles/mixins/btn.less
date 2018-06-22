@@ -2,12 +2,14 @@
 @import (reference) '~@tg/ui/palettes.less';
 @import (reference) '../constants.less';
 
-.btn {
+.btn(@bg: @main-on-primary) {
 	#btn > .compose_theme(
-		@colors: { #btn > .colors(@text-dark, @main-on-primary) },
+		@colors: { #btn > .colors(@text-dark, @bg) },
 		@text: { #btn > .text(20px, 500) },
 		@size: { #btn > .size(18px 34px) },
-		@border: { #btn > .border(10px) }
+		@border: { #btn > .border(10px) },
+		@icon: { #btn > .icon(@left: 12px) },
+		@shadow: { #btn > .shadow(0 2px 2px 0 rgba(0, 0, 0, .15)) }
 	);
 
 	// Common additional styles

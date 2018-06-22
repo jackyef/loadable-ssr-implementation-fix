@@ -83,7 +83,7 @@ const config = {
 
 			// Static files (images, fonts etc.)
 			{
-				test: /\.ttf$|\.eot$|\.woff$|\.woff2|\.svg|\.xml|\.jpe?g$|\.gif$|\.ico$|\.png$/,
+				test: /\.(ttf|eot|woff|woff2|svg|xml|jpe?g|gif|ico|png|webmanifest)$/,
 				use: [
 					{ loader: "file-loader", options: { emitFile: false } }
 				]
