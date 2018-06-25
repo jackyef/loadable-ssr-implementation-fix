@@ -1,0 +1,130 @@
+@import (reference) '~@tg/ui/palettes.less';
+
+@import (reference) '../../mixins/btn_more.less';
+@import (reference) '../../mixins/content_card.less';
+@import (reference) '../../mixins/content_sub_title.less';
+@import (reference) '../../mixins/content_title.less';
+@import (reference) '../../mixins/content_paragraph.less';
+@import (reference) '../../mixins/content_feature_title.less';
+@import (reference) '../../mixins/content_demo.less';
+@import (reference) '../../mixins/content_hf_border.less';
+
+.self {
+	.content-card();
+
+	padding: 80px 120px 70px 0;
+}
+
+.left {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	width: 50%;
+}
+
+.title {
+	.content-title();
+
+	position: relative;
+
+	padding: 0 0 30px 43px;
+
+	> span {
+		position: relative;
+
+		padding: 8px 14px;
+		margin-left: 16px;
+
+		font-size: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+
+		color: @primary;
+		background: @details-on-bg-main-info-blue;
+
+		border-radius: @border-radius;
+	}
+}
+
+.text {
+	.content-sub-title();
+
+	position: relative;
+
+	width: 100%;
+	padding-left: @content-side-padding;
+
+	> span {
+		.content-paragraph();
+
+		position: relative;
+		display: block;
+
+		padding: 20px 0;
+	}
+}
+
+.form {
+	padding-left: @content-side-padding;
+
+	> input {
+
+	}
+
+	> button {
+
+	}
+}
+
+.preview {
+	position: relative;
+
+	width: 45%;
+	height: 360px;
+
+	.content-demo();
+}
+
+.features {
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+	padding-left: @content-side-padding;
+	margin-top: 100px;
+
+	> li {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		padding: 40px 30px;
+
+		&:first-child { padding-left: 0; }
+		&:last-child { padding-right: 0; }
+
+		> h2 {
+			.content-feature-title();
+
+			margin-bottom: 26px;
+		}
+
+		> p {
+			.content-paragraph();
+		}
+	}
+
+	&::before {
+		.content-hf-border('footer');
+
+		width: ~'calc(100% - @{content-side-padding})';
+	}
+}

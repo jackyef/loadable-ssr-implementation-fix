@@ -1,0 +1,43 @@
+@import (reference) '~@tg/ui/palettes.less';
+
+@import (reference) '../../mixins/btn_more.less';
+@import (reference) '../../mixins/content_card.less';
+@import (reference) '../../mixins/content_sub_title.less';
+@import (reference) '../../mixins/content_title.less';
+
+// Content card
+.self {
+	.content-card(@bg-contrast-info);
+
+	align-items: flex-start;
+
+	padding: 50px 143px 50px 43px;
+}
+
+// Title
+.title {
+	.content-title(@text-on-bg-contrast, 'rect');
+
+	width: fit-content;
+}
+
+// Text with button next to FAQ
+.text {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	max-width: 600px;
+
+	> p {
+		.content-sub-title(@text-on-bg-contrast);
+
+		margin-bottom: 20px;
+	}
+
+	> a {
+		.btn_more;
+	}
+}

@@ -1,6 +1,6 @@
 @import (reference) '~@tg/ui/palettes.less';
 
-.content-title(@color: @text-on-bg-main-info) {
+.content-title(@color: @text-on-bg-main-info, @shape: 'round') {
 	position: relative;
 
 	display: flex;
@@ -18,12 +18,14 @@
 
 		background: @secondary;
 
-		border-radius: 40px;
-
 		> img {
 			margin: 2px 2px 0 0;
 		}
 	}
+
+	// Shape
+	& when (@shape = 'round') { > div { border-radius: 40px; } }
+	& when (@shape = 'rect') { > div { border-radius: 12px; } }
 
 	> h1 {
 		font-size: 40px;

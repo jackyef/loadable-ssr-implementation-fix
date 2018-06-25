@@ -22,6 +22,8 @@ import './images/bg_lines.svg';
 
 // Icons
 import './images/icon_poster.svg';
+import './images/icon_market.svg';
+import './images/icon_face_wtf.svg';
 
 // Inline icons
 import './inline_svg/icon_read_more.svg';

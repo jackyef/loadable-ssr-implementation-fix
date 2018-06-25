@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet';
 
 import Promo from '../../../components/Promo';
 import Poster from '../../../components/Poster';
+import Wtf from '../../../components/Wtf';
+import Market from '../../../components/Market';
 
 /**
  * Landing route
@@ -17,12 +19,12 @@ const Landing: React.SFC<{}> = () => {
 			<title>{ 'Telegram channel manager and ad market' }</title>
 		</Helmet>
 
-		{/* Promo */}
 		<Promo />
 
-		{/* Content */}
 		<main>
 			<Poster />
+			<Wtf />
+			<Market />
 		</main>
 	</>
 	);
