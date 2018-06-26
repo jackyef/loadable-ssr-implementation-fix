@@ -5,9 +5,9 @@ import React from 'react';
 
 import { BtnNav } from '@scc/scc-ui-kit';
 
-import { routes } from '../config';
+import { routes } from '../../config';
 
-import { styles } from '../styles/components/Poster';
+import { styles } from '../../styles/components/Blocks/Poster';
 
 /**
  * Poster short information content block

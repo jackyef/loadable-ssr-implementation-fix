@@ -5,7 +5,7 @@ import React from 'react';
 
 import { BtnNav } from '@scc/scc-ui-kit';
 
-import { styles } from '../styles/components/Wtf';
+import { styles } from '../../styles/components/Blocks/Wtf';
 
 /**
  * Landing content component

@@ -1,13 +1,15 @@
 @import (reference) '~@tg/ui/palettes.less';
+@import (reference) '~@scc/scc-ui-kit/styles.less';
 
-@import (reference) '../../mixins/btn_more.less';
-@import (reference) '../../mixins/content_card.less';
-@import (reference) '../../mixins/content_sub_title.less';
-@import (reference) '../../mixins/content_title.less';
-@import (reference) '../../mixins/content_paragraph.less';
-@import (reference) '../../mixins/content_feature_title.less';
-@import (reference) '../../mixins/content_demo.less';
-@import (reference) '../../mixins/content_hf_border.less';
+@import (reference) '../../../mixins/btn_more.less';
+@import (reference) '../../../mixins/field_with_btn.less';
+@import (reference) '../../../mixins/card_conteiner.less';
+@import (reference) '../../../mixins/card_sub_title.less';
+@import (reference) '../../../mixins/card_title.less';
+@import (reference) '../../../mixins/card_paragraph.less';
+@import (reference) '../../../mixins/card_feature_title.less';
+@import (reference) '../../../mixins/card_demo.less';
+@import (reference) '../../../mixins/card_hf_border.less';
 
 .self {
 	.content-card();
@@ -68,14 +70,13 @@
 }
 
 .form {
+	position: relative;
+
+	width: 100%;
 	padding-left: @content-side-padding;
 
-	> input {
-
-	}
-
-	> button {
-
+	> div {
+		.field-with-btn();
 	}
 }
 

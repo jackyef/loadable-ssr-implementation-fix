@@ -4,7 +4,7 @@
 import React from 'react';
 import { History } from 'history';
 
-import { styles } from '../styles/components/Logo';
+import { styles } from '../../styles/components/Elements/Logo';
 
 type Props = {
 

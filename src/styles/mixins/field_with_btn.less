@@ -1,0 +1,35 @@
+@import (reference) '~@tg/ui/palettes.less';
+@import (reference) '~@scc/scc-ui-kit/styles.less';
+
+.field-with-btn() {
+	position: relative;
+
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+
+	> input {
+		width: 100%;
+		padding: 20px 18px;
+
+		font-size: 16px;
+
+		color: @field-text-on-main-info;
+		background: @field-bg-on-main-info;
+		border: @field-border-on-main-info;
+		border-radius: 2px;
+	}
+
+	> button {
+		position: absolute;
+		right: 10px;
+
+		#btn > .compose_theme(
+			@colors: { #btn > .colors(@main-on-secondary, none) },
+			@text: { #btn > .text(20px, 500) }
+		);
+	}
+}

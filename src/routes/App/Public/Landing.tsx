@@ -4,10 +4,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import Promo from '../../../components/Promo';
-import Poster from '../../../components/Poster';
-import Wtf from '../../../components/Wtf';
-import Market from '../../../components/Market';
+import Promo from '../../../components/Blocks/Promo';
+import Poster from '../../../components/Blocks/Poster';
+import Wtf from '../../../components/Blocks/Wtf';
+import Market from '../../../components/Blocks/Market';
 
 /**
  * Landing route

@@ -6,7 +6,7 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/ui/utils';
 
-import Header from '../../../components/Header';
+import Header from '../../../components/Blocks/Header';
 
 import { styles } from '../../../styles/routes/Public';
 

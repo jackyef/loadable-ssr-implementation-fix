@@ -5,11 +5,11 @@ import React from 'react';
 
 import { BtnNav } from '@scc/scc-ui-kit';
 
-import { routes } from '../config';
+import { routes } from '../../config';
 
-import { styles } from '../styles/components/Nav';
-import { styles as stylesBtn } from '../styles/components/BtnNav';
-import { styles as stylesBtnStroked } from '../styles/components/BtnNavStroked';
+import { styles } from '../../styles/components/Elements/Nav';
+import { styles as stylesBtn } from '../../styles/components/Elements/BtnNav';
+import { styles as stylesBtnStroked } from '../../styles/components/Elements/BtnNavStroked';
 
 /**
  * Header navigation

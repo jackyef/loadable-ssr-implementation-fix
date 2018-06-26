@@ -5,7 +5,7 @@ import React from 'react';
 
 import { Btn } from '@scc/scc-ui-kit';
 
-import { styles } from '../styles/components/Market';
+import { styles } from '../../styles/components/Blocks/Market';
 
 /**
  * Landing content component
@@ -32,8 +32,10 @@ const Market: React.SFC<{}> = () => {
 
 				{/* Form to subscribe to release */}
 				<form method="GET" className={ styles.form }>
-					<input type="email" placeholder="Enter your email" />
-					<Btn submit title="Subscribe" />
+					<div>
+						<input type="email" placeholder="Enter your email" />
+						<Btn submit title="Subscribe" />
+					</div>
 				</form>
 			</div>
 
