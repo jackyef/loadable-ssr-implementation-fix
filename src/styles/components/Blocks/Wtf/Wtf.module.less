@@ -1,13 +1,11 @@
 @import (reference) '~@tg/ui/palettes.less';
 
-@import (reference) '../../../mixins/btn_more.less';
-@import (reference) '../../../mixins/card_conteiner.less';
-@import (reference) '../../../mixins/card_sub_title.less';
-@import (reference) '../../../mixins/card_title.less';
+@import (reference) '../../../mixins/btn.less';
+@import (reference) '../../../mixins/card.less';
 
 // Content card
 .self {
-	.content-card(@bg-contrast-info);
+	.card-container(@cc-bg-content-black);
 
 	align-items: flex-start;
 
@@ -16,7 +14,7 @@
 
 // Title
 .title {
-	.content-title(@text-on-bg-contrast, 'rect');
+	.card-title-iconed(@cc-title-on-bg-content-black, 'rect');
 
 	width: fit-content;
 }
@@ -32,12 +30,12 @@
 	max-width: 600px;
 
 	> p {
-		.content-sub-title(@text-on-bg-contrast);
+		.card-sub-title(@cc-title-on-bg-content-black);
 
 		margin-bottom: 20px;
 	}
 
 	> a {
-		.btn_more;
+		.btn-more();
 	}
 }

@@ -3,7 +3,7 @@
 
 .self {
 	@header-height: 133px;
-	@rules: ~'calc(10% + @{header-offset}/2)';
+	@rules: ~'calc(10% + @{const-header-offset}/2)';
 
 	position: relative;
 	overflow: hidden;
@@ -29,10 +29,7 @@
 
 		background: #f00;
 
-		/* bg-gradient: */
-		background-image: -webkit-linear-gradient(107deg, @primary-gradient 0%, @primary 74%);
-		background-image: -o-linear-gradient(107deg, @primary-gradient 0%, @primary 74%);
-		background-image: linear-gradient(197deg, @primary-gradient 0%, @primary 74%);
+		background-image: @cc-bg-primary-gradient;
 	}
 
 	&::after {
@@ -72,7 +69,7 @@
 		white-space: pre-wrap;
 		text-transform: uppercase;
 
-		color: @main-on-primary;
+		color: @cc-sub-on-primary;
 	}
 
 	// Sub text
@@ -87,7 +84,7 @@
 		font-weight: 400;
 		line-height: 1.3em;
 
-		color: @main-on-primary;
+		color: @cc-sub-on-primary;
 
 		opacity: .7;
 	}

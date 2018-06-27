@@ -27,6 +27,7 @@ import './images/icon_face_wtf.svg';
 
 // Inline icons
 import './inline_svg/icon_read_more.svg';
+import './inline_svg/icon_lang.svg';
 
 export {
 	IconReadMore

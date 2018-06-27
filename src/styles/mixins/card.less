@@ -1,0 +1,112 @@
+@import (reference) '~@tg/ui/palettes.less';
+@import (reference) '../constants.less';
+
+// Card body
+.card-container(@bg: @cc-bg-content) {
+	position: relative;
+
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	margin: 50px 0;
+
+	background: @bg;
+
+	border-radius: @const-border-radius;
+	box-shadow: @shadow-card;
+}
+
+// Simple title
+.card-title(@color: @cc-title-on-bg-content) {
+	font-size: 40px;
+	font-weight: 900;
+	text-transform: uppercase;
+
+	color: @color;
+}
+
+// Iconed title
+.card-title-iconed(@color: @cc-title-on-bg-content, @shape: 'round') {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+
+	> div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 60px;
+		height: 60px;
+		padding: 16px;
+		margin-right: 18px;
+
+		background: @cc-secondary;
+
+		> img {
+			margin: 2px 2px 0 0;
+		}
+	}
+
+	// Shape
+	& when (@shape = 'round') { > div { border-radius: 40px; } }
+	& when (@shape = 'rect') { > div { border-radius: 12px; } }
+
+	> h1 {
+		.card-title(@color);
+	}
+}
+
+// Sub title (short text)
+.card-sub-title(@color: @cc-title-on-bg-content) {
+	font-size: 30px;
+	font-weight: 500;
+	line-height: 1.2em;
+	white-space: pre-wrap;
+
+	color: @color;
+}
+
+// Paragraph
+.card-paragraph(@color: @cc-text-on-bg-content) {
+	font-size: 20px;
+	font-weight: 300;
+	line-height: 1.3em;
+	white-space: pre-wrap;
+
+	color: @color;
+}
+
+// Feature title
+.card-feature-title(@color: @cc-title-on-bg-content) {
+	font-size: 18;
+	font-weight: 600;
+
+	color: @color;
+}
+
+// Card header/footer divider border (frame)
+.card-hf-border(@where: 'bottom') {
+	& when (@where = 'bottom') { bottom: 0; }
+	& when (@where = 'top') { top: 0; }
+
+	content: '';
+
+	position: absolute;
+	left: @const-card-side-padding;
+
+	width: ~'calc(100% - @{const-card-side-padding}*2)';
+	height: 1px;
+
+	background: @cc-frame-on-bg-content;
+}
+
+// Demo
+.card-demo(@bg: #f3f3f3) {
+	background: @bg;
+
+	border-radius: @const-border-radius;
+	box-shadow: @shadow-demo;
+}

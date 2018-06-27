@@ -8,6 +8,7 @@ import Promo from '../../../components/Blocks/Promo';
 import Poster from '../../../components/Blocks/Poster';
 import Wtf from '../../../components/Blocks/Wtf';
 import Market from '../../../components/Blocks/Market';
+import About from '../../../components/Blocks/About';
 
 /**
  * Landing route
@@ -25,6 +26,7 @@ const Landing: React.SFC<{}> = () => {
 			<Poster />
 			<Wtf />
 			<Market />
+			<About />
 		</main>
 	</>
 	);

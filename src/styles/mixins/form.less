@@ -1,6 +1,7 @@
 @import (reference) '~@tg/ui/palettes.less';
 @import (reference) '~@scc/scc-ui-kit/styles.less';
 
+// Input field with an embedded button
 .field-with-btn() {
 	position: relative;
 
@@ -17,9 +18,9 @@
 
 		font-size: 16px;
 
-		color: @field-text-on-main-info;
-		background: @field-bg-on-main-info;
-		border: @field-border-on-main-info;
+		color: @cc-field-on-bg-content-text;
+		background: @cc-field-on-bg-content-bg;
+		border: @cc-field-on-bg-content-border;
 		border-radius: 2px;
 	}
 
@@ -28,7 +29,7 @@
 		right: 10px;
 
 		#btn > .compose_theme(
-			@colors: { #btn > .colors(@main-on-secondary, none) },
+			@colors: { #btn > .colors(@cc-sub-on-secondary, none) },
 			@text: { #btn > .text(20px, 500) }
 		);
 	}

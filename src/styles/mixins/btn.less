@@ -1,17 +1,29 @@
 @import (reference) '~@scc/scc-ui-kit/styles.less';
 @import (reference) '~@tg/ui/palettes.less';
-@import (reference) '../constants.less';
 
-.btn(@bg: @main-on-primary) {
+// Common button
+.btn(@bg: @cc-sub-on-primary, @color: @cc-primary) {
 	#btn > .compose_theme(
-		@colors: { #btn > .colors(@text-dark, @bg) },
+		@colors: { #btn > .colors(@color, @bg) },
 		@text: { #btn > .text(20px, 500) },
 		@size: { #btn > .size(18px 34px) },
 		@border: { #btn > .border(10px) },
 		@icon: { #btn > .icon(@left: 12px) },
-		@shadow: { #btn > .shadow(0 2px 2px 0 rgba(0, 0, 0, .15)) }
+		@shadow: { #btn > .shadow(@shadow-btn) }
 	);
+
+	height: 60px;
 
 	// Common additional styles
 	line-height: 1.2em;
+}
+
+// Read more button
+.btn-more(@color: @cc-primary) {
+	#btn > .compose_theme(
+		@colors: { #btn > .colors(@color, none) },
+		@icon: { #btn > .icon(@right: 0, @left: 8px) },
+		@size: { #btn > .size(8px 0) },
+		@text: { #btn > .text(20px, 600) }
+	);
 }

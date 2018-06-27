@@ -1,18 +1,12 @@
 @import (reference) '~@tg/ui/palettes.less';
 @import (reference) '~@scc/scc-ui-kit/styles.less';
 
-@import (reference) '../../../mixins/btn_more.less';
-@import (reference) '../../../mixins/field_with_btn.less';
-@import (reference) '../../../mixins/card_conteiner.less';
-@import (reference) '../../../mixins/card_sub_title.less';
-@import (reference) '../../../mixins/card_title.less';
-@import (reference) '../../../mixins/card_paragraph.less';
-@import (reference) '../../../mixins/card_feature_title.less';
-@import (reference) '../../../mixins/card_demo.less';
-@import (reference) '../../../mixins/card_hf_border.less';
+@import (reference) '../../../mixins/btn.less';
+@import (reference) '../../../mixins/form.less';
+@import (reference) '../../../mixins/card.less';
 
 .self {
-	.content-card();
+	.card-container();
 
 	padding: 80px 120px 70px 0;
 }
@@ -28,7 +22,7 @@
 }
 
 .title {
-	.content-title();
+	.card-title-iconed();
 
 	position: relative;
 
@@ -44,23 +38,23 @@
 		font-weight: 600;
 		text-transform: uppercase;
 
-		color: @primary;
-		background: @details-on-bg-main-info-blue;
+		color: @cc-primary;
+		background: @cc-detail-blue-dim-on-bg-content;
 
-		border-radius: @border-radius;
+		border-radius: @const-border-radius;
 	}
 }
 
 .text {
-	.content-sub-title();
+	.card-sub-title();
 
 	position: relative;
 
 	width: 100%;
-	padding-left: @content-side-padding;
+	padding-left: @const-card-side-padding;
 
 	> span {
-		.content-paragraph();
+		.card-paragraph();
 
 		position: relative;
 		display: block;
@@ -73,7 +67,7 @@
 	position: relative;
 
 	width: 100%;
-	padding-left: @content-side-padding;
+	padding-left: @const-card-side-padding;
 
 	> div {
 		.field-with-btn();
@@ -86,7 +80,7 @@
 	width: 45%;
 	height: 360px;
 
-	.content-demo();
+	.card-demo();
 }
 
 .features {
@@ -97,7 +91,7 @@
 	align-items: center;
 
 	width: 100%;
-	padding-left: @content-side-padding;
+	padding-left: @const-card-side-padding;
 	margin-top: 100px;
 
 	> li {
@@ -113,19 +107,19 @@
 		&:last-child { padding-right: 0; }
 
 		> h2 {
-			.content-feature-title();
+			.card-feature-title();
 
 			margin-bottom: 26px;
 		}
 
 		> p {
-			.content-paragraph();
+			.card-paragraph();
 		}
 	}
 
 	&::before {
-		.content-hf-border('footer');
+		.card-hf-border('top');
 
-		width: ~'calc(100% - @{content-side-padding})';
+		width: ~'calc(100% - @{const-card-side-padding})';
 	}
 }

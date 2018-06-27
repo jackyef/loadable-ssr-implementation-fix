@@ -7,6 +7,7 @@ import { RouteConfig } from 'react-router-config';
 import { renderRoutes } from '@tg/ui/utils';
 
 import Header from '../../../components/Blocks/Header';
+import Footer from '../../../components/Blocks/Footer';
 
 import { styles } from '../../../styles/routes/Public';
 
@@ -26,6 +27,9 @@ const Container: React.SFC<Props> = ({ route }) => {
 
 			{/* Content */}
 			{ renderRoutes(route.routes) }
+
+			{/* Footer */}
+			<Footer />
 
 		</div>
 	);

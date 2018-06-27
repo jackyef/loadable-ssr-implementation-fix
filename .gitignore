@@ -7,3 +7,4 @@ npm-debug.log
 .awcache/
 coverage/
 .DS_Store
+*.iml

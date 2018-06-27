@@ -1,0 +1,31 @@
+@import (reference) '~@scc/scc-ui-kit/styles.less';
+@import (reference) '~@tg/ui/palettes.less';
+
+@import (reference) '../constants.less';
+
+// Simple navigation button
+.btn-nav(@weight: 500, @color: @cc-sub-on-primary) {
+	#btn > .compose_theme(
+		@colors: { #btn > .colors(@color, none) },
+		@text: { #btn > .text(18px, @weight) },
+		@icon: { #btn > .icon(@right: 10px) }
+	);
+
+	line-height: 1.2em;
+
+	> i {
+		margin-top: -2px;
+	}
+}
+
+// Stroked navigation button
+.btn-nav-stroked(@color: @cc-sub-on-primary) {
+	#btn > .compose_theme(
+		@colors: { #btn > .colors(@color, none) },
+		@text: { #btn > .text(18px, 500) },
+		@border: { #btn > .border(@const-border-radius, @color, @color, 2px) },
+		@size: { #btn > .size(9px 20px 11px 20px) }
+	);
+
+	line-height: 1.2em;
+}
