@@ -2,13 +2,14 @@
 @import (reference) '../constants.less';
 
 // Card body
-.card-container(@bg: @cc-bg-content) {
+.card-container(@bg: @cc-bg-content, @padding-vertical: 80px) {
 	position: relative;
 
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 
+	padding: @padding-vertical 122px;
 	margin: 50px 0;
 
 	background: @bg;
@@ -32,6 +33,8 @@
 
 	display: flex;
 	align-items: center;
+
+	margin-left: -78px;
 
 	> div {
 		display: flex;
@@ -95,9 +98,9 @@
 	content: '';
 
 	position: absolute;
-	left: @const-card-side-padding;
+	left: 0;
 
-	width: ~'calc(100% - @{const-card-side-padding}*2)';
+	width: 100%;
 	height: 1px;
 
 	background: @cc-frame-on-bg-content;

@@ -7,8 +7,6 @@
 
 .self {
 	.card-container();
-
-	padding: 80px 120px 70px 0;
 }
 
 .left {
@@ -26,7 +24,7 @@
 
 	position: relative;
 
-	padding: 0 0 30px 43px;
+	margin-bottom: 30px;
 
 	> span {
 		position: relative;
@@ -51,7 +49,6 @@
 	position: relative;
 
 	width: 100%;
-	padding-left: @const-card-side-padding;
 
 	> span {
 		.card-paragraph();
@@ -67,7 +64,6 @@
 	position: relative;
 
 	width: 100%;
-	padding-left: @const-card-side-padding;
 
 	> div {
 		.field-with-btn();
@@ -91,7 +87,6 @@
 	align-items: center;
 
 	width: 100%;
-	padding-left: @const-card-side-padding;
 	margin-top: 100px;
 
 	> li {
@@ -120,6 +115,6 @@
 	&::before {
 		.card-hf-border('top');
 
-		width: ~'calc(100% - @{const-card-side-padding})';
+		width: 100%;
 	}
 }
