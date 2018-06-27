@@ -5,10 +5,12 @@
 @import (reference) '../../../mixins/form.less';
 @import (reference) '../../../mixins/card.less';
 
+// Container (card)
 .self {
 	.card-container();
 }
 
+// Left side content
 .left {
 	position: relative;
 
@@ -19,6 +21,7 @@
 	width: 50%;
 }
 
+// Block title
 .title {
 	.card-title-iconed();
 
@@ -43,6 +46,7 @@
 	}
 }
 
+// Description text (sub title)
 .text {
 	.card-sub-title();
 
@@ -60,6 +64,7 @@
 	}
 }
 
+// Subscribe field
 .form {
 	position: relative;
 
@@ -70,15 +75,17 @@
 	}
 }
 
+// Preview (demo)
 .preview {
 	position: relative;
 
-	width: 45%;
+	width: 40%;
 	height: 360px;
 
 	.card-demo();
 }
 
+// Features list
 .features {
 	position: relative;
 
@@ -112,6 +119,7 @@
 		}
 	}
 
+	// Frame
 	&::before {
 		.card-hf-border('top');
 
