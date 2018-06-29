@@ -19,7 +19,7 @@ const Promo: React.SFC<{}> = () => {
 
 			{/* Promo text */}
 			<div className={ styles.text }>
-				<h1>{ 'Platform \nfor telegram channels' }</h1>
+				<h1>{ 'Platform \nfor' }&nbsp;telegram channels</h1>
 				<span>{ 'Tools to write, organise and schedule your posts.' }</span>
 				<BtnNav url={ routes.auth.signup } title="Get Started" styles={ stylesBtn } />
 			</div>

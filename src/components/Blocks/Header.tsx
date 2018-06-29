@@ -37,8 +37,7 @@ const Header: React.SFC<{}> = () => {
 					<ul>
 						<li><BtnNav url={ routes.pricing } title="Pricing" styles={ stylesNavBtn } /></li>
 						<li><BtnNav url={ routes.faq } title="FAQ" styles={ stylesNavBtn } /></li>
-						<li><BtnNav url={ routes.auth.signin } title="Log In" styles={ stylesNavBtn } /></li>
-						<li><BtnNav url={ routes.auth.signup } title="Sign Up" styles={ stylesNavBtnStroked } /></li>
+						<li><BtnNav url={ routes.auth.signin } title="Log In" styles={ stylesNavBtnStroked } /></li>
 					</ul>
 				</nav>
 			</div>

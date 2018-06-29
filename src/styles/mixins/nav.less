@@ -4,10 +4,10 @@
 @import (reference) '../constants.less';
 
 // Simple navigation button
-.btn-nav(@weight: 500, @color: @cc-sub-on-primary) {
+.btn-nav(@size: 18px, @weight: 500, @color: @cc-sub-on-primary) {
 	#btn > .compose_theme(
 		@colors: { #btn > .colors(@color, none) },
-		@text: { #btn > .text(18px, @weight) },
+		@text: { #btn > .text(@size, @weight) },
 		@icon: { #btn > .icon(@right: 10px) }
 	);
 
