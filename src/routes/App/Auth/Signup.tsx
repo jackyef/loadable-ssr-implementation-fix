@@ -9,10 +9,8 @@ import { FormRoot, BtnNav } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 import { required, email } from '@scc/scc-ui-kit/addons/validators';
 
-import { authFormStore, notifyStore } from '../../../stores';
+import { authFormStore } from '../../../stores';
 import { api } from '../../../config';
-
-import { SIGNUP_FAILED_ON_EMAIL } from '../../../config/messages';
 
 import { styles } from '../../../styles/routes/Auth';
 
@@ -46,17 +44,6 @@ const SignUp: React.SFC<Props> = () => {
 		{/* Form */}
 		<FormRoot wrapper="form" name="signup" inject={ authFormStore }
 			styles={ styles.form }
-			onSubmitFailed={
-				err => {
-					notifyStore.awake({
-						name: 'signUpFailed',
-						header: SIGNUP_FAILED_ON_EMAIL.text,
-						text: err[0],
-						state: 'error',
-						delay: 5000
-					});
-				}
-			}
 		>
 			{/* Title */}
 			<h1>{ 'Sign Up' }</h1>
