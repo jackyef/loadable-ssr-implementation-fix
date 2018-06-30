@@ -15,10 +15,18 @@ import { styles as stylesNav } from '../../styles/components/Elements/Nav';
 import { styles as stylesNavBtn } from '../../styles/components/Elements/BtnNav';
 import { styles as stylesNavBtnStroked } from '../../styles/components/Elements/BtnNavStroked';
 
+type Props = {
+	auth?: 'in' | 'up';
+};
+
+const defaultProps: Partial<Props> = {
+	auth: null
+};
+
 /**
  * Public header
  */
-const Header: React.SFC<{}> = () => {
+const Header: React.SFC<Props> = ({ auth }) => {
 	return (
 		<header className={ styles.self }>
 			<div>
@@ -28,21 +36,40 @@ const Header: React.SFC<{}> = () => {
 				<nav className={ stylesNav.self }>
 
 					{/* Products */}
-					<ul>
-						<li><BtnNav external url={ routes.poster } title="Poster" styles={ stylesNavBtn } /></li>
-						<li><BtnNav external url={ routes.market } title="Market" styles={ stylesNavBtn } /></li>
-					</ul>
+					{
+					auth
+						? <ul/>
+						: (
+							<ul>
+								<li><BtnNav external url={ routes.poster } title="Poster" styles={ stylesNavBtn } /></li>
+								<li><BtnNav external url={ routes.market } title="Market" styles={ stylesNavBtn } /></li>
+							</ul>
+						)
+					}
 
 					{/* Public pages */}
 					<ul>
-						<li><BtnNav url={ routes.pricing } title="Pricing" styles={ stylesNavBtn } /></li>
-						<li><BtnNav url={ routes.faq } title="FAQ" styles={ stylesNavBtn } /></li>
-						<li><BtnNav url={ routes.auth.signin } title="Log In" styles={ stylesNavBtnStroked } /></li>
+						{
+						auth
+							? null
+							: (<>
+								<li><BtnNav url={ routes.pricing } title="Pricing" styles={ stylesNavBtn } /></li>
+								<li><BtnNav url={ routes.faq } title="FAQ" styles={ stylesNavBtn } /></li>
+							</>)
+						}
+
+						{/* Login or Create account */}
+						<li><BtnNav url={ auth === 'in' ? routes.auth.signup : routes.auth.signin }
+							title={ auth === 'in' ? 'Create account' : 'Log in' }
+							styles={ stylesNavBtnStroked } />
+						</li>
 					</ul>
 				</nav>
 			</div>
 		</header>
 	);
 };
+
+Header.defaultProps = defaultProps;
 
 export default Header;

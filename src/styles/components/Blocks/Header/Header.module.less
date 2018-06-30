@@ -9,7 +9,7 @@
 	justify-content: center;
 
 	width: 100%;
-	padding: 44px ~'calc(10% - 60px)' 44px 10%;
+	padding: 44px 10%;
 
 	// Content wrapper
 	> div {
@@ -21,8 +21,10 @@
 		align-self: center;
 
 		width: 100%;
-		// width: ~'calc(90% + @{header-offset})';
-		// max-width: ~'calc(@{max-content-width} + @{header-offset})';
-		margin-left: -@const-header-offset;
+
+		// Logo
+		> div {
+			margin-right: 100px;
+		}
 	}
 }

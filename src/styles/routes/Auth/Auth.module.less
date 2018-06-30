@@ -1,0 +1,79 @@
+@import (reference) '~@scc/scc-ui-kit/styles.less';
+@import (reference) '~@tg/ui/palettes.less';
+
+@import (reference) '../../mixins/btn.less';
+@import (reference) '../../mixins/card.less';
+
+// Form container
+.self {
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	height: ~'calc(100vh - 151px)';
+
+	background: @cc-bg-primary-gradient;
+}
+
+// Form
+.form {
+	.card-container();
+
+	width: 560px;
+
+	// Title
+	> h1 {
+		.card-title();
+	}
+
+	// Fields containers
+	> div {
+		width: 100%;
+		margin: 10px 0;
+	}
+}
+
+// Inputs
+.field {
+	#input > .compose_theme(
+		@padding: { #input > .padding(8px) },
+		@border: { #input > .border(0, 1px, @cc-frame-on-bg-content, 'bottom') },
+		@font: { #input > .font(14px, 400) },
+		@colors: { #input > .colors(@text: @cc-field-on-bg-content-text) }
+	);
+}
+
+// Input (focus)
+.field_focus {
+	#input > .compose_theme_focus(
+		@border: { #input > .border(0, 1px, @cc-primary, 'bottom') },
+		@colors: { #input > .colors(@text: @cc-primary) }
+	);
+}
+
+// Input (error)
+.field_error {
+	#input > .compose_theme_error(
+		@colors: { #input > .colors(@text: @cc-err-field-text) },
+		@border: { #input > .border(0, 1px, @cc-err-field-border, 'bottom') }
+	);
+}
+
+// Google
+.google {
+	.btn-google();
+
+	width: 100%;
+	margin: 20px 0 0;
+}
+
+// Submit
+.submit {
+	.btn(@cc-secondary);
+
+	width: 100%;
+	margin-top: 30px;
+}

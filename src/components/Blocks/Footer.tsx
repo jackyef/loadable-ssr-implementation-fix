@@ -14,10 +14,24 @@ import { styles } from '../../styles/components/Blocks/Footer';
 import { styles as stylesNav } from '../../styles/components/Elements/Nav';
 import { styles as stylesNavBtn } from '../../styles/components/Elements/BtnNavFooter';
 
-export const Footer: React.SFC<{}> = () => {
+type Props = {
+	auth?: boolean;
+};
+
+const defaultProps: Partial<Props> = {
+	auth: false
+};
+
+export const Footer: React.SFC<Props> = ({ auth }) => {
 	return (
 		<footer className={ styles.self }>
-			<Logo to={ routes.home } history={ canUseDOM() && history } />
+
+			{/* Logo */}
+			{
+				auth
+					? null
+					: <Logo to={ routes.home } history={ canUseDOM() && history } />
+			}
 
 			{/* Navigation */}
 			<nav className={ stylesNav.self }>
@@ -44,5 +58,7 @@ export const Footer: React.SFC<{}> = () => {
 		</footer>
 	);
 };
+
+Footer.defaultProps = defaultProps;
 
 export default Footer;
