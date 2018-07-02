@@ -6,4 +6,4 @@ export const appContainerHTMLTag = 'app';
 /**
  * Static image path
  */
-export const staticImagesPath = '/static/images';
+export const staticImagesPath = '/static/public/images';

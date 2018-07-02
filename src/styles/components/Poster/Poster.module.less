@@ -1,0 +1,163 @@
+@import (reference) '~@tg/ui/styles.less';
+
+// Content container (card)
+.self {
+	.mixin-card-container(@padding-vertical: 0);
+
+	padding-bottom: 80px;
+	margin-top: -60px;
+}
+
+// Scroll arrow
+.scroll {
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	padding: 30px 0 20px 0;
+
+	cursor: pointer;
+
+	> img {
+		position: absolute;
+
+		transform: rotate(90deg);
+
+		animation-duration: 1s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-fill-mode: both;
+	}
+
+	&:hover {
+		> img {
+			animation-name: bounce;
+		}
+	}
+}
+
+// Header
+.header {
+	position: relative;
+
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+
+	width: 100%;
+	padding: 20px 0;
+	margin-bottom: 16px;
+
+	// Title
+	> div {
+		.mixin-card-title-iconed();
+	}
+
+	// Border
+	&::after {
+		.mixin-card-hf-border('bottom');
+	}
+}
+
+// Intro information
+.intro {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+
+	width: 50%;
+	max-width: 50%;
+	padding: 20px 20px 20px 0;
+
+	// Text
+	> p {
+		.mixin-card-sub-title();
+
+		width: 480px;
+	}
+
+	// Button (About poster)
+	> a {
+		.mixin-btn-more();
+
+		margin-top: 30px;
+	}
+}
+
+// Features list
+.features {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+
+	width: 40%;
+	padding: 20px 0 20px 0;
+
+	> li {
+		position: relative;
+
+		display: flex;
+		align-items: flex-start;
+
+		&:not(:first-child) {
+			margin-top: 30px;
+		}
+
+		// Title
+		> h2 {
+			width: 22px;
+			margin: 6px 30px 0 0;
+
+			.mixin-card-feature-title();
+		}
+
+		// Description
+		> p {
+			.mixin-card-paragraph();
+		}
+	}
+}
+
+// Demo iframe
+.demo {
+	width: 100%;
+	height: 540px;
+	margin: 80px 0 60px;
+
+	.mixin-card-demo();
+}
+
+// Footer
+.footer {
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+	padding-top: 60px;
+
+	&::before {
+		.mixin-card-hf-border('top');
+	}
+
+	> p {
+		margin-right: 60px;
+
+		.mixin-card-sub-title();
+	}
+
+	// Get started
+	> a {
+		.mixin-btn(@cc-secondary);
+
+		white-space: nowrap;
+	}
+}

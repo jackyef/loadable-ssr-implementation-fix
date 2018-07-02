@@ -1,0 +1,24 @@
+@import (reference) '~@tg/ui/styles.less';
+
+.self {
+	.mixin-card-container(@cc-bg-content-transparent);
+
+	padding: @const-card-vertical-padding @const-card-side-padding;
+
+	> h1 {
+		.mixin-card-title(@cc-title-on-bg-content-transparent);
+
+		width: 100%;
+		padding-bottom: 30px;
+	}
+
+	> p {
+		.mixin-card-sub-title(@cc-title-on-bg-content-transparent);
+
+		width: 74%;
+	}
+
+	> a {
+		.mixin-btn(@cc-secondary);
+	}
+}

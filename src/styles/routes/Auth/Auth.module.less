@@ -1,8 +1,5 @@
 @import (reference) '~@scc/scc-ui-kit/styles.less';
-@import (reference) '~@tg/ui/palettes.less';
-
-@import (reference) '../../mixins/btn.less';
-@import (reference) '../../mixins/card.less';
+@import (reference) '~@tg/ui/styles.less';
 
 // Form container
 .self {
@@ -19,7 +16,7 @@
 	background: @cc-bg-primary-gradient;
 
 	&::before {
-		content: url('/static/public/images/bg_lines.svg');
+		content: url('@{public-images-url}/bg_lines.svg');
 
 		position: absolute;
 		top: 75%;
@@ -37,13 +34,13 @@
 
 // Form
 .form {
-	.card-container();
+	.mixin-card-container();
 
 	width: 560px;
 
 	// Title
 	> h1 {
-		.card-title();
+		.mixin-card-title();
 
 		margin-bottom: 20px;
 	}
@@ -57,33 +54,22 @@
 
 // Inputs
 .field {
-	#input > .compose_theme(
-		@padding: { #input > .padding(8px) },
-		@border: { #input > .border(0, 1px, @cc-frame-on-bg-content, 'bottom') },
-		@font: { #input > .font(14px, 400) },
-		@colors: { #input > .colors(@text: @cc-field-on-bg-content-text) }
-	);
+	.mixin-field-underlined();
 }
 
 // Input (focus)
 .field_focus {
-	#input > .compose_theme_focus(
-		@border: { #input > .border(0, 1px, @cc-primary, 'bottom') },
-		@colors: { #input > .colors(@text: @cc-primary) }
-	);
+	.mixin-field-underlined-focus();
 }
 
 // Input (error)
 .field_error {
-	#input > .compose_theme_error(
-		@colors: { #input > .colors(@text: @cc-err-field-text) },
-		@border: { #input > .border(0, 1px, @cc-err-field-border, 'bottom') }
-	);
+	.mixin-field-underlined-error();
 }
 
 // Google
 .google {
-	.btn-google();
+	.mixin-btn-google();
 
 	width: 100%;
 	margin: 20px 0 0;
@@ -91,7 +77,7 @@
 
 // Submit
 .submit {
-	.btn(@cc-secondary);
+	.mixin-btn(@cc-secondary);
 
 	width: 100%;
 	margin-top: 30px;

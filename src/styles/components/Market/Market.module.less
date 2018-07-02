@@ -1,0 +1,124 @@
+@import (reference) '~@scc/scc-ui-kit/styles.less';
+@import (reference) '~@tg/ui/styles.less';
+
+// Container (card)
+.self {
+	.mixin-card-container();
+}
+
+// Left side content
+.left {
+	position: relative;
+
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	width: 50%;
+}
+
+// Block title
+.title {
+	.mixin-card-title-iconed();
+
+	position: relative;
+
+	margin-bottom: 30px;
+
+	> span {
+		position: relative;
+
+		padding: 8px 14px;
+		margin-left: 16px;
+
+		font-size: 16px;
+		font-weight: 600;
+		text-transform: uppercase;
+
+		color: @cc-primary;
+		background: @cc-detail-blue-dim-on-bg-content;
+
+		border-radius: @const-border-radius;
+	}
+}
+
+// Description text (sub title)
+.text {
+	.mixin-card-sub-title();
+
+	position: relative;
+
+	width: 100%;
+
+	> span {
+		.mixin-card-paragraph();
+
+		position: relative;
+		display: block;
+
+		padding: 20px 0;
+	}
+}
+
+// Subscribe field
+.form {
+	position: relative;
+
+	width: 100%;
+
+	> div {
+		.mixin-field-with-btn();
+	}
+}
+
+// Preview (demo)
+.preview {
+	position: relative;
+
+	width: 40%;
+	height: 360px;
+
+	.mixin-card-demo();
+}
+
+// Features list
+.features {
+	position: relative;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	width: 100%;
+	margin-top: 100px;
+
+	> li {
+		position: relative;
+
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+
+		padding: 40px 30px;
+
+		&:first-child { padding-left: 0; }
+		&:last-child { padding-right: 0; }
+
+		> h2 {
+			.mixin-card-feature-title();
+
+			margin-bottom: 26px;
+		}
+
+		> p {
+			.mixin-card-paragraph();
+		}
+	}
+
+	// Frame
+	&::before {
+		.mixin-card-hf-border('top');
+
+		width: 100%;
+	}
+}

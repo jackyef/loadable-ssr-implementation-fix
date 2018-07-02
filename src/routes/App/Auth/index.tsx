@@ -7,8 +7,8 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/ui/utils';
 
-import Header from '../../../components/Blocks/Header';
-import Footer from '../../../components/Blocks/Footer';
+import Header from '../../../components/Header';
+import Footer from '../../../components/Footer';
 
 import { styles } from '../../../styles/routes/Auth';
 

@@ -8,7 +8,7 @@ import { BtnNav, FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 import { required, email } from '@scc/scc-ui-kit/addons/validators';
 
-import { api } from '../../../config';
+import { api, staticImagesPath } from '../../../config';
 import { authFormStore } from '../../../stores';
 import { history } from '../../../routes';
 
@@ -59,7 +59,7 @@ const SignIn: React.SFC<{}> = () => {
 
 			{/* Submit */}
 			<Submit form={ authFormStore } title="Login with email" url={ api.auth.login }
-				icon="/static/public/images/icon_read_more.svg" iconPos="right"
+				icon={`${ staticImagesPath }/icon_read_more.svg`} iconPos="right"
 				styles={{ theme: styles.submit }}
 				onSuccess={() => {
 					if (canUseDOM()) {
@@ -71,7 +71,7 @@ const SignIn: React.SFC<{}> = () => {
 
 			{/* Socials (Google) */}
 			<BtnNav external title="or continue with Google" url={ api.auth.google }
-				icon="/static/public/images/icon_google.svg"
+				icon={`${ staticImagesPath }/icon_google.svg`}
 				styles={{ theme: styles.google }}
 			/>
 
