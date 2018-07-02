@@ -3,11 +3,13 @@
  */
 import React from 'react';
 
-import { BtnNav, canUseDOM } from '@scc/scc-ui-kit';
+import { Btn, BtnNav, canUseDOM } from '@scc/scc-ui-kit';
 
 import { Logo } from '@tg/ui';
+import { logout } from '@tg/ui/utils';
+import { authenticated } from '@tg/ui/utils';
 
-import { routes } from '../config';
+import { routes, axiosInstance, api } from '../config';
 import { history } from '../routes';
 
 import modules from '@tg/ui/lessmodules';
@@ -57,10 +59,22 @@ const Header: React.SFC<Props> = ({ auth }) => {
 						}
 
 						{/* Login or Create account */}
-						<li><BtnNav url={ auth === 'in' ? routes.auth.signup : routes.auth.signin }
-							title={ auth === 'in' ? 'Create account' : 'Log in' }
-							styles={ modules.stylesBtnNavStroked } />
-						</li>
+						{
+							authenticated()
+								? (
+									<li>
+										<Btn title="Log out" styles={ modules.stylesBtnNavStroked }
+											onClick={ () => logout(axiosInstance, history, api.auth.logout, routes.index) }
+										/>
+									</li>
+								)
+								: (
+									<li><BtnNav url={ auth === 'in' ? routes.auth.signup : routes.auth.signin }
+										title={ auth === 'in' ? 'Create account' : 'Log in' }
+										styles={ modules.stylesBtnNavStroked } />
+									</li>
+								)
+						}
 					</ul>
 				</nav>
 			</div>

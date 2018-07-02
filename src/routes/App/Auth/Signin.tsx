@@ -8,9 +8,8 @@ import { BtnNav, FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 import { required, email } from '@scc/scc-ui-kit/addons/validators';
 
-import { api, staticImagesPath } from '../../../config';
+import { routes, api, staticImagesPath } from '../../../config';
 import { authFormStore } from '../../../stores';
-import { history } from '../../../routes';
 
 import { styles } from '../../../styles/routes/Auth';
 
@@ -61,12 +60,7 @@ const SignIn: React.SFC<{}> = () => {
 			<Submit form={ authFormStore } title="Login with email" url={ api.auth.login }
 				icon={`${ staticImagesPath }/icon_read_more.svg`} iconPos="right"
 				styles={{ theme: styles.submit }}
-				onSuccess={() => {
-					if (canUseDOM()) {
-						localStorage.setItem('authenticated', 'yes');
-						history.push('/');
-					}
-				}}
+				onSuccess={ () => canUseDOM() && window.location.assign(routes.poster) }
 			/>
 
 			{/* Socials (Google) */}

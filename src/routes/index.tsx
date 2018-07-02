@@ -63,7 +63,7 @@ export default [
 			{
 				path: routes.auth.self,
 				render: (props: any) => (
-					authenticated() === 'ok'
+					authenticated()
 						? <Redirect to={ routes.home } />
 						: <LoadableAuth { ...props } />
 				),

@@ -44,11 +44,7 @@ const SignUp: React.SFC<Props> = () => {
 		{/* Form */}
 		<FormRoot wrapper="form" name="signup" inject={ authFormStore }
 			styles={ styles.form }
-			onSubmitSucceed={
-				() => {
-					canUseDOM() && window.location.assign(routes.poster);
-				}
-			}
+			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
 		>
 			{/* Title */}
 			<h1>{ 'Sign Up' }</h1>
