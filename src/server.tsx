@@ -1,10 +1,13 @@
 import express, { Request, Response } from 'express';
 import { matchRoutes } from 'react-router-config';
 import Loadable from 'react-loadable';
+import { useStaticRendering } from 'mobx-react';
 
 import { indexRoute } from './config';
 import renderer from './helpers/renderer';
 import Routes from './routes';
+
+useStaticRendering(true);
 
 // Port
 const EXPRESS_SSR_PORT = process.env.EXPRESS_SSR_PORT || 3000;
