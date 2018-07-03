@@ -22,7 +22,9 @@ import './images/bg_lines.svg';
 
 // Icons
 import './images/icon_poster.svg';
+import './images/icon_poster_white.svg';
 import './images/icon_market.svg';
+import './images/icon_market_white.svg';
 import './images/icon_face_wtf.svg';
 import './images/icon_google.svg';
 
