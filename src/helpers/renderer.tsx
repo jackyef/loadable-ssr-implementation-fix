@@ -55,7 +55,7 @@ export default (req: Request, store: any, context: any) => {
 				<link rel="shortcut icon" href="${ publicPath }/favicon/favicon.ico">
 				<meta name="msapplication-TileColor" content="#2051cb">
 				<meta name="msapplication-config" content="${ publicPath }/favicon/browserconfig.xml">
-				<meta name="theme-color" content="#ff0000">
+				<meta name="theme-color" content="#2051cb">
 
 				<link rel="manifest" href="${ publicPath }/manifest.json" />
 				${
