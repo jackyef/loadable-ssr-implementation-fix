@@ -5,6 +5,7 @@
 
 	padding: @const-card-vertical-padding @const-card-side-padding;
 
+	// Title
 	> h1 {
 		.mixin-card-title(@cc-title-on-bg-content-transparent);
 
@@ -12,13 +13,10 @@
 		padding-bottom: 30px;
 	}
 
+	// Text
 	> p {
 		.mixin-card-sub-title(@cc-title-on-bg-content-transparent);
 
 		width: 74%;
-	}
-
-	> a {
-		.mixin-btn(@cc-secondary);
 	}
 }

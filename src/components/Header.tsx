@@ -33,7 +33,7 @@ const Header: React.SFC<Props> = ({ auth }) => {
 				<Logo to={ routes.home } history={ canUseDOM() && history } />
 
 				{/* Navigation */}
-				<nav className={ modules.stylesNav.self }>
+				<nav className={ modules.nav.self }>
 
 					{/* Products */}
 					{
@@ -41,8 +41,8 @@ const Header: React.SFC<Props> = ({ auth }) => {
 						? <ul/>
 						: (
 							<ul>
-								<li><BtnNav external url={ routes.poster } title="Poster" styles={ modules.stylesBtnNav } /></li>
-								<li><BtnNav external url={ routes.market } title="Market" styles={ modules.stylesBtnNav } /></li>
+								<li><BtnNav external url={ routes.poster } title="Poster" styles={{ theme: modules.btn.nav }} /></li>
+								<li><BtnNav external url={ routes.market } title="Market" styles={{ theme: modules.btn.nav }} /></li>
 							</ul>
 						)
 					}
@@ -53,8 +53,8 @@ const Header: React.SFC<Props> = ({ auth }) => {
 						auth
 							? null
 							: (<>
-								<li><BtnNav url={ routes.pricing } title="Pricing" styles={ modules.stylesBtnNav } /></li>
-								<li><BtnNav url={ routes.faq } title="FAQ" styles={ modules.stylesBtnNav } /></li>
+								<li><BtnNav url={ routes.pricing } title="Pricing" styles={{ theme: modules.btn.nav }} /></li>
+								<li><BtnNav url={ routes.faq } title="FAQ" styles={{ theme: modules.btn.nav }} /></li>
 							</>)
 						}
 
@@ -63,7 +63,7 @@ const Header: React.SFC<Props> = ({ auth }) => {
 							authenticated()
 								? (
 									<li>
-										<Btn title="Log out" styles={ modules.stylesBtnNavStroked }
+										<Btn title="Log out" styles={{ theme: modules.btn.nav_stroked }}
 											onClick={ () => logout(axiosInstance, history, api.auth.logout, routes.index) }
 										/>
 									</li>
@@ -71,7 +71,7 @@ const Header: React.SFC<Props> = ({ auth }) => {
 								: (
 									<li><BtnNav url={ auth === 'in' ? routes.auth.signup : routes.auth.signin }
 										title={ auth === 'in' ? 'Create account' : 'Log in' }
-										styles={ modules.stylesBtnNavStroked } />
+										styles={{ theme: modules.btn.nav_stroked }} />
 									</li>
 								)
 						}

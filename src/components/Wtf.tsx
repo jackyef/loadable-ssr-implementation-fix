@@ -7,6 +7,7 @@ import { BtnNav } from '@scc/scc-ui-kit';
 
 import { staticImagesPath } from '../config';
 
+import modules from '@tg/ui/lessmodules';
 import { styles } from '../styles/components/Wtf';
 
 /**
@@ -30,7 +31,9 @@ const Wtf: React.SFC<{}> = () => {
 						'that can help explain why you need this service.'
 					}
 				</p>
-				<BtnNav title="Visit FAQ" icon={`${ staticImagesPath }/icon_read_more.svg`} iconPos="right" />
+				<BtnNav title="Visit FAQ" styles={{ theme: modules.btn.more }}
+					icon={`${ staticImagesPath }/icon_read_more.svg`} iconPos="right"
+				/>
 			</div>
 
 		</section>

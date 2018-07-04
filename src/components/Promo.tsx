@@ -21,7 +21,7 @@ const Promo: React.SFC<{}> = () => {
 			<div className={ styles.text }>
 				<h1>{ 'Platform \nfor' }&nbsp;telegram channels</h1>
 				<span>{ 'Tools to write, organise and schedule your posts.' }</span>
-				<BtnNav url={ routes.auth.signup } title="Get Started" styles={ modules.stylesBtn } />
+				<BtnNav url={ routes.auth.signup } title="Get Started" styles={{ theme: modules.btn.white }} />
 			</div>
 
 			{/* Paralax illustration */}

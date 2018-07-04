@@ -33,25 +33,29 @@ export const Footer: React.SFC<Props> = ({ auth }) => {
 			}
 
 			{/* Navigation */}
-			<nav className={ modules.stylesNav.self }>
+			<nav className={ modules.nav.self }>
 
 				{/* Main */}
 				<ul>
-					<li><BtnNav title="Poster" styles={ modules.stylesBtnNavFooter } /></li>
-					<li><BtnNav title="Market" styles={ modules.stylesBtnNavFooter } /></li>
-					<li><BtnNav title="Pricing" styles={ modules.stylesBtnNavFooter } /></li>
-					<li><BtnNav title="FAQ" styles={ modules.stylesBtnNavFooter } /></li>
+					<li><BtnNav title="Poster" styles={{ theme: modules.btn.nav_footer }} /></li>
+					<li><BtnNav title="Market" styles={{ theme: modules.btn.nav_footer }} /></li>
+					<li><BtnNav title="Pricing" styles={{ theme: modules.btn.nav_footer }} /></li>
+					<li><BtnNav title="FAQ" styles={{ theme: modules.btn.nav_footer }} /></li>
 				</ul>
 
 				{/* Terms */}
 				<ul>
-					<li><BtnNav title="Terms of Use" styles={ modules.stylesBtnNavFooter } /></li>
-					<li><BtnNav title="Privacy Policy" styles={ modules.stylesBtnNavFooter } /></li>
+					<li><BtnNav title="Terms of Use" styles={ { theme: modules.btn.nav_footer } } /></li>
+					<li><BtnNav title="Privacy Policy" styles={ { theme: modules.btn.nav_footer } } /></li>
 				</ul>
 
 				{/* Language */}
 				<ul>
-					<li><Btn title="English" icon={`${ staticImagesPath }/icon_lang.svg`} styles={ modules.stylesBtnNavFooter } /></li>
+					<li>
+						<Btn title="English" icon={`${ staticImagesPath }/icon_lang.svg`}
+							styles={ { theme: modules.btn.nav_footer } }
+						/>
+					</li>
 				</ul>
 			</nav>
 		</footer>
