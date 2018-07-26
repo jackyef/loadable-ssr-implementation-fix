@@ -4,9 +4,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { BtnNav, FormRoot, canUseDOM } from '@scc/scc-ui-kit';
+import { FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 import { required, email } from '@scc/scc-ui-kit/addons/validators';
+import { Btn } from '@tg/ui';
 
 import { routes, api, staticImagesPath } from '../../../config';
 import { authFormStore } from '../../../stores';
@@ -64,9 +65,9 @@ const SignIn: React.SFC<{}> = () => {
 			/>
 
 			{/* Socials (Google) */}
-			<BtnNav external title="or continue with Google" url={ api.auth.google }
+			<Btn nav type="google" external title="or continue with Google" url={ api.auth.google }
 				icon={`${ staticImagesPath }/icon_google.svg`}
-				styles={{ theme: styles.google }}
+				className={ styles.google }
 			/>
 
 		</FormRoot>

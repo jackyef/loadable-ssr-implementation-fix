@@ -5,9 +5,10 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 import { Helmet } from 'react-helmet';
 
-import { FormRoot, BtnNav, canUseDOM } from '@scc/scc-ui-kit';
+import { FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 import { required, email } from '@scc/scc-ui-kit/addons/validators';
+import { Btn } from '@tg/ui';
 
 import { authFormStore } from '../../../stores';
 import { api, routes, staticImagesPath } from '../../../config';
@@ -74,9 +75,9 @@ const SignUp: React.SFC<Props> = () => {
 			/>
 
 			{/* Socials (Google) */}
-			<BtnNav external title="or continue with Google" url={ api.auth.google }
+			<Btn nav type="google" external title="or continue with Google" url={ api.auth.google }
 				icon={`${ staticImagesPath }/icon_google.svg`}
-				styles={{ theme: styles.google }}
+				className={ styles.google }
 			/>
 
 		</FormRoot>

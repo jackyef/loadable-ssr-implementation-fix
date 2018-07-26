@@ -3,11 +3,10 @@
  */
 import React from 'react';
 
-import { BtnNav } from '@scc/scc-ui-kit';
+import { Btn } from '@tg/ui';
 
 import { routes, staticImagesPath } from '../config';
 
-import modules from '@tg/ui/lessmodules';
 import { styles } from '../styles/components/Promo';
 
 /**
@@ -21,7 +20,7 @@ const Promo: React.SFC<{}> = () => {
 			<div className={ styles.text }>
 				<h1>{ 'Platform \nfor' }&nbsp;telegram channels</h1>
 				<span>{ 'Tools to write, organise and schedule your posts.' }</span>
-				<BtnNav url={ routes.auth.signup } title="Get Started" styles={{ theme: modules.btn.white }} />
+				<Btn nav type="general" hint="white" url={ routes.auth.signup } title="Get Started" />
 			</div>
 
 			{/* Paralax illustration */}

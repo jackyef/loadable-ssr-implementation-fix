@@ -3,11 +3,10 @@
  */
 import React from 'react';
 
-import { Btn, BtnNav, canUseDOM } from '@scc/scc-ui-kit';
+import { canUseDOM } from '@scc/scc-ui-kit';
 
-import { Logo } from '@tg/ui';
-import { logout } from '@tg/ui/utils';
-import { authenticated } from '@tg/ui/utils';
+import { Logo, Btn } from '@tg/ui';
+import { logout, authenticated } from '@tg/ui/utils';
 
 import { routes, axiosInstance, api } from '../config';
 import { history } from '../routes';
@@ -41,8 +40,8 @@ const Header: React.SFC<Props> = ({ auth }) => {
 						? <ul/>
 						: (
 							<ul>
-								<li><BtnNav external url={ routes.poster } title="Poster" styles={{ theme: modules.btn.nav }} /></li>
-								<li><BtnNav external url={ routes.market } title="Market" styles={{ theme: modules.btn.nav }} /></li>
+								<li><Btn type="nav" external url={ routes.poster } title="Poster" /></li>
+								<li><Btn type="nav" external url={ routes.market } title="Market" /></li>
 							</ul>
 						)
 					}
@@ -53,8 +52,8 @@ const Header: React.SFC<Props> = ({ auth }) => {
 						auth
 							? null
 							: (<>
-								<li><BtnNav url={ routes.pricing } title="Pricing" styles={{ theme: modules.btn.nav }} /></li>
-								<li><BtnNav url={ routes.faq } title="FAQ" styles={{ theme: modules.btn.nav }} /></li>
+								<li><Btn type="nav" url={ routes.pricing } title="Pricing" /></li>
+								<li><Btn type="nav" url={ routes.faq } title="FAQ" /></li>
 							</>)
 						}
 
@@ -63,15 +62,16 @@ const Header: React.SFC<Props> = ({ auth }) => {
 							authenticated()
 								? (
 									<li>
-										<Btn title="Log out" styles={{ theme: modules.btn.nav_stroked }}
+										<Btn type="nav" hint="stroked" title="Log out"
 											onClick={ () => logout(axiosInstance, history, api.auth.logout, routes.index) }
 										/>
 									</li>
 								)
 								: (
-									<li><BtnNav url={ auth === 'in' ? routes.auth.signup : routes.auth.signin }
-										title={ auth === 'in' ? 'Create account' : 'Log in' }
-										styles={{ theme: modules.btn.nav_stroked }} />
+									<li>
+										<Btn type="nav" hint="stroked" title={ auth === 'in' ? 'Create account' : 'Log in' }
+											url={ auth === 'in' ? routes.auth.signup : routes.auth.signin }
+										/>
 									</li>
 								)
 						}

@@ -28,7 +28,7 @@ const Market: React.SFC<{}> = () => {
 
 				{/* Text */}
 				<div className={ styles.text }>
-					<p>{ 'Simpe Service for advertising  in Telegram channels. Buy and sell posts in marketplace.' }</p>
+					<p>{ 'Simple service for advertising in Telegram channels. Buy and sell posts in marketplace.' }</p>
 					<span>{ 'Don\'t miss the start. We inform you, when you can test our new product.' }</span>
 				</div>
 

@@ -3,9 +3,9 @@
  */
 import React from 'react';
 
-import { canUseDOM, BtnNav, Btn } from '@scc/scc-ui-kit';
+import { canUseDOM } from '@scc/scc-ui-kit';
 
-import { Logo } from '@tg/ui';
+import { Logo, Btn } from '@tg/ui';
 
 import { routes, staticImagesPath } from '../config';
 import { history } from '../routes';
@@ -37,23 +37,23 @@ export const Footer: React.SFC<Props> = ({ auth }) => {
 
 				{/* Main */}
 				<ul>
-					<li><BtnNav title="Poster" styles={{ theme: modules.btn.nav_footer }} /></li>
-					<li><BtnNav title="Market" styles={{ theme: modules.btn.nav_footer }} /></li>
-					<li><BtnNav title="Pricing" styles={{ theme: modules.btn.nav_footer }} /></li>
-					<li><BtnNav title="FAQ" styles={{ theme: modules.btn.nav_footer }} /></li>
+					<li><Btn title="Poster" type="nav" hint="footer" /></li>
+					<li><Btn title="Market" type="nav" hint="footer" /></li>
+					<li><Btn title="Pricing" type="nav" hint="footer" /></li>
+					<li><Btn title="FAQ" type="nav" hint="footer" /></li>
 				</ul>
 
 				{/* Terms */}
 				<ul>
-					<li><BtnNav title="Terms of Use" styles={ { theme: modules.btn.nav_footer } } /></li>
-					<li><BtnNav title="Privacy Policy" styles={ { theme: modules.btn.nav_footer } } /></li>
+					<li><Btn title="Terms of Use" type="nav" hint="footer" /></li>
+					<li><Btn title="Privacy Policy" type="nav" hint="footer" /></li>
 				</ul>
 
 				{/* Language */}
 				<ul>
 					<li>
 						<Btn title="English" icon={`${ staticImagesPath }/icon_lang.svg`}
-							styles={ { theme: modules.btn.nav_footer } }
+							type="nav" hint="footer" nav={ false }
 						/>
 					</li>
 				</ul>
