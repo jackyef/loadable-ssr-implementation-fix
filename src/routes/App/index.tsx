@@ -3,11 +3,13 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 import Cookies from 'js-cookie';
 import Raven from 'raven-js';
+import { Provider } from 'mobx-react';
 
 import { NotifyBox } from '@scc/scc-ui-kit';
 import { renderRoutes } from '@tg/ui/utils';
+import { api, Context } from '@tg/ui/config';
 
-import { axiosInstance, api } from '../../config';
+import { axiosInstance, context } from '../../config';
 import { notifyStore } from '../../stores';
 
 import '../../styles/base.less';
@@ -62,9 +64,13 @@ export default class Container extends React.Component<Props> {
 	render() {
 		const { route } = this.props;
 
-		return (<>
-			<NotifyBox store={ notifyStore } />
-			{ renderRoutes(route.routes) }
-		</>);
+		return (
+			<Provider>
+				<Context.Provider value={ context }>
+					<NotifyBox store={ notifyStore } />
+					{ renderRoutes(route.routes) }
+				</Context.Provider>
+			</Provider>
+		);
 	}
 }

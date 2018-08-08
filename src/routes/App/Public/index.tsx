@@ -6,10 +6,13 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/ui/utils';
 
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
+import { PublicHeader, PublicFooter } from '../../../components';
 
-import { styles } from '../../../styles/routes/Public';
+const styles: Styles = require('./Public.module.less');
+
+type Styles = {
+	self?: any;
+};
 
 type Props = {
 	route: RouteConfig & { render?: any };
@@ -23,13 +26,13 @@ const Container: React.SFC<Props> = ({ route }) => {
 		<div className={ styles.self }>
 
 			{/* Header */}
-			<Header />
+			<PublicHeader />
 
 			{/* Content */}
 			{ renderRoutes(route.routes) }
 
 			{/* Footer */}
-			<Footer />
+			<PublicFooter />
 
 		</div>
 	);

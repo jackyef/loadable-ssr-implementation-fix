@@ -7,10 +7,19 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/ui/utils';
 
-import Header from '../../../components/Header';
-import Footer from '../../../components/Footer';
+import { PublicHeader, PublicFooter } from '../../../components';
 
-import { styles } from '../../../styles/routes/Auth';
+const styles: Styles = require('./Auth.module.less');
+
+export type Styles = {
+	self?: any;
+	form?: any;
+	google?: any;
+	field?: any; // theme
+	field_focus?: any; // theme__focus
+	field_error?: any; // theme__error
+	submit?: any;
+};
 
 type Props = {
 	route: RouteConfig & { render?: any };
@@ -30,7 +39,7 @@ const Auth: React.SFC<Props> = ({ route, location }) => {
 	return (
 		<>
 			{/* Header */}
-			<Header auth={ path } />
+			<PublicHeader auth={ path } />
 
 			{/* Content */}
 			<main className={ styles.self }>
@@ -38,7 +47,7 @@ const Auth: React.SFC<Props> = ({ route, location }) => {
 			</main>
 
 			{/* Footer */}
-			<Footer auth />
+			<PublicFooter />
 		</>
 	);
 };

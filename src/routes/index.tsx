@@ -4,7 +4,7 @@ import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
 import { canUseDOM } from '@scc/scc-ui-kit';
-import { Loading, NotFoundRoute as NotFound } from '@tg/ui';
+import { Loading, NotFound } from '@tg/ui';
 import { authenticated } from '@tg/ui/utils';
 
 import { authFormStore } from '../stores';

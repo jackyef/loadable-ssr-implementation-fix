@@ -28,7 +28,8 @@ module.exports = {
 		modules: ['./', APP_DIR, NODE_MODULES],
 		symlinks: false,
 		alias: {
-			mobx: path.resolve(__dirname, 'node_modules/mobx')
+			mobx: path.resolve(__dirname, 'node_modules/mobx'),
+			tgimg: path.resolve(__dirname, 'node_modules/@tg/ui/resources/images')
 		},
 
 		plugins: [

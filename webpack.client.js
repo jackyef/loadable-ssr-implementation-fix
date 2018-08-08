@@ -154,24 +154,23 @@ const config = {
 				]
 			},
 
-			// Font (node_modules)
-			{
-				test: /\.ttf$|.\eot$|.\woff$|.\woff2$|^(?!.*\.inline\.svg$).*\.svg$/,
-				include: /\/node_modules\//,
-				use: createFileLoader('fonts')
-			},
-
 			// Font
 			{
 				test: /\.ttf$|\.eot$|.\woff$|.\woff2$|^(?!.*\.inline\.svg$).*\.svg$/,
-				include: /resources\/fonts/,
+				include: [
+					path.resolve(__dirname, "node_modules/@tg/ui/resources/fonts"),
+					path.resolve(__dirname, "src/resources/fonts"),
+				],
 				use: createFileLoader('fonts')
 			},
 
 			// Images
 			{
 				test: /\.jpe?g$|\.gif$|\.ico$|\.png$|^(?!.*\.inline\.svg$).*\.svg$/,
-				exclude: [/\/node_modules\//, /resources\/favicon/],
+				include: [
+					path.resolve(__dirname, "node_modules/@tg/ui/resources/images"),
+					path.resolve(__dirname, "src/resources/images"),
+				],
 				use: createFileLoader('images')
 			},
 

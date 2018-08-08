@@ -8,12 +8,16 @@ import { Helmet } from 'react-helmet';
 import { FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 import { required, email } from '@scc/scc-ui-kit/addons/validators';
+
 import { Btn } from '@tg/ui';
+import { api } from '@tg/ui/config';
+const icons = require('@tg/ui/resources');
 
 import { authFormStore } from '../../../stores';
-import { api, routes, staticImagesPath } from '../../../config';
+import { routes } from '../../../config';
 
-import { styles } from '../../../styles/routes/Auth';
+import { Styles } from './';
+const styles: Styles = require('./Auth.module.less');
 
 type Props = {
 	route: RouteConfig & { render?: any };
@@ -70,13 +74,13 @@ const SignUp: React.SFC<Props> = () => {
 
 			{/* Submit */}
 			<Submit form={ authFormStore } title="Join us with email" url={ api.auth.register }
-				icon={`${ staticImagesPath }/icon_read_more.svg`} iconPos="right"
+				icon={ icons.icon_read_more } iconPos="right"
 				styles={{ theme: styles.submit }}
 			/>
 
 			{/* Socials (Google) */}
-			<Btn nav type="google" external title="or continue with Google" url={ api.auth.google }
-				icon={`${ staticImagesPath }/icon_google.svg`}
+			<Btn nav external style="google" title="or continue with Google" url={ api.auth.google }
+				icon={ icons.icon_google }
 				className={ styles.google }
 			/>
 

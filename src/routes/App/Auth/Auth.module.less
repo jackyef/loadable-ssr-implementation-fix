@@ -13,7 +13,7 @@
 	width: 100%;
 	height: 100vh;
 
-	background: @cc-bg-primary-gradient;
+	background: @cc-main-gradient;
 
 	&::before {
 		content: url('@{public-images-url}/bg_lines.svg');
@@ -34,13 +34,13 @@
 
 // Form
 .form {
-	.mixin-card-container();
+	// .mixin-card-container();
 
 	width: 560px;
 
 	// Title
 	> h1 {
-		.mixin-card-title();
+		// .mixin-card-title();
 
 		margin-bottom: 20px;
 	}
@@ -54,31 +54,27 @@
 
 // Inputs
 .field {
-	.mixin-field-underlined();
+	// .mixin-field-underlined();
 }
 
 // Input (focus)
 .field_focus {
-	.mixin-field-underlined-focus();
+	// .mixin-field-underlined-focus();
 }
 
 // Input (error)
 .field_error {
-	.mixin-field-underlined-error();
+	// .mixin-field-underlined-error();
 }
 
 // Google
 .google {
-	.mixin-btn-google();
-
 	width: 100%;
 	margin: 20px 0 0;
 }
 
 // Submit
 .submit {
-	.mixin-btn(@cc-secondary);
-
 	width: 100%;
 	margin-top: 30px;
 }

@@ -4,11 +4,13 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import Promo from '../../../components/Promo';
-import Poster from '../../../components/Poster';
-import Wtf from '../../../components/Wtf';
-import Market from '../../../components/Market';
-import About from '../../../components/About';
+import {
+	PublicPromo,
+	CardProductPoster,
+	CardProductMarket,
+	CardWtf,
+	CardAbout
+} from '@tg/ui';
 
 /**
  * Landing route
@@ -20,13 +22,15 @@ const Landing: React.SFC<{}> = () => {
 			<title>{ 'Telegram channel manager and ad market' }</title>
 		</Helmet>
 
-		<Promo />
+		{/* Full page promo */}
+		<PublicPromo />
 
+		{/* Content cards */}
 		<main>
-			<Poster />
-			<Wtf />
-			<Market />
-			<About />
+			<CardProductPoster />
+			<CardWtf />
+			<CardProductMarket />
+			<CardAbout />
 		</main>
 	</>
 	);

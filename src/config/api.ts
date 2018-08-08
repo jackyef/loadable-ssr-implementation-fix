@@ -1,39 +1,11 @@
 import axios from 'axios';
 
-// API domains
-const domain = '/api';
-
 // Bot name
 export const botName = 'TgCreditsBot';
 
 /**
- * API routes
- */
-export const api = {
-
-	// External
-	external: {
-		countries: 'https://restcountries.eu/rest/v2/all?fields=name;alpha2Code;callingCodes',
-		location: 'https://api.ipdata.co'
-	},
-
-	// Messages
-	msg: {
-		get: `${ domain }/msg`
-	},
-
-	// Authentication
-	auth: {
-		google: `${ domain }/auth/google`,
-		register: `${ domain }/auth/register`,
-		checkUser: `${ domain }/auth/check`,
-		signup: `${ domain }/auth/signup`,
-		logout: `${ domain }/auth/logout`,
-		login: `${ domain }/auth/login`
-	}
-};
-
-/**
  * App axios instance
  */
-export const axiosInstance = axios.create({});
+export const axiosInstance = axios.create({
+	baseURL: '/api'
+});

@@ -13,25 +13,4 @@ import './favicon/safari-pinned-tab.svg';
 import './favicon/site.webmanifest';
 
 // browserconfig
-require('./favicon/browserconfig.xml')
-
-// Images
-import './images/logo.svg';
-import './images/promo_paralax.svg';
-import './images/bg_lines.svg';
-
-// Icons
-import './images/icon_poster.svg';
-import './images/icon_poster_white.svg';
-import './images/icon_market.svg';
-import './images/icon_market_white.svg';
-import './images/icon_face_wtf.svg';
-import './images/icon_google.svg';
-
-// Inline icons
-import './inline_svg/icon_read_more.svg';
-import './inline_svg/icon_lang.svg';
-
-export {
-	IconReadMore
-};
+require('./favicon/browserconfig.xml');

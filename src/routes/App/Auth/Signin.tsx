@@ -7,12 +7,16 @@ import { Helmet } from 'react-helmet';
 import { FormRoot, canUseDOM } from '@scc/scc-ui-kit';
 import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
 import { required, email } from '@scc/scc-ui-kit/addons/validators';
-import { Btn } from '@tg/ui';
 
-import { routes, api, staticImagesPath } from '../../../config';
+import { Btn } from '@tg/ui';
+import { api } from '@tg/ui/config';
+const icons = require('@tg/ui/resources');
+
+import { routes } from '../../../config';
 import { authFormStore } from '../../../stores';
 
-import { styles } from '../../../styles/routes/Auth';
+import { Styles } from './';
+const styles: Styles = require('./Auth.module.less');
 
 /**
  * Sign in authentication route
@@ -59,14 +63,14 @@ const SignIn: React.SFC<{}> = () => {
 
 			{/* Submit */}
 			<Submit form={ authFormStore } title="Login with email" url={ api.auth.login }
-				icon={`${ staticImagesPath }/icon_read_more.svg`} iconPos="right"
+				icon={ icons.icon_read_more } iconPos="right"
 				styles={{ theme: styles.submit }}
 				onSuccess={ () => canUseDOM() && window.location.assign(routes.poster) }
 			/>
 
 			{/* Socials (Google) */}
-			<Btn nav type="google" external title="or continue with Google" url={ api.auth.google }
-				icon={`${ staticImagesPath }/icon_google.svg`}
+			<Btn nav external style="google" title="or continue with Google" url={ api.auth.google }
+				icon={ icons.icon_google }
 				className={ styles.google }
 			/>
 
