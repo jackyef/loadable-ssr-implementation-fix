@@ -159,6 +159,7 @@ const config = {
 				test: /\.ttf$|\.eot$|.\woff$|.\woff2$|^(?!.*\.inline\.svg$).*\.svg$/,
 				include: [
 					path.resolve(__dirname, "node_modules/@tg/ui/resources/fonts"),
+					path.resolve(__dirname, "node_modules/@scc/scc-ui-kit/src/core/styles/__fonts__"),
 					path.resolve(__dirname, "src/resources/fonts"),
 				],
 				use: createFileLoader('fonts')
@@ -232,7 +233,7 @@ const config = {
 	},
 
 	plugins: [
-		new CleanWebpackPlugin(['bundle_client']),
+		new CleanWebpackPlugin(['bundle_client/*.*']),
 
 		new ReactLoadablePlugin({
 			filename: './bundle_client/react-loadable.json',

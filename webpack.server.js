@@ -92,7 +92,7 @@ const config = {
 	},
 
 	plugins: [
-		new CleanWebpackPlugin(['bundle_server'])
+		new CleanWebpackPlugin(['bundle_server/*.*'])
 	],
 
     // Do not place in a bundle modules that are
