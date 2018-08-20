@@ -4,9 +4,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { FormRoot, canUseDOM } from '@scc/scc-ui-kit';
-import { FieldInput as Input, Submit } from '@scc/scc-ui-kit/addons';
-import { required, email } from '@scc/scc-ui-kit/addons/validators';
+import { FormRoot, canUseDOM } from '@scc/ui-kit';
+import { FieldInput as Input, Submit } from '@scc/ui-kit/addons';
+import { required, email } from '@scc/ui-kit/addons/validators';
 
 import { Btn } from '@tg/ui';
 import { api } from '@tg/ui/config';

@@ -36,7 +36,7 @@ RUN yarn install
 
 # Add repos to node_modules
 RUN mkdir -p ./node_modules/@scc
-RUN mv ./ui-kit ./node_modules/@scc/scc-ui-kit
+RUN mv ./ui-kit ./node_modules/@scc/ui-kit
 
 RUN mkdir -p ./node_modules/@tg
 RUN mv ./tg-ui ./node_modules/@tg/ui

@@ -16,9 +16,9 @@
 			"@tg/ui",
 			"@tg/ui/utils",
 			"@tg/ui/imgs",
-			"@scc/scc-ui-kit/addons",
-			"@scc/scc-ui-kit/addons/validators",
-			"@scc/scc-ui-kit/addons/formatters"
+			"@scc/ui-kit/addons",
+			"@scc/ui-kit/addons/validators",
+			"@scc/ui-kit/addons/formatters"
 		],
 		"no-implicit-dependencies": false,
 		"no-shadowed-variable": false,

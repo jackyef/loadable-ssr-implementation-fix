@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import Raven from 'raven-js';
 import { Provider } from 'mobx-react';
 
-import { NotifyBox } from '@scc/scc-ui-kit';
+import { NotifyBox } from '@scc/ui-kit';
 import { renderRoutes } from '@tg/ui/utils';
 import { api, Context } from '@tg/ui/config';
 
