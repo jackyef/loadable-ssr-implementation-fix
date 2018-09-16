@@ -1,6 +1,8 @@
 # Stage 1 - build express app
 FROM node:9.11.1 as bundle
 
+MAINTAINER Vashchuk Maksim "vashchukmaksim@gmail.com"
+
 RUN apt-get update -y
 RUN apt-get install apt-transport-https -y
 
