@@ -1,2 +1,2 @@
-export { default as PublicHeader } from './PublicHeader';
-export { default as PublicFooter } from './PublicFooter';
+export { default as ContentSection } from './ContentSection';
+export { default as Header, Nav as TypeNav } from './Header';
