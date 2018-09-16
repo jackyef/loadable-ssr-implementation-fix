@@ -1,13 +1,10 @@
 /**
  * Auth route
  */
-import _ from 'lodash';
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/ui/utils';
-
-import { PublicHeader, PublicFooter } from '../../../components';
 
 const styles: Styles = require('./Auth.module.less');
 
@@ -29,25 +26,19 @@ type Props = {
 /**
  * Authentication container
  */
-const Auth: React.SFC<Props> = ({ route, location }) => {
+const Auth: React.SFC<Props> = ({ route }) => {
 
 	// Get path that we currently on to pass to a Header component
 	// - in - Create new account (button)
 	// - up - Log in (button)
-	const path = _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
+	// const path = _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
 
 	return (
 		<>
-			{/* Header */}
-			<PublicHeader auth={ path } />
-
 			{/* Content */}
 			<main className={ styles.self }>
 				{ renderRoutes(route.routes) }
 			</main>
-
-			{/* Footer */}
-			<PublicFooter />
 		</>
 	);
 };
