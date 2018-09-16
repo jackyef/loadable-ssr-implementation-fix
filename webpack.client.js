@@ -31,7 +31,7 @@ function createFileLoader(rootPath) {
 		loader: 'file-loader',
 		options: {
 			name: '[name].[ext]',
-			publicPath: '/static/public',
+			publicPath: '/static/public' + (rootPath ?  '/' + rootPath.toString() : ''),
 			outputPath: rootPath ? rootPath.toString() : '',
 			useRelativePath: false
 		}
