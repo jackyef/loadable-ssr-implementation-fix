@@ -168,10 +168,10 @@ const config = {
 			// Images
 			{
 				test: /\.jpe?g$|\.gif$|\.ico$|\.png$|^(?!.*\.inline\.svg$).*\.svg$/,
-				include: [
-					path.resolve(__dirname, "node_modules/@tg/ui/resources/images"),
-					path.resolve(__dirname, "src/resources/images"),
-				],
+				// include: [
+				// 	path.resolve(__dirname, "node_modules/@tg/ui/resources/images"),
+				// 	path.resolve(__dirname, "src/resources/images"),
+				// ],
 				use: createFileLoader('images')
 			},
 

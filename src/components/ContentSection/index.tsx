@@ -6,7 +6,7 @@
  */
 import React from 'react';
 
-const styles: Styles = require('./ContentSection.module.less');
+const _styles: Styles = require('./ContentSection.module.less');
 
 type Styles = {
 	self?: string;
@@ -33,17 +33,23 @@ type Props = {
 	 *   to normal rulers section ('narrow')
 	 */
 	rulers?: 'no' | 'normal' | 'narrow';
+
+	/**
+	 * Additional styles such as positioning inside section
+	 */
+	styles?: string;
 };
 
 const defaultProps: Partial<Props> = {
-	rulers: 'normal'
+	rulers: 'normal',
+	styles: ''
 };
 
 /**
  * Content section component used on public pages
  */
-const ContentSection: React.SFC<Props> = ({ children, rulers }) => (
-	<section className={`${ styles.self } rulers__${ rulers }`}>
+const ContentSection: React.SFC<Props> = ({ children, rulers, styles }) => (
+	<section className={`${ _styles.self } rulers__${ rulers } ${ styles }`}>
 		{ children }
 	</section>
 );

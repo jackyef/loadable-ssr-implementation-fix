@@ -4,6 +4,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import { Promo } from '../../../../components';
+
 /**
  * Landing route
  */
@@ -15,7 +17,9 @@ const Index: React.SFC<{}> = () => {
 		</Helmet>
 
 		{/* Content cards */}
-		<main />
+		<main>
+			<Promo />
+		</main>
 	</>
 	);
 };

@@ -15,18 +15,24 @@ type HeaderNav = {
 export const headerNav: HeaderNav = {
 	left: [
 		{
-			title: 'About'
+			title: 'About',
+			style: 'nav'
 		},
 		{
-			title: 'Pricing'
+			title: 'Pricing',
+			style: 'nav'
 		},
 		{
-			title: 'Bonuses'
+			title: 'Bonuses',
+			style: 'nav'
 		}
 	],
 	right: [
 		{
-			title: 'Join our channel'
+			title: 'Join our channel',
+			style: 'nav',
+			// TODO: Change to imported icon from @tg/ui
+			icon: '/static/public/images/icon_join_channel.svg'
 		}
 	]
 };

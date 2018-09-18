@@ -14,3 +14,8 @@ import './favicon/site.webmanifest';
 
 // browserconfig
 require('./favicon/browserconfig.xml');
+
+export default {
+	promo_illustration: require('./images/promo_illustration.png'),
+	icon_key: require('./images/icon_key.svg')
+};
