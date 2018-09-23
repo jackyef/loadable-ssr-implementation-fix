@@ -1,0 +1,59 @@
+@import (reference) '~@tg/ui/styles.less';
+
+.self {
+	.flex-between-center();
+
+	z-index: 1;
+
+	border-radius: @const-border-card-radius;
+
+	box-shadow: @shadow-card-hover;
+
+	> div {
+		position: relative;
+
+		height: 280px;
+		padding: 60px;
+	}
+}
+
+.left {
+	width: 45%;
+
+	background: @cc-sub;
+
+	border-top-left-radius: @const-border-card-radius;
+	border-bottom-left-radius: @const-border-card-radius;
+
+	> p {
+		.text-sub-title();
+
+		margin-top: 10px;
+	}
+
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: 42px;
+		right: -99px;
+		z-index: 1;
+
+		@size: 197px;
+		width: @size;
+		height: @size;
+
+		background: @cc-sub;
+
+		transform: scaleX(.3) rotate(45deg);
+	}
+}
+
+.right {
+	width: 55%;
+
+	background: #fff;
+
+	border-top-right-radius: @const-border-card-radius;
+	border-bottom-right-radius: @const-border-card-radius;
+}

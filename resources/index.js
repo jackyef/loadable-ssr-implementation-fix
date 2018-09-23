@@ -14,3 +14,22 @@ import './favicon/site.webmanifest';
 
 // browserconfig
 require('./favicon/browserconfig.xml');
+
+export default {
+	promo_illustration: require('./images/promo_illustration.png'),
+	icon_key: require('./images/icon_key.svg'),
+	icon_feature_ad: require('./images/icon_feature_ad.svg'),
+	icon_feature_stats: require('./images/icon_feature_stats.svg'),
+	icon_feature_write: require('./images/icon_feature_write.svg'),
+	bg_pattern_dots: require('./images/bg_pattern_dots.svg'),
+	manage_features_illustration: require('./images/manage_features_illustration.png'),
+	demo_manage: require('./images/demo_manage.png'),
+	demo_team: require('./images/demo_team.png'),
+	icon_offer_beta: require('./images/icon_offer_beta.svg'),
+	icon_offer_blogger: require('./images/icon_offer_blogger.svg'),
+	icon_offer_admin: require('./images/icon_offer_admin.svg'),
+	icon_offer_master: require('./images/icon_offer_master.svg'),
+	icon_mark: require('./images/icon_mark.svg'),
+	icon_star: require('./images/icon_start.svg'),
+	icon_plane: require('./images/icon_plane.svg')
+};

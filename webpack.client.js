@@ -31,7 +31,7 @@ function createFileLoader(rootPath) {
 		loader: 'file-loader',
 		options: {
 			name: '[name].[ext]',
-			publicPath: '/static/public',
+			publicPath: '/static/public' + (rootPath ?  '/' + rootPath.toString() : ''),
 			outputPath: rootPath ? rootPath.toString() : '',
 			useRelativePath: false
 		}
@@ -168,10 +168,10 @@ const config = {
 			// Images
 			{
 				test: /\.jpe?g$|\.gif$|\.ico$|\.png$|^(?!.*\.inline\.svg$).*\.svg$/,
-				include: [
-					path.resolve(__dirname, "node_modules/@tg/ui/resources/images"),
-					path.resolve(__dirname, "src/resources/images"),
-				],
+				// include: [
+				// 	path.resolve(__dirname, "node_modules/@tg/ui/resources/images"),
+				// 	path.resolve(__dirname, "src/resources/images"),
+				// ],
 				use: createFileLoader('images')
 			},
 
@@ -284,7 +284,6 @@ if (process.env.NODE_ENV === 'production') {
 
 	config.plugins.push(
 		new CompressionPlugin({
-			asset: '[path].gz[query]',
 			algorithm: 'gzip',
 			test: /\.js$|\.css$|\.html$/,
 			threshold: 0,

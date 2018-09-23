@@ -101,7 +101,7 @@ const config = {
     // but we don't care. What we do care is that webpack bundle
     // works faster
     externals: [webpackNodeExternals({
-		whitelist: [/^@scc\/scc-ui-kit/, /^@tg\/ui/]
+		whitelist: [/^@scc\/ui-kit/, /^@tg\/ui/]
     })]
 };
 

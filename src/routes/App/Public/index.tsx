@@ -6,7 +6,9 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/ui/utils';
 
-import { PublicHeader, PublicFooter } from '../../../components';
+import { Header } from '../../../components';
+
+import { headerNav } from '../../../config';
 
 const styles: Styles = require('./Public.module.less');
 
@@ -25,14 +27,10 @@ const Container: React.SFC<Props> = ({ route }) => {
 	return (
 		<div className={ styles.self }>
 
-			{/* Header */}
-			<PublicHeader />
+			<Header nav={ headerNav } />
 
 			{/* Content */}
 			{ renderRoutes(route.routes) }
-
-			{/* Footer */}
-			<PublicFooter />
 
 		</div>
 	);

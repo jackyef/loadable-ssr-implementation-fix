@@ -37,7 +37,7 @@ export default class Container extends React.Component<Props> {
 					notifyStore.awake({
 						name: data.id || 0,
 						header: data.title || 'Unknown message',
-						text: data.text || `Some ${ data.status || 'problem' } occured but we can not provide a detailed information`,
+						text: data.text || `Some ${ data.status || 'problem' } occurred but we can not provide a detailed information`,
 						state: data.status || 'info',
 						delay: data.status === 'error' ? null : 8000
 					});

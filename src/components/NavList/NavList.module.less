@@ -1,0 +1,26 @@
+@import (reference) '~@tg/ui/styles.less';
+
+// <nav> Common navigation positioning
+.self {
+	> ul {
+		.flex-between-center();
+
+		> li {
+			margin: 0 13px;
+
+			&:first-child { margin-left: 0; }
+			&:last-child { margin-right: 0; }
+		}
+	}
+
+	// Align right nav
+	&:last-child {
+		margin-right: -12px;
+	}
+
+	// Align left nav
+	&:not(:last-child) {
+		margin-right: auto;
+		margin-left: 31px;
+	}
+}
