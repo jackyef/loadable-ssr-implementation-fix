@@ -41,4 +41,7 @@ pipelines:
         - docker
         - node
         script:
-        - docker build -t example-react-app:$BITBUCKET_COMMIT .
+        - export IMAGE_NAME=gcr.io/<google-cloud-project-name>/<application-name>:$BITBUCKET_COMMIT
+        - docker build -t $IMAGE_NAME .
+        - docker login -u _json_key -p "$GCR_KEY" https://gcr.io
+        - docker push $IMAGE_NAME
