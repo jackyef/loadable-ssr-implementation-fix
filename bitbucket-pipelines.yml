@@ -8,7 +8,6 @@ pipelines:
     master:
     - step:
         name: Build
-        deployment: staging
         caches:
         - docker
         - node
@@ -30,7 +29,6 @@ pipelines:
 
     - step:
         name: Test
-        deployment: staging
         caches:
         - docker
         - node
@@ -39,7 +37,6 @@ pipelines:
 
     - step:
         name: Build and push docker image to the registry
-        deployment: staging
         caches:
         - docker
         - node
