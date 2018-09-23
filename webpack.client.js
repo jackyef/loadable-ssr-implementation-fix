@@ -22,7 +22,10 @@ const LINKED_MODULES = process.env.NODE_ENV === 'development'
 		'/Users/max/Documents/repos/ui-kit',
 		'/Users/max/Documents/repos/tg/tg-ui'
 	]
-	: []
+	: [
+		path.resolve(__dirname, 'node_modules/@scc/ui-kit'),
+		path.resolve(__dirname, 'node_modules/@tg/ui'),
+	]
 ;
 
 // File loader
