@@ -12,7 +12,7 @@ pipelines:
         caches:
         - docker
         - node
-        scripts:
+        script:
         - mkdir -p /root/.ssh/
         - cp id_rsa /root/.ssh/id_rsa
         - chmod 600 /root/.ssh/id_rsa
@@ -29,20 +29,19 @@ pipelines:
         - yarn prd:build-server
 
     - step:
-      name: Test
-      deployment: test
-      caches:
-      - docker
-      - node
-      scripts:
-      - yarn test
+        name: Test
+        deployment: test
+        caches:
+        - docker
+        - node
+        script:
+        - yarn test
 
     - step:
-      name: Build and push docker image to the registry
-      deployment: test
-      caches:
-      - docker
-      - node
-      scripts:
-      - docker build -t example-react-app:$BITBUCKET_COMMIT .
-      -
+        name: Build and push docker image to the registry
+        deployment: test
+        caches:
+        - docker
+        - node
+        script:
+        - docker build -t example-react-app:$BITBUCKET_COMMIT .
