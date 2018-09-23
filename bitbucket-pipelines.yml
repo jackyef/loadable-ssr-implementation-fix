@@ -1,0 +1,48 @@
+image: node:10
+
+options:
+  docker: true
+
+pipelines:
+  branches:
+    master:
+    - step:
+        name: Build
+        deployment: test
+        caches:
+        - docker
+        - node
+        scripts:
+        - mkdir -p /root/.ssh/
+        - cp id_rsa /root/.ssh/id_rsa
+        - chmod 600 /root/.ssh/id_rsa
+        - touch /root/.ssh/known_hosts
+        - ssh-keyscan -T 60 bitbucket.org >> /root/.ssh/known_hosts
+        - git clone git@bitbucket.org:sccockpit/ui-kit.git
+        - git clone git@bitbucket.org:souldevsteam/tg-ui.git
+        - yarn
+        - mkdir -p ./node_modules/@scc
+        - mv ./ui-kit ./node_modules/@scc/ui-kit
+        - mkdir -p ./node_modules/@tg
+        - mv ./tg-ui ./node_modules/@tg/ui
+        - yarn prd:build-client
+        - yarn prd:build-server
+
+    - step:
+      name: Test
+      deployment: test
+      caches:
+      - docker
+      - node
+      scripts:
+      - yarn test
+
+    - step:
+      name: Build and push docker image to the registry
+      deployment: test
+      caches:
+      - docker
+      - node
+      scripts:
+      - docker build -t example-react-app:$BITBUCKET_COMMIT .
+      -

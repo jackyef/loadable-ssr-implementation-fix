@@ -4,36 +4,14 @@
 .self {
 	.flex-between-center();
 
+	z-index: 1;
+
 	width: 100%;
+	max-width: 1400px;
 	padding: 45px 120px;
 
 	// Logo
 	> div {
 		margin-left: -55px;
-	}
-}
-
-// <nav> Common navigation positioning
-.nav {
-	> ul {
-		.flex-between-center();
-
-		> li {
-			margin: 0 13px;
-
-			&:first-child { margin-left: 0; }
-			&:last-child { margin-right: 0; }
-		}
-	}
-
-	// Align right nav
-	&:last-child {
-		margin-right: -12px;
-	}
-
-	// Align left nav
-	&:not(:last-child) {
-		margin-right: auto;
-		margin-left: 31px;
 	}
 }

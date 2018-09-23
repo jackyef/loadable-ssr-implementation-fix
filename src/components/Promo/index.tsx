@@ -4,13 +4,8 @@
  */
 import React from 'react';
 
-import { FormRoot } from '@scc/ui-kit';
-import { FieldInput } from '@scc/ui-kit/addons';
-
-import { Headline, Btn } from '@tg/ui';
-
-import { subscribeStore } from '../../stores';
-import ContentSection from '../ContentSection';
+import { Headline } from '@tg/ui';
+import SubscribeForm from '../SubscribeForm';
 
 import images from '../../../resources';
 const styles: Styles = require('./Promo.module.less');
@@ -19,8 +14,6 @@ type Styles = {
 	self?: string;
 	left?: string;
 	headline?: string;
-	subscribe?: string;
-	field?: string;
 };
 
 /**
@@ -28,8 +21,7 @@ type Styles = {
  */
 const Promo: React.SFC<{}> = () => {
 	return (
-		<ContentSection styles={ styles.self }>
-
+		<>
 			{/* Left side */}
 			<div className={ styles.left }>
 
@@ -40,31 +32,13 @@ const Promo: React.SFC<{}> = () => {
 				</Headline>
 
 				{/* Subscribe */}
-				<FormRoot wrapper="form" inject={ subscribeStore } styles={ styles.subscribe }>
-
-					{/* Title */}
-					<span>{ 'Get your early access' }<img src={ images.icon_key } /></span>
-
-					{/* Form */}
-					<div>
-						<FieldInput placeholder="Enter your email" styles={{ custom: styles.field }} />
-						<Btn style="general_small" title="Subscribe" />
-					</div>
-
-					{/* Rules */}
-					<ul>
-						<li>{ 'Free 30-day trial' }</li>
-						<li>{ 'No credit card required' }</li>
-					</ul>
-
-				</FormRoot>
-
+				<SubscribeForm />
 			</div>
 
 			{/* Right side */}
 			<img src={ images.promo_illustration } />
 
-		</ContentSection>
+		</>
 	);
 };
 

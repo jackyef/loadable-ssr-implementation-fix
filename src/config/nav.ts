@@ -16,7 +16,7 @@ export const headerNav: HeaderNav = {
 	left: [
 		{
 			title: 'About',
-			style: 'nav'
+			style: 'nav',
 		},
 		{
 			title: 'Pricing',
@@ -40,4 +40,15 @@ export const headerNav: HeaderNav = {
 /**
  * Footer navigation
  */
-export const footerNav: TypeNav[] = [];
+export const footerNav: TypeNav = [
+	{
+		title: 'Join our channel',
+		style: 'nav_footer',
+		// TODO: Change to imported icon from @tg/ui
+		icon: '/static/public/images/icon_join_channel.svg'
+	},
+	{
+		title: 'Contact us',
+		style: 'nav_footer'
+	}
+];

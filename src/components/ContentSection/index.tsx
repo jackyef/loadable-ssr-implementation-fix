@@ -14,6 +14,8 @@ type Styles = {
 	rulers__no?: string;
 	rulers__normal?: string;
 	rulers__narrow?: string;
+
+	[key: string]: string;
 };
 
 type Props = {
@@ -49,7 +51,7 @@ const defaultProps: Partial<Props> = {
  * Content section component used on public pages
  */
 const ContentSection: React.SFC<Props> = ({ children, rulers, styles }) => (
-	<section className={`${ _styles.self } rulers__${ rulers } ${ styles }`}>
+	<section className={`${ _styles.self } ${ _styles['rulers__' + rulers] } ${ styles }`}>
 		{ children }
 	</section>
 );

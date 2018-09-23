@@ -1,0 +1,67 @@
+@import (reference) '~@tg/ui/styles';
+
+// Features list container with
+// title and description
+.self {
+	.flex-column-start();
+
+	width: 430px;
+
+	> h2 {
+		padding-bottom: 20px;
+	}
+
+	// List description
+	> p {
+		.text-sub-title(@opaque: 'yes');
+
+		color: @cc-text-on-primary;
+	}
+}
+
+// Features list
+.list {
+	@feature-number-margin: 70px;
+
+	.flex-column-start();
+
+	margin-top: 60px;
+
+	> li {
+		.flex-column-start();
+
+		width: 265px + @feature-number-margin;
+
+		// Feature prefix number
+		> span {
+			position: absolute;
+
+			margin-top: 4px;
+
+			font-size: 16px;
+			font-weight: 600;
+
+			color: @cc-sub;
+		}
+
+		// Feature title
+		> h3 {
+			.text-h3();
+
+			padding-left: @feature-number-margin;
+			margin-bottom: 12px;
+		}
+
+		// Feature description
+		> p {
+			.text-par-on-primary(@opaque: 'yes');
+
+			width: 230px + @feature-number-margin;
+			padding-left: @feature-number-margin;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 32px;
+		}
+	}
+}

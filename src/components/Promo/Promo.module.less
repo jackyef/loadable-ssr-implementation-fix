@@ -1,15 +1,5 @@
 @import (reference) '~@tg/ui/styles.less';
 
-// <section> Container section
-.self {
-	.flex-between-center();
-
-	> img {
-		width: 500px;
-		margin-right: -40px;
-	}
-}
-
 // <h1> Promo title
 .headline {
 	.flex-column-start();
@@ -22,65 +12,5 @@
 	// First sentence
 	> span:first-child {
 		color: @cc-sub;
-	}
-}
-
-// <input> Email input field
-.field {
-	.field-dim-on-primary(@width: 380px);
-}
-
-// <form> Subscribe form
-.subscribe {
-	.flex-column-start();
-
-	margin-top: 80px;
-
-	// Title
-	> span {
-		.flex-start-center();
-		.text-sub-title();
-
-		color: @cc-text-on-primary;
-
-		> img {
-			margin-left: 12px;
-		}
-	}
-
-	// Form (field and button)
-	> div {
-		.flex-start-center();
-
-		padding: 22px 0 12px 0;
-	}
-
-	// Rules
-	> ul {
-		.flex-start-center();
-
-		> li {
-			.flex-start-center();
-			.text-hint();
-
-			color: @cc-text-on-primary;
-			opacity: .6;
-
-			&:not(:last-child) {
-				&::after {
-					content: '';
-
-					display: block;
-
-					width: 4px;
-					height: 4px;
-					margin: 0 13px;
-
-					background: @cc-text-on-primary;
-
-					border-radius: 2px;
-				}
-			}
-		}
 	}
 }
