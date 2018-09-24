@@ -27,13 +27,13 @@ pipelines:
         - yarn prd:build-client
         - yarn prd:build-server
 
-    - step:
-        name: Test
-        caches:
-        - docker
-        - node
-        script:
-        - yarn test
+#    - step:
+#        name: Test
+#        caches:
+#        - docker
+#        - node
+#        script:
+#        - yarn test
 
     - step:
         name: Docker image
