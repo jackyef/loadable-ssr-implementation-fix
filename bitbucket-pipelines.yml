@@ -6,26 +6,27 @@ options:
 pipelines:
   branches:
     master:
-    - step:
-        name: Build
-        caches:
-        - docker
-        - node
-        script:
-        - mkdir -p /root/.ssh/
-        - cp id_rsa /root/.ssh/id_rsa
-        - chmod 600 /root/.ssh/id_rsa
-        - touch /root/.ssh/known_hosts
-        - ssh-keyscan -T 60 bitbucket.org >> /root/.ssh/known_hosts
-        - git clone git@bitbucket.org:sccockpit/ui-kit.git
-        - git clone git@bitbucket.org:souldevsteam/tg-ui.git
-        - yarn
-        - mkdir -p ./node_modules/@scc
-        - mv ./ui-kit ./node_modules/@scc/ui-kit
-        - mkdir -p ./node_modules/@tg
-        - mv ./tg-ui ./node_modules/@tg/ui
-        - yarn prd:build-client
-        - yarn prd:build-server
+
+#    - step:
+#        name: Build
+#        caches:
+#        - docker
+#        - node
+#        script:
+#        - mkdir -p /root/.ssh/
+#        - cp id_rsa /root/.ssh/id_rsa
+#        - chmod 600 /root/.ssh/id_rsa
+#        - touch /root/.ssh/known_hosts
+#        - ssh-keyscan -T 60 bitbucket.org >> /root/.ssh/known_hosts
+#        - git clone git@bitbucket.org:sccockpit/ui-kit.git
+#        - git clone git@bitbucket.org:souldevsteam/tg-ui.git
+#        - yarn
+#        - mkdir -p ./node_modules/@scc
+#        - mv ./ui-kit ./node_modules/@scc/ui-kit
+#        - mkdir -p ./node_modules/@tg
+#        - mv ./tg-ui ./node_modules/@tg/ui
+#        - yarn prd:build-client
+#        - yarn prd:build-server
 
 #    - step:
 #        name: Test
@@ -41,7 +42,6 @@ pipelines:
         - docker
         - node
         script:
-        - export IMAGE_NAME=gcr.io/<google-cloud-project-name>/<application-name>:$BITBUCKET_COMMIT
-        - docker build -t $IMAGE_NAME .
+        - docker build -t gcr.io/platformgram/tg-ui-public:$BITBUCKET_COMMIT .
         - docker login -u _json_key -p "$GCR_KEY" https://gcr.io
-        - docker push $IMAGE_NAME
+        - docker push gcr.io/platformgram/tg-ui-public:$BITBUCKET_COMMIT
