@@ -38,10 +38,16 @@ pipelines:
 
     - step:
         name: Docker image
+        services:
+        - docker
         caches:
         - docker
-        - node
         script:
         - docker build -t gcr.io/platformgram/tg-ui-public:$BITBUCKET_COMMIT .
         - docker login -u _json_key -p "$GCR_KEY" https://gcr.io
         - docker push gcr.io/platformgram/tg-ui-public:$BITBUCKET_COMMIT
+
+definitions:
+  services:
+    docker:
+      memory: 2048
