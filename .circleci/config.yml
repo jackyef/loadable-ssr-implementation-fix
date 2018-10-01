@@ -44,8 +44,6 @@ workflows:
   pipeline:
     jobs:
     - build
-    triggers:
-    - schedule:
         filters:
           branches:
             only:
