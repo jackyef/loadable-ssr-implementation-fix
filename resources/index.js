@@ -31,5 +31,8 @@ export default {
 	icon_offer_master: require('./images/icon_offer_master.svg'),
 	icon_mark: require('./images/icon_mark.svg'),
 	icon_star: require('./images/icon_start.svg'),
-	icon_plane: require('./images/icon_plane.svg')
+	icon_plane: require('./images/icon_plane.svg'),
+	slide_01: require('./images/slide_01.jpg'),
+	slide_02: require('./images/slide_02.jpg'),
+	slide_03: require('./images/slide_03.jpg')
 };
