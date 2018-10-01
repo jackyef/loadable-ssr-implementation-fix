@@ -1,0 +1,51 @@
+version: 2
+jobs:
+  build:
+    docker:
+    - image: circleci/node:10
+
+    branches:
+      only:
+      - master
+
+    working_directory: ~/repo
+
+    steps:
+    - checkout
+
+    # Download and cache dependencies
+    - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "package.json" }}
+        # fallback to using the latest cache if no exact match is found
+        - v1-dependencies-
+
+    - run: yarn install
+
+    - save_cache:
+        paths:
+        - node_modules
+        key: v1-dependencies-{{ checksum "package.json" }}
+
+    - run:
+      name: Clone inner dependencies
+      command: |
+        git clone git@bitbucket.org:sccockpit/ui-kit.git
+        git clone git@bitbucket.org:souldevsteam/tg-ui.git
+        mkdir -p ./node_modules/@scc
+        mv ./ui-kit ./node_modules/@scc/ui-kit
+        mkdir -p ./node_modules/@tg
+        mv ./tg-ui ./node_modules/@tg/ui
+
+    - run:
+      name: Build
+      command: |
+        yarn run prd:build-client
+        yarn run prd:build-server
+
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - build
+
