@@ -4,10 +4,6 @@ jobs:
     docker:
     - image: circleci/node:10
 
-    branches:
-      only:
-      - master
-
     working_directory: ~/repo
 
     steps:
@@ -47,5 +43,10 @@ workflows:
   version: 2
   pipeline:
     jobs:
-      - build
-
+    - build
+    triggers:
+    - schedule:
+        filters:
+          branches:
+            only:
+            - master
