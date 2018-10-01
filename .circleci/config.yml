@@ -43,5 +43,9 @@ jobs:
         yarn run prd:build-client
         yarn run prd:build-server
 
-    # run tests!
-    # - run: yarn test
+workflows:
+  version: 2
+  pipeline:
+    jobs:
+      - build
+
