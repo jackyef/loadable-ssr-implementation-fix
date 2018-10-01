@@ -11,3 +11,4 @@ export { default as ReleaseRoadmap } from './ReleaseRoadmap';
 export { default as Subscribe } from './Subscribe';
 export { default as SubscribeForm } from './SubscribeForm';
 export { default as Footer } from './Footer';
+export { default as Slideshow } from './Slideshow';

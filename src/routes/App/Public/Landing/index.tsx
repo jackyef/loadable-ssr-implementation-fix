@@ -13,7 +13,8 @@ import {
 	BetaPriceCard,
 	ReleaseRoadmap,
 	Subscribe,
-	Footer
+	Footer,
+	Slideshow
 } from '../../../../components';
 
 import {
@@ -39,6 +40,7 @@ type Styles = {
 	posts_features?: string;
 	team_features?: string;
 	pricing?: string;
+	slideshow?: string;
 	demo?: string;
 	roadmap?: string;
 	subscribe?: string;
@@ -68,6 +70,11 @@ const Index: React.SFC<{}> = () => {
 				<ContentSection styles={ styles.promo_features } >
 					<img src={ images.bg_pattern_dots } />
 					<FeaturesIconed features={ dataIconedFeatures } />
+				</ContentSection>
+
+				{/* Slideshow of product screens */}
+				<ContentSection styles={ styles.slideshow } rulers="no">
+					<Slideshow images={[images.slide_01, images.slide_02, images.slide_03]} />
 				</ContentSection>
 
 				{/* Vertical list of management features */}
