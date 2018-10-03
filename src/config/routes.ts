@@ -13,7 +13,7 @@ export const routes = {
 	home: `/${ indexRoute }/home`,
 
 	// Products (external)
-	poster: '/post',
+	poster: '/post/dashboard',
 	market: '/market',
 
 	// Public (internal)

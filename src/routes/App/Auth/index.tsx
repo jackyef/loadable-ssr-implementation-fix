@@ -1,21 +1,28 @@
 /**
  * Auth route
  */
+import _ from 'lodash';
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
+import { Header } from '@tg/ui';
+import { resources } from '@tg/ui/res';
 import { renderRoutes } from '@tg/ui/utils';
+
+import { authHeaderNav } from '../../../config';
+import { history } from '../../';
 
 const styles: Styles = require('./Auth.module.less');
 
 export type Styles = {
-	self?: any;
-	form?: any;
-	google?: any;
-	field?: any; // theme
-	field_focus?: any; // theme__focus
-	field_error?: any; // theme__error
-	submit?: any;
+	self?: string;
+	form?: string;
+	header?: string;
+	google?: string;
+	field?: string; // theme
+	field_focus?: string; // theme__focus
+	field_error?: string; // theme__error
+	submit?: string;
 };
 
 type Props = {
@@ -31,12 +38,17 @@ const Auth: React.SFC<Props> = ({ route }) => {
 	// Get path that we currently on to pass to a Header component
 	// - in - Create new account (button)
 	// - up - Log in (button)
-	// const path = _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
+	const path = _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
 
 	return (
 		<>
+			{/* Header */}
+			<Header history={ history } nav={ authHeaderNav(path) } styles={ styles.header } />
+
 			{/* Content */}
 			<main className={ styles.self }>
+				<img src={ resources.bg_pattern_dots } />
+				<img src={ resources.bg_pattern_dots } />
 				{ renderRoutes(route.routes) }
 			</main>
 		</>
