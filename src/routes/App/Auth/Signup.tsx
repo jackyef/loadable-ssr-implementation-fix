@@ -9,7 +9,7 @@ import { FormRoot, canUseDOM } from '@scc/ui-kit';
 import { FieldInput as Input, Submit } from '@scc/ui-kit/addons';
 import { required, email } from '@scc/ui-kit/addons/validators';
 
-import { Btn } from '@tg/ui';
+import { Btn, Headline } from '@tg/ui';
 import { api } from '@tg/ui/config';
 const icons = require('@tg/ui/resources');
 
@@ -43,7 +43,7 @@ const SignUp: React.SFC<Props> = () => {
 	return (
 	<>
 		<Helmet>
-			<title>{ 'Sign Up - Email & Socials' }</title>
+			<title>{ 'Create account - Email & Socials' }</title>
 		</Helmet>
 
 		{/* Form */}
@@ -52,7 +52,7 @@ const SignUp: React.SFC<Props> = () => {
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
 		>
 			{/* Title */}
-			<h1>{ 'Sign Up' }</h1>
+			<Headline h={1} title="Create account" />
 
 			{/* Email */}
 			<Input name="email" placeholder="Email"

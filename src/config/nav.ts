@@ -2,7 +2,13 @@
  * Header and footer current navigation
  * configurations
  */
-import { TypeNav } from '../components';
+import _ from 'lodash';
+
+import { authenticated } from '@tg/ui/utils';
+import { resources } from '@tg/ui/res';
+import { TypeNav } from '@tg/ui';
+
+import { routes } from './routes';
 
 type HeaderNav = {
 	left?: TypeNav;
@@ -17,14 +23,17 @@ export const headerNav: HeaderNav = {
 		{
 			title: 'About',
 			style: 'nav',
+			scroll: 'features'
 		},
 		{
 			title: 'Pricing',
-			style: 'nav'
+			style: 'nav',
+			scroll: 'pricing'
 		},
 		{
 			title: 'Bonuses',
-			style: 'nav'
+			style: 'nav',
+			scroll: 'roadmap'
 		}
 	],
 	right: [
@@ -32,9 +41,29 @@ export const headerNav: HeaderNav = {
 			title: 'Join our channel',
 			style: 'nav',
 			// TODO: Change to imported icon from @tg/ui
-			icon: '/static/public/images/icon_join_channel.svg'
+			icon: resources.icon_join_channel
+		},
+		{
+			title: authenticated() ? 'Channels' : 'Sign in',
+			style: 'general_small',
+			nav: !authenticated(),
+			url: authenticated() ? null : routes.auth.signin,
+			onClick: !authenticated() ? _.noop : () => window.location.assign(routes.poster)
 		}
 	]
+};
+
+export const authHeaderNav = (path: 'up' | 'in'): HeaderNav => {
+	return {
+		right: [
+			{
+				title: path === 'up' ? 'Sign in' : 'Create account',
+				style: 'general_small',
+				nav: true,
+				url: path === 'up' ? routes.auth.signin : routes.auth.signup
+			}
+		]
+	};
 };
 
 /**
@@ -45,7 +74,7 @@ export const footerNav: TypeNav = [
 		title: 'Join our channel',
 		style: 'nav_footer',
 		// TODO: Change to imported icon from @tg/ui
-		icon: '/static/public/images/icon_join_channel.svg'
+		icon: resources.icon_join_channel
 	},
 	{
 		title: 'Contact us',

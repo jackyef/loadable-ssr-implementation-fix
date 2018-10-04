@@ -4,11 +4,11 @@
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
+import { Header } from '@tg/ui';
 import { renderRoutes } from '@tg/ui/utils';
 
-import { Header } from '../../../components';
-
 import { headerNav } from '../../../config';
+import { history } from '../../';
 
 const styles: Styles = require('./Public.module.less');
 
@@ -27,7 +27,7 @@ const Container: React.SFC<Props> = ({ route }) => {
 	return (
 		<div className={ styles.self }>
 
-			<Header nav={ headerNav } />
+			<Header history={ history } nav={ headerNav } />
 
 			{/* Content */}
 			{ renderRoutes(route.routes) }

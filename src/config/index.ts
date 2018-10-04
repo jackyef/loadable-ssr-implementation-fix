@@ -3,11 +3,11 @@ import { ContextType } from '@tg/ui/config';
 import { notifyStore } from '../stores';
 import { axiosInstance } from './api';
 
-export { axiosInstance, botName } from './api';
+export { axiosInstance } from './api';
 export { appContainerHTMLTag } from './base';
 export { routes, indexRoute } from './routes';
 
-export { headerNav, footerNav } from './nav';
+export { headerNav, footerNav, authHeaderNav } from './nav';
 export {
 	dataIconedFeatures,
 	dataManagingFeatures,

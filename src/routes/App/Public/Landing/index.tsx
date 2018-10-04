@@ -7,15 +7,16 @@ import { Helmet } from 'react-helmet';
 import {
 	Promo,
 	FeaturesIconed,
-	ContentSection,
+	ContentSectionPublic,
 	FeaturesNumbered,
 	Pricing,
 	BetaPriceCard,
 	ReleaseRoadmap,
 	Subscribe,
-	Footer,
 	Slideshow
-} from '../../../../components';
+} from '@tg/ui';
+
+import { resources } from '@tg/ui/res';
 
 import {
 	dataIconedFeatures,
@@ -24,11 +25,10 @@ import {
 	dataTeamFeatures,
 	dataPricing,
 	dataPricingFeatures,
-	dataBetaPriceCard,
-	footerNav
+	dataBetaPriceCard
 } from '../../../../config';
 
-import images from '../../../../../resources';
+import { subscribeStore } from '../../../../stores';
 
 const styles: Styles = require('./Landing.module.less');
 
@@ -50,7 +50,7 @@ type Styles = {
 /**
  * Landing route
  */
-const Index: React.SFC<{}> = () => {
+const Landing: React.SFC<{}> = () => {
 	return (
 		<>
 			<Helmet>
@@ -61,25 +61,25 @@ const Index: React.SFC<{}> = () => {
 			<main>
 
 				{/* Promo */}
-				<ContentSection styles={ styles.promo }>
-					<img src={ images.bg_pattern_dots } />
-					<Promo />
-				</ContentSection>
+				<ContentSectionPublic name="promo" styles={ styles.promo }>
+					<img src={ resources.bg_pattern_dots } />
+					<Promo subscribeFormStore={ subscribeStore } />
+				</ContentSectionPublic>
 
 				{/* Horizontal iconed features */}
-				<ContentSection styles={ styles.promo_features } >
-					<img src={ images.bg_pattern_dots } />
+				<ContentSectionPublic name="features" styles={ styles.promo_features } >
+					<img src={ resources.bg_pattern_dots } />
 					<FeaturesIconed features={ dataIconedFeatures } />
-				</ContentSection>
+				</ContentSectionPublic>
 
 				{/* Slideshow of product screens */}
-				<ContentSection styles={ styles.slideshow } rulers="no">
-					<Slideshow images={[images.slide_01, images.slide_02, images.slide_03]} />
-				</ContentSection>
+				<ContentSectionPublic name="slideshow" styles={ styles.slideshow } fullWidth rulers="no">
+					<Slideshow images={[resources.slide_01, resources.slide_02, resources.slide_03]} />
+				</ContentSectionPublic>
 
 				{/* Vertical list of management features */}
-				<ContentSection rulers="narrow" styles={ styles.manage_features }>
-					<img src={ images.bg_pattern_dots } />
+				<ContentSectionPublic name="features_management" rulers="narrow" styles={ styles.manage_features }>
+					<img src={ resources.bg_pattern_dots } />
 					<FeaturesNumbered features={ dataManagingFeatures }
 						title="Managing and scheduling posts"
 						desc={ 'Saves time and helps \nauthors to manage channels' }
@@ -88,17 +88,17 @@ const Index: React.SFC<{}> = () => {
 					{/* Demo feed */}
 					{/* TODO: Swap to a real demo */}
 					<div>
-						<img src={ images.manage_features_illustration } />
+						<img src={ resources.manage_features_illustration } />
 					</div>
-				</ContentSection>
+				</ContentSectionPublic>
 
 				{/* Creating posts */}
-				<ContentSection styles={ styles.posts_features }>
-					<img src={ images.bg_pattern_dots } />
+				<ContentSectionPublic name="features_posts" styles={ styles.posts_features }>
+					<img src={ resources.bg_pattern_dots } />
 
 					{/* TODO: Swap to a real demo */}
 					<div className={ styles.demo }>
-						<img src={ images.demo_manage } />
+						<img src={ resources.demo_manage } />
 					</div>
 
 					{/* Features */}
@@ -106,11 +106,11 @@ const Index: React.SFC<{}> = () => {
 						title="Creating posts"
 						desc="Saves time and helps authors to manage channels"
 					/>
-				</ContentSection>
+				</ContentSectionPublic>
 
 				{/* Team work */}
-				<ContentSection styles={ styles.team_features }>
-					<img src={ images.bg_pattern_dots } />
+				<ContentSectionPublic name="features_team" styles={ styles.team_features }>
+					<img src={ resources.bg_pattern_dots } />
 
 					<FeaturesNumbered features={ dataTeamFeatures }
 						title="Work together"
@@ -119,34 +119,30 @@ const Index: React.SFC<{}> = () => {
 
 					{/* TODO: Swap to a real demo */}
 					<div className={ styles.demo }>
-						<img src={ images.demo_team } />
+						<img src={ resources.demo_team } />
 					</div>
-				</ContentSection>
+				</ContentSectionPublic>
 
 				{/* Pricing */}
-				<ContentSection styles={ styles.pricing }>
+				<ContentSectionPublic name="pricing" styles={ styles.pricing }>
 					<Pricing offers={ dataPricing } features={ dataPricingFeatures }>
 						<BetaPriceCard { ...dataBetaPriceCard } />
 					</Pricing>
-				</ContentSection>
+				</ContentSectionPublic>
 
 				{/* Roadmap */}
-				<ContentSection styles={ styles.roadmap }>
-					<img src={ images.bg_pattern_dots } />
+				<ContentSectionPublic name="roadmap" styles={ styles.roadmap }>
+					<img src={ resources.bg_pattern_dots } />
 					<ReleaseRoadmap />
-				</ContentSection>
+				</ContentSectionPublic>
 
 				{/* Subscription combined with footer */}
-				<ContentSection styles={ styles.subscribe }>
-					<Subscribe />
-					<Footer nav={ footerNav } />
-				</ContentSection>
+				<ContentSectionPublic name="subscription" styles={ styles.subscribe }>
+					<Subscribe formStore={ subscribeStore } />
+				</ContentSectionPublic>
 			</main>
-
-			{/* Footer bg */}
-			<div className={ styles.footer_bg } />
 		</>
 	);
 };
 
-export default Index;
+export default Landing;

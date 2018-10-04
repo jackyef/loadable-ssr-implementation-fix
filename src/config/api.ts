@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-// Bot name
-export const botName = 'TgCreditsBot';
+import { baseAPIUrl } from '@tg/ui/config';
 
 /**
  * App axios instance
  */
 export const axiosInstance = axios.create({
-	baseURL: '/api'
+	baseURL: baseAPIUrl
 });

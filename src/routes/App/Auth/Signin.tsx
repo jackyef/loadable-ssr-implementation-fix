@@ -8,7 +8,7 @@ import { FormRoot, canUseDOM } from '@scc/ui-kit';
 import { FieldInput as Input, Submit } from '@scc/ui-kit/addons';
 import { required, email } from '@scc/ui-kit/addons/validators';
 
-import { Btn } from '@tg/ui';
+import { Btn, Headline } from '@tg/ui';
 import { api } from '@tg/ui/config';
 const icons = require('@tg/ui/resources');
 
@@ -47,7 +47,7 @@ const SignIn: React.SFC<{}> = () => {
 		>
 
 			{/* Title */}
-			<h1>{ 'Log In' }</h1>
+			<Headline h={1} title="Sign In" />
 
 			{/* Email */}
 			<Input name="email" placeholder="Email"

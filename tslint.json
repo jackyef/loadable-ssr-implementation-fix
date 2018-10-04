@@ -15,7 +15,7 @@
 			"react-loadable/webpack",
 			"@tg/ui",
 			"@tg/ui/utils",
-			"@tg/ui/imgs",
+			"@tg/ui/res",
 			"@scc/ui-kit/addons",
 			"@scc/ui-kit/addons/validators",
 			"@scc/ui-kit/addons/formatters"
