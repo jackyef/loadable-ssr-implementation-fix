@@ -43,6 +43,13 @@ jobs:
         command: |
           yarn run prd:build-client
           yarn run prd:build-server
+          mkdir -p artifacts
+          cp -R bundle_client ./artifacts
+
+    - persist_to_workspace:
+        root: artifacts
+        paths:
+        - bundle_client
 
   deploy_to_test:
     docker:
@@ -64,6 +71,14 @@ jobs:
           gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
           gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
+
+    - attach_workspace:
+        at: /tmp/artifacts
+
+    - run:
+        name: Upload static artefacts to the bucket
+        command: |
+          gsutil cp /tmp/artefacts/bundle_client/** gs://tg-static-bucket/static/public
 
     - setup_remote_docker
 
