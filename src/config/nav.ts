@@ -6,8 +6,8 @@ import _ from 'lodash';
 
 import { authenticated } from '@tg/ui/utils';
 import { resources } from '@tg/ui/res';
+import { TypeNav } from '@tg/ui';
 
-import { TypeNav } from '../../../tg-ui/src/components/Public/index';
 import { routes } from './routes';
 
 type HeaderNav = {
