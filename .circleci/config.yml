@@ -78,7 +78,7 @@ jobs:
     - run:
         name: Upload static artefacts to the bucket
         command: |
-          gsutil cp /tmp/artefacts/bundle_client/** gs://tg-static-bucket/static/public
+          gsutil cp /tmp/artifacts/bundle_client/** gs://tg-static-bucket/static/public
 
     - setup_remote_docker
 
