@@ -28,8 +28,7 @@ module.exports = {
 		modules: ['./', APP_DIR, NODE_MODULES],
 		symlinks: false,
 		alias: {
-			mobx: path.resolve(__dirname, 'node_modules/mobx'),
-			tgimg: path.resolve(__dirname, 'node_modules/@tg/ui/resources/images')
+			mobx: path.resolve(__dirname, 'node_modules/mobx')
 		},
 
 		plugins: [
@@ -52,13 +51,13 @@ module.exports = {
 				enforce: 'pre',
 				test: /.(js|.jsx)$/,
 				exclude: [/\.(spec|test)\.(js|jsx)$/],
-				use: [{loader: 'source-map-loader'}]
+				use: [{ loader: 'source-map-loader' }]
 			},
 
 			{
 				test: /\.(js|jsx)$/,
 				exclude: [/\.(spec|test)\.(js|jsx)$/, /localforage/, /\/node_modules\/localforage\//],
-				use: [{loader: 'babel-loader'}]
+				use: [{ loader: 'babel-loader' }]
 			},
 
 			// TS
@@ -66,7 +65,7 @@ module.exports = {
 				enforce: 'pre',
 				test: /.(ts|.tsx)$/,
 				exclude: [/\.(spec|test)\.(ts|tsx)$/],
-				use: [{loader: 'source-map-loader'}, {loader: 'tslint-loader'}]
+				use: [{ loader: 'source-map-loader' }, { loader: 'tslint-loader' }]
 			},
 
 			{
@@ -80,16 +79,15 @@ module.exports = {
 							configFileName: 'tsconfig.json'
 						}
 					}
-					// {loader: "babel-loader"}, {loader: "ts-loader"}
 				]
 			}
         ]
     },
 
 	optimization: {
+		sideEffects: false,
 		minimizer: [
 			new UglifyWebpackPlugin({
-				sourceMap: true,
 				cache: true,
 				parallel: true,
 				uglifyOptions: {

@@ -41,8 +41,8 @@ jobs:
     - run:
         name: Build
         command: |
-          yarn run prd:build-client
-          yarn run prd:build-server
+          yarn prd:build-client
+          yarn prd:build-server
           mkdir -p artifacts
           cp -R bundle_client ./artifacts
 

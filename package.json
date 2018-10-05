@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"description": "Telegram channel manager app",
 	"main": "src/index.tsx",
+	"sideEffects": false,
 	"dependencies": {
 		"@types/react-scroll": "^1.5.4",
 		"axios": "^0.18.0",

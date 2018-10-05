@@ -33,6 +33,20 @@ const postcssOptions = {
 	}
 };
 
+// File loader
+function createFileLoader(rootPath) {
+	return [{
+		loader: 'file-loader',
+		options: {
+			name: '[name].[ext]',
+			publicPath: '/static/public' + (rootPath ?  '/' + rootPath.toString() : ''),
+			outputPath: rootPath ? rootPath.toString() : '',
+			useRelativePath: false,
+			emitFile: false
+		}
+	}];
+}
+
 const config = {
     // Inform webpack that we are building a bundle
     // for NodeJS, rather than for the browser
@@ -81,13 +95,38 @@ const config = {
 				]
 			},
 
-			// Static files (images, fonts etc.)
+			// Fonts
 			{
-				test: /\.(ttf|eot|woff|woff2|svg|xml|jpe?g|gif|ico|png|webmanifest)$/,
-				use: [
-					{ loader: "file-loader", options: { emitFile: false } }
-				]
+				test: /\.ttf$|\.eot$|.\woff$|.\woff2$|^(?!.*\.inline\.svg$).*\.svg$/,
+				include: [
+					path.resolve(__dirname, "node_modules/@tg/ui/resources/fonts"),
+					path.resolve(__dirname, "node_modules/@scc/ui-kit/src/core/styles/__fonts__"),
+					path.resolve(__dirname, "node_modules/slick-carousel/slick/fonts"),
+					path.resolve(__dirname, "src/resources/fonts"),
+				],
+				use: createFileLoader('fonts')
 			},
+
+			// Images
+			{
+				test: /\.jpe?g$|\.gif$|\.ico$|\.png$|^(?!.*\.inline\.svg$).*\.svg$/,
+				use: createFileLoader('images')
+			},
+
+			// Favicon
+			{
+				test: /\.(ico|webmanifest|png|svg)$/,
+				include: /resources\/favicon/,
+				use: createFileLoader('favicon')
+			},
+
+			// browserconfig.xml
+			{
+				test: /browserconfig\.xml$/,
+				use: createFileLoader().concat([
+					{ loader: 'web-app-browserconfig-loader' }
+				])
+			}
 		]
 	},
 
