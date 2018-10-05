@@ -76,10 +76,11 @@ jobs:
         at: /tmp/artifacts
 
     - run:
-        name: Upload static artefacts to the bucket
+        name: Upload static artifacts to the bucket
         command: |
           gsutil rm -r gs://tg-static-bucket/static/public
           gsutil -m cp -r /tmp/artifacts/bundle_client gs://tg-static-bucket/static/public
+          gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
 
     - setup_remote_docker
 
