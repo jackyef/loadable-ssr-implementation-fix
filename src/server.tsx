@@ -15,6 +15,11 @@ const EXPRESS_SSR_PORT = process.env.EXPRESS_SSR_PORT || 3000;
 // Create express app
 const app = express();
 
+// Healthcheck
+app.get('/healthz', (req, res) => {
+	res.status(200).send('Healthy');
+});
+
 // Static
 app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 
