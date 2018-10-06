@@ -4,6 +4,8 @@
  */
 import _ from 'lodash';
 
+import { canUseDOM } from '@scc/ui-kit';
+
 import { authenticated } from '@tg/ui/utils';
 import { resources } from '@tg/ui/res';
 import { TypeNav } from '@tg/ui';
@@ -48,7 +50,7 @@ export const headerNav: HeaderNav = {
 			style: 'general_small',
 			nav: !authenticated(),
 			url: authenticated() ? null : routes.auth.signin,
-			onClick: !authenticated() ? _.noop : () => window.location.assign(routes.poster)
+			onClick: !authenticated() || !canUseDOM() ? _.noop : () => window.location.assign(routes.poster)
 		}
 	]
 };
