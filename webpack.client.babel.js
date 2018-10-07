@@ -17,9 +17,10 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import genConfig from './webpack.base.js';
 
 import {
-	BUILD_DIR,
 	APP_DIR,
+	BUILD_DIR,
 	DEV_API_URL,
+	IMAGES_DIRS,
 
 	COMMON_CSS_LOADERS,
 	COMMON_LESS_MODULES_LOADERS,
@@ -87,17 +88,18 @@ function genCustomConfig(mode) {
 					use: [MiniCssExtractPlugin.loader].concat(COMMON_CSS_LOADERS)
 				},
 
-				// Generate file loaders (fonts, images, browserconfig, favicon)
-				...genFileLoaders(),
-
 				// SVG Inline
 				{
 					test: /\.inline.svg$/,
+					include: IMAGES_DIRS,
 					use: [
 						{loader: 'babel-loader'},
-						{loader: "react-svg-loader", options: {jsx: true}}
+						{loader: 'svg-inline-loader'}
 					]
 				},
+
+				// Generate file loaders (fonts, images, browserconfig, favicon)
+				...genFileLoaders()
 			]
 		},
 
@@ -165,7 +167,7 @@ function genCustomConfig(mode) {
 		]
 	};
 
-// Development
+	// Development
 	if (mode === 'development') {
 
 		config.plugins.push(
@@ -175,7 +177,7 @@ function genCustomConfig(mode) {
 		);
 	}
 
-// Production
+	// Production
 	if (mode === 'production') {
 
 		config.plugins.concat([
