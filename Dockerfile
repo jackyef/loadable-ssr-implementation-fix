@@ -45,7 +45,7 @@ RUN yarn prd:build-client
 RUN yarn prd:build-server
 
 # Stage 2 - Upload clinet bundle to GCS
-FROM google/cloud-sdk
+FROM google/cloud-sdk:latest
 
 COPY --from=bundle /usr/src/bundle_client /usr/src/bundle_client
 COPY --from=bundle /usr/src/gcloud-service-key.json /usr/gcloud-service-key.json
@@ -54,6 +54,8 @@ ARG COMMIT_REF
 
 RUN apt-get install -qq -y gettext
 RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json
+
+RUN cat /usr/gcloud-service-key.json
 
 RUN gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${COMMIT_REF}
 RUN gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${COMMIT_REF}
