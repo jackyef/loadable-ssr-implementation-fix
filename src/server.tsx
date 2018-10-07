@@ -40,7 +40,7 @@ app.get(`*`, (req: Request, res: Response) => {
 		res.send(content);
 	})
 
-	.catch(e => console.warn(e));
+		.catch(e => console.warn(e));
 });
 
 // Run server
