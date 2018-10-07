@@ -56,7 +56,7 @@ RUN apt-get install -qq -y gettext
 RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json &&\
 	gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${COMMIT_REF} &&\
 	gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${COMMIT_REF} &&\
-	gsutil -m mv -r gs://tg-static-bucket/static/public-${COMMIT_REF} gs://tg-static-bucket/static/public &&\
+	gsutil -m mv -r gs://tg-static-bucket/static/public-${COMMIT_REF} gs://tg-static-bucket/static/public/.. &&\
 	gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
 
 # Stage 2 - Forever
