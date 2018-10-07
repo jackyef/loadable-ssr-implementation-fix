@@ -24,24 +24,11 @@
 	],
 
 	"presets": [
-		"@babel/preset-react",
-		[
-			"@babel/preset-env",
-			{
-				"targets": {
-					"browsers": [
-						"> 5%"
-					]
-				}
-			}
-		]
+		"@babel/preset-env",
+		"@babel/preset-react"
 	],
 
 	"env": {
-		"production": {
-			"presets": ["react-optimize"]
-		},
-
 		"test": {
 			"plugins": [
 				"dynamic-import-node",

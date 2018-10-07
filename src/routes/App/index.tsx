@@ -7,15 +7,21 @@ import { Provider } from 'mobx-react';
 
 import { NotifyBox } from '@scc/ui-kit';
 import { renderRoutes } from '@tg/ui/utils';
-import { api, Context } from '@tg/ui/config';
+import { api, Context, ContextType } from '@tg/ui/config';
 
-import { axiosInstance, context } from '../../config';
+import { axiosInstance } from '../../config';
 import { notifyStore } from '../../stores';
 
 import '../../styles/base.less';
 
 type Props = {
 	route: RouteConfig & { render?: any };
+};
+
+// Context
+const context: ContextType = {
+	notify: notifyStore,
+	axiosInstance
 };
 
 export default class Container extends React.Component<Props> {

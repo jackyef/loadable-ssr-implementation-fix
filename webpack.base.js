@@ -4,11 +4,19 @@ import webpack from 'webpack';
 import UglifyWebpackPlugin from 'uglifyjs-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import { TsConfigPathsPlugin } from 'awesome-typescript-loader';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 import { APP_DIR, NODE_MODULES, babelRC } from './webpack.conf.js';
 
 module.exports = function genConfig(mode) {
-	return {
+
+	// Get specific dev environment configuration values
+	let localConfig = { 'CHECK_CIRCULAR_DEPENDENCIES': false };
+	if (mode === 'development') {
+		localConfig = require(path.resolve(__dirname, 'local.dev.js'));
+	}
+
+	const config = {
 		entry: {
 			vendor: [
 				'mobx',
@@ -111,7 +119,27 @@ module.exports = function genConfig(mode) {
 		},
 
 		plugins: [
-			new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
+			new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
 		]
 	};
+
+	// Check circular dependencies
+	// TURN ON FOR EXAMPLE IF SOME OF YOU __WEBPACK__IMPORTED__X_ IS EQUAL TO undefined
+	if (localConfig.CHECK_CIRCULAR_DEPENDENCIES) {
+		config.plugins.push(
+			new CircularDependencyPlugin({
+				// exclude detection of files based on a RegExp
+				exclude: /a\.js|node_modules/,
+				// add errors to webpack instead of warnings
+				failOnError: true,
+				// allow import cycles that include an async import,
+				// e.g. via import(/* webpackMode: "weak" */ './file.js')
+				allowAsyncCycles: false,
+				// set the current working directory for displaying module paths
+				cwd: process.cwd(),
+			})
+		);
+	}
+
+	return config;
 };

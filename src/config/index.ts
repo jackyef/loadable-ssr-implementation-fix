@@ -1,13 +1,9 @@
-import { ContextType } from '@tg/ui/config';
-
-import { notifyStore } from '../stores';
-import { axiosInstance } from './api';
-
 export { axiosInstance } from './api';
 export { appContainerHTMLTag } from './base';
 export { routes, indexRoute } from './routes';
 
 export { headerNav, footerNav, authHeaderNav } from './nav';
+
 export {
 	dataIconedFeatures,
 	dataManagingFeatures,
@@ -17,8 +13,3 @@ export {
 	dataPricingFeatures,
 	dataBetaPriceCard
 } from './data';
-
-export const context: ContextType = {
-	notify: notifyStore,
-	axiosInstance
-};

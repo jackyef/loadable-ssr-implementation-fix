@@ -200,25 +200,14 @@ export const babelRC = {
 	],
 
 	"presets": [
-		"@babel/preset-react",
 		[
 			"@babel/preset-env",
-			{
-				"modules": false,
-				"targets": {
-					"browsers": [
-						"> 5%"
-					]
-				}
-			}
-		]
+			{ "modules": false }
+		],
+		"@babel/preset-react"
 	],
 
 	"env": {
-		"production": {
-			"presets": ["react-optimize"]
-		},
-
 		"test": {
 			"plugins": [
 				"dynamic-import-node",
