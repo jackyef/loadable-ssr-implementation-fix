@@ -53,14 +53,11 @@ COPY --from=bundle /usr/src/gcloud-service-key.json /usr/gcloud-service-key.json
 ARG COMMIT_REF
 
 RUN apt-get install -qq -y gettext
-RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json
-
-RUN gsutil version -l
-
-RUN gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${COMMIT_REF}
-RUN gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${COMMIT_REF}
-RUN gsutil -m mv -r gs://tg-static-bucket/static/public-${COMMIT_REF} gs://tg-static-bucket/static/public
-RUN gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
+RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json &&\
+	gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${COMMIT_REF} &&\
+	gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${COMMIT_REF} &&\
+	gsutil -m mv -r gs://tg-static-bucket/static/public-${COMMIT_REF} gs://tg-static-bucket/static/public &&\
+	gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
 
 # Stage 2 - Forever
 FROM node:9.11.1
