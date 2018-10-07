@@ -17,7 +17,7 @@ const app = express();
 
 // Healthcheck
 app.get('/healthz', (req, res) => {
-	res.status(200).send('Healthy');
+	res.status(200).send('Healthy node');
 });
 
 // Static
@@ -40,7 +40,7 @@ app.get(`*`, (req: Request, res: Response) => {
 		res.send(content);
 	})
 
-	.catch(e => console.warn(e));
+		.catch(e => console.warn(e));
 });
 
 // Run server
