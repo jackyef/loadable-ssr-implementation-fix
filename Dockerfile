@@ -33,9 +33,6 @@ RUN git clone git@bitbucket.org:souldevsteam/tg-ui.git
 # Install dependencies
 RUN yarn install
 
-# RUN npm install --only=dev
-# RUN npm install --only=prod
-
 # Add repos to node_modules
 RUN mkdir -p ./node_modules/@scc
 RUN mv ./ui-kit ./node_modules/@scc/ui-kit
@@ -44,11 +41,25 @@ RUN mkdir -p ./node_modules/@tg
 RUN mv ./tg-ui ./node_modules/@tg/ui
 
 # Build express app
-RUN yarn run prd:build-client
-RUN yarn run prd:build-server
+RUN yarn prd:build-client
+RUN yarn prd:build-server
 
-# RUN npm run prd:build-client
-# RUN npm run prd:build-server
+# Stage 2 - Upload clinet bundle to GCS
+FROM google/cloud-sdk
+
+COPY --from=bundle /usr/src/bundle_client /usr/src/bundle_client
+
+RUN apt-get install -qq -y gettext
+RUN echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
+RUN gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+RUN gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+RUN gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
+RUN gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
+
+RUN gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${CIRCLE_SHA1}
+RUN gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${CIRCLE_SHA1}
+RUN gsutil -m mv -r gs://tg-static-bucket/static/public-${CIRCLE_SHA1} gs://tg-static-bucket/static/public
+RUN gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
 
 # Stage 2 - Forever
 FROM node:9.11.1
@@ -64,8 +75,5 @@ WORKDIR /usr/src
 
 RUN yarn global add forever
 RUN yarn install --production=true
-
-# RUN npm install -g forever
-# RUN npm install --only=prod
 
 CMD ["forever", "bundle_server/server.js"]

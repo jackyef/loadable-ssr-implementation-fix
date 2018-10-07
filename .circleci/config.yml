@@ -72,16 +72,6 @@ jobs:
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
           gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
 
-    - attach_workspace:
-        at: /tmp/artifacts
-
-    - run:
-        name: Upload static artifacts to the bucket
-        command: |
-          gsutil rm -r gs://tg-static-bucket/static/public
-          gsutil -m cp -r /tmp/artifacts/bundle_client gs://tg-static-bucket/static/public
-          gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
-
     - setup_remote_docker
 
     - run:
