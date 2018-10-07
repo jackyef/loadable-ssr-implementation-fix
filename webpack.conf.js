@@ -176,6 +176,8 @@ export function genFileLoaders(emit=true) {
 
 export const babelRC = {
 	"plugins": [
+		["@babel/plugin-transform-runtime", { "corejs": 2 }],
+
 		"@babel/plugin-syntax-dynamic-import",
 		"@babel/plugin-syntax-import-meta",
 		"@babel/plugin-transform-spread",
