@@ -18,6 +18,7 @@ import genConfig from './webpack.base.js';
 
 import {
 	APP_DIR,
+	STATIC_URL,
 	DEV_API_URL,
 	BUILD_DIR_CLIENT as BUILD_DIR,
 
@@ -49,7 +50,7 @@ function genCustomConfig(mode) {
 		},
 
 		output: {
-			publicPath: '/static/public/',
+			publicPath: `${ STATIC_URL }/`,
 			path: path.resolve(__dirname, 'bundle_client'),
 			filename: generateFilename(mode),
 			chunkFilename: generateFilename(mode, 'js', true),
