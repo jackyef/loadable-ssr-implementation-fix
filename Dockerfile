@@ -49,16 +49,22 @@ FROM google/cloud-sdk
 
 COPY --from=bundle /usr/src/bundle_client /usr/src/bundle_client
 
+ARG COMMIT_REF
+ARG GCLOUD_SERVICE_KEY
+ARG GOOGLE_PROJECT_ID
+ARG GOOGLE_COMPUTE_ZONE
+ARG GOOGLE_CLUSTER_NAME
+
 RUN apt-get install -qq -y gettext
-RUN echo $GCLOUD_SERVICE_KEY > ${HOME}/gcloud-service-key.json
-RUN gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
+RUN echo $GCLOUD_SERVICE_KEY > /usr/gcloud-service-key.json
+RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json
 RUN gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
 RUN gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
 RUN gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
 
-RUN gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${CIRCLE_SHA1}
-RUN gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${CIRCLE_SHA1}
-RUN gsutil -m mv -r gs://tg-static-bucket/static/public-${CIRCLE_SHA1} gs://tg-static-bucket/static/public
+RUN gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${COMMIT_REF}
+RUN gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${COMMIT_REF}
+RUN gsutil -m mv -r gs://tg-static-bucket/static/public-${COMMIT_REF} gs://tg-static-bucket/static/public
 RUN gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
 
 # Stage 2 - Forever

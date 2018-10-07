@@ -1,55 +1,55 @@
 version: 2
 jobs:
-  build:
-    docker:
-    - image: circleci/node:10
-
-    working_directory: ~/repo
-
-    steps:
-    - add_ssh_keys:
-        fingerprints:
-          - "7b:4a:bb:da:31:5b:69:de:e3:5e:2b:b8:79:54:e2:7a"
-          - "04:37:ac:6c:48:11:b8:7c:33:c5:1f:14:77:87:89:cf"
-
-    - checkout
-
-    # Download and cache dependencies
-    - restore_cache:
-        keys:
-        - v1-dependencies-{{ checksum "package.json" }}
-        # fallback to using the latest cache if no exact match is found
-        - v1-dependencies-
-
-    - run: yarn install
-
-    - save_cache:
-        paths:
-        - node_modules
-        key: v1-dependencies-{{ checksum "package.json" }}
-
-    - run:
-        name: Clone inner dependencies
-        command: |
-          git clone git@bitbucket.org:sccockpit/ui-kit.git
-          git clone git@bitbucket.org:souldevsteam/tg-ui.git
-          mkdir -p ./node_modules/@scc
-          mv ./ui-kit ./node_modules/@scc/ui-kit
-          mkdir -p ./node_modules/@tg
-          mv ./tg-ui ./node_modules/@tg/ui
-
-    - run:
-        name: Build
-        command: |
-          yarn prd:build-client
-          yarn prd:build-server
-          mkdir -p artifacts
-          cp -R bundle_client ./artifacts
-
-    - persist_to_workspace:
-        root: artifacts
-        paths:
-        - bundle_client
+#  build:
+#    docker:
+#    - image: circleci/node:10
+#
+#    working_directory: ~/repo
+#
+#    steps:
+#    - add_ssh_keys:
+#        fingerprints:
+#          - "7b:4a:bb:da:31:5b:69:de:e3:5e:2b:b8:79:54:e2:7a"
+#          - "04:37:ac:6c:48:11:b8:7c:33:c5:1f:14:77:87:89:cf"
+#
+#    - checkout
+#
+#    # Download and cache dependencies
+#    - restore_cache:
+#        keys:
+#        - v1-dependencies-{{ checksum "package.json" }}
+#        # fallback to using the latest cache if no exact match is found
+#        - v1-dependencies-
+#
+#    - run: yarn install
+#
+#    - save_cache:
+#        paths:
+#        - node_modules
+#        key: v1-dependencies-{{ checksum "package.json" }}
+#
+#    - run:
+#        name: Clone inner dependencies
+#        command: |
+#          git clone git@bitbucket.org:sccockpit/ui-kit.git
+#          git clone git@bitbucket.org:souldevsteam/tg-ui.git
+#          mkdir -p ./node_modules/@scc
+#          mv ./ui-kit ./node_modules/@scc/ui-kit
+#          mkdir -p ./node_modules/@tg
+#          mv ./tg-ui ./node_modules/@tg/ui
+#
+#    - run:
+#        name: Build
+#        command: |
+#          yarn prd:build-client
+#          yarn prd:build-server
+#          mkdir -p artifacts
+#          cp -R bundle_client ./artifacts
+#
+#    - persist_to_workspace:
+#        root: artifacts
+#        paths:
+#        - bundle_client
 
   deploy_to_test:
     docker:
@@ -79,6 +79,10 @@ jobs:
         command: |
           docker build \
             --build-arg COMMIT_REF=${CIRCLE_SHA1} \
+            --build-arg GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID} \
+            --build-arg GOOGLE_COMPUTE_ZONE=${GOOGLE_COMPUTE_ZONE} \
+            --build-arg GOOGLE_CLUSTER_NAME=${GOOGLE_CLUSTER_NAME} \
+            --build-arg GCLOUD_SERVICE_KEY=${GCLOUD_SERVICE_KEY} \
             --build-arg BUILD_DATE=`date -u +”%Y-%m-%dT%H:%M:%SZ”` \
             -t ${PROJECT_NAME} .
           docker tag ${PROJECT_NAME} eu.gcr.io/${GOOGLE_PROJECT_ID}/${PROJECT_NAME}:${CIRCLE_SHA1}
@@ -97,15 +101,15 @@ workflows:
   pipeline:
     jobs:
 
-    - build:
-        filters:
-          branches:
-            only:
-            - master
+#    - build:
+#        filters:
+#          branches:
+#            only:
+#            - master
 
     - deploy_to_test:
-        requires:
-        - build
+#        requires:
+#        - build
         filters:
           branches:
             only:
