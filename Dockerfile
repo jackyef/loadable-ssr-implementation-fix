@@ -52,7 +52,7 @@ COPY --from=bundle /usr/src/gcloud-service-key.json /usr/gcloud-service-key.json
 
 RUN apt-get install -qq -y gettext
 RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json &&\
-	gsutil -m rf -r gs://tg-static-bucket/static/public &&\
+	gsutil -m rm -r gs://tg-static-bucket/static/public &&\
 	gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public &&\
 	gsutil acl ch -r -u AllUsers:R gs://tg-static-bucket/static
 
