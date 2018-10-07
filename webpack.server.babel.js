@@ -9,9 +9,9 @@ import genConfig from './webpack.base.js';
 
 import {
 	APP_DIR,
-	BUILD_DIR,
+	BUILD_DIR_SERVER as BUILD_DIR,
 
-	COMMON_LESS_MODULES_LOADERS,
+	COMMON_LESS_LOADERS,
 
 	getLinkedModules,
 	genCommonLessLoaders,
@@ -54,7 +54,7 @@ function genCustomConfig(mode) {
 				{
 					test: /^((?!\.module).)*less$/,
 					include: [APP_DIR].concat(getLinkedModules(mode, localConfig.LINKED_MODULES_ROOT)),
-					use: [{loader: "isomorphic-style-loader"}].concat(COMMON_LESS_MODULES_LOADERS)
+					use: [{loader: "isomorphic-style-loader"}].concat(COMMON_LESS_LOADERS)
 				},
 
 				// LESS (modules)

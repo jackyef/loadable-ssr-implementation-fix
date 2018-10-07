@@ -18,12 +18,11 @@ import genConfig from './webpack.base.js';
 
 import {
 	APP_DIR,
-	BUILD_DIR,
 	DEV_API_URL,
-	IMAGES_DIRS,
+	BUILD_DIR_CLIENT as BUILD_DIR,
 
 	COMMON_CSS_LOADERS,
-	COMMON_LESS_MODULES_LOADERS,
+	COMMON_LESS_LOADERS,
 
 	getLinkedModules,
 	genCommonLessLoaders,
@@ -64,14 +63,14 @@ function genCustomConfig(mode) {
 				{
 					test: /^((?!\.module).)*less$/,
 					include: [APP_DIR].concat(getLinkedModules(mode, localConfig.LINKED_MODULES_ROOT)),
-					use: [MiniCssExtractPlugin.loader].concat(genCommonLessLoaders(mode))
+					use: [MiniCssExtractPlugin.loader].concat(COMMON_LESS_LOADERS)
 				},
 
 				// LESS (modules)
 				{
 					test: /\.module.less$/,
 					include: [APP_DIR].concat(getLinkedModules(mode, localConfig.LINKED_MODULES_ROOT)),
-					use: [MiniCssExtractPlugin.loader].concat(COMMON_LESS_MODULES_LOADERS)
+					use: [MiniCssExtractPlugin.loader].concat(genCommonLessLoaders(mode))
 				},
 
 				// CSS
@@ -86,16 +85,6 @@ function genCustomConfig(mode) {
 					test: /\.css$/,
 					include: /\/node_modules\//,
 					use: [MiniCssExtractPlugin.loader].concat(COMMON_CSS_LOADERS)
-				},
-
-				// SVG Inline
-				{
-					test: /\.inline.svg$/,
-					include: IMAGES_DIRS,
-					use: [
-						{loader: 'babel-loader'},
-						{loader: 'svg-inline-loader'}
-					]
 				},
 
 				// Generate file loaders (fonts, images, browserconfig, favicon)

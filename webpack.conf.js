@@ -5,7 +5,8 @@ const path = require('path');
 // --------------------------------------------------------------------------------------------------------------------
 
 export const APP_DIR = path.resolve(__dirname);
-export const BUILD_DIR = path.resolve(__dirname, 'bundle_client');
+export const BUILD_DIR_CLIENT = path.resolve(__dirname, 'bundle_client');
+export const BUILD_DIR_SERVER = path.resolve(__dirname, 'bundle_server');
 
 export const FAVICON_DIRS = /resources\/favicon/;
 export const DEV_API_URL = 'http://localhost:8001';
@@ -55,7 +56,7 @@ function genCssModuleOption(mode) {
 // Generate file names
 export function generateFilename(mode='development', ext='js', chunk=false) {
 	return mode === 'development'
-		? `[name].${ ext }`
+		? `${ chunk ? 'chunks/' : '' }[name].${ ext }`
 		: `${ chunk ? 'chunks/' : '' }[name].[${ chunk ? 'chunk' : 'content' }hash].${ ext }`
 	;
 }
@@ -97,7 +98,7 @@ export const COMMON_CSS_LOADERS = [
 	{ loader: 'postcss-loader', options: postcssOptions }
 ];
 
-export const COMMON_LESS_MODULES_LOADERS = [
+export const COMMON_LESS_LOADERS = [
 	{ loader: "css-loader", options: { minimize: true } },
 	{ loader: 'postcss-loader', options: postcssOptions },
 	{ loader: "less-loader" }
@@ -114,6 +115,16 @@ export function genCommonLessLoaders(mode) {
 // File loaders
 export function genFileLoaders(emit=true) {
 	return [
+		// SVG Inline
+		{
+			test: /\.inline.svg$/,
+			include: IMAGES_DIRS,
+			use: [
+				{loader: 'babel-loader'},
+				{loader: 'svg-inline-loader'}
+			]
+		},
+
 		// Fonts
 		{
 			test: /\.ttf$|\.eot$|.\woff$|.\woff2$|^(?!.*\.inline\.svg$).*\.svg$/,
@@ -124,7 +135,7 @@ export function genFileLoaders(emit=true) {
 		// Fonts (node_modules)
 		{
 			test: /\.ttf$|\.eot$|.\woff$|.\woff2$/,
-			include: NODE_MODULES,
+			exclude: FONTS_DIRS,
 			use: createFileLoader('fonts', emit)
 		},
 
@@ -138,7 +149,7 @@ export function genFileLoaders(emit=true) {
 		// Images (node_modules)
 		{
 			test: /\.jpe?g$|\.gif$|\.ico$|\.png$|\.svg$/,
-			include: NODE_MODULES,
+			exclude: IMAGES_DIRS,
 			use: createFileLoader('images', emit)
 		},
 
