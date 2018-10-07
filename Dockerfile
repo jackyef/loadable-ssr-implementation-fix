@@ -55,7 +55,7 @@ ARG COMMIT_REF
 RUN apt-get install -qq -y gettext
 RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json
 
-RUN cat /usr/gcloud-service-key.json
+RUN gsutil version -l
 
 RUN gsutil -m cp -r /usr/src/bundle_client gs://tg-static-bucket/static/public-${COMMIT_REF}
 RUN gsutil -m mv -r gs://tg-static-bucket/static/public gs://tg-static-bucket/static/public-before-${COMMIT_REF}
