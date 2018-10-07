@@ -45,7 +45,7 @@ function genCustomConfig(mode) {
 		target: 'web',
 
 		entry: {
-			app: './src/index.tsx',
+			app: ["@babel/polyfill", './src/index.tsx'],
 			resources: './resources/index.js'
 		},
 

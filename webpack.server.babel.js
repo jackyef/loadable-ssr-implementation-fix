@@ -38,7 +38,7 @@ function genCustomConfig(mode) {
 
 		// Tell webpack the root file of our server app
 		entry: {
-			server: './src/server.tsx'
+			server: ["@babel/polyfill", './src/server.tsx']
 		},
 
 		// Tell webpack where to put the output file
