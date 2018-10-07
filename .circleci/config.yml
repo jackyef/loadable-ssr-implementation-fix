@@ -82,7 +82,6 @@ jobs:
             --build-arg GOOGLE_PROJECT_ID=${GOOGLE_PROJECT_ID} \
             --build-arg GOOGLE_COMPUTE_ZONE=${GOOGLE_COMPUTE_ZONE} \
             --build-arg GOOGLE_CLUSTER_NAME=${GOOGLE_CLUSTER_NAME} \
-            --build-arg GCLOUD_SERVICE_KEY="${GCLOUD_SERVICE_KEY}" \
             --build-arg BUILD_DATE=`date -u +”%Y-%m-%dT%H:%M:%SZ”` \
             -t ${PROJECT_NAME} .
           docker tag ${PROJECT_NAME} eu.gcr.io/${GOOGLE_PROJECT_ID}/${PROJECT_NAME}:${CIRCLE_SHA1}

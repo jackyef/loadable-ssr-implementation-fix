@@ -48,15 +48,14 @@ RUN yarn prd:build-server
 FROM google/cloud-sdk
 
 COPY --from=bundle /usr/src/bundle_client /usr/src/bundle_client
+COPY --from=bundle /usr/src/gcloud-service-key.json /usr/gcloud-service-key.json
 
 ARG COMMIT_REF
-ARG GCLOUD_SERVICE_KEY
 ARG GOOGLE_PROJECT_ID
 ARG GOOGLE_COMPUTE_ZONE
 ARG GOOGLE_CLUSTER_NAME
 
 RUN apt-get install -qq -y gettext
-RUN echo $GCLOUD_SERVICE_KEY > /usr/gcloud-service-key.json
 RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json
 RUN gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
 RUN gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
