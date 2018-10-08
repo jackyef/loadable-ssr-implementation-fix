@@ -120,6 +120,13 @@ module.exports = function genConfig(mode) {
 
 		plugins: [
 			new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+
+			// Transfer variables from package.json and local.dev.js
+			new webpack.DefinePlugin({
+				'process.env':{
+					'NODE_ENV': JSON.stringify(mode)
+				}
+			})
 		]
 	};
 

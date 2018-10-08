@@ -2,6 +2,7 @@ import path from 'path';
 import merge from 'webpack-merge';
 import webpack from 'webpack';
 
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ManifestPlugin from 'webpack-manifest-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import LodashModuleReplacementPlugin from 'lodash-webpack-plugin';
@@ -37,11 +38,12 @@ function genCustomConfig(mode) {
 	const localConfig = mode === 'development'
 		? require(path.resolve(__dirname, 'local.dev.js'))
 		: {
-			'LINKED_MODULES_ROOT': []
+			'LINKED_MODULES_ROOT': '',
+			'GENERATE_HTML': false
 		}
 	;
 
-	return {
+	const config = {
 		target: 'web',
 
 		entry: {
@@ -160,6 +162,16 @@ function genCustomConfig(mode) {
 	// Development
 	if (mode === 'development') {
 
+		// HTML
+		localConfig.GENERATE_HTML && config.plugins.push(
+			new HtmlWebpackPlugin({
+				filename: '../index.html',
+				template: 'template.hbs',
+				chunks: []
+			})
+		);
+
+		// Live reload
 		config.plugins.push(
 			new LiveReloadPlugin({
 				appendScriptTag: true
@@ -173,6 +185,15 @@ function genCustomConfig(mode) {
 		config.plugins.concat([
 			new webpack.HashedModuleIdsPlugin()
 		]);
+
+		// HTML
+		localConfig.GENERATE_HTML && config.plugins.push(
+			new HtmlWebpackPlugin({
+				filename: 'index.html',
+				template: 'template.hbs',
+				chunks: []
+			})
+		);
 
 		config.plugins.push(
 			new CompressionPlugin({
@@ -191,6 +212,8 @@ function genCustomConfig(mode) {
 			})
 		);
 	}
+
+	return config;
 }
 
 // Merge with base config

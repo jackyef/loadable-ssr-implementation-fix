@@ -1,4 +1,4 @@
-const path = require('path');
+import path from 'path';
 
 // --------------------------------------------------------------------------------------------------------------------
 // Configuration values that can be changed from project to project
@@ -115,15 +115,6 @@ export function genCommonLessLoaders(mode) {
 // File loaders
 export function genFileLoaders(emit=true) {
 	return [
-		// SVG Inline
-		{
-			test: /\.inline.svg$/,
-			include: IMAGES_DIRS,
-			use: [
-				{loader: 'babel-loader'},
-				{loader: 'svg-inline-loader'}
-			]
-		},
 
 		// Fonts
 		{
@@ -175,7 +166,7 @@ export function genFileLoaders(emit=true) {
 // --------------------------------------------------------------------------------------------------------------------
 
 export const babelRC = {
-	"plugins": [
+	plugins: [
 		"@babel/plugin-syntax-dynamic-import",
 		"@babel/plugin-syntax-import-meta",
 		"@babel/plugin-transform-spread",
@@ -193,37 +184,81 @@ export const babelRC = {
 		"@babel/plugin-proposal-optional-chaining",
 		"@babel/plugin-proposal-throw-expressions",
 
-		["@babel/plugin-proposal-pipeline-operator", { "proposal": "minimal" }],
-		["@babel/plugin-proposal-decorators", { "legacy": true }],
+		["@babel/plugin-proposal-pipeline-operator", { proposal: "minimal" }],
+		["@babel/plugin-proposal-decorators", { legacy: true }],
 
-		"react-loadable/babel"
+		"react-loadable/babel",
+
+		["inline-react-svg", {
+			ignorePattern: /^(?!.*\.inline\.svg$).*\.svg$/,
+			svgo: {
+				plugins: [
+					{cleanupAttrs: true},
+					{removeDoctype: true},
+					{removeXMLProcInst: true},
+					{removeComments: true},
+					{removeMetadata: true},
+					{removeTitle: true},
+					{removeDesc: true},
+					{removeUselessDefs: true},
+					{removeEditorsNSData: true},
+					{removeEmptyAttrs: true},
+					{removeHiddenElems: true},
+					{removeEmptyText: true},
+					{removeEmptyContainers: true},
+					{removeViewBox: false},
+					{cleanUpEnableBackground: true},
+					{convertStyleToAttrs: true},
+					{convertColors: true},
+					{
+						/* https://github.com/svg/svgo/blob/master/plugins/convertPathData.js#L9-L26 */
+						convertPathData: false
+					},
+					{convertTransform: true},
+					{removeUnknownsAndDefaults: true},
+					{removeNonInheritableGroupAttrs: true},
+					{removeUselessStrokeAndFill: true},
+					{removeUnusedNS: true},
+					{cleanupIDs: false},
+					{cleanupNumericValues: true},
+					{moveElemsAttrsToGroup: true},
+					{moveGroupAttrsToElems: true},
+					{collapseGroups: true},
+					{removeRasterImages: false},
+					{mergePaths: true},
+					{convertShapeToPath: true},
+					{transformsWithOnePath: false},
+					{removeDimensions: true}
+				]
+			}
+		}]
 	],
 
-	"presets": [
+	presets: [
 		[
 			"@babel/preset-env",
-			{ "modules": false, "useBuiltIns": "entry" }
+			{ modules: false, useBuiltIns: "entry" }
 		],
 		"@babel/preset-react"
 	],
 
-	"env": {
-		"test": {
-			"plugins": [
+	env: {
+		test: {
+			plugins: [
 				"dynamic-import-node",
 				"@babel/plugin-transform-modules-commonjs"
 			],
-				"presets": [
+				presets: [
 				"@babel/preset-react",
 				[
 					"@babel/preset-env",
 					{
-						"targets": {
-							"browsers": [
+						targets: {
+							browsers: [
 								"> 5%"
 							]
 						},
-						"modules": false
+						modules: false
 					}
 				]
 			]
