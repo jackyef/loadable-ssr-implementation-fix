@@ -40,6 +40,7 @@
 		"react-scroll": "^1.7.10",
 		"react-slick": "^0.23.1",
 		"react-test-renderer": "^16.5.2",
+		"react-yandex-metrika": "^2.4.2",
 		"regenerator-runtime": "^0.12.1",
 		"serialize-javascript": "1.5.0",
 		"slate": "^0.41.2",

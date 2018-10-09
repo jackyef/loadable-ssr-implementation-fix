@@ -125,7 +125,8 @@ module.exports = function genConfig(mode) {
 			new webpack.DefinePlugin({
 				'process.env':{
 					'NODE_ENV': JSON.stringify(mode),
-					'SENTRY_DSN_KEY': process.env.SENTRY_DSN_KEY
+					'SENTRY_DSN_KEY': process.env.SENTRY_DSN_KEY,
+					'YANDEX_METRIKA_ACCOUNT': process.env.YANDEX_METRIKA_ACCOUNT
 				}
 			})
 		]
