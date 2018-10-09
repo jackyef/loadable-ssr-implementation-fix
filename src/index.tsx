@@ -14,11 +14,12 @@ Loadable.preloadReady().then(() => {
 		<>
 
 			{/* Yandex Metrika */}
-			{
-				process.env['YANDEX_METRIKA_ACCOUNT']
-					? <YMInitializer accounts={[parseInt(process.env['YANDEX_METRIKA_ACCOUNT'], 10)]} options={{defer: true}} />
-					: null
-			}
+			<YMInitializer version="2"
+				accounts={[parseInt(process.env['YANDEX_METRIKA_ACCOUNT'], 10)]}
+				options={{
+					defer: true
+				}}
+			/>
 
 			{/* App */}
 			<Router history={ history }>
