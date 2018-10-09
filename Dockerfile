@@ -4,10 +4,7 @@ FROM node:9.11.1 as bundle
 MAINTAINER Vashchuk Maksim "vashchukmaksim@gmail.com"
 
 ARG SENTRY_DSN_KEY
-ARG YANDEX_METRIKA_ACCOUNT_ID
-
 ENV SENTRY_DSN=$SENTRY_DSN_KEY
-ENV YANDEX_METRIKA_ACCOUNT=$YANDEX_METRIKA_ACCOUNT_ID
 
 RUN apt-get update -y
 RUN apt-get install apt-transport-https -y
@@ -66,10 +63,7 @@ RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json
 FROM node:9.11.1
 
 ARG SENTRY_DSN_KEY
-ARG YANDEX_METRIKA_ACCOUNT_ID
-
 ENV SENTRY_DSN=$SENTRY_DSN_KEY
-ENV YANDEX_METRIKA_ACCOUNT=$YANDEX_METRIKA_ACCOUNT_ID
 
 # Copy artifacts
 COPY --from=bundle /usr/src/bundle_server /usr/src/bundle_server
