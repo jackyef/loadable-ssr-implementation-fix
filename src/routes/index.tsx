@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect } from 'react-router';
 import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
-// import ym from 'react-yandex-metrika';
 
 import { canUseDOM } from '@scc/ui-kit';
 import { Loading, NotFound } from '@tg/ui';
@@ -16,11 +15,6 @@ const RouteNotFound = { component: () => <Redirect to={ `/${ indexRoute }/nf` } 
 
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory() : null;
-
-// // Subscribe Yandex Metrika to history object
-// process.env['YANDEX_METRIKA_ACCOUNT'] && history.listen(location => {
-// 	ym('hit', location.pathname);
-// });
 
 // List of loadable routes with authentication condition
 const LoadableAuth = Loadable({ loader: () => import('./App/Auth'), loading: Loading });
