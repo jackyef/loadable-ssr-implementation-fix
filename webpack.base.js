@@ -124,7 +124,8 @@ module.exports = function genConfig(mode) {
 			// Transfer variables from package.json and local.dev.js
 			new webpack.DefinePlugin({
 				'process.env':{
-					'NODE_ENV': JSON.stringify(mode)
+					'NODE_ENV': JSON.stringify(mode),
+					'SENTRY_DSN_KEY': process.env.SENTRY_DSN_KEY
 				}
 			})
 		]

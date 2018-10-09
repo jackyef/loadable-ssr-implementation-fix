@@ -72,8 +72,9 @@ export default (req: Request, store: any, context: any) => {
 				<div id="app">${ content }</div>
 				<div id="modal-portal"></div>
 
-				<!-- <script src="https://cdn.ravenjs.com/3.24.0/raven.min.js" crossorigin="anonymous"></script> -->
-				<!-- <script> Raven.config(${ process.env.SENTRY_DSN }).install() </script> -->
+				<script src="https://cdn.ravenjs.com/3.26.4/raven.min.js" crossorigin="anonymous"></script> 
+				${ process.env.SENTRY_DSN_KEY ? <script>Raven.config(${ process.env.SENTRY_DSN_KEY }).install()</script> : '' }
+				
 				<script> window.INITIAL_STATE = ${ serialize({}) } </script>
 
 				<script src="${ assets.vendor.js }"></script>
