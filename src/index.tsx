@@ -15,8 +15,8 @@ Loadable.preloadReady().then(() => {
 
 			{/* Yandex Metrika */}
 			{
-				process.env.YANDEX_METRIKA_ACCOUNT
-					? <YMInitializer accounts={[parseInt(process.env.YANDEX_METRIKA_ACCOUNT, 10)]} options={{defer: true}} />
+				process.env['YANDEX_METRIKA_ACCOUNT']
+					? <YMInitializer accounts={[parseInt(process.env['YANDEX_METRIKA_ACCOUNT'], 10)]} options={{defer: true}} />
 					: null
 			}
 

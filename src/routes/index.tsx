@@ -18,7 +18,7 @@ const RouteNotFound = { component: () => <Redirect to={ `/${ indexRoute }/nf` } 
 export const history = canUseDOM() ? createBrowserHistory() : null;
 
 // Subscribe Yandex Metrika to history object
-process.env.YANDEX_METRIKA_ACCOUNT && history.listen(location => {
+process.env['YANDEX_METRIKA_ACCOUNT'] && history.listen(location => {
 	ym('hit', location.pathname);
 });
 

@@ -10,6 +10,7 @@
 		"one-line": false,
 		"no-trailing-whitespace": false,
 		"no-console": false,
+		"no-string-literal": false,
 		"no-submodule-imports": [true,
 			"react-dom/server",
 			"react-loadable/webpack",

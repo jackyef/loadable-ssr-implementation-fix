@@ -10,7 +10,7 @@ import Routes from './routes';
 useStaticRendering(true);
 
 // Port
-const EXPRESS_SSR_PORT = process.env.EXPRESS_SSR_PORT || 3000;
+const EXPRESS_SSR_PORT = process.env['EXPRESS_SSR_PORT'] || 3000;
 
 // Create express app
 const app = express();
