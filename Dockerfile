@@ -3,8 +3,8 @@ FROM node:9.11.1 as bundle
 
 MAINTAINER Vashchuk Maksim "vashchukmaksim@gmail.com"
 
-ARG SENTRY_DSN_KEY
-ENV SENTRY_DSN=$SENTRY_DSN_KEY
+ARG SENTRY_DSN
+ENV SENTRY_DSN=$SENTRY_DSN
 
 RUN apt-get update -y
 RUN apt-get install apt-transport-https -y
@@ -62,8 +62,8 @@ RUN gcloud auth activate-service-account --key-file=/usr/gcloud-service-key.json
 # Stage 3 - Forever
 FROM node:9.11.1
 
-ARG SENTRY_DSN_KEY
-ENV SENTRY_DSN=$SENTRY_DSN_KEY
+ARG SENTRY_DSN
+ENV SENTRY_DSN=$SENTRY_DSN
 
 # Copy artifacts
 COPY --from=bundle /usr/src/bundle_server /usr/src/bundle_server
