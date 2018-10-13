@@ -1,7 +1,7 @@
 /**
  * Root app URL prefix path
  */
-export const indexRoute = 'public';
+export const indexRoute = '/public';
 
 /**
  * App routes
@@ -9,21 +9,21 @@ export const indexRoute = 'public';
 export const routes = {
 
 	// Home
-	index: `/${ indexRoute }`,
-	home: `/${ indexRoute }/home`,
+	index: '/',
+	home: '/home',
 
 	// Products (external)
 	poster: '/post/dashboard',
 	market: '/market',
 
 	// Public (internal)
-	pricing: `/${ indexRoute }/pricing`,
-	faq: `/${ indexRoute }/faq`,
+	pricing: '/pricing',
+	faq: '/faq',
 
 	// Authentication
 	auth: {
-		self: `/${ indexRoute }/auth`,
-		signin: `/${ indexRoute }/auth/in`,
-		signup: `/${ indexRoute }/auth/up`
+		self: '/auth',
+		signin: '/auth/in',
+		signup: '/auth/up'
 	}
 };
