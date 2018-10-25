@@ -19,9 +19,7 @@ export type Styles = {
 	form?: string;
 	header?: string;
 	google?: string;
-	field?: string; // theme
-	field_focus?: string; // theme__focus
-	field_error?: string; // theme__error
+	field?: string;
 	submit?: string;
 };
 

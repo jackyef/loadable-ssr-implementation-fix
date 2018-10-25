@@ -11,10 +11,10 @@ import { authFormStore } from '../stores';
 import { routes, indexRoute } from '../config';
 
 // Not Found Route
-const RouteNotFound = { component: () => <Redirect to={ `/${ indexRoute }/nf` } /> };
+const RouteNotFound = { component: () => <Redirect to={ `/nf` } /> };
 
 // Browser history
-export const history = canUseDOM() ? createBrowserHistory() : null;
+export const history = canUseDOM() ? createBrowserHistory({ basename: indexRoute }) : null;
 
 // List of loadable routes with authentication condition
 const LoadableAuth = Loadable({ loader: () => import('./App/Auth'), loading: Loading });
@@ -110,7 +110,7 @@ export default [
 			},
 
 			// Not Found (404)
-			{ component: () => <NotFound to={`/${ indexRoute }`} /> }
+			{ component: () => <NotFound to="/" /> }
 		]
 	}
 ];
