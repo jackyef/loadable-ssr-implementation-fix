@@ -4,9 +4,13 @@
 	"description": "Telegram channel manager app (public UI)",
 	"main": "src/index.tsx",
 	"sideEffects": false,
+	"resolutions": {
+		"@types/react": "16.4.16"
+	},
 	"dependencies": {
 		"@babel/polyfill": "^7.0.0",
 		"@babel/runtime": "^7.1.2",
+		"@types/react": "16.4.16",
 		"axios": "^0.18.0",
 		"babel-runtime": "^6.26.0",
 		"css-wipe": "^4.3.0",
@@ -25,7 +29,6 @@
 		"qs": "^6.5.2",
 		"raven-js": "^3.27.0",
 		"rc-datetime-picker": "^1.6.1",
-		"react": "^16.5.2",
 		"react-custom-scrollbars": "^4.2.1",
 		"react-dom": "^16.5.2",
 		"react-dropzone": "^6.0.2",
