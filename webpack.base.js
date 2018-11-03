@@ -110,6 +110,9 @@ module.exports = function genConfig(mode) {
 						output: {
 							comments: false,
 							beautify: false
+						},
+						compress: {
+							drop_console: true
 						}
 					}
 				}),
