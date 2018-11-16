@@ -11,6 +11,7 @@ import {
 	APP_DIR,
 	BUILD_DIR_SERVER as BUILD_DIR,
 
+	COMMON_CSS_LOADERS,
 	COMMON_LESS_LOADERS,
 
 	getLinkedModules,
@@ -38,7 +39,7 @@ function genCustomConfig(mode) {
 
 		// Tell webpack the root file of our server app
 		entry: {
-			server: ["@babel/polyfill", './src/server.tsx']
+			server: ['@babel/polyfill', './src/server.tsx']
 		},
 
 		// Tell webpack where to put the output file
@@ -50,6 +51,12 @@ function genCustomConfig(mode) {
 
 		module: {
 			rules: [
+				// CSS
+				{
+					test: /\.css$/,
+					use: [{loader: "isomorphic-style-loader"}].concat(COMMON_CSS_LOADERS)
+				},
+
 				// LESS
 				{
 					test: /^((?!\.module).)*less$/,
@@ -78,7 +85,15 @@ function genCustomConfig(mode) {
 		// but we don't care. What we do care is that webpack bundle
 		// works faster
 		externals: [webpackNodeExternals({
-			whitelist: [/^@scc\/ui-kit/, /^@tg\/ui/]
+			whitelist: [
+				// ----------------
+				/^@scc\/ui-kit/,
+				// ----------------
+				/^@tg\/ui/,
+				// ----------------
+				/^emoji-mart/
+				// ----------------
+			]
 		})]
 	};
 }
