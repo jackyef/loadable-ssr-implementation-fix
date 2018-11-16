@@ -43,6 +43,8 @@ function genCustomConfig(mode) {
 		}
 	;
 
+	const prod = mode === 'production';
+
 	const config = {
 		target: 'web',
 
@@ -66,28 +68,20 @@ function genCustomConfig(mode) {
 				{
 					test: /^((?!\.module).)*less$/,
 					include: [APP_DIR].concat(getLinkedModules(mode, localConfig.LINKED_MODULES_ROOT)),
-					use: [MiniCssExtractPlugin.loader].concat(COMMON_LESS_LOADERS)
+					use: [prod ? MiniCssExtractPlugin.loader : {loader: 'style-loader'}].concat(COMMON_LESS_LOADERS)
 				},
 
 				// LESS (modules)
 				{
 					test: /\.module.less$/,
 					include: [APP_DIR].concat(getLinkedModules(mode, localConfig.LINKED_MODULES_ROOT)),
-					use: [MiniCssExtractPlugin.loader].concat(genCommonLessLoaders(mode))
+					use: [prod ? MiniCssExtractPlugin.loader : {loader: 'style-loader'}].concat(genCommonLessLoaders(mode))
 				},
 
 				// CSS
 				{
 					test: /\.css$/,
-					include: APP_DIR,
-					use: [MiniCssExtractPlugin.loader].concat(COMMON_CSS_LOADERS)
-				},
-
-				// CSS (node_modules)
-				{
-					test: /\.css$/,
-					include: /\/node_modules\//,
-					use: [MiniCssExtractPlugin.loader].concat(COMMON_CSS_LOADERS)
+					use: [prod ? MiniCssExtractPlugin.loader : {loader: 'style-loader'}].concat(COMMON_CSS_LOADERS)
 				},
 
 				// Generate file loaders (fonts, images, browserconfig, favicon)
