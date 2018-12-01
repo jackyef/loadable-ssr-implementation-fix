@@ -10,7 +10,7 @@ import { required, email } from '@scc/ui-kit/addons/validators';
 
 import { Btn, Headline, FieldInput } from '@tg/ui';
 import { api } from '@tg/ui/config';
-import resources from '@tg/ui/resources';
+import { IconGoogle, IconReadMore } from '@tg/ui/resources';
 
 import { routes } from '../../../config';
 import { authFormStore } from '../../../stores';
@@ -49,15 +49,15 @@ const SignIn: React.SFC<{}> = () => {
 			/>
 
 			{/* Submit */}
-			<Submit form={ authFormStore } title="Login with email" url={ api.auth.login }
-				icon={ resources.icon_read_more } iconPos="right"
+			<Submit form={ authFormStore } title="Login with email" url={ api.auth.urls.login }
+				icon={ IconReadMore } iconPos="right"
 				styles={{ theme: styles.submit }}
 				onSuccess={ () => canUseDOM() && window.location.assign(routes.poster) }
 			/>
 
 			{/* Socials (Google) */}
-			<Btn nav external style="google" title="or continue with Google" url={ api.auth.google }
-				icon={ resources.icon_google }
+			<Btn nav external style="google" title="or continue with Google" url={ api.auth.urls.google }
+				icon={ IconGoogle }
 				className={ styles.google }
 			/>
 

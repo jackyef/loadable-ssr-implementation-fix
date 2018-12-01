@@ -11,7 +11,7 @@ import { required, email } from '@scc/ui-kit/addons/validators';
 
 import { Btn, Headline, FieldInput } from '@tg/ui';
 import { api } from '@tg/ui/config';
-import resources from '@tg/ui/resources';
+import { IconReadMore, IconGoogle } from '@tg/ui/resources';
 
 import { authFormStore } from '../../../stores';
 import { routes } from '../../../config';
@@ -60,14 +60,14 @@ const SignUp: React.SFC<Props> = () => {
 			/>
 
 			{/* Submit */}
-			<Submit form={ authFormStore } title="Join us with email" url={ api.auth.register }
-				icon={ resources.icon_read_more } iconPos="right"
+			<Submit form={ authFormStore } title="Join us with email" url={ api.auth.urls.register }
+				icon={ IconReadMore } iconPos="right"
 				styles={{ theme: styles.submit }}
 			/>
 
 			{/* Socials (Google) */}
-			<Btn nav external style="google" title="or continue with Google" url={ api.auth.google }
-				icon={ resources.icon_google }
+			<Btn nav external style="google" title="or continue with Google" url={ api.auth.urls.google }
+				icon={ IconGoogle }
 				className={ styles.google }
 			/>
 

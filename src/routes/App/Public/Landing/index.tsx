@@ -74,7 +74,7 @@ const Landing: React.SFC<{}> = () => {
 
 				{/* Slideshow of product screens */}
 				<ContentSectionPublic name="slideshow" styles={ styles.slideshow } fullWidth rulers="no">
-					<Slideshow images={[resources.slide_01, resources.slide_02, resources.slide_03]} />
+					<Slideshow images={[resources.sc_slide_01, resources.sc_slide_02, resources.sc_slide_03]} />
 				</ContentSectionPublic>
 
 				{/* Vertical list of management features */}
@@ -88,7 +88,7 @@ const Landing: React.SFC<{}> = () => {
 					{/* Demo feed */}
 					{/* TODO: Swap to a real demo */}
 					<div>
-						<img src={ resources.manage_features_illustration } />
+						<img src={ resources.il_manage_features } />
 					</div>
 				</ContentSectionPublic>
 
@@ -98,7 +98,7 @@ const Landing: React.SFC<{}> = () => {
 
 					{/* TODO: Swap to a real demo */}
 					<div className={ styles.demo }>
-						<img src={ resources.demo_manage } />
+						<img src={ resources.sc_demo_manage } />
 					</div>
 
 					{/* Features */}
@@ -119,7 +119,7 @@ const Landing: React.SFC<{}> = () => {
 
 					{/* TODO: Swap to a real demo */}
 					<div className={ styles.demo }>
-						<img src={ resources.demo_team } />
+						<img src={ resources.sc_demo_team } />
 					</div>
 				</ContentSectionPublic>
 

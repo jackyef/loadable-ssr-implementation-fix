@@ -1,7 +1,7 @@
 # Stage 1 - build express app
 FROM node:9.11.1 as bundle
 
-MAINTAINER Vashchuk Maksim "vashchukmaksim@gmail.com"
+LABEL maintainer="vashchukmaksim@gmail.com"
 
 ARG SENTRY_DSN
 ENV SENTRY_DSN=$SENTRY_DSN

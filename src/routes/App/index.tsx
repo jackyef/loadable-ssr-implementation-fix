@@ -9,7 +9,6 @@ import { NotifyBox } from '@scc/ui-kit';
 import { renderRoutes } from '@tg/ui/utils';
 import { api, Context, ContextType } from '@tg/ui/config';
 
-import { axiosInstance } from '../../config';
 import { notifyStore } from '../../stores';
 
 import '../../styles/base.less';
@@ -20,8 +19,7 @@ type Props = {
 
 // Context
 const context: ContextType = {
-	notify: notifyStore,
-	axiosInstance
+	notify: notifyStore
 };
 
 export default class Container extends React.Component<Props> {
@@ -35,7 +33,7 @@ export default class Container extends React.Component<Props> {
 		// If code exists (it's max_age is about 10 seconds)
 		// try to get a message from the server
 		if (msg_code) {
-			axiosInstance.get(`${ api.msg.get }/${ msg_code }`)
+			api.msg.proxy.get(msg_code)
 
 				// Awake a notification with a message data
 				.then(response => {

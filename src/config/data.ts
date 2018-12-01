@@ -1,22 +1,30 @@
 import { Feature, Offer } from '@tg/ui/types';
-import { resources } from '@tg/ui/res';
+import {
+	IconFeatureWrite,
+	IconFeatureStats,
+	IconFeatureAd,
+	IconOfferAdmin,
+	IconOfferBeta,
+	IconOfferBlogger,
+	IconOfferMaster
+} from '@tg/ui/res';
 
 /**
  * First features set with icons
  */
 export const dataIconedFeatures: Feature[] = [
 	{
-		icon: resources.icon_feature_write,
+		icon: IconFeatureWrite,
 		title: 'Write and schedule publications',
 		desc: 'Distribute the posts on the days of the week, and the TelePulse will tell you the optimal time of publication.'
 	},
 	{
-		icon: resources.icon_feature_stats,
+		icon: IconFeatureStats,
 		title: 'Analyse channels and posts statistics',
 		desc: 'Watch for the growth of subscribers and the effectiveness of publications on one interface screen.'
 	},
 	{
-		icon: resources.icon_feature_ad,
+		icon: IconFeatureAd,
 		title: 'Control advertising in channels',
 		desc: 'Share channels with companies and businesses you regularly work with – like clients, vendors, ' +
 			'and partners – to bring all the right people'
@@ -83,7 +91,7 @@ export const dataTeamFeatures: Feature[] = [
  */
 export const dataPricing: Offer[] = [
 	{
-		icon: resources.icon_offer_blogger,
+		icon: IconOfferBlogger,
 		title: 'Blogger',
 		desc: 'Ideal for personal blogs and thematic channels',
 		limit: 'Up to 3',
@@ -94,7 +102,7 @@ export const dataPricing: Offer[] = [
 		}
 	},
 	{
-		icon: resources.icon_offer_admin,
+		icon: IconOfferAdmin,
 		title: 'Administrator',
 		desc: 'A good plan if you earn by posting ads',
 		limit: 'Up to 5',
@@ -105,7 +113,7 @@ export const dataPricing: Offer[] = [
 		}
 	},
 	{
-		icon: resources.icon_offer_master,
+		icon: IconOfferMaster,
 		title: 'Channel master',
 		desc: 'Ideal for personal blogs and thematic channels',
 		limit: 'Unlimited',
@@ -133,7 +141,7 @@ export const dataPricingFeatures = [
  * Custom price card for beta period
  */
 export const dataBetaPriceCard = {
-	icon: resources.icon_offer_beta,
+	icon: IconOfferBeta,
 	title: '30 days free trial',
 	desc: 'Extended trial for beta period. Try and give feedback.'
 };

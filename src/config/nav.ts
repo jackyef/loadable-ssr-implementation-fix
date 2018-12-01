@@ -7,7 +7,7 @@ import _ from 'lodash';
 import { canUseDOM } from '@scc/ui-kit';
 
 import { authenticated } from '@tg/ui/utils';
-import { resources } from '@tg/ui/res';
+import { IconJoinChannel } from '@tg/ui/res';
 import { TypeNav } from '@tg/ui';
 
 import { routes } from './routes';
@@ -42,8 +42,7 @@ export const headerNav: HeaderNav = {
 		{
 			title: 'Join our channel',
 			style: 'nav',
-			// TODO: Change to imported icon from @tg/ui
-			icon: resources.icon_join_channel
+			icon: IconJoinChannel
 		},
 		{
 			title: authenticated() ? 'Channels' : 'Sign in',
@@ -75,8 +74,7 @@ export const footerNav: TypeNav = [
 	{
 		title: 'Join our channel',
 		style: 'nav_footer',
-		// TODO: Change to imported icon from @tg/ui
-		icon: resources.icon_join_channel
+		icon: IconJoinChannel
 	},
 	{
 		title: 'Contact us',
