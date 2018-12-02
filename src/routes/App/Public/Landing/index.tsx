@@ -50,7 +50,7 @@ type Styles = {
 /**
  * Landing route
  */
-const Landing: React.SFC<{}> = () => {
+const Landing: React.FC<{}> = () => {
 	return (
 		<>
 			<Helmet>

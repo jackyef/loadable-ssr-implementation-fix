@@ -26,7 +26,7 @@ type Props = {
 /**
  * Sign up authentication route container
  */
-const SignUp: React.SFC<Props> = () => {
+const SignUp: React.FC<Props> = () => {
 	return (
 	<>
 		<Helmet>

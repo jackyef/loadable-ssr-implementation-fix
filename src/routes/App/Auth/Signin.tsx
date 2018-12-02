@@ -21,7 +21,7 @@ const styles: Styles = require('./Auth.module.less');
 /**
  * Sign in authentication route
  */
-const SignIn: React.SFC<{}> = () => {
+const SignIn: React.FC<{}> = () => {
 	return (
 	<>
 		<Helmet>

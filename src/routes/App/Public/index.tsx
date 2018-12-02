@@ -23,7 +23,7 @@ type Props = {
 /**
  * Public container
  */
-const Container: React.SFC<Props> = ({ route }) => {
+const Container: React.FC<Props> = ({ route }) => {
 	return (
 		<div className={ styles.self }>
 

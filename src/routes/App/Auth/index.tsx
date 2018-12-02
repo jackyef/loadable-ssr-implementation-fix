@@ -31,7 +31,7 @@ type Props = {
 /**
  * Authentication container
  */
-const Auth: React.SFC<Props> = ({ route, location }) => {
+const Auth: React.FC<Props> = ({ route, location }) => {
 
 	// Get path that we currently on to pass to a Header component
 	// - in - Create new account (button)
