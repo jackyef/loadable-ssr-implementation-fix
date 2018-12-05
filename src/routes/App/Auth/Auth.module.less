@@ -76,12 +76,12 @@
 	width: 100%;
 	margin-top: 30px;
 
-	#btn > .compose_theme(
-		@colors: { #btn > .colors(@cc-primary, @cc-sub) },
-		@text: { #btn > .text(16px, 500) },
-		@size: { #btn > .size(15px) },
-		@border: { #btn > .border(10px) },
-		@icon: { #btn > .icon(16px, 12px) },
-		@shadow: { #btn > .shadow(@shadow-btn, none) }
+	#btn.theme(
+		@colors: { #btn.colors(@cc-primary, @cc-sub) },
+		@text: { #btn.text(16px, 500) },
+		@size: { #btn.size(15px) },
+		@border: { #btn.border(10px) },
+		@icon: { #btn.icon(16px, 12px) },
+		@shadow: { #btn.shadow(@shadow-btn, none) }
 	);
 }
