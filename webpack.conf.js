@@ -47,8 +47,7 @@ export const NODE_MODULES = path.resolve(__dirname, 'node_modules');
 // CSS/LESS module options
 function genCssModuleOption(mode) {
 	return {
-		minimize: true,
-		modules: true,
+		modules: 'global',
 		localIdentName: mode === 'production' ? '[hash:base64:5]' : '[name]-[local]--[hash:base64:5]'
 	};
 }
@@ -94,12 +93,12 @@ export const postcssOptions = {
 
 // Loaders
 export const COMMON_CSS_LOADERS = [
-	{ loader: 'css-loader', options: { minimize: true } },
+	{ loader: 'css-loader' },
 	{ loader: 'postcss-loader', options: postcssOptions }
 ];
 
 export const COMMON_LESS_LOADERS = [
-	{ loader: "css-loader", options: { minimize: true } },
+	{ loader: "css-loader" },
 	{ loader: 'postcss-loader', options: postcssOptions },
 	{ loader: "less-loader" }
 ];

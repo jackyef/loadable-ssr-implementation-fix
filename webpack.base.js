@@ -3,7 +3,7 @@ import webpack from 'webpack';
 
 import UglifyWebpackPlugin from 'uglifyjs-webpack-plugin';
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
-import { TsConfigPathsPlugin } from 'awesome-typescript-loader';
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 import CircularDependencyPlugin from 'circular-dependency-plugin';
 
 import { APP_DIR, NODE_MODULES, babelRC } from './webpack.conf.js';
@@ -37,7 +37,7 @@ module.exports = function genConfig(mode) {
 			},
 
 			plugins: [
-				new TsConfigPathsPlugin(/* { configFileName, compiler } */)
+				new TsconfigPathsPlugin({ /*configFile: "./tsconfig.json" */ })
 			]
 		},
 

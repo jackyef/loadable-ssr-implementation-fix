@@ -16,7 +16,7 @@
 			"dom",
 			"es2017"
 		],
-		"target": "es2015",
+		"target": "es2017",
 		"module": "esnext",
 		"moduleResolution": "node",
 		"noEmitOnError": false,
@@ -29,7 +29,14 @@
 		"pretty": true,
 		"removeComments": true,
 		"sourceMap": true,
-		"baseUrl": "./typings"
+		"baseUrl": "./",
+		"paths": {
+			"*": [
+				"node_modules/@types/*",
+				"typings/*",
+				"*"
+			]
+		}
 	},
 
 	"include": [
