@@ -47,7 +47,7 @@ export const NODE_MODULES = path.resolve(__dirname, 'node_modules');
 // CSS/LESS module options
 function genCssModuleOption(mode) {
 	return {
-		modules: 'global',
+		modules: true,
 		localIdentName: mode === 'production' ? '[hash:base64:5]' : '[name]-[local]--[hash:base64:5]'
 	};
 }
