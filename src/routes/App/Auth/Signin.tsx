@@ -10,7 +10,7 @@ import { required, email } from '@scc/ui-kit/addons/validators';
 
 import { Btn, Headline, FieldInput } from '@tg/ui';
 import { api } from '@tg/ui/config';
-import { IconGoogle, IconReadMore } from '@tg/ui/resources';
+import { IconGoogle, IconArrowV2 } from '@tg/ui/resources';
 
 import { routes } from '../../../config';
 import { authFormStore } from '../../../stores';
@@ -49,8 +49,9 @@ const SignIn: React.FC<{}> = () => {
 			/>
 
 			{/* Submit */}
+			{/* TODO: Rotate arrow icon 180deg */}
 			<Submit form={ authFormStore } title="Login with email" url={ api.auth.urls.login }
-				icon={ IconReadMore } iconPos="right"
+				icon={ IconArrowV2 } iconPos="right"
 				styles={{ theme: styles.submit }}
 				onSuccess={ () => canUseDOM() && window.location.assign(routes.poster) }
 			/>

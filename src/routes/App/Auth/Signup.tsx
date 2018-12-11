@@ -11,7 +11,7 @@ import { required, email } from '@scc/ui-kit/addons/validators';
 
 import { Btn, Headline, FieldInput } from '@tg/ui';
 import { api } from '@tg/ui/config';
-import { IconReadMore, IconGoogle } from '@tg/ui/resources';
+import { IconArrowV2, IconGoogle } from '@tg/ui/resources';
 
 import { authFormStore } from '../../../stores';
 import { routes } from '../../../config';
@@ -60,8 +60,9 @@ const SignUp: React.FC<Props> = () => {
 			/>
 
 			{/* Submit */}
+			{/* TODO: Rotate icon 180deg */}
 			<Submit form={ authFormStore } title="Join us with email" url={ api.auth.urls.register }
-				icon={ IconReadMore } iconPos="right"
+				icon={ IconArrowV2 } iconPos="right"
 				styles={{ theme: styles.submit }}
 			/>
 
