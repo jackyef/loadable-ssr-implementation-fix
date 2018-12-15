@@ -1,1 +1,5 @@
 src/styles/__fonts__/
+**/*.jsx
+**/*.js
+**/*.ts
+**/*.tsx
