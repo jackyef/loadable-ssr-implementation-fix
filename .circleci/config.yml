@@ -55,10 +55,10 @@ jobs:
     docker:
     - image: google/cloud-sdk
     environment:
-    - PROJECT_NAME: "tg-ui-public"
-    - GOOGLE_PROJECT_ID: "platformgram"
-    - GOOGLE_COMPUTE_ZONE: "europe-north1-a"
-    - GOOGLE_CLUSTER_NAME: "tg-cluster"
+      PROJECT_NAME: "tg-ui-public"
+      GOOGLE_PROJECT_ID: "platformgram"
+      GOOGLE_COMPUTE_ZONE: "europe-north1-a"
+      GOOGLE_CLUSTER_NAME: "tg-cluster"
     steps:
     - checkout
 
