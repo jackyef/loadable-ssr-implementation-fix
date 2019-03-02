@@ -9,3 +9,4 @@ coverage/
 .DS_Store
 *.iml
 local.dev.js
+id_rsa
