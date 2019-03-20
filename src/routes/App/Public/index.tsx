@@ -5,7 +5,7 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { Header } from '@tg/ui';
-import { renderRoutes } from '@tg/ui/utils';
+import { renderRoutes } from '@scc/utils';
 
 import { headerNav } from '../../../config';
 import { history } from '../../';

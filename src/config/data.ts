@@ -1,4 +1,3 @@
-import { Feature, Offer } from '@tg/ui/types';
 import {
 	IconFeatureWrite,
 	IconFeatureStats,
@@ -7,12 +6,12 @@ import {
 	IconOfferBeta,
 	IconOfferBlogger,
 	IconOfferMaster
-} from '@tg/ui/res';
+} from '@tg/ui/resources';
 
 /**
  * First features set with icons
  */
-export const dataIconedFeatures: Feature[] = [
+export const dataIconedFeatures: any[] = [
 	{
 		icon: IconFeatureWrite,
 		title: 'Write and schedule publications',
@@ -35,7 +34,7 @@ export const dataIconedFeatures: Feature[] = [
  * Second features list
  * MANAGING AND SCHEDULING POSTS
  */
-export const dataManagingFeatures: Feature[] = [
+export const dataManagingFeatures: any[] = [
 	{
 		title: 'Schedule time and date',
 		desc: 'No notifications required! Auto Publish is available for'
@@ -61,7 +60,7 @@ export const dataManagingFeatures: Feature[] = [
 /**
  * Creating posts features list
  */
-export const dataPostsFeatures: Feature[] = [
+export const dataPostsFeatures: any[] = [
 	{
 		title: 'Write and edit drafts',
 		desc: 'No notifications required! Auto Publish is available for '
@@ -75,7 +74,7 @@ export const dataPostsFeatures: Feature[] = [
 /**
  * Team work features list
  */
-export const dataTeamFeatures: Feature[] = [
+export const dataTeamFeatures: any[] = [
 	{
 		title: 'All drafts in one place',
 		desc: 'No notifications required! Auto Publish is available for '
@@ -89,7 +88,7 @@ export const dataTeamFeatures: Feature[] = [
 /**
  * Pricing offers
  */
-export const dataPricing: Offer[] = [
+export const dataPricing: any[] = [
 	{
 		icon: IconOfferBlogger,
 		title: 'Blogger',

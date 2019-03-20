@@ -4,10 +4,9 @@
  */
 import _ from 'lodash';
 
-import { canUseDOM } from '@scc/ui-kit';
+import { canUseDOM, authenticated } from '@scc/utils';
 
-import { authenticated } from '@tg/ui/utils';
-import { IconJoinChannel } from '@tg/ui/res';
+import { IconJoinChannel } from '@tg/ui/resources';
 import { TypeNav } from '@tg/ui';
 
 import { routes } from './routes';
@@ -24,29 +23,29 @@ export const headerNav: HeaderNav = {
 	left: [
 		{
 			title: 'About',
-			style: 'nav',
+			style: {main: 'nav'},
 			scroll: 'features'
 		},
 		{
 			title: 'Pricing',
-			style: 'nav',
+			style: {main: 'nav'},
 			scroll: 'pricing'
 		},
 		{
 			title: 'Bonuses',
-			style: 'nav',
+			style: {main: 'nav'},
 			scroll: 'roadmap'
 		}
 	],
 	right: [
 		{
 			title: 'Join our channel',
-			style: 'nav',
+			style: {main: 'nav'},
 			icon: IconJoinChannel
 		},
 		{
 			title: authenticated() ? 'Channels' : 'Sign in',
-			style: 'general_small',
+			style: {main: 'general', size: 'small'},
 			nav: !authenticated(),
 			url: authenticated() ? null : routes.auth.signin,
 			onClick: !authenticated() || !canUseDOM() ? _.noop : () => window.location.assign(routes.poster)
@@ -59,7 +58,7 @@ export const authHeaderNav = (path: 'up' | 'in'): HeaderNav => {
 		right: [
 			{
 				title: path === 'up' ? 'Sign in' : 'Create account',
-				style: 'general_small',
+				style: { main: 'general', size: 'small' },
 				nav: true,
 				url: path === 'up' ? routes.auth.signin : routes.auth.signup
 			}
@@ -73,11 +72,11 @@ export const authHeaderNav = (path: 'up' | 'in'): HeaderNav => {
 export const footerNav: TypeNav = [
 	{
 		title: 'Join our channel',
-		style: 'nav_footer',
+		style: {main: 'nav'},
 		icon: IconJoinChannel
 	},
 	{
 		title: 'Contact us',
-		style: 'nav_footer'
+		style: { main: 'nav' }
 	}
 ];

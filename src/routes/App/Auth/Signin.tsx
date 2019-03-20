@@ -4,12 +4,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { FormRoot, canUseDOM } from '@scc/ui-kit';
-import { Submit } from '@scc/ui-kit/addons';
-import { required, email } from '@scc/ui-kit/addons/validators';
+import { canUseDOM } from '@scc/utils';
+import { FormRoot, Submit } from '@scc/form';
+import { required, email } from '@scc/form/validators';
 
 import { Btn, Headline, FieldInput } from '@tg/ui';
-import { api } from '@tg/ui/config';
+import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle, IconArrowV2 } from '@tg/ui/resources';
 
 import { routes } from '../../../config';
@@ -43,21 +43,23 @@ const SignIn: React.FC<{}> = () => {
 			/>
 
 			{/* Password */}
-			<FieldInput name="password" type="password" placeholder="Password"
+			<FieldInput name="password" type={'password' as any} placeholder="Password"
 				validators={[ required ]}
 				stl={ styles.field }
 			/>
 
 			{/* Submit */}
 			{/* TODO: Rotate arrow icon 180deg */}
-			<Submit form={ authFormStore } title="Login with email" url={ api.auth.urls.login }
+			<Submit form={ authFormStore } title="Login with email"
+				url={ authService.resources.user.snapshots.login.options.url }
 				icon={ IconArrowV2 } iconPos="right"
 				styles={{ theme: styles.submit }}
 				onSuccess={ () => canUseDOM() && window.location.assign(routes.poster) }
 			/>
 
 			{/* Socials (Google) */}
-			<Btn nav external style="google" title="or continue with Google" url={ api.auth.urls.google }
+			<Btn nav external style={{main: 'google'}} title="or continue with Google"
+				url={ authService.resources.user.snapshots.google.options.url }
 				icon={ IconGoogle }
 				className={ styles.google }
 			/>

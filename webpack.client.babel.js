@@ -121,7 +121,7 @@ function genCustomConfig(mode) {
 		},
 
 		plugins: [
-			new CleanWebpackPlugin(['bundle_client/*.*']),
+			new CleanWebpackPlugin(),
 
 			new ReactLoadablePlugin({
 				filename: './bundle_client/react-loadable.json',

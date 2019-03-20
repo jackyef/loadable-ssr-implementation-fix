@@ -14,7 +14,6 @@ export const STATIC_URL = '/static/public';
 
 export const FONTS_DIRS = [
 	path.resolve(__dirname, "node_modules/@tg/ui/resources/fonts"),
-	path.resolve(__dirname, "node_modules/@scc/ui-kit/src/core/styles/__fonts__"),
 	path.resolve(__dirname, "node_modules/slick-carousel/slick/fonts"),
 	path.resolve(__dirname, "src/resources/fonts")
 ];

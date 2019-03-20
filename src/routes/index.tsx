@@ -3,9 +3,8 @@ import { Redirect } from 'react-router';
 import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
-import { canUseDOM } from '@scc/ui-kit';
+import { canUseDOM, authenticated } from '@scc/utils';
 import { Loading, NotFound } from '@tg/ui';
-import { authenticated } from '@tg/ui/utils';
 
 import { authFormStore } from '../stores';
 import { routes, indexRoute } from '../config';

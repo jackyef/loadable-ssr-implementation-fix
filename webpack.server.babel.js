@@ -76,7 +76,7 @@ function genCustomConfig(mode) {
 		},
 
 		plugins: [
-			new CleanWebpackPlugin(['bundle_server/*.*'])
+			new CleanWebpackPlugin()
 		],
 
 		// Do not place in a bundle modules that are
@@ -87,9 +87,20 @@ function genCustomConfig(mode) {
 		externals: [webpackNodeExternals({
 			whitelist: [
 				// ----------------
-				/^@scc\/ui-kit/,
+				/^@scc\/utils/,
+				/^@scc\/elm/,
+				/^@scc\/notify/,
+				/^@scc\/modal/,
+				/^@scc\/form/,
+				/^@scc\/api-proxy/,
+				/^@scc\/api-proxy-data/,
 				// ----------------
 				/^@tg\/ui/,
+				/^@tg\/api-proxy-auth/,
+				/^@tg\/api-proxy-drafts/,
+				/^@tg\/api-proxy-upload/,
+				/^@tg\/api-proxy-bot/,
+				/^@tg\/api-proxy-url-preview/,
 				// ----------------
 				/^emoji-mart/
 				// ----------------

@@ -6,8 +6,8 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { Header } from '@tg/ui';
-import { resources } from '@tg/ui/res';
-import { renderRoutes } from '@tg/ui/utils';
+import { resources } from '@tg/ui/resources';
+import { renderRoutes } from '@scc/utils';
 
 import { authHeaderNav } from '../../../config';
 import { history } from '../../';

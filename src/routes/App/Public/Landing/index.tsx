@@ -16,7 +16,7 @@ import {
 	Slideshow
 } from '@tg/ui';
 
-import { resources } from '@tg/ui/res';
+import { resources } from '@tg/ui/resources';
 
 import {
 	dataIconedFeatures,
