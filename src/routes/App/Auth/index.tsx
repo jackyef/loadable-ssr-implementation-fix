@@ -5,7 +5,7 @@ import _ from 'lodash';
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { Header } from '@tg/ui';
+import { PublicHeader } from '@tg/ui';
 import { resources } from '@tg/ui/resources';
 import { renderRoutes } from '@scc/utils';
 
@@ -41,7 +41,7 @@ const Auth: React.FC<Props> = ({ route, location }) => {
 	return (
 		<>
 			{/* Header */}
-			<Header history={ history } nav={ authHeaderNav(path) } styles={ styles.header } />
+			<PublicHeader history={ history } nav={ authHeaderNav(path) } styles={ styles.header } />
 
 			{/* Content */}
 			<main className={ styles.self }>

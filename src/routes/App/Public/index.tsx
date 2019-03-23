@@ -4,7 +4,7 @@
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { Header } from '@tg/ui';
+import { PublicHeader } from '@tg/ui';
 import { renderRoutes } from '@scc/utils';
 
 import { headerNav } from '../../../config';
@@ -27,7 +27,7 @@ const Container: React.FC<Props> = ({ route }) => {
 	return (
 		<div className={ styles.self }>
 
-			<Header history={ history } nav={ headerNav } />
+			<PublicHeader history={ history } nav={ headerNav } />
 
 			{/* Content */}
 			{ renderRoutes(route.routes) }
