@@ -8,7 +8,7 @@ COPY . /usr/src
 WORKDIR /usr/src
 
 # Install dependencies
-RUN yarn install
+RUN yarn
 
 # Install dependencies from private registry
 RUN rm -rf /root/.npmrc
@@ -18,23 +18,6 @@ RUN echo "ca = null\n" >>  /root/.npmrc
 RUN echo "always-auth = true\n" >>  /root/.npmrc
 RUN echo "//host.docker.internal:4873/:_authToken=jpicado:jpicado\n" >>  /root/.npmrc
 RUN yarn config set registry "http://host.docker.internal:4873"
-
-# Low level
-RUN yarn add @scc/elm
-RUN yarn add @scc/utils
-RUN yarn add @scc/form
-RUN yarn add @scc/notify
-RUN yarn add @scc/modal
-RUN yarn add @scc/api-proxy
-RUN yarn add @scc/api-proxy-data
-
-# Project specific
-RUN yarn add @tg/ui
-RUN yarn add @tg/api-proxy-auth
-RUN yarn add @tg/api-proxy-bot
-RUN yarn add @tg/api-proxy-drafts
-RUN yarn add @tg/api-proxy-upload
-RUN yarn add @tg/api-proxy-url-preview
 
 # Build express app
 RUN yarn prd:build-client
