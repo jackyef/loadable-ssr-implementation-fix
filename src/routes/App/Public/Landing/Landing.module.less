@@ -12,8 +12,8 @@
 
 	width: 700px;
 
-	border-radius: @const-border-card-radius;
-	box-shadow: @shadow-card;
+	border-radius: @const-border-radius-big;
+	.shadow-big();
 
 	transform: scale(1);
 	transition: transform 350ms ease-in-out;
@@ -29,7 +29,9 @@
 
 // Promo section
 .promo {
-	.flex-between-center();
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 
 	> img:first-child {
 		.pattern();
@@ -63,7 +65,8 @@
 // Management features
 // with an interactive demo aside
 .manage_features {
-	.flex-between-start();
+	display: flex;
+	justify-content: space-between;
 
 	// Pattern
 	> img {
@@ -85,7 +88,8 @@
 
 // Posts creating features
 .posts_features {
-	.flex-between-start();
+	display: flex;
+	justify-content: space-between;
 
 	> img {
 		.pattern();
@@ -104,7 +108,8 @@
 
 // Team work
 .team_features {
-	.flex-between-start();
+	display: flex;
+	justify-content: space-between;
 
 	> img {
 		.pattern();
@@ -124,13 +129,14 @@
 }
 
 // Pricing
-.pricing {
+// .pricing {
 
-}
+// }
 
 // Roadmap
 .roadmap {
-	.flex-column-start();
+	display: flex;
+	justify-content: space-between;
 
 	padding-top: 160px !important;
 	padding-bottom: 160px !important;
@@ -147,5 +153,6 @@
 
 // Subscribe
 .subscribe {
-	.flex-column-start();
+	display: flex;
+	justify-content: space-between;
 }
