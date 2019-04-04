@@ -1,5 +1,5 @@
 {
-	"name": "tg",
+	"name": "@tg/app-public",
 	"version": "0.1.0",
 	"description": "Telegram channel manager app public part",
 	"main": "src/index.tsx",
