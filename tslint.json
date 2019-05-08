@@ -18,7 +18,6 @@
 			"flatpickr/dist/themes",
 			"@tg/ui",
 			"@tg/ui/config",
-			"@scc/utils/types",
 			"@scc/form/validators",
 			"@scc/form/formatters",
 			"@scc/api-proxy/jsonapi",
