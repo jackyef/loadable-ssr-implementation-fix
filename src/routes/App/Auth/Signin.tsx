@@ -5,8 +5,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { canUseDOM } from '@scc/utils';
-import { FormRoot, Submit } from '@scc/form';
-import { required, email } from '@scc/form/validators';
+import { FormRoot, Submit, validators } from '@scc/form';
+const { required, email } = validators;
 
 import { Btn, Headline, FieldInput } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';

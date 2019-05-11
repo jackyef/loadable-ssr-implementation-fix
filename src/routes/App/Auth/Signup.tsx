@@ -5,9 +5,9 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 import { Helmet } from 'react-helmet';
 
-import { FormRoot, Submit } from '@scc/form';
+import { FormRoot, Submit, validators } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
-import { required, email } from '@scc/form/validators';
+const { required, email } = validators;
 
 import { Btn, Headline, FieldInput } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
