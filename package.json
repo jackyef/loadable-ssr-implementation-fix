@@ -23,7 +23,6 @@
 		"@babel/runtime": "^7.4.0",
 		"@types/emoji-mart": "^2.8.4",
 		"@types/moment-timezone": "^0.5.12",
-		"@types/react-flatpickr": "^3.7.0",
 		"@types/slate-plain-serializer": "^0.6.1",
 		"axios": "^0.18.0",
 		"babel-runtime": "^6.26.0",
