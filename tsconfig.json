@@ -1,7 +1,8 @@
 {
 	"compilerOptions": {
 		"skipLibCheck": true,
-		"outDir": "bundle_client/",
+		"outDir": "dist/",
+		"declarationMap": true,
 		"allowSyntheticDefaultImports": true,
 		"allowJs": true,
 		"checkJs": false,
