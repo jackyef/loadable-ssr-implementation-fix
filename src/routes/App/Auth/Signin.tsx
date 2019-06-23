@@ -4,19 +4,14 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { canUseDOM } from '@scc/utils';
-import { FormRoot, Submit, validators } from '@scc/form';
-const { required, email } = validators;
+import { FormRoot } from '@scc/form';
 
-import { Btn, Headline, FieldInput } from '@tg/ui';
-import { service as authService } from '@tg/api-proxy-auth';
-import { IconGoogle, IconArrowV2 } from '@tg/ui/resources';
-
-import { routes } from '../../../config';
 import { authFormStore } from '../../../stores';
 
 import { Styles } from './';
-const styles: Styles = require('./Auth.module.less');
+
+import importedStyles from './Auth.module.less';
+const styles: Styles = importedStyles;
 
 /**
  * Sign in authentication route
@@ -32,38 +27,8 @@ const SignIn: React.FC<{}> = () => {
 		<FormRoot wrapper="form" name="signin" inject={ authFormStore }
 			styles={ styles.form }
 		>
-
-			{/* Title */}
-			<Headline h={1} title="Sign In" />
-
-			{/* Email */}
-			<FieldInput name="email" placeholder="Email"
-				validateOnBlur validators={[required, email]}
-				stl={ styles.field }
-			/>
-
-			{/* Password */}
-			<FieldInput name="password" type={'password' as any} placeholder="Password"
-				validators={[ required ]}
-				stl={ styles.field }
-			/>
-
-			{/* Submit */}
-			{/* TODO: Rotate arrow icon 180deg */}
-			<Submit form={ authFormStore } title="Login with email"
-				url={ authService.resources.user.snapshots.login.options.url }
-				icon={ IconArrowV2 } iconPos="right"
-				styles={{ theme: styles.submit }}
-				onSuccess={ () => canUseDOM() && window.location.assign(routes.poster) }
-			/>
-
-			{/* Socials (Google) */}
-			<Btn nav external style={{main: 'google'}} title="or continue with Google"
-				url={ authService.resources.user.snapshots.google.options.url }
-				icon={ IconGoogle }
-				className={ styles.google }
-			/>
-
+			{/* TODO: Add form content here */}
+			<p />
 		</FormRoot>
 	</>
 	);

@@ -14,7 +14,6 @@ export const routes = {
 
 	// Products (external)
 	poster: '/post/dashboard',
-	market: '/market',
 
 	// Public (internal)
 	pricing: '/pricing',

@@ -1,1 +1,3 @@
-extends @scc/browserslist-config
+> 5%
+last 2 versions
+IE >= 11

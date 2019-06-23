@@ -10,3 +10,4 @@ coverage/
 *.iml
 local.dev.js
 id_rsa
+old_bundle/

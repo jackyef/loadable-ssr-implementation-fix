@@ -4,7 +4,6 @@ import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
 import { canUseDOM, authenticated } from '@scc/utils';
-import { Loading, NotFound } from '@tg/ui';
 
 import { authFormStore } from '../stores';
 import { routes, indexRoute } from '../config';
@@ -16,7 +15,7 @@ const RouteNotFound = { component: () => <Redirect to={ `/nf` } /> };
 export const history = canUseDOM() ? createBrowserHistory({ basename: indexRoute }) : null;
 
 // List of loadable routes with authentication condition
-const LoadableAuth = Loadable({ loader: () => import('./App/Auth'), loading: Loading });
+const LoadableAuth = Loadable({ loader: () => import('./App/Auth'), loading: () => <span>{ 'Loading' }</span> });
 
 // Routes map
 export default [
@@ -24,7 +23,7 @@ export default [
 		path: routes.index,
 		component: Loadable({
 			loader: () => import('./App'),
-			loading: Loading
+			loading: () => <span>{ 'Loading' }</span>
 		}),
 
 		routes: [
@@ -41,7 +40,7 @@ export default [
 				path: routes.home,
 				component: Loadable({
 					loader: () => import('./App/Public'),
-					loading: Loading
+					loading: () => <span>{ 'Loading' }</span>
 				}),
 
 				routes: [
@@ -52,7 +51,7 @@ export default [
 						path: routes.home,
 						component: Loadable({
 							loader: () => import('./App/Public/Landing'),
-							loading: Loading
+							loading: () => <span>{ 'Loading' }</span>
 						})
 					}
 				]
@@ -81,7 +80,7 @@ export default [
 						path: routes.auth.signup,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signup'),
-							loading: Loading,
+							loading: () => <span>{ 'Loading' }</span>,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
 								return <Component { ...props } store={ authFormStore } />;
@@ -95,7 +94,7 @@ export default [
 						path: routes.auth.signin,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signin'),
-							loading: Loading,
+							loading: () => <span>{ 'Loading' }</span>,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
 								return <Component store={ authFormStore } />;
@@ -109,7 +108,7 @@ export default [
 			},
 
 			// Not Found (404)
-			{ component: () => <NotFound to="/" /> }
+			{ component: () => <span>{ '404' }</span> }
 		]
 	}
 ];

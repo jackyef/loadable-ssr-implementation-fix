@@ -4,13 +4,10 @@
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { PublicHeader } from '@tg/ui';
 import { renderRoutes } from '@scc/utils';
 
-import { headerNav } from '../../../config';
-import { history } from '../../';
-
-const styles: Styles = require('./Public.module.less');
+import importedStyles from './Public.module.less';
+const styles: Styles = importedStyles;
 
 type Styles = {
 	self?: any;
@@ -26,12 +23,8 @@ type Props = {
 const Container: React.FC<Props> = ({ route }) => {
 	return (
 		<div className={ styles.self }>
-
-			<PublicHeader history={ history } nav={ headerNav } />
-
-			{/* Content */}
+			{/* TODO: Add common header here */}
 			{ renderRoutes(route.routes) }
-
 		</div>
 	);
 };
