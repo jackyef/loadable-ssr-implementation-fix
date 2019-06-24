@@ -23,7 +23,7 @@ export default [
 		path: routes.index,
 		component: Loadable({
 			loader: () => import('./App'),
-			loading: () => <span>{ 'Loading' }</span>
+			loading: () => <span>{ 'Loading App' }</span>
 		}),
 
 		routes: [
@@ -40,7 +40,7 @@ export default [
 				path: routes.home,
 				component: Loadable({
 					loader: () => import('./App/Public'),
-					loading: () => <span>{ 'Loading' }</span>
+					loading: () => <span>{ 'Loading Public' }</span>
 				}),
 
 				routes: [
@@ -51,7 +51,7 @@ export default [
 						path: routes.home,
 						component: Loadable({
 							loader: () => import('./App/Public/Landing'),
-							loading: () => <span>{ 'Loading' }</span>
+							loading: () => <span>{ 'Loading Landing' }</span>
 						})
 					}
 				]
@@ -80,7 +80,7 @@ export default [
 						path: routes.auth.signup,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signup'),
-							loading: () => <span>{ 'Loading' }</span>,
+							loading: () => <span>{ 'Loading Signup' }</span>,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
 								return <Component { ...props } store={ authFormStore } />;
@@ -94,7 +94,7 @@ export default [
 						path: routes.auth.signin,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signin'),
-							loading: () => <span>{ 'Loading' }</span>,
+							loading: () => <span>{ 'Loading Signin' }</span>,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
 								return <Component store={ authFormStore } />;

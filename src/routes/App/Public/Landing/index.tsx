@@ -23,6 +23,7 @@ const Landing: React.FC<{}> = () => {
 
 			{/* Content cards */}
 			<main className={ styles.self }>
+				{ 'Landing' }
 				{/* TODO: Add landing content here */}
 			</main>
 		</>

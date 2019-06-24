@@ -66,6 +66,7 @@ export default class Container extends React.Component<Props> {
 			<Provider>
 				<>
 					<NotifyBox store={ notifyStore } />
+					{ 'App' }
 					{ renderRoutes(route.routes) }
 				</>
 			</Provider>
