@@ -5,7 +5,7 @@ module.exports = function(env, options) {
 		require('@tg/configs/build/webpack/client.js')(env, options),
 		{
 			output: {
-				publicPath: '/static/public'
+				publicPath: '/static/public/'
 			}
 		}
 	);
