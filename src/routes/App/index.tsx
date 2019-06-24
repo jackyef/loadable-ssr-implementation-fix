@@ -1,9 +1,8 @@
 import _ from 'lodash';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 // import Cookies from 'js-cookie';
 // import Raven from 'raven-js';
-import { Provider } from 'mobx-react';
 
 import { NotifyBox } from '@scc/notify';
 import { renderRoutes } from '@scc/utils';
@@ -16,10 +15,10 @@ type Props = {
 	route: RouteConfig & { render?: any };
 };
 
-export default class Container extends React.Component<Props> {
+const Container: React.FC<Props> = ({ route }) => {
 
-	componentWillMount() {
-
+	// did mount
+	useEffect(() => {
 		// Try to get a message code on page load
 		// to display a message from server
 		// const msg_code = Cookies.get('msg');
@@ -57,19 +56,14 @@ export default class Container extends React.Component<Props> {
 		// 		})
 		// 	;
 		// }
-	}
+	}, []);
 
-	render() {
-		const { route } = this.props;
+	return (
+		<>
+			<NotifyBox store={ notifyStore } />
+			{ renderRoutes(route.routes) }
+		</>
+	);
+};
 
-		return (
-			<Provider>
-				<>
-					<NotifyBox store={ notifyStore } />
-					{ 'App' }
-					{ renderRoutes(route.routes) }
-				</>
-			</Provider>
-		);
-	}
-}
+export default Container;

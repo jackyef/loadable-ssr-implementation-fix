@@ -24,7 +24,6 @@ const Container: React.FC<Props> = ({ route }) => {
 	return (
 		<div className={ styles.self }>
 			{/* TODO: Add common header here */}
-			{ 'Public' }
 			{ renderRoutes(route.routes) }
 		</div>
 	);

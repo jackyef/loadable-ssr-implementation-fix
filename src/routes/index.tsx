@@ -3,6 +3,7 @@ import { Redirect } from 'react-router';
 import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
+import { Loading } from '@tg/ui';
 import { canUseDOM, authenticated } from '@scc/utils';
 
 import { authFormStore } from '../stores';
@@ -23,7 +24,7 @@ export default [
 		path: routes.index,
 		component: Loadable({
 			loader: () => import('./App'),
-			loading: () => <span>{ 'Loading App' }</span>
+			loading: Loading
 		}),
 
 		routes: [
@@ -40,7 +41,7 @@ export default [
 				path: routes.home,
 				component: Loadable({
 					loader: () => import('./App/Public'),
-					loading: () => <span>{ 'Loading Public' }</span>
+					loading: Loading
 				}),
 
 				routes: [
@@ -51,7 +52,7 @@ export default [
 						path: routes.home,
 						component: Loadable({
 							loader: () => import('./App/Public/Landing'),
-							loading: () => <span>{ 'Loading Landing' }</span>
+							loading: Loading
 						})
 					}
 				]
@@ -80,7 +81,7 @@ export default [
 						path: routes.auth.signup,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signup'),
-							loading: () => <span>{ 'Loading Signup' }</span>,
+							loading: Loading,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
 								return <Component { ...props } store={ authFormStore } />;
@@ -94,7 +95,7 @@ export default [
 						path: routes.auth.signin,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signin'),
-							loading: () => <span>{ 'Loading Signin' }</span>,
+							loading: Loading,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
 								return <Component store={ authFormStore } />;
