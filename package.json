@@ -189,6 +189,7 @@
 	"author": "vashchukmaksim",
 	"license": "UNLICENSED",
 	"scripts": {
+		"wp:server": "webpack-dev-server --mode=development --config webpack.client.babel.js --watch",
 		"dev:server": "nodemon --watch build --exec \"node bundle_server/server.js\"",
 		"dev:build-server": "NODE_ENV=development webpack --mode development --config webpack.server.babel.js --watch",
 		"dev:build-client": "NODE_OPTIONS=--max-old-space-size=4096 NODE_ENV=development webpack --mode development --config webpack.client.babel.js --watch",
