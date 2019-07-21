@@ -4,6 +4,9 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
+import { ContentBlock } from '../../../../components';
+import { Promo } from './Promo';
+
 import importedStyles from './Landing.module.less';
 const styles: Styles = importedStyles;
 
@@ -23,8 +26,11 @@ const Landing: React.FC<{}> = () => {
 
 			{/* Content cards */}
 			<main className={ styles.self }>
-				{/* TODO: Add landing content here */}
-				{'Landing'}
+
+				{/* Top */}
+				<ContentBlock>
+					<Promo />
+				</ContentBlock>
 			</main>
 		</>
 	);

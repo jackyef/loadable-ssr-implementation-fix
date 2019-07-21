@@ -5,7 +5,7 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@scc/utils';
-import { Btn } from '@tg/ui';
+import { Btn, Scrollbars } from '@tg/ui';
 
 // Components
 import { Header, Nav, Logo, NavItem } from '../../../components';
@@ -28,7 +28,7 @@ type Props = {
  */
 const Container: React.FC<Props> = ({ route }) => {
 	return (
-		<div className={ styles.self }>
+		<Scrollbars styles={{ wrapper: styles.self }}>
 
 			{/* Header */}
 			<Header>
@@ -64,7 +64,7 @@ const Container: React.FC<Props> = ({ route }) => {
 			{/* Content */}
 			{ renderRoutes(route.routes) }
 
-		</div>
+		</Scrollbars>
 	);
 };
 
