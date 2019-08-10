@@ -1,0 +1,23 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	display: flex;
+	flex-direction: column;
+
+	padding: 50px 40px 30px 40px;
+
+	border-radius: 6px;
+
+	// Icon
+	> i {
+		width: 44px;
+		height: 44px;
+	}
+
+	// Description
+	> p {
+		.text-paragraph-small-public(@cc-text-primary);
+
+		width: 80%;
+	}
+}

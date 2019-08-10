@@ -1,0 +1,33 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.mixin-card(@bg, @text) {
+	background: @bg;
+	> h3 { color: @text; }
+	> p { color: @text; }
+	> i > svg { fill: @text; }
+}
+
+.self {
+	padding: 0 150px 75px 150px;
+
+	background: @cc-white;
+
+	> div {
+		> ul {
+			display: flex;
+
+			// Card
+			> li {
+				&:first-child {
+					.mixin-card(@cc-sub, @cc-text-primary);
+					margin-right: 15px;
+				}
+
+				&:last-child {
+					.mixin-card(@cc-primary-dark, @cc-white);
+					margin-left: 15px;
+				}
+			}
+		}
+	}
+}

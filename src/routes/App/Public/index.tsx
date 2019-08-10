@@ -64,6 +64,9 @@ const Container: React.FC<Props> = ({ route }) => {
 			{/* Content */}
 			{ renderRoutes(route.routes) }
 
+			{/* Footer */}
+			{/* Footer component here */}
+
 		</Scrollbars>
 	);
 };

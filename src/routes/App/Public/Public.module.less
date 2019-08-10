@@ -1,3 +1,5 @@
+@import (reference) '~@tg/ui/styles/all';
+
 // Scrollbars wrapper
 .self {
 	width: 100%;
@@ -7,4 +9,16 @@
 .nav {
 	margin-right: auto;
 	margin-left: 80px;
+
+	> ul > li {
+		> a {
+			border-bottom: 2px solid @cc-transparent;
+			transition: border-color @tt @tf;
+
+			&:hover {
+				border-bottom: 2px solid @cc-sub;
+				transition: border-color @tt @tf;
+			}
+		}
+	}
 }

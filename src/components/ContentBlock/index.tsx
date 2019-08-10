@@ -30,6 +30,8 @@ type Props = {
  */
 export const ContentBlock: React.FC<Props> = ({ children, className }) => (
 	<section className={`${ styles.self } ${ className || '' }`}>
-		{ children }
+		<div>
+			{ children }
+		</div>
 	</section>
 );

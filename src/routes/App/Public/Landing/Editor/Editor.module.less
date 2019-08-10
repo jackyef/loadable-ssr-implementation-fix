@@ -1,0 +1,49 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	background: @cc-white;
+
+	// Content
+	> div {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+.right {
+	width: 390px;
+
+	// Title
+	> h2 {
+		margin-bottom: 10px;
+
+		color: @cc-text-primary;
+	}
+
+	// Description
+	> p {
+		.text-paragraph-public(@cc-text-primary);
+	}
+}
+
+.features {
+	margin-top: 40px;
+
+	> li {
+		.text-paragraph-small-public(@cc-text-primary);
+
+		&:not(:first-child) {
+			margin-top: 20px;
+		}
+
+		// Order number
+		> span {
+			margin-right: 20px;
+
+			font-weight: 500;
+
+			color: @cc-text-primary-dimer;
+		}
+	}
+}

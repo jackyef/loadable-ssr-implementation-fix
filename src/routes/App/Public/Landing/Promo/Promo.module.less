@@ -1,11 +1,26 @@
+@import (reference) '~@tg/ui/styles/all';
+
 .self {
-	//
+	background: @cc-white;
+
+	> div {
+		display: flex;
+		justify-content: space-between;
+
+		padding-bottom: 310px;
+	}
 }
 
 .left {
-	//
+	display: flex;
+	flex-direction: column;
+
+	width: 633px;
 }
 
 .right {
-	//
+	> p {
+		.text-paragraph-public(@cc-text-primary);
+		width: 311px;
+	}
 }
