@@ -17,23 +17,27 @@ type Styles = {
 type Props = {
 
 	/**
-	 * Display text or only logo picto
+	 * Display text or only logo pic
 	 */
 	noText?: boolean;
+
+	/**
+	 * Click on logo
+	 */
+	onClick?: () => any;
 };
 
 const defaultProps: Partial<Props> = {
-	noText: false
+	noText: false,
+	onClick: () => history.push(routes.home)
 };
 
 /**
  * Logo
  */
-export const Logo: React.FC<Props> = React.memo(({ noText }) => {
+export const Logo: React.FC<Props> = React.memo(({ noText, onClick }) => {
 	return (
-		<div className={ styles.self }
-			onClick={ () => history.push(routes.home) }
-		>
+		<div className={ styles.self } onClick={ onClick }>
 			{
 				!noText && (
 					<div>

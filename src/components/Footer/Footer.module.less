@@ -1,0 +1,45 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	padding: 50px 150px 30px 150px;
+
+	> div {
+		display: flex;
+		flex-direction: column;
+
+		// Top & bottom sections
+		> div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+
+			// Buttons
+			> div {
+				display: flex;
+				align-items: center;
+
+				> a {
+					margin-left: 10px;
+				}
+
+				// Align
+				margin-right: -12px;
+			}
+
+			// All rights reserved
+			> span {
+				font-size: 14px;
+
+				color: @cc-text-primary-dimest;
+			}
+		}
+	}
+}
+
+.top {
+	//
+}
+
+.bottom {
+	margin-top: 20px;
+}

@@ -1,13 +1,24 @@
 @import (reference) '~@tg/ui/styles/all';
 
 .self {
-	position: relative;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
-	padding: 30px 40px;
+	max-width: 1366px;
+	padding: 30px 0 10px 0;
 
 	background: @cc-white;
+}
+
+.container {
+	padding: 0 150px;
+
+	background: @cc-white;
+}
+
+.sticky {
+	position: sticky;
+	top: 0;
+	z-index: 2;
 }

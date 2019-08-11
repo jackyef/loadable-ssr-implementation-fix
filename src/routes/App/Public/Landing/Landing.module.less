@@ -1,7 +1,47 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.mixin-btn-hover-underline {
+	> ul > li {
+		> a,
+		> button {
+			border-bottom: 2px solid @cc-transparent;
+			transition: border-color @tt @tf;
+
+			&:hover {
+				border-bottom: 2px solid @cc-sub;
+				transition: border-color @tt @tf;
+			}
+		}
+	}
+}
+
 .self {
 	//
 }
 
 .demo {
 	margin-top: -275px;
+}
+
+.nav {
+	margin-right: auto;
+	margin-left: 80px;
+
+	.mixin-btn-hover-underline;
+}
+
+.sign_in {
+	.mixin-btn-hover-underline;
+}
+
+.shadow { .shadow-small; }
+.shadow_cover { margin-top: -5px; }
+.shadow_common {
+	position: sticky;
+	top: 80px;
+	z-index: 1;
+
+	padding: 5px 0;
+
+	background: @cc-white;
 }

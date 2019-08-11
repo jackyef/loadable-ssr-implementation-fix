@@ -3,7 +3,9 @@
  * and main features list
  * @module Editor
  */
-import React from 'react';
+import React, { Ref } from 'react';
+
+import { Icon } from '@scc/elm';
 
 import { ContentBlock } from '../../../../../components';
 
@@ -20,11 +22,15 @@ type Styles = {
 	features?: string;
 };
 
+type Props = {
+	ref?: Ref<any>;
+};
+
 /**
  * Component
  */
-export const Editor: React.FC<{}> = () => (
-	<ContentBlock className={styles.self}>
+export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
+	<ContentBlock ref={ ref } className={styles.self}>
 
 		{/* Illustration */}
 		<img alt="Editor features" src={ resources.editor_demo } />
@@ -41,13 +47,21 @@ export const Editor: React.FC<{}> = () => (
 
 			{/* List of features */}
 			<ul className={ styles.features }>
-				<li><span>{'1.'}</span>{ 'Text editor with markup' }</li>
-				<li><span>{'2.'}</span>{ 'Link preview settings' }</li>
-				<li><span>{'3.'}</span>{ 'Add reaction buttons' }</li>
-				<li><span>{'4.'}</span>{ 'Images and galleries' }</li>
-				<li><span>{'5.'}</span>{ 'Create from templates' }</li>
+
+				{/* FIXME: Version with ICONS (which one to choose?) */}
+				<li><Icon icon="fab fa-markdown" />{ 'Text editor with markup' }</li>
+				<li><Icon icon="fas fa-eye" />{ 'Link preview settings' }</li>
+				<li><Icon icon="fas fa-heart" />{ 'Reaction buttons' }</li>
+				<li><Icon icon="fas fa-images" />{ 'Images and galleries' }</li>
+				<li><Icon icon="fas fa-copy" />{ 'Create post from template' }</li>
+
+				{/*<li><span>{'1.'}</span>{ 'Text editor with markup' }</li>*/}
+				{/*<li><span>{'2.'}</span>{ 'Link preview settings' }</li>*/}
+				{/*<li><span>{'3.'}</span>{ 'Add reaction buttons' }</li>*/}
+				{/*<li><span>{'4.'}</span>{ 'Images and galleries' }</li>*/}
+				{/*<li><span>{'5.'}</span>{ 'Create from templates' }</li>*/}
 			</ul>
 		</div>
 
 	</ContentBlock>
-);
+));

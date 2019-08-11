@@ -2,7 +2,7 @@
  * Content block - wrapper that contains
  * all logical block's content
  */
-import React from 'react';
+import React, { Ref } from 'react';
 
 // Styles
 import importedStyles from './ContentBlock.module.less';
@@ -13,6 +13,11 @@ type Styles = {
 };
 
 type Props = {
+
+	/**
+	 * Ref
+	 */
+	ref?: Ref<any>;
 
 	/**
 	 * Block's content
@@ -28,10 +33,10 @@ type Props = {
 /**
  * Component
  */
-export const ContentBlock: React.FC<Props> = ({ children, className }) => (
-	<section className={`${ styles.self } ${ className || '' }`}>
+export const ContentBlock: React.FC<Props> = React.forwardRef(({ children, className }, ref) => (
+	<section ref={ ref as any } className={`${ styles.self } ${ className || '' }`}>
 		<div>
 			{ children }
 		</div>
 	</section>
-);
+));

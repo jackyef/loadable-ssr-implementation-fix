@@ -1,0 +1,21 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	background: @cc-white;
+}
+
+.info {
+	width: 440px;
+
+	// Title
+	> h2 {
+		margin-bottom: 20px;
+
+		color: @cc-text-primary;
+	}
+
+	// Description
+	> p {
+		.text-paragraph-small-public(@cc-text-primary);
+	}
+}
