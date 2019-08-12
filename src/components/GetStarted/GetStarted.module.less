@@ -5,6 +5,7 @@
 	flex-direction: row;
 	align-items: center;
 
+	width: 100%;
 	margin-top: 28px;
 
 	// Input
@@ -16,4 +17,20 @@
 	> button {
 		margin-left: 18px;
 	}
+
+	// Media
+	.media-mobile({
+		flex-direction: column;
+
+		// Input
+		> div {
+			width: 100%;
+		}
+
+		// Get started
+		> button {
+			width: 100%;
+			margin: 6px 0 0 0;
+		}
+	});
 }

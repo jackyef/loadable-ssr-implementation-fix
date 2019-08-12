@@ -6,7 +6,11 @@
 
 .small_stat {
 	position: absolute;
-	bottom: -170px;
+	bottom: -200px;
+
+	// Media
+	.media-tablet({ bottom: -300px; });
+	.media-mobile({ bottom: -280px; });
 }
 
 .info {
@@ -29,6 +33,17 @@
 		// In order not to see graph tooltip cursor
 		background: #fff;
 	}
+
+	// Media
+	.media-tablet({
+		width: 480px;
+		> h2 { width: 100%; }
+	});
+
+	// Mobile
+	.media-mobile({
+		width: 100%;
+	});
 }
 
 .graph {
@@ -40,6 +55,16 @@
 	margin-top: -100px;
 
 	background: white;
+
+	// Media
+	.media-tablet({
+		margin-top: 20px;
+	});
+
+	.media-mobile({
+		width: ~'calc(100% + 85px)';
+		margin-top: 20px;
+	});
 }
 
 .scale_container {
@@ -50,6 +75,8 @@
 
 	// Calendar trigger
 	> button {
+		width: 160px;
+
 		cursor: not-allowed;
 
 		> i {
@@ -73,6 +100,11 @@
 			margin-left: 8px;
 		}
 	}
+
+	// Media
+	.media-mobile({
+		> button { display: none; }
+	});
 }
 
 .dot {
@@ -101,7 +133,7 @@
 	background: @cc-white;
 
 	border: 1px solid @cc-border-gray-light-color;
-	border-radius: 4px;
+	border-radius: @const-border-radius-small;
 
 	.shadow-small();
 

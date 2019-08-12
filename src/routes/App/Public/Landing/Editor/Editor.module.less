@@ -9,6 +9,29 @@
 		justify-content: space-between;
 		align-items: center;
 	}
+
+	// Media
+	.media-tablet({
+		> div {
+			justify-content: center;
+
+			> img {
+				width: 50%;
+				margin-right: 40px;
+			}
+		}
+	});
+
+	.media-mobile({
+		> div {
+			flex-direction: column;
+
+			> img {
+				width: 100%;
+				margin-top: 40px;
+			}
+		}
+	});
 }
 
 .right {
@@ -25,6 +48,11 @@
 	> p {
 		.text-paragraph-public(@cc-text-primary);
 	}
+
+	// Media
+	.media-mobile({
+		width: 100%;
+	});
 }
 
 .features {
@@ -47,4 +75,9 @@
 			color: @cc-text-primary-dimer;
 		}
 	}
+
+	// Media
+	.media-mobile({
+		margin: 25px 0 0 25px;
+	});
 }

@@ -20,5 +20,19 @@
 		> p {
 			.text-paragraph-public(@cc-text-primary);
 		}
+
+		// Form
+		> form {
+			justify-content: center;
+
+			width: 80%;
+		}
 	}
+
+	// Media
+	.media-tablet({ padding: 0 0 50px 0; });
+	.media-mobile({
+		> div { padding-top: 0; }
+		> div > form { width: 100%; }
+	});
 }

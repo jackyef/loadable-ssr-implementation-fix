@@ -14,11 +14,54 @@
 			text-align: center;
 		}
 	}
+
+	// Media
+	.media-mobile({
+		> div > h2 {
+			width: 100%;
+			max-width: 440px;
+			margin: 20px 0 40px 0;
+		}
+	});
 }
 
 .features {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-	align-items: center;
+	align-items: flex-start;
+
+	// Media
+	.media-tablet({
+		flex-wrap: wrap;
+		justify-content: center;
+
+		max-width: 600px;
+
+		> li:first-child {
+			width: ~'calc(50% - 30px)';
+			margin: 0 30px 0 0;
+		}
+
+		> li:nth-child(2) {
+			width: ~'calc(50% - 30px)';
+			margin: 0 0 0 30px;
+		}
+
+		> li:last-child {
+			width: 100%;
+			margin: 50px 0 0 0;
+		}
+	});
+
+	.media-mobile({
+		flex-direction: column;
+		flex-wrap: nowrap;
+		align-items: center;
+
+		width: 100%;
+
+		> li { width: 100%; }
+		> li:not(:last-child) { margin: 0 0 40px 0; }
+	});
 }

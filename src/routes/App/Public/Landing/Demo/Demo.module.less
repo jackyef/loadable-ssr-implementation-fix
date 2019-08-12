@@ -12,4 +12,16 @@
 			width: 100%;
 		}
 	}
+
+	// Media
+	.media-mobile({
+		padding-right: 0;
+		padding-left: 0;
+
+		> div {
+			border-radius: 0;
+			box-shadow: none;
+			&::before { content: none; }
+		}
+	});
 }

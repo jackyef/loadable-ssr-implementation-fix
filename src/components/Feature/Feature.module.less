@@ -5,7 +5,8 @@
 	flex-direction: column;
 	align-items: center;
 
-	width: 320px;
+	width: 30%;
+	max-width: 320px;
 	margin: 0 30px;
 
 	// Image
@@ -34,6 +35,11 @@
 		margin-top: 30px;
 
 		text-align: center;
+
+		// Media
+		.media-not-desktop({
+			margin-bottom: 8px;
+		});
 	}
 
 	// Heading
@@ -41,6 +47,11 @@
 		text-align: center;
 
 		color: @cc-text-primary;
+
+		// Media
+		.media-not-desktop({
+			margin-bottom: 8px;
+		});
 	}
 
 	// Description
@@ -49,4 +60,27 @@
 
 		text-align: center;
 	}
+
+	// Media
+	.media-tablet({
+
+		// Image
+		> div {
+			width: 100px;
+			height: 100px;
+
+			border-radius: 50px;
+		}
+
+		// Hint
+		> span {
+			margin-top: 10px;
+		}
+	});
+
+	.media-mobile({
+		> span {
+			margin-top: 16px;
+		}
+	});
 }

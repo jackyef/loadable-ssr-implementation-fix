@@ -160,7 +160,7 @@ const getPrev = _.memoize((current: string, scale: 'week' | 'month' | 'year') =>
 		return _.filter(_data.year, v => v.x === prev)[0];
 	}
 
-	return {};
+	return {x: '', y: 0};
 });
 
 const scaleFrom: any = {

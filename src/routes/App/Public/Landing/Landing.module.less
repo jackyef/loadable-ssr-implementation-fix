@@ -15,12 +15,16 @@
 	}
 }
 
-.self {
-	//
-}
-
 .demo {
 	margin-top: -275px;
+
+	// Media
+	.media-mobile({
+		padding: 0;
+		margin-top: -190px;
+
+		background: @cc-bg-dim-darker;
+	});
 }
 
 .nav {
@@ -28,10 +32,21 @@
 	margin-left: 80px;
 
 	.mixin-btn-hover-underline;
+
+	// Media
+	.media-not-desktop({
+		display: none;
+	});
 }
 
 .sign_in {
 	.mixin-btn-hover-underline;
+
+	// Media
+	.media-mobile({
+		> ul > li:last-child { display: none; }
+		> ul > li:first-child { margin-right: 0; }
+	});
 }
 
 .shadow { .shadow-small; }
@@ -44,4 +59,9 @@
 	padding: 5px 0;
 
 	background: @cc-white;
+
+	// Media
+	.media-not-desktop({
+		display: none;
+	});
 }

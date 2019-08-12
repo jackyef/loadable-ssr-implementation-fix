@@ -21,7 +21,6 @@ import importedStyles from './Landing.module.less';
 const styles: Styles = importedStyles;
 
 type Styles = {
-	self?: string;
 	demo?: string;
 	nav?: string;
 	sign_in?: string;
@@ -128,7 +127,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 			}
 
 			{/* Content cards */}
-			<main className={ styles.self }>
+			<main>
 
 				{/* Top */}
 				<Promo />

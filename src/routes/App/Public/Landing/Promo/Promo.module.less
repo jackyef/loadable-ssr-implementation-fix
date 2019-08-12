@@ -5,22 +5,51 @@
 
 	> div {
 		display: flex;
-		justify-content: space-between;
+		flex-direction: column;
 
 		padding-bottom: 310px;
 	}
+
+	// Media
+	.media-tablet({
+		> div { padding-bottom: 250px; }
+	});
+
+	.media-mobile({
+		> div { padding-bottom: 220px; }
+	});
 }
 
-.left {
+.top {
 	display: flex;
-	flex-direction: column;
+	justify-content: space-between;
 
-	width: 633px;
-}
+	// Title
+	> h1 {
+		width: 633px;
+	}
 
-.right {
+	// Paragraph
 	> p {
 		.text-paragraph-public(@cc-text-primary);
 		width: 311px;
 	}
+
+	// Media
+	.media-not-desktop({
+		flex-direction: column;
+		justify-content: flex-start;
+
+		> h1,
+		> p {
+			width: 100%;
+			max-width: 600px;
+		}
+
+		> p { margin-top: 10px; }
+	});
+
+	.media-mobile({
+		> h1 { width: 260px; }
+	});
 }
