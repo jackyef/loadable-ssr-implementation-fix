@@ -4,7 +4,15 @@
 	background: @cc-white;
 }
 
+.small_stat {
+	position: absolute;
+	bottom: -170px;
+}
+
 .info {
+	position: relative;
+	z-index: 1;
+
 	width: 440px;
 
 	// Title
@@ -17,13 +25,54 @@
 	// Description
 	> p {
 		.text-paragraph-small-public(@cc-text-primary);
+
+		// In order not to see graph tooltip cursor
+		background: #fff;
 	}
 }
 
-.graph_container {
-	margin-top: -80px;
+.graph {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+
+	width: 100%;
+	margin-top: -100px;
 
 	background: white;
+}
+
+.scale_container {
+	display: flex;
+	align-items: center;
+
+	margin: 0 70px 20px 0;
+
+	// Calendar trigger
+	> button {
+		cursor: not-allowed;
+
+		> i {
+			opacity: .3;
+
+			// FA icon
+			> i {
+				font-size: 14px;
+			}
+		}
+	}
+
+	// Week, month, year
+	> ul {
+		display: flex;
+		align-items: center;
+
+		margin-right: 70px;
+
+		> li:not(:first-child) {
+			margin-left: 8px;
+		}
+	}
 }
 
 .dot {

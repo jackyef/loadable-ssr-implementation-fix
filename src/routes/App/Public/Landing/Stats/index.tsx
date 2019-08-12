@@ -4,7 +4,7 @@
  * @module Stats
  */
 import _ from 'lodash';
-import React, { Ref } from 'react';
+import React, { Ref, useState } from 'react';
 import moment from 'moment';
 import {
 	ResponsiveContainer,
@@ -16,7 +16,9 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Headline } from '@tg/ui';
+import { Icon } from '@scc/elm';
+
+import { Headline, Btn } from '@tg/ui';
 
 import { ContentBlock } from '../../../../../components';
 
@@ -27,9 +29,11 @@ const styles: Styles = importedStyles;
 type Styles = {
 	self?: string;
 	info?: string;
+	small_stat?: string;
+	graph?: string;
+	scale_container?: string;
 
 	// Graph
-	graph_container?: string;
 	dot?: string;
 	dot_active?: string;
 	tooltip?: string;
@@ -39,20 +43,44 @@ type Styles = {
 	delta_negative?: string;
 };
 
-const data = [
-	{ x: moment().subtract(6, 'days').format('YYYY-MM-DD'), y: 3800 },
-	{ x: moment().subtract(5, 'days').format('YYYY-MM-DD'), y: 4200 },
-	{ x: moment().subtract(4, 'days').format('YYYY-MM-DD'), y: 4000 },
-	{ x: moment().subtract(3, 'days').format('YYYY-MM-DD'), y: 4300 },
-	{ x: moment().subtract(2, 'days').format('YYYY-MM-DD'), y: 4400 },
-	{ x: moment().subtract(1, 'days').format('YYYY-MM-DD'), y: 4800 },
-	{ x: moment().format('YYYY-MM-DD'), y: 5000 }
-];
+const _data = {
+	week: [
+		{ x: moment().subtract(6, 'days').format('YYYY-MM-DD'), y: 3800 },
+		{ x: moment().subtract(5, 'days').format('YYYY-MM-DD'), y: 4200 },
+		{ x: moment().subtract(4, 'days').format('YYYY-MM-DD'), y: 4000 },
+		{ x: moment().subtract(3, 'days').format('YYYY-MM-DD'), y: 4300 },
+		{ x: moment().subtract(2, 'days').format('YYYY-MM-DD'), y: 4400 },
+		{ x: moment().subtract(1, 'days').format('YYYY-MM-DD'), y: 4800 },
+		{ x: moment().format('YYYY-MM-DD'), y: 5000 }
+	],
+
+	month: [
+		{ x: '2019-07-01', y: 2000 },
+		{ x: '2019-07-08', y: 2300 },
+		{ x: '2019-07-15', y: 2800 },
+		{ x: '2019-07-22', y: 2850 },
+		{ x: '2019-07-30', y: 3600 }
+	],
+
+	year: [
+		{ x: '2018-12-01', y: 100 },
+		{ x: '2019-01-01', y: 200 },
+		{ x: '2019-02-01', y: 300 },
+		{ x: '2019-03-01', y: 500 },
+		{ x: '2019-04-01', y: 400 },
+		{ x: '2019-05-01', y: 600 },
+		{ x: '2019-06-01', y: 900 },
+		{ x: '2019-07-01', y: 2000 },
+		{ x: '2019-08-01', y: 4800 }
+	]
+};
 
 /**
  * Format date to readable form
  */
-const formatDate = (v: string) => moment(v, 'YYYY-MM-DD').format('MMM DD');
+const formatDate = (v: string) => {
+	return moment(v, 'YYYY-MM-DD').format('MMM DD');
+};
 
 /**
  * Dot component props
@@ -115,15 +143,36 @@ AxisTick.defaultProps = {
 /**
  * Get previous value (moment date)
  */
-const getPrevDay = _.memoize((current: string) => {
-	const prevDay = moment(current, 'YYYY-MM-DD').subtract(1, 'day').format('YYYY-MM-DD');
-	return _.filter(data, v => v.x === prevDay)[0];
+const getPrev = _.memoize((current: string, scale: 'week' | 'month' | 'year') => {
+
+	if (scale === 'week') {
+		const prev = moment(current, 'YYYY-MM-DD').subtract(1, 'day').format('YYYY-MM-DD');
+		return _.filter(_data.week, v => v.x === prev)[0];
+	}
+
+	if (scale === 'month') {
+		const prev = moment(current, 'YYYY-MM-DD').subtract(1, 'week').format('YYYY-MM-DD');
+		return _.filter(_data.month, v => v.x === prev)[0];
+	}
+
+	if (scale === 'year') {
+		const prev = moment(current, 'YYYY-MM-DD').subtract(1, 'month').format('YYYY-MM-DD');
+		return _.filter(_data.year, v => v.x === prev)[0];
+	}
+
+	return {};
 });
+
+const scaleFrom: any = {
+	week: 'day',
+	month: 'week',
+	year: 'month'
+};
 
 /**
  * Tooltip
  */
-const TooltipCustom: React.FC<any> = (e: any) => {
+const TooltipCustom: React.FC<any> = (e: any, scale: any) => {
 	if (e.active) {
 
 		// Values
@@ -131,7 +180,7 @@ const TooltipCustom: React.FC<any> = (e: any) => {
 		const yValue = _.get(e.payload, '1.payload.y');
 
 		// Prev day
-		const prevPair = getPrevDay(xValue);
+		const prevPair = getPrev(xValue, scale);
 		const delta = prevPair && (yValue - prevPair.y);
 
 		// Render
@@ -145,7 +194,7 @@ const TooltipCustom: React.FC<any> = (e: any) => {
 								`${ styles.delta }
 								${ delta > 0 ? styles.delta_positive : delta < 0 ? styles.delta_negative : '' }`}
 							>
-								<span>{`${ delta > 0 ? '+' : '' }${ delta }`}</span>{' from the previous day'}
+								<span>{`${ delta > 0 ? '+' : '' }${ delta }`}</span>{` from the previous ${ scaleFrom[scale] }`}
 							</li>
 						)
 					}
@@ -160,58 +209,115 @@ const TooltipCustom: React.FC<any> = (e: any) => {
 /**
  * Component
  */
-export const Stats: React.FC<Props> = React.forwardRef((props, ref) => (
-	<ContentBlock ref={ref} className={styles.self}>
+export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 
-		{/* Short description */}
-		<div className={styles.info}>
-			<Headline h={2} variation="public" title="Analise what people like and how fast your channel grows" />
-			<p>{
-				'Unleash your creativity, plan projects from all angles, ' +
-				'and create centralized hubs of information to keep everyone in the loop. '
-			}</p>
+	// Scale state
+	const [scale, setScale] = useState<'week' | 'month' | 'year'>('week');
+	const [data, setData] = useState<Array<{x: string, y: any}>>(_data.week);
 
-			{/* Small */}
-		</div>
+	// Render
+	return (
+		<ContentBlock ref={ref} className={styles.self}>
 
-		{/* Graph demo */}
-		<ResponsiveContainer className={ styles.graph_container } height={400}>
-			<ComposedChart data={ data } margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
+			{/* Short description */}
+			<div className={styles.info}>
+				<Headline h={2} variation="public" title="Analise what people like and how fast your channel grows" />
+				<p>{
+					'Unleash your creativity, plan projects from all angles, ' +
+					'and create centralized hubs of information to keep everyone in the loop. '
+				}</p>
 
-				{/* Area gradient color */}
-				<defs>
-					<linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-						<stop offset="5%" stopColor={ colors.line } stopOpacity={0.1}/>
-						<stop offset="95%" stopColor={ colors.line } stopOpacity={0}/>
-					</linearGradient>
-				</defs>
+				{/* Small stat */}
+				<div className={`${ styles.delta } ${ styles.delta_positive } ${ styles.small_stat }`}>
+					<span>{'+74'}</span>
+				</div>
+			</div>
 
-				{/* Axis */}
-				<XAxis dataKey="x" scale="point" domain={['auto', 'auto']} tick={<AxisTick formatter={formatDate}/>}
-					axisLine={{ opacity: 0.2 }} tickLine={{ opacity: 0.2 }}
-				/>
+			{/* Graph demo */}
+			<div className={styles.graph}>
 
-				<YAxis orientation="right" domain={['auto', 'auto']} tick={<AxisTick axis="y" />}
-					axisLine={{ opacity: 0.2 }} tickLine={{ opacity: 0.2 }}
-				/>
+				{/* Scale */}
+				<div className={styles.scale_container}>
 
-				{/*Area gradient (under the line so goes first) */}
-				<Area dataKey="y" type="monotone" stroke={null}
-					fillOpacity={1} fill="url(#areaGradient)"
-					dot={false} activeDot={false}
-				/>
+					{/* Predefined scales (week, month, year) */}
+					<ul>
+						<li>
+							<Btn title="Week" style={{ main: 'inline', size: 'small', color: 'dim' }}
+								active={scale === 'week'}
+								onClick={ () => {
+									setScale('week');
+									setData(_data.week);
+								}}
+							/>
+						</li>
+						<li>
+							<Btn title="Month" style={{ main: 'inline', size: 'small', color: 'dim' }}
+								active={scale === 'month'}
+								onClick={ () => {
+									setScale('month');
+									setData(_data.month);
+								}}
+							/>
+						</li>
+						<li>
+							<Btn title="Year" style={{ main: 'inline', size: 'small', color: 'dim' }}
+								active={scale === 'year'}
+								onClick={ () => {
+									setScale('year');
+									setData(_data.year);
+								}}
+							/>
+						</li>
+					</ul>
 
-				{/* Tooltip */}
-				<Tooltip cursor={{ opacity: 0.4, strokeWidth: 1, strokeDasharray: '5, 5' }}
-					content={ TooltipCustom }
-				/>
+					{/* Date range (calendar trigger) */}
+					<Btn style={{ main: 'general', size: 'small', color: 'white' }}
+						icon={<Icon icon="fas fa-calendar" />}
+						title={`${formatDate(data[0].x)} - ${formatDate(data[data.length - 1].x)}`}
+					/>
+				</div>
 
-				{/* Line */}
-				<Line dataKey="y" type="monotone" stroke={colors.line} strokeWidth={2}
-					dot={ <Dot /> } activeDot={ <Dot active /> }
-				/>
+				{/* Chart */}
+				<ResponsiveContainer height={400} width="100%">
+					<ComposedChart data={data} margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
 
-			</ComposedChart>
-		</ResponsiveContainer>
-	</ContentBlock>
-));
+						{/* Area gradient color */}
+						<defs>
+							<linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+								<stop offset="5%" stopColor={ colors.line } stopOpacity={0.1}/>
+								<stop offset="95%" stopColor={ colors.line } stopOpacity={0}/>
+							</linearGradient>
+						</defs>
+
+						{/* Axis */}
+						<XAxis dataKey="x" scale="point" domain={['auto', 'auto']}
+							tick={<AxisTick formatter={v => formatDate(v)}/>}
+							axisLine={{ opacity: 0.2 }} tickLine={{ opacity: 0.2 }}
+						/>
+
+						<YAxis orientation="right" domain={['auto', 'auto']} tick={<AxisTick axis="y" />}
+							axisLine={{ opacity: 0.2 }} tickLine={{ opacity: 0.2 }}
+						/>
+
+						{/* Area gradient (under the line so goes first) */}
+						<Area dataKey="y" type="monotone" stroke={null}
+							fillOpacity={1} fill="url(#areaGradient)"
+							dot={false} activeDot={false}
+						/>
+
+						{/* Tooltip */}
+						<Tooltip cursor={{ opacity: 0.4, strokeWidth: 1, strokeDasharray: '5, 5' }}
+							content={ (e: any) => TooltipCustom(e, scale) }
+						/>
+
+						{/* Line */}
+						<Line dataKey="y" type="monotone" stroke={colors.line} strokeWidth={2}
+							dot={ <Dot /> } activeDot={ <Dot active /> }
+						/>
+
+					</ComposedChart>
+				</ResponsiveContainer>
+			</div>
+		</ContentBlock>
+	);
+});
