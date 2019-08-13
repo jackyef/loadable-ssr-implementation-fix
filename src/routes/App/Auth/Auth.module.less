@@ -1,4 +1,66 @@
+@import (reference) '~@tg/ui/styles/all';
+
 // Form container
 .self {
-	//
+	position: absolute;
+	top: 0;
+	z-index: 0;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100vw;
+	height: 100vh;
+
+	background: @cc-white;
+
+	> form {
+		width: 420px;
+		padding: 40px;
+
+		// Title
+		> h1 {
+			margin-bottom: 40px;
+		}
+
+		// Fields
+		> div {
+			width: 100%;
+			margin-bottom: 10px;
+		}
+
+		// Buttons
+		> button {
+			width: 100%;
+			margin-left: 6px;
+
+			// Sign in
+			&:first-child { margin-top: 20px; }
+
+			// Google
+			&:last-child { margin-top: 12px; }
+		}
+
+		// Divider (OR)
+		> span {
+			.text-hint-upper();
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			width: 100%;
+			margin-top: 10px;
+
+			opacity: .4;
+		}
+	}
+
+	// Media
+	.media-mobile({
+		> form {
+			padding: 16px;
+		}
+	});
 }

@@ -17,6 +17,15 @@ type Styles = {
 };
 
 type Props = {
+
+	/**
+	 * Redirect to sign up
+	 */
+	redirectTo?: string;
+
+	/**
+	 * Custom user styles
+	 */
 	className?: string;
 };
 
@@ -27,13 +36,14 @@ const storeFormAPI = new StoreFormAPI();
 const storeForm = new StoreForm('formGetStarted', {}, storeFormAPI);
 
 const defaultProps: Partial<Props> = {
+	redirectTo: '/',
 	className: ''
 };
 
-export const GetStarted: React.FC<Props> = ({ className }) => (
+export const GetStarted: React.FC<Props> = ({ redirectTo, className }) => (
 	<FormRoot wrapper="form" inject={ storeForm } styles={`${ styles.self } ${ className }`}>
 		<FieldInput placeholder="Your email address" kind="big" />
-		<Btn title="Get started" icon={ <IconArrowReverseV2 /> } iconPos="right"
+		<Btn nav title="Get started" icon={ <IconArrowReverseV2 /> } iconPos="right" url={ redirectTo }
 			style={{ main: 'general', size: 'big' }}
 		/>
 	</FormRoot>

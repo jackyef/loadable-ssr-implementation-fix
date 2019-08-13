@@ -5,11 +5,16 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { FormRoot } from '@scc/form';
+import { canUseDOM } from '@scc/utils';
+
+import { FieldInput, Btn, Headline } from '@tg/ui';
+import { IconGoogle } from '@tg/ui/dist/resources';
 
 import { authFormStore } from '../../../stores';
+import { routes } from '../../../config';
 
+// Styles
 import { Styles } from './';
-
 import importedStyles from './Auth.module.less';
 const styles: Styles = importedStyles;
 
@@ -25,10 +30,27 @@ const SignIn: React.FC<{}> = () => {
 
 		{/* Sign in form */}
 		<FormRoot wrapper="form" name="signin" inject={ authFormStore }
+			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
 			styles={ styles.form }
 		>
-			{/* TODO: Add form content here */}
-			<p />
+			{/* Title */}
+			<Headline title="Sign In" h={1} variation="public" />
+
+			{/* Login/password pair */}
+			<FieldInput name="email" placeholder="Email" />
+			<FieldInput name="password" placeholder="Password" type="password" />
+
+			{/* Submit */}
+			<Btn style={{ main: 'general' }} title="Sign In" />
+
+			{/* Divider */}
+			<span>{ 'or' }</span>
+
+			{/* Google */}
+			<Btn style={{ main: 'google' }} title="Sign in with Google"
+				icon={<IconGoogle />}
+			/>
+
 		</FormRoot>
 	</>
 	);

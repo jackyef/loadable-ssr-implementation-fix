@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet';
 import { Btn, TypeBtnStyle } from '@tg/ui';
 
 import { Header, Nav, Logo, NavItem, ContentBlock } from '../../../../components';
+import { routes } from '../../../../config';
 
 import { Promo } from './Promo';
 import { Demo } from './Demo';
@@ -108,11 +109,13 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 				{/* Sign in/up (logout) */}
 				<Nav className={ styles.sign_in }>
 					<NavItem>
-						<Btn { ...commonNavBtnProps('Sign in', true) } />
+						<Btn { ...commonNavBtnProps('Sign in', true) }
+							url={ routes.auth.signin }
+						/>
 					</NavItem>
 					<NavItem>
-						<Btn nav={false} title="Get Started" style={{ main: 'general', size: 'mid' }}
-							onClick={() => scroll(scroller)}
+						<Btn nav title="Get Started" style={{ main: 'general', size: 'mid' }}
+							url={ routes.auth.signup }
 						/>
 					</NavItem>
 				</Nav>
