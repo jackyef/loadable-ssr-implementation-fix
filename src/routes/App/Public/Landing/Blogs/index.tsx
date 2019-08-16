@@ -3,7 +3,7 @@
  * @module Blog
  */
 import _ from 'lodash';
-import React, { Ref } from 'react';
+import React from 'react';
 
 import { Headline } from '@tg/ui';
 
@@ -41,15 +41,11 @@ const featuresData: FeatureProps[] = [
 	}
 ];
 
-type Props = {
-	ref?: Ref<any>;
-};
-
 /**
  * Component
  */
-export const Blogs: React.FC<Props> = React.forwardRef((props, ref) => (
-	<ContentBlock ref={ ref } className={ styles.self }>
+export const Blogs: React.FC<{}> = () => (
+	<ContentBlock className={ styles.self }>
 
 		{/* Content block title */}
 		<Headline h={2} variation="public" title="For beginners, grown and large channels" />
@@ -60,4 +56,4 @@ export const Blogs: React.FC<Props> = React.forwardRef((props, ref) => (
 		</ul>
 
 	</ContentBlock>
-));
+);

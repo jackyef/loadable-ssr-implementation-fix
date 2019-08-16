@@ -8,7 +8,7 @@ import { FormRoot } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
 import { FieldInput, Btn, Headline } from '@tg/ui';
-import { IconGoogle } from '@tg/ui/dist/resources';
+import { IconGoogleV2 } from '@tg/ui/dist/resources';
 
 import { authFormStore } from '../../../stores';
 import { routes } from '../../../config';
@@ -48,7 +48,7 @@ const SignIn: React.FC<{}> = () => {
 
 			{/* Google */}
 			<Btn style={{ main: 'google' }} title="Sign in with Google"
-				icon={<IconGoogle />}
+				icon={ <IconGoogleV2 /> }
 			/>
 
 		</FormRoot>

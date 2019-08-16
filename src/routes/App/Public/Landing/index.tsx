@@ -64,8 +64,8 @@ const STICKY = true; // false
 const Landing: React.FC<Props> = ({ scroller }) => {
 
 	// Refs to scroll to
+	const refOrganize = useRef(null);
 	const refEditor = useRef(null);
-	const refBlogs = useRef(null);
 	const refStats = useRef(null);
 	// const refPrice = useRef(null);
 
@@ -86,7 +86,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 				<Nav className={ styles.nav }>
 					<NavItem>
 						<Btn { ...commonNavBtnProps('Organise') }
-							onClick={() => scroll(scroller, refBlogs, -100)}
+							onClick={() => scroll(scroller, refOrganize, -50)}
 						/>
 					</NavItem>
 					<NavItem>
@@ -135,10 +135,10 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 				{/* Top */}
 				<Promo />
 				<Demo className={ styles.demo } />
-				<Blogs ref={ refBlogs } />
+				<Blogs />
 
 				{/* Center */}
-				<Feed />
+				<Feed ref={ refOrganize } />
 				<Editor ref={ refEditor } />
 				<EditorMore />
 

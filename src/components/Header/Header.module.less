@@ -25,17 +25,19 @@
 	background: @cc-white;
 
 	// Media
+	.media-desktop-narrow({ padding: 0 75px; });
 	.media-tablet({ padding: 0 20px; });
 	.media-mobile({ padding: 0 16px });
 }
 
 .sticky {
 	position: sticky;
-	top: 0;
+	top: -20px;
 	z-index: 2;
 
 	// Media
 	.media-not-desktop({
 		position: relative;
+		top: 0;
 	});
 }

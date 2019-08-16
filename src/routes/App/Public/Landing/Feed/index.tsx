@@ -4,7 +4,7 @@
  */
 import _ from 'lodash';
 import moment from 'moment';
-import React, { useState } from 'react';
+import React, { useState, Ref } from 'react';
 
 import { uuid } from '@scc/utils';
 import { Headline, ListPostsPreview, ContextStores } from '@tg/ui';
@@ -30,6 +30,7 @@ const storePosts = new DataPost();
 
 type Props = {
 	active?: number;
+	ref?: Ref<any>;
 };
 
 /**
@@ -83,14 +84,14 @@ const defaultProps: Partial<Props> = {
 /**
  * Component
  */
-export const Feed: React.FC<Props> = ({ active: _active }) => {
+export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref) => {
 
 	// Active feature
 	const [active, setActive] = useState<number>(_active);
 
 	// Render
 	return (
-		<ContentBlock className={ styles.self }>
+		<ContentBlock ref={ ref } className={ styles.self }>
 
 			{/* Left part */}
 			<div className={ styles.left }>
@@ -115,6 +116,6 @@ export const Feed: React.FC<Props> = ({ active: _active }) => {
 
 		</ContentBlock>
 	);
-};
+});
 
 Feed.defaultProps = defaultProps;

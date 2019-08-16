@@ -36,7 +36,11 @@
 	}
 
 	// Media
-	.media-not-desktop({
+	.media-mobile({ > h1 { width: 260px; } });
+
+	// Not moved to constants media mixins because it should be
+	// applied from special width value
+	@media screen and (max-width: 1200px) {
 		flex-direction: column;
 		justify-content: flex-start;
 
@@ -47,9 +51,5 @@
 		}
 
 		> p { margin-top: 10px; }
-	});
-
-	.media-mobile({
-		> h1 { width: 260px; }
-	});
+	}
 }

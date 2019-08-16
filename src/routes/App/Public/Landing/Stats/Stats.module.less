@@ -103,8 +103,16 @@
 
 	// Media
 	.media-mobile({
+		width: 100%;
+		margin: 0;
+
 		> button { display: none; }
 	});
+
+	@media screen and (max-width: 1120px) and (min-width: 1024px) {
+		margin: 0;
+		> button { display: none; }
+	}
 }
 
 .dot {
