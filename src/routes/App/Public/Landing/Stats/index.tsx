@@ -145,22 +145,26 @@ AxisTick.defaultProps = {
  */
 const getPrev = _.memoize((current: string, scale: 'week' | 'month' | 'year') => {
 
-	if (scale === 'week') {
-		const prev = moment(current, 'YYYY-MM-DD').subtract(1, 'day').format('YYYY-MM-DD');
-		return _.filter(_data.week, v => v.x === prev)[0];
-	}
+	// Prev value container
+	let prev: string = null;
 
-	if (scale === 'month') {
-		const prev = moment(current, 'YYYY-MM-DD').subtract(1, 'week').format('YYYY-MM-DD');
-		return _.filter(_data.month, v => v.x === prev)[0];
-	}
+	// Choose scale
+	switch (scale) {
+		case 'week':
+			prev = moment(current, 'YYYY-MM-DD').subtract(1, 'day').format('YYYY-MM-DD');
+			return _.filter(_data.week, v => v.x === prev)[0];
 
-	if (scale === 'year') {
-		const prev = moment(current, 'YYYY-MM-DD').subtract(1, 'month').format('YYYY-MM-DD');
-		return _.filter(_data.year, v => v.x === prev)[0];
-	}
+		case 'month':
+			prev = moment(current, 'YYYY-MM-DD').subtract(1, 'week').format('YYYY-MM-DD');
+			return _.filter(_data.month, v => v.x === prev)[0];
 
-	return {x: '', y: 0};
+		case 'year':
+			prev = moment(current, 'YYYY-MM-DD').subtract(1, 'month').format('YYYY-MM-DD');
+			return _.filter(_data.year, v => v.x === prev)[0];
+
+		default:
+			return {x: '', y: 0};
+	}
 });
 
 const scaleFrom: any = {
@@ -289,7 +293,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 							</linearGradient>
 						</defs>
 
-						{/* Axis */}
+						{/*/!* Axis *!/*/}
 						<XAxis dataKey="x" scale="point" domain={['auto', 'auto']}
 							tick={<AxisTick formatter={v => formatDate(v)}/>}
 							axisLine={{ opacity: 0.2 }} tickLine={{ opacity: 0.2 }}

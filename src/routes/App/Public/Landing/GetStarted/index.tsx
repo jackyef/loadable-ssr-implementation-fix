@@ -7,7 +7,7 @@ import React from 'react';
 
 import { Headline } from '@tg/ui';
 
-import { routes } from '../../../../../config';
+import { toSignUp } from '../';
 import { ContentBlock, GetStarted as GetStartedForm } from '../../../../../components';
 
 // Styles
@@ -25,6 +25,6 @@ export const GetStarted: React.FC<{}> = () => (
 	<ContentBlock className={styles.self}>
 		<Headline h={2} variation="public" title="Ready to get started? Try it." />
 		<p>{ 'Join now and get 3 months of free management for all your channels.' }</p>
-		<GetStartedForm redirectTo={ routes.auth.signup } />
+		<GetStartedForm onClick={ toSignUp } />
 	</ContentBlock>
 );

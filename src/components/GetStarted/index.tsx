@@ -2,12 +2,15 @@
  * Subscribe/login mini form with input field & one button
  * @module GetStarted
  */
+import _ from 'lodash';
 import React from 'react';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { Btn, FieldInput } from '@tg/ui';
 
 import { IconArrowReverseV2 } from '@tg/ui/dist/resources';
+
+import { validators } from '../../utils';
 
 import importedStyles from './GetStarted.module.less';
 const styles: Styles = importedStyles;
@@ -21,7 +24,7 @@ type Props = {
 	/**
 	 * Redirect to sign up
 	 */
-	redirectTo?: string;
+	onClick?: (email?: string) => void;
 
 	/**
 	 * Custom user styles
@@ -36,15 +39,31 @@ const storeFormAPI = new StoreFormAPI();
 const storeForm = new StoreForm('formGetStarted', {}, storeFormAPI);
 
 const defaultProps: Partial<Props> = {
-	redirectTo: '/',
+	onClick: _.noop,
 	className: ''
 };
 
-export const GetStarted: React.FC<Props> = ({ redirectTo, className }) => (
+export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 	<FormRoot wrapper="form" inject={ storeForm } styles={`${ styles.self } ${ className }`}>
-		<FieldInput placeholder="Your email address" kind="big" />
-		<Btn nav title="Get started" icon={ <IconArrowReverseV2 /> } iconPos="right" url={ redirectTo }
+
+		{/* Email */}
+		<FieldInput name="email" placeholder="Your email address" kind="big"
+			validators={[validators.email.valid, validators.email.required]}
+		/>
+
+		{/* Validate email and redirect to sign up */}
+		<Btn title="Get started" icon={ <IconArrowReverseV2 /> } iconPos="right"
 			style={{ main: 'general', size: 'big' }}
+			onClick={() => {
+
+				// Validate email
+				const { valid } = storeForm.validate();
+
+				// Proceed if valid
+				if (valid) {
+					onClick(storeForm.getFieldValue('email'));
+				}
+			}}
 		/>
 	</FormRoot>
 );

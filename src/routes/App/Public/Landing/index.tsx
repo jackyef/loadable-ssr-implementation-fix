@@ -6,6 +6,8 @@ import { Helmet } from 'react-helmet';
 
 import { Btn, TypeBtnStyle } from '@tg/ui';
 
+import { history } from '../../../';
+import { signUpFormStore } from '../../../../stores';
 import { Header, Nav, Logo, NavItem, ContentBlock } from '../../../../components';
 import { routes } from '../../../../config';
 
@@ -32,6 +34,15 @@ type Styles = {
 
 type Props = {
 	scroller?: any;
+};
+
+/**
+ * On click redirect to sigh up form
+ * and persist entered email in context store
+ */
+export const toSignUp = (email?: string) => {
+	signUpFormStore.setData({ email: email });
+	history.push(routes.auth.signup);
 };
 
 /**

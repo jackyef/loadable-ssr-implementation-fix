@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import { Loading } from '@tg/ui';
 import { canUseDOM, authenticated } from '@scc/utils';
 
-import { authFormStore } from '../stores';
+import { signUpFormStore } from '../stores';
 import { routes, indexRoute } from '../config';
 
 // Not Found Route
@@ -84,7 +84,7 @@ export default [
 							loading: Loading,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
-								return <Component { ...props } store={ authFormStore } />;
+								return <Component { ...props } store={ signUpFormStore } />;
 							}
 						})
 					},
@@ -98,7 +98,7 @@ export default [
 							loading: Loading,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
-								return <Component store={ authFormStore } />;
+								return <Component />;
 							}
 						})
 					},

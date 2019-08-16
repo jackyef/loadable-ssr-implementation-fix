@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Headline } from '@tg/ui';
 
-import { routes } from '../../../../../config';
+import { toSignUp } from '../';
 import { GetStarted, ContentBlock } from '../../../../../components';
 
 // Styles
@@ -36,7 +36,7 @@ export const Promo: React.FC<{}> = () => (
 			</div>
 
 			{/* Bottom */}
-			<GetStarted redirectTo={ routes.auth.signup } className={ styles.bottom } />
+			<GetStarted onClick={ toSignUp } className={ styles.bottom } />
 
 	</ContentBlock>
 );

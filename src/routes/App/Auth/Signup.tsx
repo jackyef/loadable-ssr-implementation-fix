@@ -2,16 +2,15 @@
  * Authentication process the very first route (Sign up)
  */
 import React from 'react';
-import { RouteConfig } from 'react-router-config';
 import { Helmet } from 'react-helmet';
 
-import { FormRoot } from '@scc/form';
+import { FormRoot, IStoreForm } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
 import { Btn, FieldInput, Headline } from '@tg/ui';
 import { IconGoogleV2 } from '@tg/ui/dist/resources';
 
-import { authFormStore } from '../../../stores';
+import { validators } from '../../../utils';
 import { routes } from '../../../config';
 
 // Styles
@@ -20,13 +19,14 @@ import importedStyles from './Auth.module.less';
 const styles: Styles = importedStyles;
 
 type Props = {
-	route: RouteConfig & { render?: any };
+	// Passed from Loadable
+	store: IStoreForm;
 };
 
 /**
  * Sign up authentication route container
  */
-const SignUp: React.FC<Props> = () => {
+const SignUp: React.FC<Props> = ({ store }) => {
 	return (
 	<>
 		<Helmet>
@@ -34,20 +34,42 @@ const SignUp: React.FC<Props> = () => {
 		</Helmet>
 
 		{/* Form */}
-		<FormRoot wrapper="form" name="signup" inject={ authFormStore }
+		<FormRoot wrapper="form" name="signup" inject={ store }
 			styles={ styles.form }
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
 		>
 			{/* Title */}
 			<Headline title="Join" h={1} variation="public" />
 
-			{/* Login/password pair */}
-			<FieldInput name="email" placeholder="Email" />
-			<FieldInput name="password" placeholder="Password" type="password" />
-			<FieldInput name="re_password" placeholder="Repeat password" type="password" />
+			{/* Email*/}
+			<FieldInput name="email" placeholder="Email"
+				validators={[
+					validators.email.valid,
+					validators.email.required
+				]}
+			/>
+
+			{/* Password */}
+			<FieldInput name="password" placeholder="Password" type="password"
+				validators={[
+					v => validators.password.match(v, store.getFieldValue('re_password')),
+					validators.password.required
+				]}
+			/>
+
+			{/* Repeat password */}
+			{/* TODO: Check that passwords match */}
+			<FieldInput name="re_password" placeholder="Repeat password" type="password"
+				validators={[
+					v => validators.password.match(v, store.getFieldValue('password')),
+					validators.password.required
+				]}
+			/>
 
 			{/* Submit */}
-			<Btn style={{ main: 'general' }} title="Create account" />
+			<Btn style={{ main: 'general' }} title="Create account"
+				onClick={() => store.submit()}
+			/>
 
 			{/* Divider */}
 			<span>{ 'or' }</span>
