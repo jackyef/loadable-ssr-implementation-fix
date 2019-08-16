@@ -48,7 +48,7 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 
 		{/* Email */}
 		<FieldInput name="email" placeholder="Your email address" kind="big"
-			validators={[validators.email.valid, validators.email.required]}
+			validators={[validators.email.optional]}
 		/>
 
 		{/* Validate email and redirect to sign up */}

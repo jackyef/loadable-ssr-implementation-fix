@@ -58,7 +58,6 @@ const SignUp: React.FC<Props> = ({ store }) => {
 			/>
 
 			{/* Repeat password */}
-			{/* TODO: Check that passwords match */}
 			<FieldInput name="re_password" placeholder="Repeat password" type="password"
 				validators={[
 					v => validators.password.match(v, store.getFieldValue('password')),
