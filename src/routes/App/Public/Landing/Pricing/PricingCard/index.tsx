@@ -105,7 +105,10 @@ export const PricingCard: React.FC<Props> = ({
 				<section className={styles.content}>
 
 					{/* Price */}
-					<span>{parseFloat(price as string) ? `$${price}` : price}<span>{period !== '' && `/ ${period}`}</span></span>
+					<span>
+						{parseFloat(price as string) || price === 0 ? `$${price}` : price}
+						<span>{period !== '' && `/ ${period}`}</span>
+					</span>
 
 					{/* Features */}
 					<ul >

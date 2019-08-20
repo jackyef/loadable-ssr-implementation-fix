@@ -37,8 +37,7 @@ const data: PricingCardProps[] = [
 		icon: <IconOfferFree />,
 		title: 'Free Starter',
 		desc: 'Learn, explore and create',
-		price: 'FREE',
-		period: '',
+		price: 0,
 		submitTitle: 'Start for Free',
 		className: styles.card,
 		features: [
