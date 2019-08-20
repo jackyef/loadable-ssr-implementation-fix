@@ -18,8 +18,9 @@ import { Feed } from './Feed';
 import { Editor } from './Editor';
 import { EditorMore } from './EditorMore';
 import { Stats } from './Stats';
-import { GetStarted } from './GetStarted';
 import { Pricing } from './Pricing';
+import { FAQ } from './FAQ';
+import { GetStarted } from './GetStarted';
 
 import importedStyles from './Landing.module.less';
 const styles: Styles = importedStyles;
@@ -157,6 +158,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 				{/* Bottom */}
 				<Stats ref={ refStats } />
 				<Pricing ref={ refPricing } />
+				<FAQ />
 				<GetStarted />
 
 			</main>
