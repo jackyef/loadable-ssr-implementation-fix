@@ -8,7 +8,7 @@ import React from 'react';
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { Btn, FieldInput } from '@tg/ui';
 
-import { IconArrowReverseV2 } from '@tg/ui/dist/resources';
+import { IconArrowReverse } from '@tg/ui/dist/resources';
 
 import { validators } from '../../utils';
 
@@ -52,8 +52,8 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 		/>
 
 		{/* Validate email and redirect to sign up */}
-		<Btn title="Get started" icon={ <IconArrowReverseV2 /> } iconPos="right"
-			style={{ main: 'general', size: 'big' }}
+		<Btn title="Get started" icon={ <IconArrowReverse /> } iconPos="right"
+			style={{ main: 'general', size: 'big', detail: 'rounded' }}
 			onClick={() => {
 
 				// Validate email

@@ -19,6 +19,7 @@ import { Editor } from './Editor';
 import { EditorMore } from './EditorMore';
 import { Stats } from './Stats';
 import { GetStarted } from './GetStarted';
+import { Pricing } from './Pricing';
 
 import importedStyles from './Landing.module.less';
 const styles: Styles = importedStyles;
@@ -78,7 +79,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 	const refOrganize = useRef(null);
 	const refEditor = useRef(null);
 	const refStats = useRef(null);
-	// const refPrice = useRef(null);
+	const refPricing = useRef(null);
 
 	// Render
 	return (
@@ -112,7 +113,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 					</NavItem>
 					<NavItem>
 						<Btn { ...commonNavBtnProps('Pricing') }
-							// onClick={() => scroll(scroller, refPrice, -100)}
+							onClick={() => scroll(scroller, refPricing)}
 						/>
 					</NavItem>
 				</Nav>
@@ -125,7 +126,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						/>
 					</NavItem>
 					<NavItem>
-						<Btn nav title="Get Started" style={{ main: 'general', size: 'mid' }}
+						<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
 							url={ routes.auth.signup }
 						/>
 					</NavItem>
@@ -155,7 +156,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 
 				{/* Bottom */}
 				<Stats ref={ refStats } />
-				{/* TODO: Pricing component here */}
+				<Pricing ref={ refPricing } />
 				<GetStarted />
 
 			</main>

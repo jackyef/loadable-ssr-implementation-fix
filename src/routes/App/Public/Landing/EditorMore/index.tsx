@@ -6,7 +6,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { IconAdV2, IconEditV2 } from '@tg/ui/dist/resources';
+import { IconAd, IconEdit } from '@tg/ui/dist/resources';
 
 import { ContentBlock, FeatureCard, FeatureCardProps } from '../../../../../components';
 
@@ -22,13 +22,13 @@ type Styles = {
 
 const featuresData: FeatureCardProps[] = [
 	{
-		icon: <IconAdV2 />,
+		icon: <IconAd />,
 		title: 'Advertising tags',
 		desc: 'Unleash your creativity, plan projects from all angles and create',
 		className: styles.card_ad
 	},
 	{
-		icon: <IconEditV2 />,
+		icon: <IconEdit />,
 		title: 'Bot preview',
 		desc: 'Unleash your creativity, plan projects from all angles and create',
 		className: styles.card_bot_preview

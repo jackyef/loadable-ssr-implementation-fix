@@ -23,23 +23,12 @@ type Styles = {
  */
 export const Footer: React.FC<{}> = () => (
 	<ContentBlock className={styles.self}>
-
-		{/* Top */}
-		<div className={styles.top}>
-			<Logo />
-			<div>
-				<Btn style={{ main: 'nav' }} title="Join Channel" />
-				<Btn style={{ main: 'nav' }} title="Contact Us" />
-				<Btn style={{ main: 'nav' }} title="Privacy Policy" />
-				<Btn style={{ main: 'nav' }} title="Terms of Use" />
-			</div>
+		<Logo />
+		<span>&copy; {'2019 Telelama LTD'}</span>
+		<div>
+			<Btn style={{ main: 'nav' }} title="Contact Us" />
+			<Btn style={{ main: 'nav' }} title="Join our Channel" />
+			<Btn style={{ main: 'nav' }} title="Terms and Privacy" />
 		</div>
-
-		{/* Bottom */}
-		<div className={styles.bottom}>
-			<span/>
-			<span>&copy; {'All rights reserved 2019'}</span>
-		</div>
-
 	</ContentBlock>
 );

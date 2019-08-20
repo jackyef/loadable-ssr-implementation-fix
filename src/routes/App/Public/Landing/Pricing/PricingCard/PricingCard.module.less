@@ -1,0 +1,70 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	padding: 35px 40px;
+	margin: 0 10px;
+
+	background: @cc-white;
+	border-radius: @const-border-radius-big;
+
+	.shadow-big(@hover: 'yes', @alpha: .05);
+}
+
+.header {
+	width: 100%;
+	padding-bottom: 20px;
+
+	border-bottom: 1px solid @cc-border-gray-light-color;
+
+	> i > svg { transform: scale(1.5); }
+	> p { .text-paragraph-small-public(@color: @cc-text-primary-dimer); }
+	> h3 {
+		margin-top: 20px;
+
+		line-height: 30px;
+	}
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+
+	// Price
+	> span {
+		width: 100%;
+
+		font-size: 60px;
+		font-weight: 600;
+
+		color: @cc-text-primary;
+
+		> span {
+			.text-paragraph-small-public(@cc-text-primary-dimer);
+			margin-left: 6px;
+		}
+	}
+
+	// Features
+	> ul {
+		width: 100%;
+		margin-top: 30px;
+
+		> li {
+			> span { .text-paragraph-small-public(@cc-text-primary-dimer); }
+		}
+	}
+}
+
+.footer {
+	width: 100%;
+
+	> button { width: 100%; }
+}

@@ -9,7 +9,7 @@ import { canUseDOM } from '@scc/utils';
 
 import { FieldInput, Btn, Headline } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
-import { IconGoogleV2 } from '@tg/ui/dist/resources';
+import { IconGoogle } from '@tg/ui/dist/resources';
 
 import { routes } from '../../../config';
 import { validators } from '../../../utils';
@@ -64,7 +64,7 @@ const SignIn: React.FC<{}> = () => {
 
 			{/* Google */}
 			<Btn style={{ main: 'google' }} title="Sign in with Google"
-				icon={ <IconGoogleV2 /> }
+				icon={ <IconGoogle /> }
 			/>
 
 		</FormRoot>
