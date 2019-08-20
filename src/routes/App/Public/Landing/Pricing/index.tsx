@@ -4,7 +4,14 @@
 import React, { Ref } from 'react';
 
 import { Headline } from '@tg/ui';
-import { IconOfferFree, IconOfferBlogger, IconOfferCustom } from '@tg/ui/dist/resources';
+import {
+	IconOfferFree,
+	IconOfferBlogger,
+	IconOfferCustom,
+	IconPen,
+	IconChannel,
+	IconMember
+} from '@tg/ui/dist/resources';
 
 import { PricingCard, Props as PricingCardProps } from './PricingCard';
 import { ContentBlock } from '../../../../../components';
@@ -30,13 +37,14 @@ const data: PricingCardProps[] = [
 		icon: <IconOfferFree />,
 		title: 'Free Starter',
 		desc: 'Learn, explore and create',
-		price: 0,
+		price: 'FREE',
+		period: '',
 		submitTitle: 'Start for Free',
 		className: styles.card,
 		features: [
-			{ icon: '', title: '1 Channel' },
-			{ icon: '', title: '20 Posts per month' },
-			{ icon: '', title: '1 Team member' }
+			{ icon: <IconChannel />, title: '1 Channel' },
+			{ icon: <IconPen />, title: '20 Posts per month' },
+			{ icon: <IconMember />, title: '1 Team member' }
 		]
 	},
 
@@ -49,9 +57,9 @@ const data: PricingCardProps[] = [
 		submitTitle: 'Join Pro',
 		className: styles.card,
 		features: [
-			{ icon: '', title: 'Up to 3 Channel' },
-			{ icon: '', title: 'Unlimited posts' },
-			{ icon: '', title: 'Up to 3 Team members' }
+			{ icon: <IconChannel />, title: 'Up to 3 Channel' },
+			{ icon: <IconPen />, title: 'Unlimited posts' },
+			{ icon: <IconMember />, title: 'Up to 3 Team members' }
 		]
 	},
 

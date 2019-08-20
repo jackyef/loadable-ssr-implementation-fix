@@ -46,7 +46,7 @@ export type Props = {
 	/**
 	 * Price $
 	 */
-	price?: number;
+	price?: number | string;
 
 	/**
 	 * Period (month)
@@ -105,7 +105,7 @@ export const PricingCard: React.FC<Props> = ({
 				<section className={styles.content}>
 
 					{/* Price */}
-					<span>{`$${price}`}<span>{`/ ${period}`}</span></span>
+					<span>{parseFloat(price as string) ? `$${price}` : price}<span>{period !== '' && `/ ${period}`}</span></span>
 
 					{/* Features */}
 					<ul >

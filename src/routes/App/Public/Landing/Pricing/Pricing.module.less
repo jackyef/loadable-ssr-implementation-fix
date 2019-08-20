@@ -52,6 +52,20 @@
 	min-width: 320px;
 	height: 580px;
 
+	> section {
+		> ul {
+			> li > i { opacity: .4; }
+			> li:first-child {
+				> i {
+					margin: 0 6px 0 -2px;
+					> svg {
+						transform: scale(0.8);
+					}
+				}
+			}
+		}
+	}
+
 	// Media
 	.media-tablet({
 		width: auto;
