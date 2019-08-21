@@ -58,6 +58,15 @@ export default [
 				]
 			},
 
+			// Terms and Conditions & Privacy Policy
+			{
+				path: routes.pp,
+				component: Loadable({
+					loader: () => import('./App/PP'),
+					loading: Loading
+				})
+			},
+
 			// Auth
 			{
 				path: routes.auth.self,

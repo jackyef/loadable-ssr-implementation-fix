@@ -7,6 +7,7 @@ import { Btn } from '@tg/ui';
 
 import { Logo } from '../Logo';
 import { ContentBlock } from '../ContentBlock';
+import { routes } from '../../config';
 
 // Styles
 import importedStyles from './Footer.module.less';
@@ -28,7 +29,7 @@ export const Footer: React.FC<{}> = () => (
 		<div>
 			<Btn style={{ main: 'nav' }} title="Contact Us" />
 			<Btn style={{ main: 'nav' }} title="Join our Channel" />
-			<Btn style={{ main: 'nav' }} title="Terms and Privacy" />
+			<Btn style={{ main: 'nav' }} url={ routes.pp } title="Terms and Privacy" />
 		</div>
 	</ContentBlock>
 );

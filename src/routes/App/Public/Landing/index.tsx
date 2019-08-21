@@ -1,13 +1,14 @@
 /**
  * Landing page (home) route
  */
-import React, { RefObject, useRef } from 'react';
+import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Btn, TypeBtnStyle } from '@tg/ui';
+import { Btn } from '@tg/ui';
 
 import { history } from '../../../';
 import { signUpFormStore } from '../../../../stores';
+import { commonNavBtnProps, scroll } from '../../../../utils';
 import { Header, Nav, Logo, NavItem, ContentBlock } from '../../../../components';
 import { routes } from '../../../../config';
 
@@ -45,25 +46,6 @@ type Props = {
 export const toSignUp = (email?: string) => {
 	signUpFormStore.setData({ email: email });
 	history.push(routes.auth.signup);
-};
-
-/**
- * Generate navigation button props
- */
-const commonNavBtnProps = (title: string, nav: boolean = false) => {
-	const style: TypeBtnStyle = { main: 'nav' };
-	return { style, nav, title };
-};
-
-/**
- * Scroll to
- */
-const scroll = (scroller: any, ref?: RefObject<any>, offset: number = 0) => {
-	scroller.scrollerElement.scrollTo({
-		behavior: 'smooth',
-		left: 0,
-		top: ref ? ref.current.offsetTop + offset : 0
-	});
 };
 
 /**

@@ -15,9 +15,8 @@ export const routes = {
 	// Products (external)
 	poster: '/post/dashboard',
 
-	// Public (internal)
-	pricing: '/pricing',
-	faq: '/faq',
+	// Privacy Policy (and Terms of use)
+	pp: '/pp',
 
 	// Authentication
 	auth: {
