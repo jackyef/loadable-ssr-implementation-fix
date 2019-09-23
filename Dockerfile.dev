@@ -10,16 +10,15 @@ WORKDIR /usr/src
 # Set registry
 RUN rm -rf /root/.npmrc
 RUN touch /root/.npmrc
-RUN echo "registry = http://host.docker.internal:4873\n" >>  /root/.npmrc
+RUN echo "@tg:registry=http://host.docker.internal:4873\n" >>  /root/.npmrc
+RUN echo "@scc:registry=http://host.docker.internal:4873\n" >>  /root/.npmrc
 RUN echo "ca = null\n" >>  /root/.npmrc
 RUN echo "always-auth = true\n" >>  /root/.npmrc
 RUN echo "//host.docker.internal:4873/:_authToken=jpicado:jpicado\n" >>  /root/.npmrc
-RUN yarn config set registry "http://host.docker.internal:4873"
+# RUN yarn config set registry "http://host.docker.internal:4873"
 
-# We want to remove yarn.lock for dev since
-# in dev we currently use local verdacio and docker build
-# should go to host.docker.internal instead of localhost
-RUN rm -rf yarn.lock
+# Replace verdacio URL from localhost to docker.internal
+RUN sed -i 's+http://localhost:4873+http://host.docker.internal:4873+g' yarn.lock
 
 # Install dependencies
 RUN yarn
