@@ -39,7 +39,12 @@ COPY package.json yarn.lock* /usr/src/
 
 WORKDIR /usr/src
 
+# Replace verdacio URL from localhost to docker.internal
+RUN sed -i 's+http://localhost:4873+http://host.docker.internal:4873+g' yarn.lock
+
+# Inastall
 RUN yarn global add forever
 RUN yarn install --production=true
 
+# Run
 CMD ["forever", "bundle_server/server.js"]
