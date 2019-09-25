@@ -16,35 +16,33 @@
 	background: @cc-white;
 
 	> form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
 		width: 420px;
 		padding: 40px;
 
 		// Title
-		> h1 {
+		> h2 {
 			margin-bottom: 40px;
 		}
 
 		// Fields
 		> div {
 			width: 100%;
-			margin-bottom: 27px;
+			margin-bottom: 10px;
 		}
 
-		// Buttons
+		// Buttons (submit & google)
 		> button {
 			width: 100%;
-			margin-left: 6px;
-
-			// Sign in
-			&:first-child { margin-top: 20px; }
-
-			// Google
-			&:last-child { margin-top: 12px; }
+			margin: 12px 0 0 6px;
 		}
 
 		// Divider (OR)
 		> span {
-			.text-hint-upper();
+			.text-hint-upper(@cc-text-light);
 
 			display: flex;
 			justify-content: center;
@@ -52,8 +50,6 @@
 
 			width: 100%;
 			margin: 10px 0 0 6px;
-
-			opacity: .4;
 		}
 	}
 
@@ -63,4 +59,17 @@
 			padding: 16px;
 		}
 	});
+}
+
+// PP text & link
+.pp {
+	.text-hint();
+
+	margin-top: 24px;
+
+	text-align: center;
+
+	> a {
+		.text-hint();
+	}
 }

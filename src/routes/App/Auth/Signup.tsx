@@ -3,12 +3,13 @@
  */
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 import { FormRoot, IStoreForm } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
 import { Btn, FieldInput, Headline } from '@tg/ui';
-import { IconGoogle } from '@tg/ui/dist/resources';
+import { resources } from '@tg/ui/dist/resources';
 
 import { validators } from '../../../utils';
 import { routes } from '../../../config';
@@ -39,10 +40,12 @@ const SignUp: React.FC<Props> = ({ store }) => {
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
 		>
 			{/* Title */}
-			<Headline title="Join" h={1} variation="public" />
+			<Headline title="Create account" h={2} variation="public" />
 
 			{/* Email*/}
-			<FieldInput name="email" placeholder="Email"
+			<FieldInput name="email" placeholder="name@example.com"
+				errPos="right"
+				label="Email"
 				validators={[
 					validators.email.valid,
 					validators.email.required
@@ -50,7 +53,9 @@ const SignUp: React.FC<Props> = ({ store }) => {
 			/>
 
 			{/* Password */}
-			<FieldInput name="password" placeholder="Password" type="password"
+			<FieldInput name="password" placeholder="password" type="password"
+				errPos="right"
+				label="Password"
 				validators={[
 					v => validators.password.match(v, store.getFieldValue('re_password')),
 					validators.password.required
@@ -58,7 +63,9 @@ const SignUp: React.FC<Props> = ({ store }) => {
 			/>
 
 			{/* Repeat password */}
-			<FieldInput name="re_password" placeholder="Repeat password" type="password"
+			<FieldInput name="re_password" placeholder="repeat" type="password"
+				errPos="right"
+				label="Repeat password"
 				validators={[
 					v => validators.password.match(v, store.getFieldValue('password')),
 					validators.password.required
@@ -74,9 +81,18 @@ const SignUp: React.FC<Props> = ({ store }) => {
 			<span>{ 'or' }</span>
 
 			{/* Google */}
-			<Btn style={{ main: 'google' }} title="Join with Google"
-				icon={<IconGoogle />}
+			<Btn style={{ main: 'google' }} title="Sign up with Google"
+				icon={ resources.icon_google }
 			/>
+
+			{/* PP */}
+			<p className={ styles.pp }>
+				{ 'By signing up you agree to Platformagram ' }
+				<br/>
+				<Link to={ routes.pp }>
+					{ 'Terms and Conditions and Privacy Policy' }
+				</Link>
+			</p>
 
 		</FormRoot>
 	</>

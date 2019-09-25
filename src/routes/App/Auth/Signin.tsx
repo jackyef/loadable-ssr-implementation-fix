@@ -3,13 +3,14 @@
  */
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
 import { FieldInput, Btn, Headline } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
-import { IconGoogle } from '@tg/ui/dist/resources';
+import { resources } from '@tg/ui/dist/resources';
 
 import { routes } from '../../../config';
 import { validators } from '../../../utils';
@@ -39,10 +40,12 @@ const SignIn: React.FC<{}> = () => {
 			styles={ styles.form }
 		>
 			{/* Title */}
-			<Headline title="Sign In" h={1} variation="public" />
+			<Headline title="Welcome back" h={2} variation="public" />
 
 			{/* Email */}
-			<FieldInput name="email" placeholder="Email"
+			<FieldInput name="email" placeholder="name@example.com"
+				errPos="right"
+				label="Email address"
 				validators={[
 					validators.email.valid,
 					validators.email.required
@@ -50,8 +53,17 @@ const SignIn: React.FC<{}> = () => {
 			/>
 
 			{/* Password */}
-			<FieldInput name="password" placeholder="Password" type="password"
+			<FieldInput name="password" placeholder="password" type="password"
+				errPos="right"
 				validators={[validators.password.required]}
+				label={
+					<div>
+						<span>{'Password'}</span>
+						<Btn style={{ main: 'inline' }}
+							title="Forgot password?"
+						/>
+					</div>
+				}
 			/>
 
 			{/* Submit */}
@@ -64,8 +76,17 @@ const SignIn: React.FC<{}> = () => {
 
 			{/* Google */}
 			<Btn style={{ main: 'google' }} title="Sign in with Google"
-				icon={ <IconGoogle /> }
+				icon={ resources.icon_google }
 			/>
+
+			{/* PP */}
+			<p className={ styles.pp }>
+				{ 'By signing in you agree to Platformagram ' }
+				<br/>
+				<Link to={ routes.pp }>
+					{ 'Terms and Conditions and Privacy Policy' }
+				</Link>
+			</p>
 
 		</FormRoot>
 	</>

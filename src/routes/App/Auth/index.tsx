@@ -20,6 +20,7 @@ const styles: Styles = importedStyles;
 export type Styles = {
 	self?: string;
 	form?: string;
+	pp?: string;
 };
 
 type Props = {
