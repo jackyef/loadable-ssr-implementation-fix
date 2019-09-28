@@ -6,11 +6,10 @@ import { createBrowserHistory } from 'history';
 import { Loading } from '@tg/ui';
 import { canUseDOM, authenticated } from '@scc/utils';
 
-import { signUpFormStore } from '../stores';
 import { routes, indexRoute } from '../config';
 
 // Not Found Route
-const RouteNotFound = { component: () => <Redirect to={ `/nf` } /> };
+const RouteNotFound = { component: () => <Redirect to={ routes.home } /> };
 
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory({ basename: indexRoute }) : null;
@@ -93,7 +92,7 @@ export default [
 							loading: Loading,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;
-								return <Component { ...props } store={ signUpFormStore } />;
+								return <Component />;
 							}
 						})
 					},
@@ -104,6 +103,34 @@ export default [
 						path: routes.auth.signin,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signin'),
+							loading: Loading,
+							render(loaded: any, props: any) {
+								const Component = loaded.default;
+								return <Component />;
+							}
+						})
+					},
+
+					// Reset password
+					{
+						exact: true,
+						path: routes.auth.reset,
+						component: Loadable({
+							loader: () => import('./App/Auth/Reset'),
+							loading: Loading,
+							render(loaded: any, props: any) {
+								const Component = loaded.default;
+								return <Component />;
+							}
+						})
+					},
+
+					// New password
+					{
+						exact: true,
+						path: routes.auth.password,
+						component: Loadable({
+							loader: () => import('./App/Auth/NewPassword'),
 							loading: Loading,
 							render(loaded: any, props: any) {
 								const Component = loaded.default;

@@ -22,6 +22,8 @@ export const routes = {
 	auth: {
 		self: '/auth',
 		signin: '/auth/in',
-		signup: '/auth/up'
+		signup: '/auth/up',
+		reset: '/auth/reset',
+		password: '/auth/password'
 	}
 };

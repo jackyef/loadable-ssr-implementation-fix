@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import { Btn } from '@tg/ui';
 
 import { history } from '../../../';
-import { signUpFormStore } from '../../../../stores';
+import { formStore as signUpFormStore } from '../../Auth/Signup';
 import { commonNavBtnProps, scroll } from '../../../../utils';
 import { Header, Nav, Logo, NavItem, ContentBlock } from '../../../../components';
 import { routes } from '../../../../config';

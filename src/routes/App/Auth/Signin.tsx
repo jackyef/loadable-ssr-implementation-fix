@@ -1,6 +1,7 @@
 /**
  * Authentication process the very first route (Sign in)
  */
+import _ from 'lodash';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
@@ -12,8 +13,11 @@ import { FieldInput, Btn, Headline } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/ui/dist/resources';
 
+import { history } from '../../';
 import { routes } from '../../../config';
 import { validators } from '../../../utils';
+
+import { NotifyBox, awakeNotification } from './utils/notification';
 
 // Styles
 import { Styles } from './';
@@ -36,11 +40,17 @@ const SignIn: React.FC<{}> = () => {
 
 		{/* Sign in form */}
 		<FormRoot wrapper="form" name="signin" inject={ formStore }
-			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
 			styles={ styles.form }
+			submitMethod="POST"
+			submitURL={ authService.shot('user', 'login').options.url }
+			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+			onSubmitFailed={ awakeNotification }
 		>
 			{/* Title */}
 			<Headline title="Welcome back" h={2} variation="public" />
+
+			{/* Notifications area */}
+			<NotifyBox />
 
 			{/* Email */}
 			<FieldInput name="email" placeholder="name@example.com"
@@ -50,6 +60,9 @@ const SignIn: React.FC<{}> = () => {
 					validators.email.valid,
 					validators.email.required
 				]}
+
+				// FIXME: Temp
+				value={ process.env.NODE_ENV === 'development' ? 'vashchukmaksim@gmail.com' : null }
 			/>
 
 			{/* Password */}
@@ -61,9 +74,13 @@ const SignIn: React.FC<{}> = () => {
 						<span>{'Password'}</span>
 						<Btn style={{ main: 'inline' }}
 							title="Forgot password?"
+							onClick={() => { history.push(routes.auth.reset); }}
 						/>
 					</div>
 				}
+
+				// FIXME: Temp
+				value={ process.env.NODE_ENV === 'development' ? '0000' : null }
 			/>
 
 			{/* Submit */}

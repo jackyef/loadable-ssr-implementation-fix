@@ -1,0 +1,61 @@
+@import (reference) '~@tg/ui/styles/all';
+
+// Notify box
+.notify_box {
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+	height: 40px;
+	margin: 7px 0 4px 0;
+}
+
+// Notification
+.self {
+	position: relative;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	width: 100%;
+	height: 100%;
+
+	border-radius: @const-border-radius-small;
+
+	> button {
+		position: absolute;
+		top: 0;
+		right: 0;
+
+		padding: 0;
+		background: none;
+
+		> i > svg > path { fill: @cc-white; }
+	}
+
+	.showAnimation {
+		0% {
+			opacity: 0;
+			transform: translateY(-15px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	@animation_name: ~":local(showAnimation)";
+	@keyframes @animation_name { .showAnimation; }
+	animation-name: showAnimation;
+	animation-duration: 500ms;
+	animation-fill-mode: forwards;
+}
+
+// States
+.error {
+	.text-notify-small(@color: @cc-white);
+	background: @cc-msg-fail-bg;
+}

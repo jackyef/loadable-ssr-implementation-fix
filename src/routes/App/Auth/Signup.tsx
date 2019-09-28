@@ -5,29 +5,31 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
-import { FormRoot, IStoreForm } from '@scc/form';
+import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
 import { Btn, FieldInput, Headline } from '@tg/ui';
+import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/ui/dist/resources';
 
 import { validators } from '../../../utils';
 import { routes } from '../../../config';
+
+import { NotifyBox, awakeNotification } from './utils/notification';
 
 // Styles
 import { Styles } from './';
 import importedStyles from './Auth.module.less';
 const styles: Styles = importedStyles;
 
-type Props = {
-	// Passed from Loadable
-	store: IStoreForm;
-};
+// Form store
+const apiFormStore = new StoreFormAPI(authService.axiosInstance);
+export const formStore = new StoreForm('auth', null, apiFormStore);
 
 /**
  * Sign up authentication route container
  */
-const SignUp: React.FC<Props> = ({ store }) => {
+const SignUp: React.FC<{}> = () => {
 	return (
 	<>
 		<Helmet>
@@ -35,12 +37,16 @@ const SignUp: React.FC<Props> = ({ store }) => {
 		</Helmet>
 
 		{/* Form */}
-		<FormRoot wrapper="form" name="signup" inject={ store }
+		<FormRoot wrapper="form" name="signup" inject={ formStore }
 			styles={ styles.form }
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+			onSubmitFailed={ awakeNotification }
 		>
 			{/* Title */}
 			<Headline title="Create account" h={2} variation="public" />
+
+			{/* Notifications area */}
+			<NotifyBox />
 
 			{/* Email*/}
 			<FieldInput name="email" placeholder="name@example.com"
@@ -57,7 +63,7 @@ const SignUp: React.FC<Props> = ({ store }) => {
 				errPos="right"
 				label="Password"
 				validators={[
-					v => validators.password.match(v, store.getFieldValue('re_password')),
+					v => validators.password.match(v, formStore.getFieldValue('re_password')),
 					validators.password.required
 				]}
 			/>
@@ -67,14 +73,14 @@ const SignUp: React.FC<Props> = ({ store }) => {
 				errPos="right"
 				label="Repeat password"
 				validators={[
-					v => validators.password.match(v, store.getFieldValue('password')),
+					v => validators.password.match(v, formStore.getFieldValue('password')),
 					validators.password.required
 				]}
 			/>
 
 			{/* Submit */}
 			<Btn style={{ main: 'general' }} title="Create account"
-				onClick={() => store.submit()}
+				onClick={() => formStore.submit()}
 			/>
 
 			{/* Divider */}
