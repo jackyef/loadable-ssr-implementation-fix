@@ -7,11 +7,10 @@ import { Helmet } from 'react-helmet';
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
-import { FieldInput, Btn, Headline } from '@tg/ui';
+import { FieldInput, Btn, Headline, customValidators as validators } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from '../../../config';
-import { validators } from '../../../utils';
 
 import { NotifyBox, awakeNotification } from './utils/notification';
 
@@ -38,7 +37,7 @@ const ResetPassword: React.FC<{}> = () => {
 			<FormRoot wrapper="form" name="reset" inject={ formStore }
 				styles={ styles.form }
 				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
-				onSubmitFailed={ awakeNotification }
+				onSubmitFailed={ err => awakeNotification(err, formStore) }
 			>
 				{/* Title */}
 				<Headline title="Reset password" h={2} variation="public" />

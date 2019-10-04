@@ -1,7 +1,7 @@
 import { validators } from '@scc/form';
 
 // Destruct imported validators
-const { required, email } = validators;
+const { required, email, regexp } = validators;
 
 /**
  * Custom validators
@@ -18,6 +18,9 @@ export const customValidators = {
 	// Password
 	password: {
 		required: (v: string) => required(v, { message: 'Password is required' }),
-		match: (v: string, match: string) => v === match ? true : 'Passwords not match'
+		match: (v: string, match: string) => v === match ? true : 'Passwords not match',
+		requirements: (v: string) => regexp(v, /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d!$%@#£€*?&.]{8,}$/, (v: any) => v, {
+			message: 'More then 8 symbols and number required'
+		})
 	}
 };

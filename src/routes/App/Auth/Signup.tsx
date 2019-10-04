@@ -8,11 +8,10 @@ import { Link } from 'react-router-dom';
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
-import { Btn, FieldInput, Headline } from '@tg/ui';
+import { Btn, FieldInput, Headline, customValidators as validators } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/ui/dist/resources';
 
-import { validators } from '../../../utils';
 import { routes } from '../../../config';
 
 import { NotifyBox, awakeNotification } from './utils/notification';
@@ -39,8 +38,10 @@ const SignUp: React.FC<{}> = () => {
 		{/* Form */}
 		<FormRoot wrapper="form" name="signup" inject={ formStore }
 			styles={ styles.form }
+			submitMethod="POST"
+			submitURL={ authService.shot('user', 'register').options.url }
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
-			onSubmitFailed={ awakeNotification }
+			onSubmitFailed={ err => awakeNotification(err, formStore) }
 		>
 			{/* Title */}
 			<Headline title="Create account" h={2} variation="public" />
@@ -63,24 +64,26 @@ const SignUp: React.FC<{}> = () => {
 				errPos="right"
 				label="Password"
 				validators={[
-					v => validators.password.match(v, formStore.getFieldValue('re_password')),
+					validators.password.requirements,
+					v => validators.password.match(v, formStore.getFieldValue('repeat_password')),
 					validators.password.required
 				]}
 			/>
 
 			{/* Repeat password */}
-			<FieldInput name="re_password" placeholder="repeat" type="password"
+			<FieldInput name="repeat_password" placeholder="repeat" type="password"
 				errPos="right"
 				label="Repeat password"
 				validators={[
+					validators.password.requirements,
 					v => validators.password.match(v, formStore.getFieldValue('password')),
 					validators.password.required
 				]}
 			/>
 
 			{/* Submit */}
-			<Btn style={{ main: 'general' }} title="Create account"
-				onClick={() => formStore.submit()}
+			<Btn submit form={ formStore } title="Create account"
+				style={{ main: 'general' }}
 			/>
 
 			{/* Divider */}

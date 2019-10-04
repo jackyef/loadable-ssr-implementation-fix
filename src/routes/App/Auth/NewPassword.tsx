@@ -7,10 +7,9 @@ import { Helmet } from 'react-helmet';
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
-import { Btn, FieldInput, Headline } from '@tg/ui';
+import { Btn, FieldInput, Headline, customValidators as validators } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
 
-import { validators } from '../../../utils';
 import { routes } from '../../../config';
 
 import { NotifyBox, awakeNotification } from './utils/notification';
@@ -38,7 +37,7 @@ const NewPassword: React.FC<{}> = () => {
 			<FormRoot wrapper="form" name="newPassword" inject={ formStore }
 				styles={ styles.form }
 				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
-				onSubmitFailed={ awakeNotification }
+				onSubmitFailed={ err => awakeNotification(err, formStore) }
 			>
 				{/* Title */}
 				<Headline title="Create password" h={2} variation="public" />
@@ -51,16 +50,18 @@ const NewPassword: React.FC<{}> = () => {
 					errPos="right"
 					label="New password"
 					validators={[
-						v => validators.password.match(v, formStore.getFieldValue('re_password')),
+						validators.password.requirements,
+						v => validators.password.match(v, formStore.getFieldValue('repeat_password')),
 						validators.password.required
 					]}
 				/>
 
 				{/* Repeat password */}
-				<FieldInput name="re_password" placeholder="repeat" type="password"
+				<FieldInput name="repeat_password" placeholder="repeat" type="password"
 					errPos="right"
 					label="Repeat password"
 					validators={[
+						validators.password.requirements,
 						v => validators.password.match(v, formStore.getFieldValue('password')),
 						validators.password.required
 					]}
