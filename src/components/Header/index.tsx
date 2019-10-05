@@ -19,6 +19,7 @@ type Styles = {
 
 type Props = {
 	children?: React.ReactNode | React.ReactNode[];
+	className?: string;
 	sticky?: boolean;
 };
 
@@ -29,9 +30,9 @@ const defaultProps: Partial<Props> = {
 /**
  * Header
  */
-export const Header: React.FC<Props> = React.memo(({ children, sticky }) => {
+export const Header: React.FC<Props> = React.memo(({ children, sticky, className }) => {
 	return (
-		<ContentBlock className={`${ styles.container } ${ sticky ? styles.sticky : '' }`}>
+		<ContentBlock className={`${ styles.container } ${ sticky ? styles.sticky : '' } ${ className }`}>
 			<header className={ styles.self }>
 				{ children }
 			</header>
