@@ -56,6 +56,7 @@
 		"slate-html-serializer": "^0.8.10",
 		"slate-react": "^0.22.8",
 		"sockjs-client": "^1.4.0",
+		"stringify-object": "^3.3.0",
 		"tslib": "^1.10.0",
 		"webstomp-client": "^1.2.6"
 	},
