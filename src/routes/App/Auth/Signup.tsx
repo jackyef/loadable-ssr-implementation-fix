@@ -90,8 +90,12 @@ const SignUp: React.FC<{}> = () => {
 			<span>{ 'or' }</span>
 
 			{/* Google */}
-			<Btn style={{ main: 'google' }} title="Sign up with Google"
+			<Btn nav external style={{ main: 'google' }} title="Sign up with Google"
 				icon={ resources.icon_google }
+				url={`
+					${authService.axiosInstance.defaults.baseURL}
+					${authService.shot('user', 'google').options.url}
+				`}
 			/>
 
 			{/* PP */}

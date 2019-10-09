@@ -58,9 +58,6 @@ const SignIn: React.FC<{}> = () => {
 					validators.email.valid,
 					validators.email.required
 				]}
-
-				// FIXME: Temp
-				value={ process.env.NODE_ENV === 'development' ? 'vashchukmaksim@gmail.com' : null }
 			/>
 
 			{/* Password */}
@@ -79,9 +76,6 @@ const SignIn: React.FC<{}> = () => {
 						/>
 					</div>
 				}
-
-				// FIXME: Temp
-				value={ process.env.NODE_ENV === 'development' ? 'malvina22' : null }
 			/>
 
 			{/* Submit */}
@@ -93,8 +87,12 @@ const SignIn: React.FC<{}> = () => {
 			<span>{ 'or' }</span>
 
 			{/* Google */}
-			<Btn style={{ main: 'google' }} title="Sign in with Google"
+			<Btn nav external style={{ main: 'google' }} title="Sign in with Google"
 				icon={ resources.icon_google }
+				url={`
+					${authService.axiosInstance.defaults.baseURL}
+					${authService.shot('user', 'google').options.url}
+				`}
 			/>
 
 			{/* PP */}
