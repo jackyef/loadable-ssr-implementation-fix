@@ -1,8 +1,10 @@
 /**
  * Authentication process the very first route (Sign up)
  */
-import React from 'react';
+import _ from 'lodash';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
+import qs from 'qs';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
@@ -27,6 +29,17 @@ const formStore = new StoreForm('auth', null, apiFormStore);
  * Create new password
  */
 const NewPassword: React.FC<{}> = () => {
+
+	// mount
+	useEffect(() => {
+		const querystring = qs.parse(window.location.search, { ignoreQueryPrefix: true });
+		const token = _.get(querystring, 'token');
+		formStore.submitURL =
+			`${authService.shot('user', 'reset_password').options.url}?token=${token}`
+		;
+	}, []);
+
+	// Render
 	return (
 		<>
 			<Helmet>
@@ -36,7 +49,8 @@ const NewPassword: React.FC<{}> = () => {
 			{/* Form */}
 			<FormRoot wrapper="form" name="newPassword" inject={ formStore }
 				styles={ styles.form }
-				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+				submitMethod="PATCH"
+				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.auth.signin) }
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
 			>
 				{/* Title */}
@@ -68,8 +82,8 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn style={{ main: 'general' }} title="Create account"
-					onClick={() => formStore.submit()}
+				<Btn style={{ main: 'general' }} title="Change password"
+					onClick={() => formStore.submit().then()}
 				/>
 
 			</FormRoot>

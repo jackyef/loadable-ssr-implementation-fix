@@ -1,18 +1,16 @@
 /**
  * Authentication process the very first route (Sign in)
  */
+import _ from 'lodash';
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
-import { canUseDOM } from '@scc/utils';
 
 import { FieldInput, Btn, Headline, customValidators as validators } from '@tg/ui';
 import { service as authService } from '@tg/api-proxy-auth';
 
-import { routes } from '../../../config';
-
-import { NotifyBox, awakeNotification } from './utils/notification';
+import { NotifyBox, awakeNotification, notifyStore } from './utils/notification';
 
 // Styles
 import { Styles } from './';
@@ -36,8 +34,17 @@ const ResetPassword: React.FC<{}> = () => {
 			{/* Reset password form */}
 			<FormRoot wrapper="form" name="reset" inject={ formStore }
 				styles={ styles.form }
-				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+				submitMethod="POST"
+				submitURL={ authService.shot('user', 'reset_password').options.url }
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
+				onSubmitSucceed={ data => {
+					notifyStore.awake({
+						name: 'resetPasswordPostSuccess',
+						text: _.get(data, 'message', 'We sent you instructions'),
+						state: 'success',
+						delay: 6000
+					});
+				}}
 			>
 				{/* Title */}
 				<Headline title="Reset password" h={2} variation="public" />
