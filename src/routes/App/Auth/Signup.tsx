@@ -46,11 +46,9 @@ const SignUp: React.FC<{}> = () => {
 			{/* Title */}
 			<Headline title="Create account" h={2} variation="public" />
 
-			{/* Notifications area */}
-			<NotifyBox />
-
 			{/* Email*/}
 			<FieldInput name="email" placeholder="name@example.com"
+				kind="bigger"
 				errPos="right"
 				label="Email"
 				validators={[
@@ -61,22 +59,11 @@ const SignUp: React.FC<{}> = () => {
 
 			{/* Password */}
 			<FieldInput name="password" placeholder="password" type="password"
+				kind="bigger"
 				errPos="right"
 				label="Password"
 				validators={[
 					validators.password.requirements,
-					v => validators.password.match(v, formStore.getFieldValue('repeat_password')),
-					validators.password.required
-				]}
-			/>
-
-			{/* Repeat password */}
-			<FieldInput name="repeat_password" placeholder="repeat" type="password"
-				errPos="right"
-				label="Repeat password"
-				validators={[
-					validators.password.requirements,
-					v => validators.password.match(v, formStore.getFieldValue('password')),
 					validators.password.required
 				]}
 			/>
@@ -106,6 +93,9 @@ const SignUp: React.FC<{}> = () => {
 					{ 'Terms and Conditions and Privacy Policy' }
 				</Link>
 			</p>
+
+			{/* Notifications area */}
+			<NotifyBox />
 
 		</FormRoot>
 	</>

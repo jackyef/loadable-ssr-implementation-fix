@@ -3,8 +3,10 @@
  */
 import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
+import { useLocalStore } from 'mobx-react';
+import Cookies from 'js-cookie';
 
-import { Btn, Scrollbars, Headline } from '@tg/ui';
+import { Btn, Scrollbars, Headline, expired } from '@tg/ui';
 
 import { commonNavBtnProps, scroll } from '../../../utils';
 import { history } from '../../';
@@ -35,6 +37,11 @@ const PP: React.FC<{}> = () => {
 	// Content block refs
 	const refTC = useRef(null);
 	const refPP = useRef(null);
+
+	// use useLocalStore
+	const localStore = useLocalStore(() => ({
+		authenticated: !expired(Cookies.get('access_token'))
+	}));
 
 	// Render
 	return (
@@ -67,18 +74,32 @@ const PP: React.FC<{}> = () => {
 						</Nav>
 
 						{/* Sign in/up (logout) */}
-						<Nav className={ stylesLanding.sign_in }>
-							<NavItem>
-								<Btn { ...commonNavBtnProps('Sign in', true) }
-									url={ routes.auth.signin }
-								/>
-							</NavItem>
-							<NavItem>
-								<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
-									url={ routes.auth.signup }
-								/>
-							</NavItem>
-						</Nav>
+						{
+							localStore.authenticated
+								? (
+									<Nav className={ styles.sign_in }>
+										<NavItem>
+											<Btn title="Poster" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+												onClick={() => window.location.assign(routes.poster)}
+											/>
+										</NavItem>
+									</Nav>
+								)
+								: (
+									<Nav className={ stylesLanding.sign_in }>
+										<NavItem>
+											<Btn { ...commonNavBtnProps('Sign in', true) }
+												url={ routes.auth.signin }
+											/>
+										</NavItem>
+										<NavItem>
+											<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+												url={ routes.auth.signup }
+											/>
+										</NavItem>
+									</Nav>
+								)
+						}
 					</Header>
 
 					{/* Top title block */}

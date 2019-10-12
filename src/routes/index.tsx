@@ -4,9 +4,17 @@ import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
 import { Loading } from '@tg/ui';
-import { canUseDOM, authenticated } from '@scc/utils';
+import { canUseDOM } from '@scc/utils';
 
 import { routes, indexRoute } from '../config';
+
+// Styles
+import importedStyles from './Routes.module.less';
+const styles: Styles = importedStyles;
+
+type Styles = {
+	loading?: string;
+};
 
 // Not Found Route
 const RouteNotFound = { component: () => <Redirect to={ routes.home } /> };
@@ -14,8 +22,8 @@ const RouteNotFound = { component: () => <Redirect to={ routes.home } /> };
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory({ basename: indexRoute }) : null;
 
-// List of loadable routes with authentication condition
-const LoadableAuth = Loadable({ loader: () => import('./App/Auth'), loading: () => <span>{ 'Loading' }</span> });
+// Loaders
+const LoaderSubRoute = (props: any) => <Loading {...props} className={styles.loading} />;
 
 // Routes map
 export default [
@@ -23,7 +31,7 @@ export default [
 		path: routes.index,
 		component: Loadable({
 			loader: () => import('./App'),
-			loading: Loading
+			loading: LoaderSubRoute
 		}),
 
 		routes: [
@@ -40,7 +48,7 @@ export default [
 				path: routes.home,
 				component: Loadable({
 					loader: () => import('./App/Public'),
-					loading: Loading
+					loading: LoaderSubRoute
 				}),
 
 				routes: [
@@ -51,7 +59,7 @@ export default [
 						path: routes.home,
 						component: Loadable({
 							loader: () => import('./App/Public/Landing'),
-							loading: Loading
+							loading: LoaderSubRoute
 						})
 					}
 				]
@@ -62,18 +70,17 @@ export default [
 				path: routes.pp,
 				component: Loadable({
 					loader: () => import('./App/PP'),
-					loading: Loading
+					loading: LoaderSubRoute
 				})
 			},
 
 			// Auth
 			{
 				path: routes.auth.self,
-				render: (props: any) => (
-					authenticated()
-						? <Redirect to={ routes.home } />
-						: <LoadableAuth { ...props } />
-				),
+				component: Loadable({
+					loader: () => import('./App/Auth'),
+					loading: LoaderSubRoute
+				}),
 
 				routes: [
 
@@ -89,11 +96,7 @@ export default [
 						path: routes.auth.signup,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signup'),
-							loading: Loading,
-							render(loaded: any, props: any) {
-								const Component = loaded.default;
-								return <Component />;
-							}
+							loading: LoaderSubRoute
 						})
 					},
 
@@ -103,11 +106,7 @@ export default [
 						path: routes.auth.signin,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signin'),
-							loading: Loading,
-							render(loaded: any, props: any) {
-								const Component = loaded.default;
-								return <Component />;
-							}
+							loading: LoaderSubRoute
 						})
 					},
 
@@ -117,11 +116,7 @@ export default [
 						path: routes.auth.reset,
 						component: Loadable({
 							loader: () => import('./App/Auth/Reset'),
-							loading: Loading,
-							render(loaded: any, props: any) {
-								const Component = loaded.default;
-								return <Component />;
-							}
+							loading: LoaderSubRoute
 						})
 					},
 
@@ -131,11 +126,7 @@ export default [
 						path: routes.auth.password,
 						component: Loadable({
 							loader: () => import('./App/Auth/NewPassword'),
-							loading: Loading,
-							render(loaded: any, props: any) {
-								const Component = loaded.default;
-								return <Component />;
-							}
+							loading: LoaderSubRoute
 						})
 					},
 

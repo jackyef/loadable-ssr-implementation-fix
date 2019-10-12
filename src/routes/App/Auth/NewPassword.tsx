@@ -14,7 +14,7 @@ import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from '../../../config';
 
-import { NotifyBox, awakeNotification } from './utils/notification';
+import { NotifyBox, awakeNotification, notifyStore } from './utils/notification';
 
 // Styles
 import { Styles } from './';
@@ -50,17 +50,27 @@ const NewPassword: React.FC<{}> = () => {
 			<FormRoot wrapper="form" name="newPassword" inject={ formStore }
 				styles={ styles.form }
 				submitMethod="PATCH"
-				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.auth.signin) }
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
+				onSubmitSucceed={ () => {
+					notifyStore.awake({
+						name: 'resetPwdLinkSent',
+						text: 'Password was successfully restored. You can use it to login.',
+						state: 'success',
+						delay: 4000
+					});
+
+					// Redirect after notification
+					canUseDOM() && setTimeout(() => {
+						window.location.assign(routes.auth.signin);
+					}, 4000);
+				}}
 			>
 				{/* Title */}
 				<Headline title="Create password" h={2} variation="public" />
 
-				{/* Notifications area */}
-				<NotifyBox />
-
 				{/* Password */}
 				<FieldInput name="password" placeholder="password" type="password"
+					kind="bigger"
 					errPos="right"
 					label="New password"
 					validators={[
@@ -72,6 +82,7 @@ const NewPassword: React.FC<{}> = () => {
 
 				{/* Repeat password */}
 				<FieldInput name="repeat_password" placeholder="repeat" type="password"
+					kind="bigger"
 					errPos="right"
 					label="Repeat password"
 					validators={[
@@ -85,6 +96,9 @@ const NewPassword: React.FC<{}> = () => {
 				<Btn style={{ main: 'general' }} title="Change password"
 					onClick={() => formStore.submit().then()}
 				/>
+
+				{/* Notifications area */}
+				<NotifyBox />
 
 			</FormRoot>
 		</>

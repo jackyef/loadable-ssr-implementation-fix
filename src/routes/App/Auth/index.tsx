@@ -2,12 +2,13 @@
  * Auth route
  */
 import _ from 'lodash';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
+import Cookies from 'js-cookie';
 
 import { renderRoutes } from '@scc/utils';
 
-import { Btn } from '@tg/ui';
+import {Btn, expired} from '@tg/ui';
 
 import { history } from '../../';
 import { routes } from '../../../config';
@@ -21,6 +22,7 @@ export type Styles = {
 	self?: string;
 	form?: string;
 	pp?: string;
+	nav_item?: string;
 };
 
 type Props = {
@@ -38,6 +40,14 @@ const Auth: React.FC<Props> = ({ route }) => {
 	// - up - Log in (button)
 	const path = _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
 
+	// Mount
+	useEffect(() => {
+		if (!expired(Cookies.get('access_token'))) {
+			window.location.assign(routes.poster);
+		}
+	}, []);
+
+	// Render
 	return (
 		<>
 			{/* Header */}
@@ -46,9 +56,10 @@ const Auth: React.FC<Props> = ({ route }) => {
 				{/* Logo */}
 				<Logo onClick={() => history.push(routes.home)} />
 
-				{/* Sign in/up (logout) */}
+				{/* Sign in/up */}
 				<Nav>
-					<NavItem>
+					<NavItem className={ styles.nav_item }>
+						<span>{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }</span>
 						<Btn style={{ main: 'nav' }} title={ path === 'in' ? 'Create account' : 'Sign In' }
 							url={ path === 'in' ? routes.auth.signup : routes.auth.signin }
 						/>
@@ -60,9 +71,6 @@ const Auth: React.FC<Props> = ({ route }) => {
 			<main className={ styles.self }>
 				{ renderRoutes(route.routes) }
 			</main>
-
-			{/* Footer */}
-			{/* TODO: Footer component here */}
 		</>
 	);
 };

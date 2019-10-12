@@ -3,8 +3,10 @@
  */
 import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
+import { useLocalStore } from 'mobx-react';
+import Cookies from 'js-cookie';
 
-import { Btn } from '@tg/ui';
+import { Btn, expired } from '@tg/ui';
 
 import { history } from '../../../';
 import { formStore as signUpFormStore } from '../../Auth/Signup';
@@ -64,6 +66,11 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 	const refStats = useRef(null);
 	const refPricing = useRef(null);
 
+	// use useLocalStore
+	const localStore = useLocalStore(() => ({
+		authenticated: !expired(Cookies.get('access_token'))
+	}));
+
 	// Render
 	return (
 		<>
@@ -102,18 +109,32 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 				</Nav>
 
 				{/* Sign in/up (logout) */}
-				<Nav className={ styles.sign_in }>
-					<NavItem>
-						<Btn { ...commonNavBtnProps('Sign in', true) }
-							url={ routes.auth.signin }
-						/>
-					</NavItem>
-					<NavItem>
-						<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
-							url={ routes.auth.signup }
-						/>
-					</NavItem>
-				</Nav>
+				{
+					localStore.authenticated
+						? (
+							<Nav className={ styles.sign_in }>
+								<NavItem>
+									<Btn title="Poster" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+										onClick={() => window.location.assign(routes.poster)}
+									/>
+								</NavItem>
+							</Nav>
+						)
+						: (
+							<Nav className={ styles.sign_in }>
+								<NavItem>
+									<Btn { ...commonNavBtnProps('Sign in', true) }
+										url={ routes.auth.signin }
+									/>
+								</NavItem>
+								<NavItem>
+									<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+										url={ routes.auth.signup }
+									/>
+								</NavItem>
+							</Nav>
+						)
+				}
 			</Header>
 
 			{/* Hack to hide header shadow when page has not been scrolled down yet */}

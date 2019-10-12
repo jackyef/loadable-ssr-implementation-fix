@@ -47,13 +47,11 @@ const SignIn: React.FC<{}> = () => {
 			{/* Title */}
 			<Headline title="Welcome back" h={2} variation="public" />
 
-			{/* Notifications area */}
-			<NotifyBox />
-
 			{/* Email */}
 			<FieldInput name="email" placeholder="name@example.com"
+				kind="bigger"
 				errPos="right"
-				label="Email address"
+				label="Email"
 				validators={[
 					validators.email.valid,
 					validators.email.required
@@ -62,6 +60,7 @@ const SignIn: React.FC<{}> = () => {
 
 			{/* Password */}
 			<FieldInput name="password" placeholder="password" type="password"
+				kind="bigger"
 				errPos="right"
 				validators={[
 					validators.password.requirements,
@@ -103,6 +102,9 @@ const SignIn: React.FC<{}> = () => {
 					{ 'Terms and Conditions and Privacy Policy' }
 				</Link>
 			</p>
+
+			{/* Notifications area */}
+			<NotifyBox />
 
 		</FormRoot>
 	</>

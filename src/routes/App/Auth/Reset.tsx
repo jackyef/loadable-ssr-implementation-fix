@@ -49,11 +49,9 @@ const ResetPassword: React.FC<{}> = () => {
 				{/* Title */}
 				<Headline title="Reset password" h={2} variation="public" />
 
-				{/* Notifications area */}
-				<NotifyBox />
-
 				{/* Email */}
 				<FieldInput name="email" placeholder="name@example.com"
+					kind="bigger"
 					errPos="right"
 					label="Email address"
 					validators={[
@@ -66,6 +64,9 @@ const ResetPassword: React.FC<{}> = () => {
 				<Btn style={{ main: 'general' }} title="Send me instructions"
 					onClick={() => formStore.submit()}
 				/>
+
+				{/* Notifications area */}
+				<NotifyBox />
 
 			</FormRoot>
 		</>
