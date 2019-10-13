@@ -5,12 +5,10 @@
  */
 import React, { Ref } from 'react';
 
-import { Icon } from '@scc/elm';
-
 import { ContentBlock } from '../../../../../components';
 
 import { Headline } from '@tg/ui';
-import { resources } from '@tg/ui/dist/resources';
+import { resources, IconEye, IconTemplate, IconMd, IconHeart, IconImage } from '@tg/ui/dist/resources';
 
 // Styles
 import importedStyles from './Editor.module.less';
@@ -47,19 +45,11 @@ export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
 
 			{/* List of features */}
 			<ul className={ styles.features }>
-
-				{/* FIXME: Version with ICONS (which one to choose?) */}
-				<li><Icon icon="fab fa-markdown" />{ 'Text editor with markup' }</li>
-				<li><Icon icon="fas fa-eye" />{ 'Link preview settings' }</li>
-				<li><Icon icon="fas fa-heart" />{ 'Reaction buttons' }</li>
-				<li><Icon icon="fas fa-images" />{ 'Images and galleries' }</li>
-				<li><Icon icon="fas fa-copy" />{ 'Create post from template' }</li>
-
-				{/*<li><span>{'1.'}</span>{ 'Text editor with markup' }</li>*/}
-				{/*<li><span>{'2.'}</span>{ 'Link preview settings' }</li>*/}
-				{/*<li><span>{'3.'}</span>{ 'Add reaction buttons' }</li>*/}
-				{/*<li><span>{'4.'}</span>{ 'Images and galleries' }</li>*/}
-				{/*<li><span>{'5.'}</span>{ 'Create from templates' }</li>*/}
+				<li><IconMd />{ 'Text editor with markup' }</li>
+				<li><IconEye />{ 'Link preview settings' }</li>
+				<li><IconHeart />{ 'Reaction buttons' }</li>
+				<li><IconImage />{ 'Images and galleries' }</li>
+				<li><IconTemplate />{ 'Create post from template' }</li>
 			</ul>
 		</div>
 

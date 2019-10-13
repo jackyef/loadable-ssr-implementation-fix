@@ -16,9 +16,8 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Icon } from '@scc/elm';
-
 import { Headline, Btn } from '@tg/ui';
+import { IconCal } from '@tg/ui/dist/resources';
 
 import { ContentBlock } from '../../../../../components';
 
@@ -276,7 +275,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 
 					{/* Date range (calendar trigger) */}
 					<Btn style={{ main: 'general', size: 'small', color: 'white' }}
-						icon={<Icon icon="fas fa-calendar" />}
+						icon={<IconCal />}
 						title={`${formatDate(data[0].x)} - ${formatDate(data[data.length - 1].x)}`}
 					/>
 				</div>
