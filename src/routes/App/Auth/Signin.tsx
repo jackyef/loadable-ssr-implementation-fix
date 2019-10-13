@@ -4,6 +4,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
@@ -41,7 +42,15 @@ const SignIn: React.FC<{}> = () => {
 			styles={ styles.form }
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'login').options.url }
-			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+			onSubmitSucceed={ () => {
+
+				// Set user claims token to local storage from cookies
+				localStorage.setItem('id_token', Cookies.get('id_token'));
+				Cookies.remove('id_token');
+
+				// Redirect to app
+				canUseDOM() && window.location.assign(routes.poster);
+			}}
 			onSubmitFailed={ err => awakeNotification(err, formStore) }
 		>
 			{/* Title */}

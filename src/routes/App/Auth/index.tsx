@@ -4,7 +4,6 @@
 import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
-import Cookies from 'js-cookie';
 
 import { renderRoutes } from '@scc/utils';
 
@@ -42,7 +41,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 
 	// Mount
 	useEffect(() => {
-		if (!expired(Cookies.get('access_token'))) {
+		if (!expired(localStorage.getItem('id_token'))) {
 			window.location.assign(routes.poster);
 		}
 	}, []);

@@ -4,7 +4,6 @@
 import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
-import Cookies from 'js-cookie';
 
 import { Btn, Scrollbars, Headline, expired } from '@tg/ui';
 
@@ -40,7 +39,7 @@ const PP: React.FC<{}> = () => {
 
 	// use useLocalStore
 	const localStore = useLocalStore(() => ({
-		authenticated: !expired(Cookies.get('access_token'))
+		authenticated: !expired(localStorage.getItem('id_token'))
 	}));
 
 	// Render
