@@ -1,11 +1,11 @@
-import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 // import Raven from 'raven-js';
 
 import { NotifyBox } from '@scc/notify';
 import { renderRoutes } from '@scc/utils';
+import { NotifyCommon } from '@tg/ui';
 
 import { notifyStore } from '../../stores';
 
@@ -19,48 +19,37 @@ const Container: React.FC<Props> = ({ route }) => {
 
 	// did mount
 	useEffect(() => {
+
+		// Check if we want to clear id_token from local storage
+		if (Cookies.get('remove_id_token')) {
+			localStorage.removeItem('id_token');
+			Cookies.remove('remove_id_token');
+		}
+
 		// Try to get a message code on page load
 		// to display a message from server
-		// const msg_code = Cookies.get('msg');
+		const notification = Cookies.get('notify');
 
 		// If code exists (it's max_age is about 10 seconds)
 		// try to get a message from the server
-		// if (msg_code) {
-		// 	api.msg.proxy.get(msg_code)
+		if (notification) {
+			setTimeout(() => {
+				notifyStore.awake({
+					name: 'cookieNotification',
+					header: notification,
+					state: 'success',
+					delay: 8000
+				});
 
-		// 		// Awake a notification with a message data
-		// 		.then(response => {
-		// 			const { data } = response;
-		// 			notifyStore.awake({
-		// 				name: data.id || 0,
-		// 				header: data.title || 'Unknown message',
-		// 				text: data.text || `Some ${ data.status || 'problem' } occurred but we can not provide a detailed information`,
-		// 				state: data.status || 'info',
-		// 				delay: data.status === 'error' ? null : 8000
-		// 			});
-		// 		})
-
-		// 		// If message get failed - display an error
-		// 		// instead of message
-		// 		.catch(err => {
-		// 			const msg = _.get(err, 'data.message', `Can not receive a message for the code: ${ msg_code }`);
-		// 			console.error(msg);
-		// 			Raven.captureMessage(msg);
-		// 			notifyStore.awake({
-		// 				name: 'unknownMessage',
-		// 				header: 'Unknown message',
-		// 				text: msg,
-		// 				state: 'info',
-		// 				delay: 8000
-		// 			});
-		// 		})
-		// 	;
-		// }
+				// Remove cookie afterwards
+				Cookies.remove('notify');
+			});
+		}
 	}, []);
 
 	return (
 		<>
-			<NotifyBox store={ notifyStore } />
+			<NotifyBox store={ notifyStore } notification={ NotifyCommon } />
 			{ renderRoutes(route.routes) }
 		</>
 	);
