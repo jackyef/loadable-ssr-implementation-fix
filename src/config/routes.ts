@@ -10,7 +10,7 @@ export const routes = {
 
 	// Home
 	index: '/',
-	home: '/home',
+	home: '/',
 
 	// Products (external)
 	poster: '/post/dashboard',

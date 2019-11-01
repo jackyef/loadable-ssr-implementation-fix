@@ -6,7 +6,7 @@ import { createBrowserHistory } from 'history';
 import { Loading } from '@tg/ui';
 import { canUseDOM } from '@scc/utils';
 
-import { routes, indexRoute } from '../config';
+import { routes } from '../config';
 
 // Styles
 import importedStyles from './Routes.module.less';
@@ -17,10 +17,10 @@ type Styles = {
 };
 
 // Not Found Route
-const RouteNotFound = { component: () => <Redirect to={ routes.home } /> };
+const RouteNotFound = { component: () => <Redirect to={ routes.index } /> };
 
 // Browser history
-export const history = canUseDOM() ? createBrowserHistory({ basename: indexRoute }) : null;
+export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : null;
 
 // Loaders
 const LoaderSubRoute = (props: any) => <Loading {...props} className={styles.loading} />;
@@ -38,31 +38,12 @@ export default [
 
 			// Root
 			{
-				component: () => <Redirect to={ routes.home } />,
+				exact: true,
 				path: routes.index,
-				exact: true
-			},
-
-			// Public
-			{
-				path: routes.home,
 				component: Loadable({
-					loader: () => import('./App/Public'),
+					loader: () => import('./App/Public/Landing'),
 					loading: LoaderSubRoute
-				}),
-
-				routes: [
-
-					// Landing (home)
-					{
-						exact: true,
-						path: routes.home,
-						component: Loadable({
-							loader: () => import('./App/Public/Landing'),
-							loading: LoaderSubRoute
-						})
-					}
-				]
+				})
 			},
 
 			// Terms and Conditions & Privacy Policy
@@ -136,7 +117,7 @@ export default [
 			},
 
 			// Not Found (404)
-			{ component: () => <span>{ '404' }</span> }
+			RouteNotFound
 		]
 	}
 ];
