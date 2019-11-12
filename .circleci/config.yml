@@ -78,9 +78,6 @@ jobs:
 
     - run:
         name: Upload artifacts to CDN
-        environment:
-          DO_SPACE_CDN_ACCESS_KEY: $DO_SPACE_CDN_ACCESS_KEY
-          DO_SPACE_CDN_ACCESS_KEY_SECRET: $DO_SPACE_CDN_ACCESS_KEY_SECRET
         command: |
           source ~/env/bin/activate
           python upload.py
