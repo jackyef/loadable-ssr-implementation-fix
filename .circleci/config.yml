@@ -9,23 +9,23 @@ jobs:
     - checkout
 
     - run:
-        name: install-yarn
+        name: Install yarn
         command: 'sudo npm install -g yarn@latest'
 
     - restore_cache:
         key: dependency-cache-{{ checksum "yarn.lock" }}
 
     - run:
-        name: login-to-nexus-repo
+        name: Add .npmrc with Nexus registry credentials
         command: |
-          AUTH_TOKEN=
+          AUTH_TOKEN=${NPM_TOKEN}
           touch .npmrc
           echo "@tg:registry=https://nexus.tgpost.me/repository/npm-private/" >> .npmrc
           echo "@scc:registry=https://nexus.tgpost.me/repository/npm-private/" >> .npmrc
           echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.${NPM_TOKEN}" >> .npmrc
 
     - run:
-        name: install-packages
+        name: Install packages
         command: yarn install
 
     - save_cache:
@@ -62,15 +62,15 @@ jobs:
         at: ~/app
 
     - run:
-       name: download-boto3-script
+       name: Download script to upload artifact to DO Spaces
        command: curl -o ~/app/upload.py https://cdn.tgpost.me/scripts/upload-to-spaces.py
 
     - run:
-        name: install-boto3
+        name: Install boto3
         command: pip install boto3
 
     - run:
-        name: 'upload-static-to-space'
+        name: Upload artifacts to CDN
         command: 'python upload.py'
 
 workflows:
