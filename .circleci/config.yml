@@ -69,12 +69,21 @@ jobs:
        name: Download script to upload artifact to DO Spaces
        command: curl -o ~/app/upload.py https://cdn.tgpost.me/scripts/upload-to-spaces.py
 
+    - restore_cache:
+        keys:
+        - dependency-cache-{{ checksum "~/app/upload.py" }}
+
     - run:
         name: Create venv and Install boto3
         command: |
           python3 -m venv ~/env
           source ~/env/bin/activate
           pip install boto3
+
+    - save_cache:
+        key: dependency-cache-{{ checksum "~/app/upload.py" }}
+        paths:
+        - ~/env
 
     - run:
         name: Upload artifacts to CDN
