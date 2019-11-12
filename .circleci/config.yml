@@ -13,7 +13,8 @@ jobs:
         command: 'sudo npm install -g yarn@latest'
 
     - restore_cache:
-        key: dependency-cache-{{ checksum "yarn.lock" }}
+        keys:
+        - dependency-cache-{{ checksum "yarn.lock" }}
 
     - run:
         name: Add .npmrc with Nexus registry credentials
@@ -26,12 +27,13 @@ jobs:
 
     - run:
         name: Install packages
-        command: yarn install
+        command: yarn install --frozen-lockfile
 
     - save_cache:
         key: dependency-cache-{{ checksum "yarn.lock" }}
         paths:
-        - node_modules
+        - ~/app/node_modules
+        - ~/.cache/yarn
 
     - run:
         name: Build
@@ -51,8 +53,8 @@ jobs:
     docker:
     - image: circleci/python:3.7
     environment:
-      DO_SPACES_CDN_STATIC_BUCKET: 'public'
-      DO_SPACES_CDN_APP_DIRECTORY: 'poster'
+      DO_SPACES_CDN_STATIC_BUCKET: 'tgstatic'
+      DO_SPACES_CDN_APP_DIRECTORY: 'public'
       DO_SPACES_CDN_LOCAL_DIRECTORY: './build_client'
       DO_SPACES_CDN_REGION: 'fra1'
     steps:
