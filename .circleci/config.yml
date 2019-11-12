@@ -52,11 +52,13 @@ jobs:
     working_directory: ~/app
     docker:
     - image: circleci/python:3.7
-    environment:
-      DO_SPACES_CDN_STATIC_BUCKET: 'tgstatic'
-      DO_SPACES_CDN_APP_DIRECTORY: 'public'
-      DO_SPACES_CDN_LOCAL_DIRECTORY: './build_client'
-      DO_SPACES_CDN_REGION: 'fra1'
+      environment:
+        DO_SPACE_CDN_ACCESS_KEY: $DO_SPACE_CDN_ACCESS_KEY
+        DO_SPACE_CDN_ACCESS_KEY_SECRET: $DO_SPACE_CDN_ACCESS_KEY_SECRET
+        DO_SPACES_CDN_STATIC_BUCKET: 'tgstatic'
+        DO_SPACES_CDN_APP_DIRECTORY: 'public'
+        DO_SPACES_CDN_LOCAL_DIRECTORY: './build_client'
+        DO_SPACES_CDN_REGION: 'fra1'
     steps:
     - checkout
 
