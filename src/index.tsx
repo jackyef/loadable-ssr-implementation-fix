@@ -6,7 +6,7 @@ import Loadable from 'react-loadable';
 import { appContainerHTMLTag } from './config';
 import Routes, { history } from './routes';
 
-import { renderRoutes } from '@tg/ui/utils';
+import { renderRoutes } from '@scc/utils';
 
 Loadable.preloadReady().then(() => {
 	ReactDOM.hydrate(

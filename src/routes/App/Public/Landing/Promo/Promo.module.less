@@ -1,0 +1,57 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	background: @cc-white;
+
+	> div {
+		display: flex;
+		flex-direction: column;
+
+		padding-bottom: 310px;
+	}
+
+	// Media
+	.media-tablet({
+		> div { padding-bottom: 250px; }
+	});
+
+	.media-mobile({
+		> div { padding-bottom: 220px; }
+	});
+}
+
+.top {
+	display: flex;
+	justify-content: space-between;
+
+	// Title
+	> h1 {
+		width: 633px;
+
+		color: @cc-text-primary;
+	}
+
+	// Paragraph
+	> p {
+		.text-paragraph-public(@cc-text-primary);
+		width: 311px;
+	}
+
+	// Media
+	.media-mobile({ > h1 { width: 260px; } });
+
+	// Not moved to constants media mixins because it should be
+	// applied from special width value
+	@media screen and (max-width: 1200px) {
+		flex-direction: column;
+		justify-content: flex-start;
+
+		> h1,
+		> p {
+			width: 100%;
+			max-width: 600px;
+		}
+
+		> p { margin-top: 10px; }
+	}
+}

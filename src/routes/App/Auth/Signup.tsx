@@ -2,31 +2,33 @@
  * Authentication process the very first route (Sign up)
  */
 import React from 'react';
-import { RouteConfig } from 'react-router-config';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
 
-import { FormRoot, canUseDOM } from '@scc/ui-kit';
-import { Submit } from '@scc/ui-kit/addons';
-import { required, email } from '@scc/ui-kit/addons/validators';
+import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
+import { canUseDOM } from '@scc/utils';
 
-import { Btn, Headline, FieldInput } from '@tg/ui';
-import { api } from '@tg/ui/config';
-import resources from '@tg/ui/resources';
+import { Btn, FieldInput, Headline, customValidators as validators } from '@tg/ui';
+import { service as authService } from '@tg/api-proxy-auth';
+import { resources } from '@tg/ui/dist/resources';
 
-import { authFormStore } from '../../../stores';
 import { routes } from '../../../config';
 
-import { Styles } from './';
-const styles: Styles = require('./Auth.module.less');
+import { NotifyBox, awakeNotification } from './utils/notification';
 
-type Props = {
-	route: RouteConfig & { render?: any };
-};
+// Styles
+import { Styles } from './';
+import importedStyles from './Auth.module.less';
+const styles: Styles = importedStyles;
+
+// Form store
+const apiFormStore = new StoreFormAPI(authService.axiosInstance);
+export const formStore = new StoreForm('auth', null, apiFormStore);
 
 /**
  * Sign up authentication route container
  */
-const SignUp: React.SFC<Props> = () => {
+const SignUp: React.FC<{}> = () => {
 	return (
 	<>
 		<Helmet>
@@ -34,42 +36,66 @@ const SignUp: React.SFC<Props> = () => {
 		</Helmet>
 
 		{/* Form */}
-		<FormRoot wrapper="form" name="signup" inject={ authFormStore }
+		<FormRoot wrapper="form" name="signup" inject={ formStore }
 			styles={ styles.form }
+			submitMethod="POST"
+			submitURL={ authService.shot('user', 'register').options.url }
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+			onSubmitFailed={ err => awakeNotification(err, formStore) }
 		>
 			{/* Title */}
-			<Headline h={1} title="Create account" />
+			<Headline title="Create account" h={2} variation="public" />
 
-			{/* Email */}
-			<FieldInput name="email" placeholder="Email"
-				validateOnBlur validators={[required, email]}
-				stl={ styles.field }
+			{/* Email*/}
+			<FieldInput name="email" placeholder="name@example.com"
+				kind="bigger"
+				errPos="right"
+				label="Email"
+				validators={[
+					validators.email.valid,
+					validators.email.required
+				]}
 			/>
 
 			{/* Password */}
-			<FieldInput name="password" type="password" placeholder="Password"
-				validators={[ required ]}
-				stl={ styles.field }
-			/>
-
-			{/* Repeat password */}
-			<FieldInput name="repeat_password" type="password" placeholder="Repeat password"
-				validators={[ required ]}
-				stl={ styles.field }
+			<FieldInput name="password" placeholder="password" type="password"
+				kind="bigger"
+				errPos="right"
+				label="Password"
+				validators={[
+					validators.password.requirements,
+					validators.password.required
+				]}
 			/>
 
 			{/* Submit */}
-			<Submit form={ authFormStore } title="Join us with email" url={ api.auth.register }
-				icon={ resources.icon_read_more } iconPos="right"
-				styles={{ theme: styles.submit }}
+			<Btn submit form={ formStore } title="Create account"
+				style={{ main: 'general' }}
 			/>
 
-			{/* Socials (Google) */}
-			<Btn nav external style="google" title="or continue with Google" url={ api.auth.google }
+			{/* Divider */}
+			<span>{ 'or' }</span>
+
+			{/* Google */}
+			<Btn nav external style={{ main: 'google' }} title="Sign up with Google"
 				icon={ resources.icon_google }
-				className={ styles.google }
+				url={`
+					${authService.axiosInstance.defaults.baseURL}
+					${authService.shot('user', 'google').options.url}
+				`}
 			/>
+
+			{/* PP */}
+			<p className={ styles.pp }>
+				{ 'By signing up you agree to Platformagram ' }
+				<br/>
+				<Link to={ routes.pp }>
+					{ 'Terms and Conditions and Privacy Policy' }
+				</Link>
+			</p>
+
+			{/* Notifications area */}
+			<NotifyBox />
 
 		</FormRoot>
 	</>

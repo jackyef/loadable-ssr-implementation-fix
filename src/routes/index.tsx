@@ -3,21 +3,27 @@ import { Redirect } from 'react-router';
 import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
-import { canUseDOM } from '@scc/ui-kit';
-import { Loading, NotFound } from '@tg/ui';
-import { authenticated } from '@tg/ui/utils';
+import { Loading } from '@tg/ui';
+import { canUseDOM } from '@scc/utils';
 
-import { authFormStore } from '../stores';
-import { routes, indexRoute } from '../config';
+import { routes } from '../config';
+
+// Styles
+import importedStyles from './Routes.module.less';
+const styles: Styles = importedStyles;
+
+type Styles = {
+	loading?: string;
+};
 
 // Not Found Route
-const RouteNotFound = { component: () => <Redirect to={ `/nf` } /> };
+const RouteNotFound = { component: () => <Redirect to={ routes.index } /> };
 
 // Browser history
-export const history = canUseDOM() ? createBrowserHistory({ basename: indexRoute }) : null;
+export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : null;
 
-// List of loadable routes with authentication condition
-const LoadableAuth = Loadable({ loader: () => import('./App/Auth'), loading: Loading });
+// Loaders
+const LoaderSubRoute = (props: any) => <Loading {...props} className={styles.loading} />;
 
 // Routes map
 export default [
@@ -25,48 +31,37 @@ export default [
 		path: routes.index,
 		component: Loadable({
 			loader: () => import('./App'),
-			loading: Loading
+			loading: LoaderSubRoute
 		}),
 
 		routes: [
 
 			// Root
 			{
-				component: () => <Redirect to={ routes.home } />,
+				exact: true,
 				path: routes.index,
-				exact: true
+				component: Loadable({
+					loader: () => import('./App/Public/Landing'),
+					loading: LoaderSubRoute
+				})
 			},
 
-			// Public
+			// Terms and Conditions & Privacy Policy
 			{
-				path: routes.home,
+				path: routes.pp,
 				component: Loadable({
-					loader: () => import('./App/Public'),
-					loading: Loading
-				}),
-
-				routes: [
-
-					// Landing (home)
-					{
-						exact: true,
-						path: routes.home,
-						component: Loadable({
-							loader: () => import('./App/Public/Landing'),
-							loading: Loading
-						})
-					}
-				]
+					loader: () => import('./App/PP'),
+					loading: LoaderSubRoute
+				})
 			},
 
 			// Auth
 			{
 				path: routes.auth.self,
-				render: (props: any) => (
-					authenticated()
-						? <Redirect to={ routes.home } />
-						: <LoadableAuth { ...props } />
-				),
+				component: Loadable({
+					loader: () => import('./App/Auth'),
+					loading: LoaderSubRoute
+				}),
 
 				routes: [
 
@@ -82,11 +77,7 @@ export default [
 						path: routes.auth.signup,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signup'),
-							loading: Loading,
-							render(loaded: any, props: any) {
-								const Component = loaded.default;
-								return <Component { ...props } store={ authFormStore } />;
-							}
+							loading: LoaderSubRoute
 						})
 					},
 
@@ -96,11 +87,27 @@ export default [
 						path: routes.auth.signin,
 						component: Loadable({
 							loader: () => import('./App/Auth/Signin'),
-							loading: Loading,
-							render(loaded: any, props: any) {
-								const Component = loaded.default;
-								return <Component store={ authFormStore } />;
-							}
+							loading: LoaderSubRoute
+						})
+					},
+
+					// Reset password
+					{
+						exact: true,
+						path: routes.auth.reset,
+						component: Loadable({
+							loader: () => import('./App/Auth/Reset'),
+							loading: LoaderSubRoute
+						})
+					},
+
+					// New password
+					{
+						exact: true,
+						path: routes.auth.password,
+						component: Loadable({
+							loader: () => import('./App/Auth/NewPassword'),
+							loading: LoaderSubRoute
 						})
 					},
 
@@ -110,7 +117,7 @@ export default [
 			},
 
 			// Not Found (404)
-			{ component: () => <NotFound to="/" /> }
+			RouteNotFound
 		]
 	}
 ];

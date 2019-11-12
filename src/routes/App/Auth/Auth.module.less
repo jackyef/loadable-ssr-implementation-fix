@@ -1,87 +1,88 @@
-@import (reference) '~@scc/ui-kit/styles.less';
-@import (reference) '~@tg/ui/styles.less';
+@import (reference) '~@tg/ui/styles/all';
 
 // Form container
 .self {
-	position: relative;
-	overflow: hidden;
+	position: absolute;
+	top: 0;
+	z-index: 0;
 
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-	width: 100%;
+	width: 100vw;
 	height: 100vh;
 
-	background: @cc-bg-public-gradient;
+	background: @cc-white;
 
-	// Background patterns
-	> img {
-		position: absolute;
-		z-index: 0;
+	> form {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 
-		&:first-of-type {
-			top: 200px;
-			left: 200px;
+		width: 420px;
+		padding: 40px;
+
+		// Title
+		> h2 {
+			margin-bottom: 40px;
 		}
 
-		&:last-of-type {
-			right: 0;
-			bottom: 0;
+		// Fields
+		> div {
+			width: 100%;
+			margin-bottom: 10px;
+		}
 
-			transform: rotate(45deg) scale(.5);
+		// Buttons (submit & google)
+		> button {
+			width: 100%;
+			margin: 12px 0 0 0;
+		}
+
+		// Divider (OR)
+		> span {
+			.text-hint-upper(@cc-text-light);
+
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			width: 100%;
+			margin: 10px 0 0 6px;
 		}
 	}
+
+	// Media
+	.media-mobile({
+		> form {
+			padding: 16px;
+		}
+	});
 }
 
-// Header
-.header {
-	position: absolute;
-}
+// PP text & link
+.pp {
+	.text-hint();
 
-// Form
-.form {
-	.mixin-card-container();
+	margin-top: 24px;
 
-	width: 560px;
-	padding: 40px;
+	text-align: center;
 
-	// Title
-	> h1 {
-		// .mixin-card-title();
-
-		margin-bottom: 20px;
-	}
-
-	// Fields containers
-	> div {
-		width: 100%;
-		margin: 10px 0;
+	> a {
+		.text-hint();
 	}
 }
 
-// Inputs
-.field {
-	margin-left: 0;
-}
+// Create account / Log in
+.nav_item {
+	display: flex;
+	align-items: center;
 
-// Google
-.google {
-	width: 100%;
-	margin: 20px 0 0;
-}
+	// Hint
+	> span {
+		.text-hint(@size: 16px);
 
-// Submit
-.submit {
-	width: 100%;
-	margin-top: 30px;
-
-	#btn > .compose_theme(
-		@colors: { #btn > .colors(@cc-primary, @cc-sub) },
-		@text: { #btn > .text(16px, 500) },
-		@size: { #btn > .size(15px) },
-		@border: { #btn > .border(10px) },
-		@icon: { #btn > .icon(16px, 12px) },
-		@shadow: { #btn > .shadow(@shadow-btn, none) }
-	);
+		margin-right: 16px;
+	}
 }

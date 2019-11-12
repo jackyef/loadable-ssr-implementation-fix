@@ -1,51 +1,34 @@
 # Stage 1 - build express app
-FROM node:9.11.1 as bundle
+FROM node:11 as bundle
 
-MAINTAINER Vashchuk Maksim "vashchukmaksim@gmail.com"
-
-RUN apt-get update -y
-RUN apt-get install apt-transport-https -y
-
-# Install yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update -y
-RUN apt-get install yarn -y
-
-# Install git
-RUN apt-get install -y git
-
-# Provide SSH key
-RUN mkdir /root/.ssh/
-ADD id_rsa /root/.ssh/id_rsa
-RUN chmod 600 /root/.ssh/id_rsa
-RUN touch /root/.ssh/known_hosts
-RUN ssh-keyscan -T 60 bitbucket.org >> /root/.ssh/known_hosts
+LABEL maintainer="vashchukmaksim@gmail.com"
 
 # Copy source
 COPY . /usr/src
 WORKDIR /usr/src
 
-# Clone repos (ui-kit and @tg/ui)
-RUN git clone git@bitbucket.org:sccockpit/ui-kit.git
-RUN git clone git@bitbucket.org:souldevsteam/tg-ui.git
+# Set registry
+RUN rm -rf /root/.npmrc
+RUN touch /root/.npmrc
+RUN echo "@tg:registry=http://host.docker.internal:4873\n" >>  /root/.npmrc
+RUN echo "@scc:registry=http://host.docker.internal:4873\n" >>  /root/.npmrc
+RUN echo "ca = null\n" >>  /root/.npmrc
+RUN echo "always-auth = true\n" >>  /root/.npmrc
+RUN echo "//host.docker.internal:4873/:_authToken=jpicado:jpicado\n" >>  /root/.npmrc
+# RUN yarn config set registry "http://host.docker.internal:4873"
+
+# Replace verdacio URL from localhost to docker.internal
+RUN sed -i 's+http://localhost:4873+http://host.docker.internal:4873+g' yarn.lock
 
 # Install dependencies
-RUN yarn install
-
-# Add repos to node_modules
-RUN mkdir -p ./node_modules/@scc
-RUN mv ./ui-kit ./node_modules/@scc/ui-kit
-
-RUN mkdir -p ./node_modules/@tg
-RUN mv ./tg-ui ./node_modules/@tg/ui
+RUN yarn
 
 # Build express app
 RUN yarn prd:build-client
 RUN yarn prd:build-server
 
 # Stage 2 - Forever
-FROM node:9.11.1
+FROM node:11
 
 # Copy artifacts
 COPY --from=bundle /usr/src/bundle_server /usr/src/bundle_server
@@ -56,7 +39,12 @@ COPY package.json yarn.lock* /usr/src/
 
 WORKDIR /usr/src
 
+# Replace verdacio URL from localhost to docker.internal
+RUN sed -i 's+http://localhost:4873+http://host.docker.internal:4873+g' yarn.lock
+
+# Inastall
 RUN yarn global add forever
 RUN yarn install --production=true
 
+# Run
 CMD ["forever", "bundle_server/server.js"]

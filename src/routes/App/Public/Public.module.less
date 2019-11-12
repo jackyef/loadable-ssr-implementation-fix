@@ -1,38 +1,7 @@
-@import (reference) '~@tg/ui/styles.less';
+@import (reference) '~@tg/ui/styles/all';
 
+// Scrollbars wrapper
 .self {
-	position: relative;
-
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
 	width: 100%;
-	min-height: 100vh;
-
-	background: @cc-bg-public;
-
-	&::before {
-		content: '';
-
-		position: absolute;
-		top: 0;
-		left: 0;
-
-		width: 100%;
-		height: 100vh;
-
-		background: @cc-bg-public-gradient;
-	}
-
-	> main {
-		position: relative;
-		z-index: 2;
-
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
-		width: 100%;
-	}
+	height: 100vh;
 }

@@ -10,20 +10,20 @@ export const routes = {
 
 	// Home
 	index: '/',
-	home: '/home',
+	home: '/',
 
 	// Products (external)
 	poster: '/post/dashboard',
-	market: '/market',
 
-	// Public (internal)
-	pricing: '/pricing',
-	faq: '/faq',
+	// Privacy Policy (and Terms of use)
+	pp: '/pp',
 
 	// Authentication
 	auth: {
 		self: '/auth',
 		signin: '/auth/in',
-		signup: '/auth/up'
+		signup: '/auth/up',
+		reset: '/auth/reset',
+		password: '/auth/password'
 	}
 };

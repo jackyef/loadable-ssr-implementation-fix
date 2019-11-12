@@ -1,151 +1,67 @@
-@import (reference) '~@tg/ui/styles.less';
+@import (reference) '~@tg/ui/styles/all';
 
-// Common styles for
-// background details (patterns)
-.pattern() {
-	position: absolute;
-	z-index: -1;
+.mixin-btn-hover-underline {
+	> ul > li {
+		> a,
+		> button {
+			border-bottom: 2px solid @cc-transparent;
+			transition: border-color @tt @tf;
+
+			&:hover {
+				border-bottom: 2px solid @cc-sub;
+				transition: border-color @tt @tf;
+			}
+		}
+	}
 }
 
 .demo {
-	overflow: hidden;
+	margin-top: -275px;
 
-	width: 700px;
+	// Media
+	.media-mobile({
+		padding: 0;
+		margin-top: -190px;
 
-	border-radius: @const-border-card-radius;
-	box-shadow: @shadow-card;
-
-	transform: scale(1);
-	transition: transform 350ms ease-in-out;
-
-	> img {
-		width: 100%;
-	}
-
-	&:hover {
-		transform: scale(1.1);
-	}
+		background: @cc-bg-dim-darker;
+	});
 }
 
-// Promo section
-.promo {
-	.flex-between-center();
+.nav {
+	margin-right: auto;
+	margin-left: 80px;
 
-	> img:first-child {
-		.pattern();
+	.mixin-btn-hover-underline;
 
-		top: 0;
-		left: 55%;
-
-		width: 220px;
-
-		transform: rotate(20deg);
-	}
-
-	> img:last-child {
-		width: 500px;
-		margin-right: -40px;
-	}
+	// Media
+	.media-not-desktop({
+		display: none;
+	});
 }
 
-// Promo features
-.promo_features {
-	padding-top: 45px;
+.sign_in {
+	.mixin-btn-hover-underline;
 
-	> img {
-		.pattern();
-
-		top: -180px;
-		left: 23%;
-	}
+	// Media
+	.media-mobile({
+		> ul > li:last-child { display: none; }
+		> ul > li:first-child { margin-right: 0; }
+	});
 }
 
-// Management features
-// with an interactive demo aside
-.manage_features {
-	.flex-between-start();
+.shadow { .shadow-small; }
+.shadow_cover { margin-top: -5px; }
+.shadow_common {
+	position: sticky;
+	top: 55px;
+	z-index: 1;
 
-	// Pattern
-	> img {
-		.pattern();
+	padding: 5px 0 !important;
 
-		top: -40px;
-		left: 120px;
+	background: @cc-white;
 
-		width: 250px;
-
-		transform: rotate(35deg);
-	}
-
-	// Demo
-	> div {
-		margin-left: 50px;
-	}
-}
-
-// Posts creating features
-.posts_features {
-	.flex-between-start();
-
-	> img {
-		.pattern();
-
-		top: -40px;
-		right: 8%;
-
-		width: 250px;
-	}
-
-	// Demo
-	> div {
-		margin-right: 50px;
-	}
-}
-
-// Team work
-.team_features {
-	.flex-between-start();
-
-	> img {
-		.pattern();
-
-		top: -40px;
-		left: 120px;
-
-		width: 250px;
-
-		transform: rotate(35deg);
-	}
-
-	// Demo
-	> div {
-		margin-left: 50px;
-	}
-}
-
-// Pricing
-.pricing {
-
-}
-
-// Roadmap
-.roadmap {
-	.flex-column-start();
-
-	padding-top: 160px !important;
-	padding-bottom: 160px !important;
-
-	> img {
-		.pattern();
-
-		top: -40px;
-		right: 150px;
-
-		transform: rotate(15deg);
-	}
-}
-
-// Subscribe
-.subscribe {
-	.flex-column-start();
+	// Media
+	.media-not-desktop({
+		display: none;
+	});
 }

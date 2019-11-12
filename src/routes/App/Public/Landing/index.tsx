@@ -1,145 +1,168 @@
 /**
  * Landing page (home) route
  */
-import React from 'react';
+import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
+import { useLocalStore } from 'mobx-react';
 
-import {
-	Promo,
-	FeaturesIconed,
-	ContentSectionPublic,
-	FeaturesNumbered,
-	Pricing,
-	BetaPriceCard,
-	ReleaseRoadmap,
-	Subscribe,
-	Slideshow
-} from '@tg/ui';
+import { Btn, expired } from '@tg/ui';
 
-import { resources } from '@tg/ui/res';
+import { history } from '../../../';
+import { formStore as signUpFormStore } from '../../Auth/Signup';
+import { commonNavBtnProps, scroll } from '../../../../utils';
+import { Header, Nav, Logo, NavItem, ContentBlock } from '../../../../components';
+import { routes } from '../../../../config';
 
-import {
-	dataIconedFeatures,
-	dataManagingFeatures,
-	dataPostsFeatures,
-	dataTeamFeatures,
-	dataPricing,
-	dataPricingFeatures,
-	dataBetaPriceCard
-} from '../../../../config';
+import { Promo } from './Promo';
+import { Demo } from './Demo';
+import { Blogs } from './Blogs';
+import { Feed } from './Feed';
+import { Editor } from './Editor';
+import { EditorMore } from './EditorMore';
+import { Stats } from './Stats';
+import { Pricing } from './Pricing';
+import { FAQ } from './FAQ';
+import { GetStarted } from './GetStarted';
 
-import { subscribeStore } from '../../../../stores';
-
-const styles: Styles = require('./Landing.module.less');
+import importedStyles from './Landing.module.less';
+const styles: Styles = importedStyles;
 
 type Styles = {
-	self?: string;
-	promo?: string;
-	promo_features?: string;
-	manage_features?: string;
-	posts_features?: string;
-	team_features?: string;
-	pricing?: string;
-	slideshow?: string;
 	demo?: string;
-	roadmap?: string;
-	subscribe?: string;
-	footer_bg?: string;
+	nav?: string;
+	sign_in?: string;
+	shadow?: string;
+	shadow_cover?: string;
+	shadow_common?: string;
 };
+
+type Props = {
+	scroller?: any;
+};
+
+/**
+ * On click redirect to sigh up form
+ * and persist entered email in context store
+ */
+export const toSignUp = (email?: string) => {
+	signUpFormStore.setData({ email: email });
+	history.push(routes.auth.signup);
+};
+
+/**
+ * Make header sticky
+ */
+const STICKY = true; // false
 
 /**
  * Landing route
  */
-const Landing: React.SFC<{}> = () => {
+const Landing: React.FC<Props> = ({ scroller }) => {
+
+	// Refs to scroll to
+	const refOrganize = useRef(null);
+	const refEditor = useRef(null);
+	const refStats = useRef(null);
+	const refPricing = useRef(null);
+
+	// use useLocalStore
+	const localStore = useLocalStore(() => ({
+		authenticated: !expired(localStorage.getItem('id_token'))
+	}));
+
+	// Render
 	return (
 		<>
 			<Helmet>
 				<title>{ 'Just create and we take care of the rest' }</title>
 			</Helmet>
 
+			{/* Header */}
+			<Header sticky={ STICKY }>
+
+				{/* Logo */}
+				<Logo onClick={() => scroll(scroller)} />
+
+				{/* Page navigation */}
+				<Nav className={ styles.nav }>
+					<NavItem>
+						<Btn { ...commonNavBtnProps('Organise') }
+							onClick={() => scroll(scroller, refOrganize, -50)}
+						/>
+					</NavItem>
+					<NavItem>
+						<Btn { ...commonNavBtnProps('Create') }
+							onClick={() => scroll(scroller, refEditor, -70) }
+						/>
+					</NavItem>
+					<NavItem>
+						<Btn { ...commonNavBtnProps('Analise') }
+							onClick={() => scroll(scroller, refStats, -100)}
+						/>
+					</NavItem>
+					<NavItem>
+						<Btn { ...commonNavBtnProps('Pricing') }
+							onClick={() => scroll(scroller, refPricing)}
+						/>
+					</NavItem>
+				</Nav>
+
+				{/* Sign in/up (logout) */}
+				{
+					localStore.authenticated
+						? (
+							<Nav className={ styles.sign_in }>
+								<NavItem>
+									<Btn title="Poster" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+										onClick={() => window.location.assign(routes.poster)}
+									/>
+								</NavItem>
+							</Nav>
+						)
+						: (
+							<Nav className={ styles.sign_in }>
+								<NavItem>
+									<Btn { ...commonNavBtnProps('Sign in', true) }
+										url={ routes.auth.signin }
+									/>
+								</NavItem>
+								<NavItem>
+									<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+										url={ routes.auth.signup }
+									/>
+								</NavItem>
+							</Nav>
+						)
+				}
+			</Header>
+
+			{/* Hack to hide header shadow when page has not been scrolled down yet */}
+			{
+				!STICKY ? null : (<>
+					<ContentBlock className={`${ styles.shadow_common } ${ styles.shadow }`}>{}</ContentBlock>
+					<ContentBlock className={`${ styles.shadow_common } ${ styles.shadow_cover }`}>{}</ContentBlock>
+				</>)
+			}
+
 			{/* Content cards */}
 			<main>
 
-				{/* Promo */}
-				<ContentSectionPublic name="promo" styles={ styles.promo }>
-					<img src={ resources.bg_pattern_dots } />
-					<Promo subscribeFormStore={ subscribeStore } />
-				</ContentSectionPublic>
+				{/* Top */}
+				<Promo />
+				<Demo className={ styles.demo } />
+				<Blogs />
 
-				{/* Horizontal iconed features */}
-				<ContentSectionPublic name="features" styles={ styles.promo_features } >
-					<img src={ resources.bg_pattern_dots } />
-					<FeaturesIconed features={ dataIconedFeatures } />
-				</ContentSectionPublic>
+				{/* Center */}
+				<Feed ref={ refOrganize } />
+				<Editor ref={ refEditor } />
+				<EditorMore />
 
-				{/* Slideshow of product screens */}
-				<ContentSectionPublic name="slideshow" styles={ styles.slideshow } fullWidth rulers="no">
-					<Slideshow images={[resources.slide_01, resources.slide_02, resources.slide_03]} />
-				</ContentSectionPublic>
+				{/* Bottom */}
+				<Stats ref={ refStats } />
+				<Pricing ref={ refPricing } />
+				<FAQ />
+				<GetStarted />
 
-				{/* Vertical list of management features */}
-				<ContentSectionPublic name="features_management" rulers="narrow" styles={ styles.manage_features }>
-					<img src={ resources.bg_pattern_dots } />
-					<FeaturesNumbered features={ dataManagingFeatures }
-						title="Managing and scheduling posts"
-						desc={ 'Saves time and helps \nauthors to manage channels' }
-					/>
-
-					{/* Demo feed */}
-					{/* TODO: Swap to a real demo */}
-					<div>
-						<img src={ resources.manage_features_illustration } />
-					</div>
-				</ContentSectionPublic>
-
-				{/* Creating posts */}
-				<ContentSectionPublic name="features_posts" styles={ styles.posts_features }>
-					<img src={ resources.bg_pattern_dots } />
-
-					{/* TODO: Swap to a real demo */}
-					<div className={ styles.demo }>
-						<img src={ resources.demo_manage } />
-					</div>
-
-					{/* Features */}
-					<FeaturesNumbered features={ dataPostsFeatures }
-						title="Creating posts"
-						desc="Saves time and helps authors to manage channels"
-					/>
-				</ContentSectionPublic>
-
-				{/* Team work */}
-				<ContentSectionPublic name="features_team" styles={ styles.team_features }>
-					<img src={ resources.bg_pattern_dots } />
-
-					<FeaturesNumbered features={ dataTeamFeatures }
-						title="Work together"
-						desc="Collaborate with other channel administrators to create and manage an awesome content"
-					/>
-
-					{/* TODO: Swap to a real demo */}
-					<div className={ styles.demo }>
-						<img src={ resources.demo_team } />
-					</div>
-				</ContentSectionPublic>
-
-				{/* Pricing */}
-				<ContentSectionPublic name="pricing" styles={ styles.pricing }>
-					<Pricing offers={ dataPricing } features={ dataPricingFeatures }>
-						<BetaPriceCard { ...dataBetaPriceCard } />
-					</Pricing>
-				</ContentSectionPublic>
-
-				{/* Roadmap */}
-				<ContentSectionPublic name="roadmap" styles={ styles.roadmap }>
-					<img src={ resources.bg_pattern_dots } />
-					<ReleaseRoadmap />
-				</ContentSectionPublic>
-
-				{/* Subscription combined with footer */}
-				<ContentSectionPublic name="subscription" styles={ styles.subscribe }>
-					<Subscribe formStore={ subscribeStore } />
-				</ContentSectionPublic>
 			</main>
 		</>
 	);

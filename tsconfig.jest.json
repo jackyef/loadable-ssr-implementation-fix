@@ -1,0 +1,3 @@
+{
+	"extends": "@tg/configs/tsconfig/jest.app.json"
+}

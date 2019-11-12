@@ -4,16 +4,18 @@
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { Header } from '@tg/ui';
-import { renderRoutes } from '@tg/ui/utils';
+import { renderRoutes } from '@scc/utils';
+import { Scrollbars } from '@tg/ui';
 
-import { headerNav } from '../../../config';
-import { history } from '../../';
+// Components
+import { Footer } from '../../../components';
 
-const styles: Styles = require('./Public.module.less');
+// Styles
+import importedStyles from './Public.module.less';
+const styles: Styles = importedStyles;
 
 type Styles = {
-	self?: any;
+	self?: string;
 };
 
 type Props = {
@@ -23,16 +25,20 @@ type Props = {
 /**
  * Public container
  */
-const Container: React.SFC<Props> = ({ route }) => {
+const Container: React.FC<Props> = ({ route }) => {
 	return (
-		<div className={ styles.self }>
+		<Scrollbars getScroller styles={{ wrapper: styles.self }}>
+			{
+				(scroller: any) => (<>
 
-			<Header history={ history } nav={ headerNav } />
+					{/* Content */}
+					{ renderRoutes(route.routes, { scroller }) }
 
-			{/* Content */}
-			{ renderRoutes(route.routes) }
-
-		</div>
+					{/* Footer */}
+					<Footer />
+				</>)
+			}
+		</Scrollbars>
 	);
 };
 

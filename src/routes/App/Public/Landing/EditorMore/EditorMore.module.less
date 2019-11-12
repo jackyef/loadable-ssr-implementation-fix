@@ -1,0 +1,47 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.mixin-card(@bg, @text) {
+	background: @bg;
+	> h3 { color: @text; }
+	> p { color: @text; }
+	> i > svg { fill: @text; }
+}
+
+.self {
+	padding-top: 0;
+
+	background: @cc-white;
+
+	> div {
+		> ul {
+			display: flex;
+
+			// Card
+			> li {
+				&:first-child {
+					.mixin-card(@cc-sub, @cc-text-primary);
+					margin-right: 15px;
+				}
+
+				&:last-child {
+					.mixin-card(@cc-primary-dark, @cc-white);
+					margin-left: 15px;
+				}
+			}
+		}
+	}
+
+	// Media
+	.media-mobile({
+		> div {
+			> ul {
+				flex-direction: column;
+
+				> li {
+					width: 100%;
+					margin: 6px 0 !important;
+				}
+			}
+		}
+	});
+}

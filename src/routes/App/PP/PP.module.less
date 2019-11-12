@@ -1,0 +1,51 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	height: 100vh;
+}
+
+.content_block {
+	background: @cc-white;
+
+	> div {
+
+		// Titles
+		> h1,
+		> h2,
+		> h3 {
+			color: @cc-text-primary;
+		}
+
+		> h3 { padding: 40px 0 10px 0; }
+
+		// Last updated
+		> span {
+			.text-paragraph-small-public(@cc-text-primary-dimer);
+			margin-bottom: 40px;
+		}
+
+		> span + p {
+			margin-top: 50px;
+		}
+
+		// Text
+		> p {
+			.text-paragraph-small-public(@cc-text-primary);
+			white-space: pre-line;
+		}
+
+		// Lists
+		> ul {
+			padding: 30px 40px;
+
+			> li {
+				padding: 10px 0;
+
+				.text-paragraph-small-public(@cc-text-primary);
+				white-space: pre-line;
+
+				list-style-type: square;
+			}
+		}
+	}
+}

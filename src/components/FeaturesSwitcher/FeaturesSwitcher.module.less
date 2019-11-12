@@ -1,0 +1,53 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	border-left: 1px solid @cc-border-gray-light-color;
+}
+
+.feature {
+	.text-paragraph-public(@cc-text-primary-dimest);
+
+	position: relative;
+
+	width: 100%;
+	padding: 10px 25px;
+
+	cursor: pointer;
+
+	transition: color @tt @tf;
+
+	&::before {
+		content: '';
+
+		position: absolute;
+		top: 0;
+		left: -2px;
+
+		width: 3px;
+		height: 0;
+
+		background: @cc-transparent;
+
+		transition: height 400ms @tf;
+	}
+
+	&:hover {
+		color: @cc-text-primary-dimer;
+	}
+}
+
+.active {
+	color: @cc-text-primary;
+
+	&:hover {
+		color: @cc-text-primary;
+	}
+
+	&::before {
+		height: 100%;
+
+		background: @cc-text-primary;
+
+		transition: height 400ms @tf;
+	}
+}

@@ -3,25 +3,34 @@
  */
 import React from 'react';
 import { Helmet } from 'react-helmet';
+import { Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
-import { FormRoot, canUseDOM } from '@scc/ui-kit';
-import { Submit } from '@scc/ui-kit/addons';
-import { required, email } from '@scc/ui-kit/addons/validators';
+import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
+import { canUseDOM } from '@scc/utils';
 
-import { Btn, Headline, FieldInput } from '@tg/ui';
-import { api } from '@tg/ui/config';
-import resources from '@tg/ui/resources';
+import { FieldInput, Btn, Headline, customValidators as validators } from '@tg/ui';
+import { service as authService } from '@tg/api-proxy-auth';
+import { resources } from '@tg/ui/dist/resources';
 
+import { history } from '../../';
 import { routes } from '../../../config';
-import { authFormStore } from '../../../stores';
 
+import { NotifyBox, awakeNotification } from './utils/notification';
+
+// Styles
 import { Styles } from './';
-const styles: Styles = require('./Auth.module.less');
+import importedStyles from './Auth.module.less';
+const styles: Styles = importedStyles;
+
+// Form store
+const apiFormStore = new StoreFormAPI(authService.axiosInstance);
+const formStore = new StoreForm('auth', null, apiFormStore);
 
 /**
  * Sign in authentication route
  */
-const SignIn: React.SFC<{}> = () => {
+const SignIn: React.FC<{}> = () => {
 	return (
 	<>
 		<Helmet>
@@ -29,37 +38,82 @@ const SignIn: React.SFC<{}> = () => {
 		</Helmet>
 
 		{/* Sign in form */}
-		<FormRoot wrapper="form" name="signin" inject={ authFormStore }
+		<FormRoot wrapper="form" name="signin" inject={ formStore }
 			styles={ styles.form }
-		>
+			submitMethod="POST"
+			submitURL={ authService.shot('user', 'login').options.url }
+			onSubmitSucceed={ () => {
 
+				// Set user claims token to local storage from cookies
+				localStorage.setItem('id_token', Cookies.get('id_token'));
+				Cookies.remove('id_token');
+
+				// Redirect to app
+				canUseDOM() && window.location.assign(routes.poster);
+			}}
+			onSubmitFailed={ err => awakeNotification(err, formStore) }
+		>
 			{/* Title */}
-			<Headline h={1} title="Sign In" />
+			<Headline title="Welcome back" h={2} variation="public" />
 
 			{/* Email */}
-			<FieldInput name="email" placeholder="Email"
-				validateOnBlur validators={[required, email]}
-				stl={ styles.field }
+			<FieldInput name="email" placeholder="name@example.com"
+				kind="bigger"
+				errPos="right"
+				label="Email"
+				validators={[
+					validators.email.valid,
+					validators.email.required
+				]}
 			/>
 
 			{/* Password */}
-			<FieldInput name="password" type="password" placeholder="Password"
-				validators={[ required ]}
-				stl={ styles.field }
+			<FieldInput name="password" placeholder="password" type="password"
+				kind="bigger"
+				errPos="right"
+				validators={[
+					validators.password.requirements,
+					validators.password.required
+				]}
+				label={
+					<div>
+						<span>{'Password'}</span>
+						<Btn style={{ main: 'inline' }}
+							title="Forgot password?"
+							onClick={() => { history.push(routes.auth.reset); }}
+						/>
+					</div>
+				}
 			/>
 
 			{/* Submit */}
-			<Submit form={ authFormStore } title="Login with email" url={ api.auth.login }
-				icon={ resources.icon_read_more } iconPos="right"
-				styles={{ theme: styles.submit }}
-				onSuccess={ () => canUseDOM() && window.location.assign(routes.poster) }
+			<Btn style={{ main: 'general' }} title="Sign In"
+				onClick={() => formStore.submit()}
 			/>
 
-			{/* Socials (Google) */}
-			<Btn nav external style="google" title="or continue with Google" url={ api.auth.google }
+			{/* Divider */}
+			<span>{ 'or' }</span>
+
+			{/* Google */}
+			<Btn nav external style={{ main: 'google' }} title="Sign in with Google"
 				icon={ resources.icon_google }
-				className={ styles.google }
+				url={`
+					${authService.axiosInstance.defaults.baseURL}
+					${authService.shot('user', 'google').options.url}
+				`}
 			/>
+
+			{/* PP */}
+			<p className={ styles.pp }>
+				{ 'By signing in you agree to Platformagram ' }
+				<br/>
+				<Link to={ routes.pp }>
+					{ 'Terms and Conditions and Privacy Policy' }
+				</Link>
+			</p>
+
+			{/* Notifications area */}
+			<NotifyBox />
 
 		</FormRoot>
 	</>

@@ -1,0 +1,58 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	> div {
+		.mixin-shadow-deep();
+
+		overflow: hidden;
+
+		border-radius: 20px;
+
+		img {
+			// display: block;
+
+			width: 100%;
+		}
+
+		// Disable scrollbars for desktop
+		> div > div { display: none; }
+	}
+
+	// Media
+	.media-mobile({
+		padding-right: 0;
+		padding-left: 0;
+
+		background: linear-gradient(to bottom, #ffffff 0%,#f9f9f9 50%,#f2f4f7 51%,#f2f4f7 100%) !important;
+
+		@img-height: 500px;
+
+		> div {
+			> div {
+
+				// Disable image without scrollbars
+				> img { display: none; }
+
+				// Enable scrollbars
+				> div {
+					display: block;
+					height: @img-height !important;
+
+					// Scrollbars content div
+					> div:first-child { height: @img-height + 1; }
+
+					// Image
+					img {
+						width: auto;
+						height: @img-height;
+						padding: 10px 60px;
+					}
+				}
+			}
+		}
+	});
+}
+
+.hideTrack {
+	display: none !important;
+}

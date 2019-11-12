@@ -1,60 +1,30 @@
 {
+	"extends": "@tg/configs/tsconfig/app.json",
 	"compilerOptions": {
-		"skipLibCheck": true,
-		"outDir": "bundle_client/",
-		"allowSyntheticDefaultImports": true,
-		"allowJs": true,
-		"checkJs": false,
-		"declaration": false,
-		"emitDecoratorMetadata": false,
-		"experimentalDecorators": true,
-		"forceConsistentCasingInFileNames": true,
-		"importHelpers": true,
-		"noEmitHelpers": true,
-		"jsx": "react",
-		"lib": [
-			"dom",
-			"es2017"
-		],
-		"target": "es2015",
-		"module": "esnext",
-		"moduleResolution": "node",
-		"noEmitOnError": false,
-		"noFallthroughCasesInSwitch": true,
-		"noImplicitAny": true,
-		"noImplicitReturns": true,
-		"noImplicitThis": true,
-		"noUnusedLocals": true,
-		"strictNullChecks": false,
-		"pretty": true,
-		"removeComments": true,
-		"sourceMap": true,
-		"baseUrl": "./typings"
+		"baseUrl": "./"
 	},
 
 	"include": [
+
+		// App
 		"src/**/*",
-		"__tests__/**/*"
+
+		// Linked modules
+		"node_modules/@scc",
+		"node_modules/@tg"
 	],
 
 	"exclude": [
-		"node_modules/**/*",
-		".awcache/**/*",
-		"bundle/**/*",
+
+		// App
+		"__tests__/**/*",
+		"bundle_*/**/*",
 		"coverage/**/*",
-		"express/**/*",
 		"jest_setup/**/*",
 		"resources/**/*",
-		"__tests__/**/*"
-	],
 
-	"awesomeTypescriptLoaderOptions": {
-		"useWebpackText": true,
-		"forkChecker": true,
-		"useCache": true,
-		"useBabel": true
-	},
-
-	"compileOnSave": false,
-	"buildOnSave": false
+		// Linked modules tests
+		"**/_tests/**/*",
+		"**/_stories/**/*"
+	]
 }

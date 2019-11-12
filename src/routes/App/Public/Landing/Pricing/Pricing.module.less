@@ -1,0 +1,178 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	padding-top: 150px;
+
+	> div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+
+		> h2 {
+			color: @cc-text-primary;
+		}
+
+		> ul {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+
+			margin-top: 60px;
+		}
+	}
+
+	// Media
+	.media-tablet({
+		padding-top: 100px;
+
+		> div {
+			> ul {
+				flex-wrap: wrap;
+				justify-content: center;
+			}
+		}
+	});
+
+	.media-mobile({
+		padding-top: 50px;
+
+		> div {
+			> ul {
+				flex-direction: column;
+				flex-wrap: nowrap;
+				align-items: center;
+				justify-content: flex-start;
+			}
+		}
+	});
+}
+
+.card {
+	width: 320px;
+	min-width: 320px;
+	height: 580px;
+
+	> section {
+		> ul {
+			> li > i { opacity: .4; }
+			> li:first-child {
+				> i {
+					margin: 0 6px 0 -2px;
+					> svg {
+						transform: scale(0.8);
+					}
+				}
+			}
+		}
+	}
+
+	// Media
+	.media-tablet({
+		width: auto;
+		min-width: 268px;
+		height: 500px;
+		padding: 35px 10px 35px 30px;
+
+		// Align header
+		> header {
+			margin-left: -20px;
+			padding-left: 10px;
+		}
+
+		// and submit button
+		> footer {
+			margin-left: -20px;
+		}
+	});
+
+	.media-mobile({
+		width: 320px;
+		height: 500px;
+		padding: 35px 40px;
+		margin-bottom: 20px;
+
+		> header,
+		> footer {
+			margin-left: 0;
+			padding-left: 0;
+		}
+	});
+}
+
+.dark_card {
+	background: @cc-primary-dark;
+
+	// Header
+	> header {
+		padding-bottom: 24px;
+
+		border-color: rgba(255, 255, 255, .1);
+
+		> h3 { color: @cc-text-white; }
+		> p { color: rgba(255, 255, 255, .6); }
+	}
+
+	// Content
+	> div {
+		> h2 { color: @cc-white; }
+		> p {
+			margin-top: 30px;
+			.text-paragraph-small-public(rgba(255, 255, 255, .6));
+		}
+	}
+
+	// Media
+	.media-tablet({
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		width: 556px;
+		height: 290px;
+		margin-top: 40px;
+
+		// Header
+		> header {
+			width: 200px;
+			padding-left: 10px;
+			margin-left: 0;
+
+			border-right: 1px solid rgba(255, 255, 255, .1);
+			border-bottom: none;
+		}
+
+		// Content
+		> div {
+			width: 260px;
+
+			> p {
+				margin-top: 10px;
+			}
+		}
+
+		// Footer
+		> footer {
+			display: flex;
+			justify-content: center;
+
+			width: 100%;
+			padding-left: 0;
+			margin-left: 0;
+
+			// Submit
+			> button {
+				width: auto;
+				margin: 0 0 0 150px;
+			}
+		}
+	});
+
+	.media-mobile({
+
+		// Content
+		> div {
+			> p {
+				margin-top: 10px;
+			}
+		}
+	});
+}

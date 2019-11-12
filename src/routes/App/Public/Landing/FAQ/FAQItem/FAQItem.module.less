@@ -1,0 +1,21 @@
+@import (reference) '~@tg/ui/styles/all';
+
+.self {
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+
+	&:not(:last-child) {
+		border-bottom: 1px solid @cc-border-gray-light-color;
+	}
+
+	// Title
+	> h3 {
+		margin-bottom: 10px;
+
+		line-height: 30px;
+
+		color: @cc-text-primary;
+	}
+
+	> p { .text-paragraph-small-public(@cc-text-primary-dim); }
+}

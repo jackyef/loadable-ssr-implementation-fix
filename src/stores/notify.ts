@@ -1,7 +1,7 @@
 /**
  * Notifications store
  */
-import { StoreNotify } from '@scc/ui-kit';
+import { StoreNotify } from '@scc/notify';
 
 const store = new StoreNotify();
 
