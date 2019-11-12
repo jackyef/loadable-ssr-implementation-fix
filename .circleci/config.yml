@@ -1,114 +1,94 @@
 version: 2
 jobs:
-#  build:
-#    docker:
-#    - image: circleci/node:10
-#
-#    working_directory: ~/repo
-#
-#    steps:
-#    - add_ssh_keys:
-#        fingerprints:
-#          - "7b:4a:bb:da:31:5b:69:de:e3:5e:2b:b8:79:54:e2:7a"
-#          - "04:37:ac:6c:48:11:b8:7c:33:c5:1f:14:77:87:89:cf"
-#
-#    - checkout
-#
-#    # Download and cache dependencies
-#    - restore_cache:
-#        keys:
-#        - v1-dependencies-{{ checksum "package.json" }}
-#        # fallback to using the latest cache if no exact match is found
-#        - v1-dependencies-
-#
-#    - run: yarn install
-#
-#    - save_cache:
-#        paths:
-#        - node_modules
-#        key: v1-dependencies-{{ checksum "package.json" }}
-#
-#    - run:
-#        name: Clone inner dependencies
-#        command: |
-#          git clone git@bitbucket.org:sccockpit/ui-kit.git
-#          git clone git@bitbucket.org:souldevsteam/tg-ui.git
-#          mkdir -p ./node_modules/@scc
-#          mv ./ui-kit ./node_modules/@scc/ui-kit
-#          mkdir -p ./node_modules/@tg
-#          mv ./tg-ui ./node_modules/@tg/ui
-#
-#    - run:
-#        name: Build
-#        command: |
-#          yarn prd:build-client
-#          yarn prd:build-server
-#          mkdir -p artifacts
-#          cp -R bundle_client ./artifacts
-#
-#    - persist_to_workspace:
-#        root: artifacts
-#        paths:
-#        - bundle_client
-
-  deploy_to_test:
+  build:
+    working_directory: ~/app
     docker:
-    - image: google/cloud-sdk
-    environment:
-      PROJECT_NAME: "tg-ui-app-public"
-      GOOGLE_PROJECT_ID: "platformgram"
-      GOOGLE_COMPUTE_ZONE: "europe-north1-a"
-      GOOGLE_CLUSTER_NAME: "tg-cluster"
+    - image: circleci/node:10
+
     steps:
     - checkout
 
     - run:
-        name: Setup Google Cloud SDK
-        command: |
-          apt-get install -qq -y gettext
-          echo $GCLOUD_SERVICE_KEY_2 > ${HOME}/gcloud-service-key.json
-          gcloud auth activate-service-account --key-file=${HOME}/gcloud-service-key.json
-          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
-          gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
-          gcloud --quiet container clusters get-credentials ${GOOGLE_CLUSTER_NAME}
+        name: install-yarn
+        command: 'sudo npm install -g yarn@latest'
 
-    - setup_remote_docker
+    - restore_cache:
+        key: dependency-cache-{{ checksum "yarn.lock" }}
 
     - run:
-        name: Docker build and push
+        name: login-to-nexus-repo
         command: |
-          docker build \
-            --build-arg COMMIT_REF=${CIRCLE_SHA1} \
-            --build-arg BUILD_DATE=`date -u +”%Y-%m-%dT%H:%M:%SZ”` \
-            --build-arg SENTRY_DSN=${SENTRY_DSN} \
-            -t ${PROJECT_NAME} .
-          docker tag ${PROJECT_NAME} eu.gcr.io/${GOOGLE_PROJECT_ID}/${PROJECT_NAME}:${CIRCLE_SHA1}
-          gcloud auth print-access-token | docker login -u oauth2accesstoken --password-stdin https://eu.gcr.io
-          docker push eu.gcr.io/${GOOGLE_PROJECT_ID}/${PROJECT_NAME}:${CIRCLE_SHA1}
+          AUTH_TOKEN=
+          touch .npmrc
+          echo "@tg:registry=https://nexus.tgpost.me/repository/npm-private/" >> .npmrc
+          echo "@scc:registry=https://nexus.tgpost.me/repository/npm-private/" >> .npmrc
+          echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.${NPM_TOKEN}" >> .npmrc
 
     - run:
-        name: Deploy to Kubernetes
-        no_output_timeout: 2m
+        name: install-packages
+        command: yarn install
+
+    - save_cache:
+        key: dependency-cache-{{ checksum "yarn.lock" }}
+        paths:
+        - node_modules
+
+    - run:
+        name: Build
         command: |
-          envsubst < ${HOME}/project/k8s.yml > ${HOME}/patched_k8s.yml
-          kubectl apply -f ${HOME}/patched_k8s.yml
-          kubectl rollout status deployment/${PROJECT_NAME}
+          yarn prd:build-client
+          # yarn prd:build-server
+          mkdir -p artifacts
+          cp -R bundle_client ./artifacts
+
+    - persist_to_workspace:
+        root: artifacts
+        paths:
+        - bundle_client
+
+  deploy_to_test:
+    working_directory: ~/app
+    docker:
+    - image: circleci/python:3.7
+    environment:
+      DO_SPACES_CDN_STATIC_BUCKET: 'public'
+      DO_SPACES_CDN_APP_DIRECTORY: 'poster'
+      DO_SPACES_CDN_LOCAL_DIRECTORY: './build_client'
+      DO_SPACES_CDN_REGION: 'fra1'
+    steps:
+    - checkout
+
+    - attach_workspace:
+        at: ~/app
+
+    - run:
+       name: download-boto3-script
+       command: curl -o ~/app/upload.py https://cdn.tgpost.me/scripts/upload-to-spaces.py
+
+    - run:
+        name: install-boto3
+        command: pip install boto3
+
+    - run:
+        name: 'upload-static-to-space'
+        command: 'python upload.py'
 
 workflows:
   version: 2
   pipeline:
     jobs:
 
-#    - build:
-#        filters:
-#          branches:
-#            only:
-#            - master
+    - build:
+        context: global
+        filters:
+          branches:
+            only:
+            - master
 
     - deploy_to_test:
-#        requires:
-#        - build
-        context: Secrets
+        requires:
+        - build
+        context: global
         filters:
           branches:
             only:
