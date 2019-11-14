@@ -3,28 +3,28 @@ FROM node:11 as bundle
 
 LABEL maintainer="vashchukmaksim@gmail.com"
 
-# Copy source
-COPY . /usr/src
-WORKDIR /usr/src
+# nexus
+ARG NEXUS_PASSWORD
+ENV NEXUS_PASSWORD=$NEXUS_PASSWORD
 
 # Set registry
 RUN rm -rf /root/.npmrc
 RUN touch /root/.npmrc
-RUN echo "@tg:registry=http://host.docker.internal:4873\n" >>  /root/.npmrc
-RUN echo "@scc:registry=http://host.docker.internal:4873\n" >>  /root/.npmrc
+RUN echo "@tg:registry=https://nexus.tgpost.me/repository/npm-private/\n" >>  /root/.npmrc
+RUN echo "@scc:registry=https://nexus.tgpost.me/repository/npm-private/\n" >>  /root/.npmrc
 RUN echo "ca = null\n" >>  /root/.npmrc
 RUN echo "always-auth = true\n" >>  /root/.npmrc
-RUN echo "//host.docker.internal:4873/:_authToken=jpicado:jpicado\n" >>  /root/.npmrc
+RUN echo "//nexus.tgpost.me/:_authToken=ci:$NEXUS_PASSWORD\n" >>  /root/.npmrc
 # RUN yarn config set registry "http://host.docker.internal:4873"
 
-# Replace verdacio URL from localhost to docker.internal
-RUN sed -i 's+http://localhost:4873+http://host.docker.internal:4873+g' yarn.lock
+# Copy source
+COPY . /usr/src
+WORKDIR /usr/src
 
 # Install dependencies
 RUN yarn
 
 # Build express app
-RUN yarn prd:build-client
 RUN yarn prd:build-server
 
 # Stage 2 - Forever
@@ -32,15 +32,8 @@ FROM node:11
 
 # Copy artifacts
 COPY --from=bundle /usr/src/bundle_server /usr/src/bundle_server
-COPY --from=bundle /usr/src/bundle_client /usr/src/bundle_client
-
-# Copy package.json
 COPY package.json yarn.lock* /usr/src/
-
 WORKDIR /usr/src
-
-# Replace verdacio URL from localhost to docker.internal
-RUN sed -i 's+http://localhost:4873+http://host.docker.internal:4873+g' yarn.lock
 
 # Inastall
 RUN yarn global add forever

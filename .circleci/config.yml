@@ -36,10 +36,9 @@ jobs:
         - ~/.cache/yarn
 
     - run:
-        name: Build
+        name: Build client part
         command: |
           yarn prd:build-client
-          # yarn prd:build-server
           mkdir -p artifacts
           cp -R bundle_client ./artifacts
 
