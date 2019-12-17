@@ -128,6 +128,8 @@
 
 		// Post preview
 		> li {
+			flex-direction: row;
+
 			width: 100%;
 			min-width: 310px;
 			margin-top: 30px;
@@ -137,10 +139,21 @@
 
 			> div {
 				// TEMP
+				height: auto;
 				padding-bottom: 20px;
 				// ---
 
-				margin-top: 70px;
+				margin-top: 150px;
+
+				// Hide text lines started from third
+				> section {
+					> p {
+						overflow: hidden;
+
+						max-height: 40px;
+						margin-bottom: 10px;
+					}
+				}
 			}
 
 			&::before,

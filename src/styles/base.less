@@ -8,10 +8,33 @@
 // Mixins, constants & palette
 @import (reference) '~@tg/ui/styles/all';
 
+// https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+
+:root {
+	--app-height: 100%;
+}
+
+html,
+body {
+	width: 100vw;
+	height: 100vh;
+	padding: 0;
+	margin: 0;
+
+	// overflow: hidden;
+	overscroll-behavior: none;
+
+	@media not all and (hover: hover) {
+		height: var(--app-height);
+	}
+}
+
 main#app {
 	min-width: 320px;
 }
 
 main {
+	height: 100%;
+
 	background: @cc-bg-dim-darker;
 }

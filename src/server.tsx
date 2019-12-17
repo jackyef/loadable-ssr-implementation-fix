@@ -29,6 +29,10 @@ app.get('/healthz', (req, res) => {
 	res.status(200).send('Healthy node');
 });
 
+app.get('/readyz', (req, res) => {
+	res.status(200).send('Ready node');
+});
+
 // Static
 app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 

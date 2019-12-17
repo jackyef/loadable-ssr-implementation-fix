@@ -6,8 +6,6 @@
 
 		overflow: hidden;
 
-		border-radius: 20px;
-
 		img {
 			// display: block;
 
@@ -28,6 +26,10 @@
 		@img-height: 500px;
 
 		> div {
+			&::before {
+				box-shadow: none !important;
+			}
+
 			> div {
 
 				// Disable image without scrollbars
@@ -39,7 +41,7 @@
 					height: @img-height !important;
 
 					// Scrollbars content div
-					> div:first-child { height: @img-height + 1; }
+					> div:first-child { height: @img-height + 4; }
 
 					// Image
 					img {
@@ -55,4 +57,10 @@
 
 .hideTrack {
 	display: none !important;
+}
+
+.scrollbars {
+	> div {
+		right: 0 !important;
+	}
 }

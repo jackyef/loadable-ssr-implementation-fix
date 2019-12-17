@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: tg-app-ssr-public
+  namespace: default
+  labels:
+    app: tg-app-ssr-public
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: tg-app-ssr-public
+
+  template:
+    metadata:
+      labels:
+        app: tg-app-ssr-public
+
+    spec:
+
+      # Docker Hub credentials
+      imagePullSecrets:
+        - name: dockerhub
+
+      containers:
+
+        # Container
+        - name: tg-app-ssr-public
+          image: nexus.tgpost.me:18080/app_ssr_public:latest # $COMMIT_SHA1
+          # https://github.com/kubernetes/website/pull/17141
+          # imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+
+          # Probes
+          livenessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            httpGet:
+                path: /healthz
+                port: 3000
+
+          readinessProbe:
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            httpGet:
+                path: /readyz
+                port: 3000
+
+          # Limits
+          resources:
+            limits:
+              cpu: 200m
+              memory: 128M

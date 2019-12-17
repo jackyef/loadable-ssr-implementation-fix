@@ -5,6 +5,7 @@ import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
+import { canUseDOM } from '@scc/utils';
 import { Btn, expired } from '@tg/ui';
 
 import { history } from '../../../';
@@ -67,7 +68,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 
 	// use useLocalStore
 	const localStore = useLocalStore(() => ({
-		authenticated: !expired(localStorage.getItem('id_token'))
+		authenticated: canUseDOM() && !expired(localStorage.getItem('id_token'))
 	}));
 
 	// Render

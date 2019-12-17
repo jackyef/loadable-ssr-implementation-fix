@@ -5,6 +5,7 @@ import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
+import { canUseDOM } from '@scc/utils';
 import { Btn, Scrollbars, Headline, expired } from '@tg/ui';
 
 import { commonNavBtnProps, scroll } from '../../../utils';
@@ -20,7 +21,6 @@ import importedStyles from './PP.module.less';
 const styles: Styles = importedStyles;
 
 type Styles = {
-	self?: string;
 	content_block?: string;
 
 	// From landing
@@ -39,12 +39,12 @@ const PP: React.FC<{}> = () => {
 
 	// use useLocalStore
 	const localStore = useLocalStore(() => ({
-		authenticated: !expired(localStorage.getItem('id_token'))
+		authenticated: canUseDOM() && !expired(localStorage.getItem('id_token'))
 	}));
 
 	// Render
 	return (
-		<Scrollbars getScroller styles={{ wrapper: styles.self }}>
+		<Scrollbars getScroller>
 			{
 				(scroller: any) => (<>
 
@@ -334,7 +334,7 @@ const PP: React.FC<{}> = () => {
 
 							'In addition, we may use third party services including Amazon Web Services, ' +
 							'Amplitude, Segment, Intercom, Google Analytics, Crashlytics, and Loggly that ' +
-							'ollect, monitor and analyze this Log Data to provide analytics and other data to ' +
+							'collect, monitor and analyze this Log Data to provide analytics and other data to ' +
 							'help us increase our Service\'s functionality. These third party service providers ' +
 							'have their own privacy policies addressing how they use Log Data. If you wish to opt ' +
 							'out of the collection of such Log Data, please send us an email at the contact ' +

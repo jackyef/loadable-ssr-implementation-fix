@@ -1,17 +1,21 @@
 @import (reference) '~@tg/ui/styles/all';
 
+.vh {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	height: 100vh;
+	min-height: -webkit-fill-available;
+}
+
 // Form container
 .self {
-	position: absolute;
-	top: 0;
-	z-index: 0;
-
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
 	width: 100vw;
-	height: 100vh;
 
 	background: @cc-white;
 
@@ -21,7 +25,7 @@
 		align-items: center;
 
 		width: 420px;
-		padding: 40px;
+		padding: 40px 40px 0 40px;
 
 		// Title
 		> h2 {
@@ -84,5 +88,10 @@
 		.text-hint(@size: 16px);
 
 		margin-right: 16px;
+
+		// Media
+		.media-mobile({
+			display: none;
+		});
 	}
 }

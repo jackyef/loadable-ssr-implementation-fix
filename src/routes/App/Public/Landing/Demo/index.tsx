@@ -17,6 +17,7 @@ const styles: Styles = importedStyles;
 type Styles = {
 	self?: string;
 	hideTrack?: string;
+	scrollbars?: string;
 };
 
 type Props = {
@@ -35,6 +36,7 @@ export const Demo: React.FC<Props> = ({ className }) => (
 
 			{/* For mobiles */}
 			<Scrollbar width="100%" height="400px"
+				className={styles.scrollbars}
 				trackXProps={{ className: styles.hideTrack }}
 				thumbXProps={{ className: styles.hideTrack }}
 				trackYProps={{ className: styles.hideTrack }}

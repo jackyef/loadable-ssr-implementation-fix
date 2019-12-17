@@ -11,3 +11,4 @@ coverage/
 local.dev.js
 id_rsa
 old_bundle/
+index.html.gz

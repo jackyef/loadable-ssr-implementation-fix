@@ -34,7 +34,7 @@ const SignIn: React.FC<{}> = () => {
 	return (
 	<>
 		<Helmet>
-			<title>{ 'Sign In' }</title>
+			<title>{ 'Sign in' }</title>
 		</Helmet>
 
 		{/* Sign in form */}
@@ -45,11 +45,12 @@ const SignIn: React.FC<{}> = () => {
 			onSubmitSucceed={ () => {
 
 				// Set user claims token to local storage from cookies
-				localStorage.setItem('id_token', Cookies.get('id_token'));
-				Cookies.remove('id_token');
-
 				// Redirect to app
-				canUseDOM() && window.location.assign(routes.poster);
+				if (canUseDOM()) {
+					localStorage.setItem('id_token', Cookies.get('id_token'));
+					Cookies.remove('id_token');
+					window.location.assign(routes.poster);
+				}
 			}}
 			onSubmitFailed={ err => awakeNotification(err, formStore) }
 		>
@@ -87,7 +88,7 @@ const SignIn: React.FC<{}> = () => {
 			/>
 
 			{/* Submit */}
-			<Btn style={{ main: 'general' }} title="Sign In"
+			<Btn style={{ main: 'general' }} title="Sign in"
 				onClick={() => formStore.submit()}
 			/>
 

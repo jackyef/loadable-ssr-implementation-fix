@@ -41,9 +41,21 @@ export default [
 				exact: true,
 				path: routes.index,
 				component: Loadable({
-					loader: () => import('./App/Public/Landing'),
+					loader: () => import('./App/Public'),
 					loading: LoaderSubRoute
-				})
+				}),
+
+				// Landing
+				routes: [
+					{
+						exact: true,
+						path: routes.index,
+						component: Loadable({
+							loader: () => import('./App/Public/Landing'),
+							loading: LoaderSubRoute
+						})
+					}
+				]
 			},
 
 			// Terms and Conditions & Privacy Policy

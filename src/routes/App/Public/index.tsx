@@ -10,14 +10,6 @@ import { Scrollbars } from '@tg/ui';
 // Components
 import { Footer } from '../../../components';
 
-// Styles
-import importedStyles from './Public.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-};
-
 type Props = {
 	route: RouteConfig & { render?: any };
 };
@@ -27,17 +19,21 @@ type Props = {
  */
 const Container: React.FC<Props> = ({ route }) => {
 	return (
-		<Scrollbars getScroller styles={{ wrapper: styles.self }}>
-			{
-				(scroller: any) => (<>
+		<Scrollbars getScroller>
+		{
+			(scroller: any) => {
+				return (
+					<>
 
-					{/* Content */}
-					{ renderRoutes(route.routes, { scroller }) }
+						{/* Content */}
+						{ renderRoutes(route.routes, { scroller }) }
 
-					{/* Footer */}
-					<Footer />
-				</>)
+						{/* Footer */}
+						<Footer />
+					</>
+				);
 			}
+		}
 		</Scrollbars>
 	);
 };

@@ -5,9 +5,9 @@ import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { renderRoutes } from '@scc/utils';
+import { renderRoutes, canUseDOM } from '@scc/utils';
 
-import {Btn, expired} from '@tg/ui';
+import { Btn, expired } from '@tg/ui';
 
 import { history } from '../../';
 import { routes } from '../../../config';
@@ -21,6 +21,7 @@ export type Styles = {
 	self?: string;
 	form?: string;
 	pp?: string;
+	vh?: string;
 	nav_item?: string;
 };
 
@@ -41,14 +42,15 @@ const Auth: React.FC<Props> = ({ route }) => {
 
 	// Mount
 	useEffect(() => {
-		if (!expired(localStorage.getItem('id_token'))) {
+		if (canUseDOM() && !expired(localStorage.getItem('id_token'))) {
 			window.location.assign(routes.poster);
 		}
 	}, []);
 
 	// Render
 	return (
-		<>
+		<div className={styles.vh}>
+
 			{/* Header */}
 			<Header>
 
@@ -59,7 +61,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 				<Nav>
 					<NavItem className={ styles.nav_item }>
 						<span>{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }</span>
-						<Btn style={{ main: 'nav' }} title={ path === 'in' ? 'Create account' : 'Sign In' }
+						<Btn style={{ main: 'nav' }} title={ path === 'in' ? 'Create account' : 'Sign in' }
 							url={ path === 'in' ? routes.auth.signup : routes.auth.signin }
 						/>
 					</NavItem>
@@ -70,7 +72,8 @@ const Auth: React.FC<Props> = ({ route }) => {
 			<main className={ styles.self }>
 				{ renderRoutes(route.routes) }
 			</main>
-		</>
+
+		</div>
 	);
 };
 

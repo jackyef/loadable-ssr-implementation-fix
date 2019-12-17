@@ -1,9 +1,6 @@
 @import (reference) '~@tg/ui/styles/all';
 
 .self {
-	position: relative;
-	z-index: 1;
-
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -31,11 +28,14 @@
 }
 
 .sticky {
-	position: sticky;
-	top: -20px;
-	z-index: 2;
 
 	// Media
+	.media-desktop-all({
+		position: sticky;
+		top: -20px;
+		z-index: 2;
+	});
+
 	.media-not-desktop({
 		position: relative;
 		top: 0;

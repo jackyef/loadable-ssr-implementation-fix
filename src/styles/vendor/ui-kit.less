@@ -1,5 +1,13 @@
+// SCC
 @import '~@scc/elm/dist/index.css';
 @import '~@scc/form/dist/index.css';
 @import '~@scc/modal/dist/index.css';
 @import '~@scc/notify/dist/index.css';
-// TODO: Add @import '~@tg/ui/dist/preset.css';
+
+// TG
+// Notice: by building tg-ui-app-* in dev mode by webpack it uses
+// "source" field in a dependency e.g. @tg/ui and build from its sources
+// and include needed CSS modules. When we build in production mode it
+// uses dist folder so doesn't have any information about CSS modules.
+// So we need to include dist/index.css implicitly here.
+@import '~@tg/ui/dist/index.css';

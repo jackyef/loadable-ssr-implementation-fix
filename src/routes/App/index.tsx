@@ -4,7 +4,7 @@ import Cookies from 'js-cookie';
 // import Raven from 'raven-js';
 
 import { NotifyBox } from '@scc/notify';
-import { renderRoutes } from '@scc/utils';
+import { renderRoutes, canUseDOM } from '@scc/utils';
 import { NotifyCommon } from '@tg/ui';
 
 import { notifyStore } from '../../stores';
@@ -21,14 +21,14 @@ const Container: React.FC<Props> = ({ route }) => {
 	useEffect(() => {
 
 		// Check if we want to clear id_token from local storage
-		if (Cookies.get('remove_id_token')) {
+		if (canUseDOM() && Cookies.get('remove_id_token')) {
 			localStorage.removeItem('id_token');
 			Cookies.remove('remove_id_token');
 		}
 
 		// Try to get a message code on page load
 		// to display a message from server
-		const notification = Cookies.get('notify');
+		const notification = canUseDOM() && Cookies.get('notify');
 
 		// If code exists (it's max_age is about 10 seconds)
 		// try to get a message from the server
