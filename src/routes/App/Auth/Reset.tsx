@@ -63,6 +63,7 @@ const ResetPassword: React.FC<{}> = () => {
 				{/* Submit */}
 				<Btn style={{ main: 'general' }} title="Send me instructions"
 					onClick={() => formStore.submit()}
+					asyncState={formStore.asyncState}
 				/>
 
 				{/* Notifications area */}
