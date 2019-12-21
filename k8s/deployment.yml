@@ -34,25 +34,27 @@ spec:
           # https://github.com/kubernetes/website/pull/17141
           # imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 3000
+          - containerPort: 3000
 
           # Probes
+          # For some reason it fails with 503 if period is set to 5 seconds
           livenessProbe:
-            initialDelaySeconds: 5
-            periodSeconds: 5
+            initialDelaySeconds: 10
+            periodSeconds: 10
             httpGet:
-                path: /healthz
-                port: 3000
+              path: /healthz
+              port: 3000
 
+          # For some reason it fails with 503 if period is set to 5 seconds
           readinessProbe:
-            initialDelaySeconds: 5
-            periodSeconds: 5
+            initialDelaySeconds: 10
+            periodSeconds: 10
             httpGet:
-                path: /readyz
-                port: 3000
+              path: /readyz
+              port: 3000
 
           # Limits
           resources:
             limits:
               cpu: 200m
-              memory: 128M
+              memory: 100M

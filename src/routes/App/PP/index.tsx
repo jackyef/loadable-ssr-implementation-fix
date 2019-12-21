@@ -79,7 +79,7 @@ const PP: React.FC<{}> = () => {
 									<Nav className={ styles.sign_in }>
 										<NavItem>
 											<Btn title="Poster" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
-												onClick={() => window.location.assign(routes.poster)}
+												onClick={() => canUseDOM() && window.location.assign(routes.poster)}
 											/>
 										</NavItem>
 									</Nav>

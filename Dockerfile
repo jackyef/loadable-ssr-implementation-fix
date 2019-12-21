@@ -22,26 +22,29 @@ RUN echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.$NPM_TOK
 COPY . /usr/src
 WORKDIR /usr/src
 
-## Install dependencies
-#RUN yarn
-#
-## Build express app
-#RUN yarn prd:build-client
-#RUN yarn prd:build-server
-#
-## Stage 2 - Forever
-#FROM node:11
-#
-## Copy artifacts
-#COPY --from=bundle /usr/src/bundle_client /usr/src/bundle_client
-#COPY --from=bundle /usr/src/bundle_server /usr/src/bundle_server
-#COPY --from=bundle /root/.npmrc /root/.npmrc
-#COPY package.json yarn.lock* /usr/src/
-#WORKDIR /usr/src
+# Install dependencies
+# RUN yarn
 
-# Inastall
+# Build express app
+# RUN yarn prd:build-client
+# RUN yarn prd:build-server
+
+# Stage 2 - Forever
+# FROM node:11
+
+# Copy artifacts
+# COPY --from=bundle /usr/src/bundle_client /usr/src/bundle_client
+# COPY --from=bundle /usr/src/bundle_server /usr/src/bundle_server
+# COPY --from=bundle /root/.npmrc /root/.npmrc
+# COPY package.json yarn.lock* /usr/src/
+# WORKDIR /usr/src
+
+# Install
 RUN yarn global add forever
 RUN yarn install --production=true
+
+# Expose port
+EXPOSE 3000
 
 # Run
 CMD ["forever", "bundle_server/server.js"]

@@ -38,7 +38,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 	// Get path that we currently on to pass to a Header component
 	// - in - Create new account (button)
 	// - up - Log in (button)
-	const path = _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
+	const path = canUseDOM() && _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
 
 	// Mount
 	useEffect(() => {

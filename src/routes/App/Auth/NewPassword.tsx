@@ -32,7 +32,7 @@ const NewPassword: React.FC<{}> = () => {
 
 	// mount
 	useEffect(() => {
-		const querystring = qs.parse(window.location.search, { ignoreQueryPrefix: true });
+		const querystring = qs.parse(canUseDOM() ? window.location.search : '', { ignoreQueryPrefix: true });
 		const token = _.get(querystring, 'token');
 		formStore.submitURL =
 			`${authService.shot('user', 'reset_password').options.url}?token=${token}`
