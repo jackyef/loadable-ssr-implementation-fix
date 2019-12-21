@@ -42,7 +42,7 @@ const data: PricingCardProps[] = [
 		className: styles.card,
 		features: [
 			{ icon: <IconChannel />, title: '1 Channel' },
-			{ icon: <IconPen />, title: '20 Posts per month' },
+			{ icon: <IconPen />, title: '20 Posts/month' },
 			{ icon: <IconMember />, title: '1 Team member' }
 		]
 	},
@@ -56,9 +56,9 @@ const data: PricingCardProps[] = [
 		submitTitle: 'Join Pro',
 		className: styles.card,
 		features: [
-			{ icon: <IconChannel />, title: 'Up to 3 Channel' },
+			{ icon: <IconChannel />, title: 'Up to 3 channels' },
 			{ icon: <IconPen />, title: 'Unlimited posts' },
-			{ icon: <IconMember />, title: 'Up to 3 Team members' }
+			{ icon: <IconMember />, title: 'Up to 3 members' }
 		]
 	},
 

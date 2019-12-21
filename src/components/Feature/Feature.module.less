@@ -6,8 +6,8 @@
 	align-items: center;
 
 	width: 30%;
-	max-width: 320px;
-	margin: 0 30px;
+	max-width: 340px;
+	margin: 0 10px;
 
 	// Image
 	> div {
@@ -30,7 +30,7 @@
 
 	// Hint
 	> span {
-		.text-hint();
+		.text-hint(@size: 16px);
 
 		margin-top: 30px;
 
@@ -45,8 +45,6 @@
 	// Heading
 	> h3 {
 		text-align: center;
-
-		color: @cc-text-primary;
 
 		// Media
 		.media-not-desktop({
