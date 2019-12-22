@@ -53,7 +53,8 @@ app.get(`*`, (req: Request, res: Response) => {
 			{
 				indexRoute,
 				initialState: null,
-				SENTRY_DSN: process.env.SENTRY_DSN
+				SENTRY_DSN: process.env.SENTRY_DSN,
+				GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID
 			}
 		);
 

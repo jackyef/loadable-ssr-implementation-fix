@@ -34,7 +34,7 @@ main#app {
 }
 
 main {
-	height: 100%;
-
+	// 82px is header's height (for pages 100vh)
+	min-height: calc(100% - 82px);
 	background: @cc-bg-dim-darker;
 }
