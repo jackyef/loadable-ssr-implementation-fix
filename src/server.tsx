@@ -12,6 +12,26 @@ import { renderer } from '@tg/ui';
 import { indexRoute } from './config';
 import Routes from './routes';
 
+// Logger
+import winston from 'winston';
+import { support } from 'fluent-logger';
+
+// Fluent
+const fluentConfig = {
+	host: 'fluentd-es.logging.svc.cluster.local',
+	port: 24224,
+	timeout: 3.0,
+	requireAckResponse: true // Add this option to wait response from Fluentd certainly
+};
+
+const fluentTransport = support.winstonTransport();
+const fluent = new fluentTransport('service_ssr_public', fluentConfig);
+
+// Logger
+const logger = winston.createLogger({
+	transports: [fluent, new (winston.transports.Console)()]
+});
+
 // Get bundle json maps
 const loadableJson = require('../bundle_client/react-loadable.json');
 const assetsJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
@@ -69,6 +89,6 @@ app.get(`*`, (req: Request, res: Response) => {
 // Run server
 Loadable.preloadAll().then(() => {
 	app.listen(EXPRESS_SSR_PORT, () => {
-		console.log(`Listening on port ${ EXPRESS_SSR_PORT }`);
+		logger.info(`Listening on port ${ EXPRESS_SSR_PORT }`);
 	});
 });
