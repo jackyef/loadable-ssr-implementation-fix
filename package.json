@@ -22,6 +22,7 @@
 		"emoji-mart": "^2.11.1",
 		"express": "4.17.1",
 		"express-http-proxy": "1.6.0",
+		"fluent-logger": "^3.4.1",
 		"jest-css-modules-transform": "^3.1.0",
 		"js-cookie": "^2.2.1",
 		"jsdom": "^15.2.1",
@@ -58,7 +59,8 @@
 		"sockjs-client": "^1.4.0",
 		"stringify-object": "^3.3.0",
 		"tslib": "^1.10.0",
-		"webstomp-client": "^1.2.6"
+		"webstomp-client": "^1.2.6",
+		"winston": "^3.2.1"
 	},
 	"devDependencies": {
 		"@babel/cli": "^7.7.7",
@@ -122,6 +124,7 @@
 		"@types/sockjs-client": "^1.1.1",
 		"@types/webpack": "^4.41.0",
 		"@types/webpack-env": "^1.14.1",
+		"@types/winston": "^2.4.4",
 		"assets-webpack-plugin": "^3.9.10",
 		"babel-loader": "8",
 		"babel-plugin-inline-react-svg": "^1.1.0",
