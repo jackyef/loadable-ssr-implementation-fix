@@ -19,7 +19,7 @@ type Props = {
  */
 const Container: React.FC<Props> = ({ route }) => {
 	return (
-		<Scrollbars getScroller>
+		<Scrollbars getScroller position="absolute">
 		{
 			(scroller: any) => {
 				return (

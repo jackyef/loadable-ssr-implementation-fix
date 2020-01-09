@@ -44,7 +44,7 @@ const PP: React.FC<{}> = () => {
 
 	// Render
 	return (
-		<Scrollbars getScroller>
+		<Scrollbars getScroller position="absolute">
 			{
 				(scroller: any) => (<>
 
