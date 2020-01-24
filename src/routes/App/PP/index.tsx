@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@scc/utils';
-import { Btn, Scrollbars, Headline, expired } from '@tg/ui';
+import { Btn, Scrollbars, Headline } from '@tg/ui';
 
 import { commonNavBtnProps, scroll } from '../../../utils';
 import { history } from '../../';
@@ -39,7 +39,7 @@ const PP: React.FC<{}> = () => {
 
 	// use useLocalStore
 	const localStore = useLocalStore(() => ({
-		authenticated: canUseDOM() && !expired(localStorage.getItem('id_token'))
+		authenticated: canUseDOM() && localStorage.getItem('id_token')
 	}));
 
 	// Render
