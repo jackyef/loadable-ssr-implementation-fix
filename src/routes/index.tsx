@@ -3,8 +3,9 @@ import { Redirect } from 'react-router';
 import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
-import { Loading } from '@tg/ui';
 import { canUseDOM } from '@scc/utils';
+
+import { Loading } from '@tg/elm';
 
 import { routes } from '../config';
 

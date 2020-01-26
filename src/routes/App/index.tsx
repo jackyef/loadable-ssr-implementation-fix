@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 
 import { NotifyBox } from '@scc/notify';
 import { renderRoutes, canUseDOM } from '@scc/utils';
-import { NotifyCommon } from '@tg/ui';
+import { NotifyCommon } from '@tg/notifications';
 
 import { notifyStore } from '../../stores';
 

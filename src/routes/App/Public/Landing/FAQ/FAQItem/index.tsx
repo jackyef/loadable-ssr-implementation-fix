@@ -5,7 +5,7 @@ import React from 'react';
 
 import { Wrapper } from '@scc/elm';
 
-import { Headline } from '@tg/ui';
+import { Headline } from '@tg/elm';
 
 // Styles
 import importedStyles from './FAQItem.module.less';

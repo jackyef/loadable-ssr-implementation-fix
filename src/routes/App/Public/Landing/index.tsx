@@ -6,7 +6,8 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@scc/utils';
-import { Btn } from '@tg/ui';
+
+import { Btn } from '@tg/elm';
 
 import { history } from '../../../';
 import { formStore as signUpFormStore } from '../../Auth/Signup';

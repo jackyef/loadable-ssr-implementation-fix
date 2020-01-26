@@ -4,8 +4,8 @@
  */
 import React from 'react';
 
-import { Headline } from '@tg/ui';
-import { resources } from '@tg/ui/dist/resources';
+import { Headline } from '@tg/elm';
+import { resources } from '@tg/resources';
 
 import importedStyles from './Feature.module.less';
 const styles: Styles = importedStyles;

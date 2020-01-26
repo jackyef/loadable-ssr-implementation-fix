@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Icon, Wrapper } from '@scc/elm';
 
-import { Btn, Headline } from '@tg/ui';
+import { Btn, Headline } from '@tg/elm';
 
 // Styles
 import importedStyles from './PricingCard.module.less';

@@ -5,7 +5,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Headline } from '@tg/ui';
+import { Headline } from '@tg/elm';
 
 import { ContentBlock, Feature, FeatureProps } from '../../../../../components';
 

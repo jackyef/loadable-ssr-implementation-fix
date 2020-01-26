@@ -5,7 +5,7 @@
  */
 import React from 'react';
 
-import { Headline } from '@tg/ui';
+import { Headline } from '@tg/elm';
 
 import { toSignUp } from '../';
 import { ContentBlock, GetStarted as GetStartedForm } from '../../../../../components';

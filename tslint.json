@@ -1,3 +1,0 @@
-{
-	"extends": "@tg/configs/lint/tslint.json"
-}

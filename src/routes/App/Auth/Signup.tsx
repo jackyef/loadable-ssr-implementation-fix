@@ -8,9 +8,10 @@ import { Link } from 'react-router-dom';
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
-import { Btn, FieldInput, Headline, customValidators as validators } from '@tg/ui';
+import { Btn, FieldInput, Headline } from '@tg/elm';
+import { customValidators as validators } from '@tg/utils';
 import { service as authService } from '@tg/api-proxy-auth';
-import { resources } from '@tg/ui/dist/resources';
+import { resources } from '@tg/resources';
 
 import { routes } from '../../../config';
 

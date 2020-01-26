@@ -6,7 +6,8 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@scc/utils';
-import { Btn, Scrollbars, Headline } from '@tg/ui';
+import { Btn, Headline } from '@tg/elm';
+import { Scrollbars } from '@tg/layout';
 
 import { commonNavBtnProps, scroll } from '../../../utils';
 import { history } from '../../';

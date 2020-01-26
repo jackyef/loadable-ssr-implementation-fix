@@ -9,7 +9,8 @@ import qs from 'qs';
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
-import { Btn, FieldInput, Headline, customValidators as validators } from '@tg/ui';
+import { Btn, FieldInput, Headline } from '@tg/elm';
+import { customValidators as validators } from '@tg/utils';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from '../../../config';

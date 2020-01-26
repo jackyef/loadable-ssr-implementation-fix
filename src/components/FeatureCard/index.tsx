@@ -8,7 +8,7 @@ import React from 'react';
 
 import { Wrapper, Icon } from '@scc/elm';
 
-import { Headline } from '@tg/ui';
+import { Headline } from '@tg/elm';
 
 // Styles
 import importedStyles from './FeatureCard.module.less';

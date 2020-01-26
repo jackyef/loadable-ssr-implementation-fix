@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import { Btn } from '@tg/ui';
+import { Btn } from '@tg/elm';
 
 import { Logo } from '../Logo';
 import { ContentBlock } from '../ContentBlock';

@@ -6,7 +6,7 @@ import React from 'react';
 import { Btn } from '@scc/elm';
 import { PropsNotify } from '@scc/notify';
 
-import { IconClose } from '@tg/ui/dist/resources';
+import { IconClose } from '@tg/resources';
 
 // Styles
 import importedStyles from './Notification.module.less';

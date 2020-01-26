@@ -6,7 +6,7 @@ import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
 
 // SSR renderer function
-import { renderer } from '@tg/ui';
+import { renderer } from '@tg/utils';
 
 // Routes
 import { indexRoute } from './config';
@@ -33,6 +33,7 @@ const logger = winston.createLogger({
 });
 
 // Get bundle json maps
+// eslint-disable-next-line import/no-internal-modules
 const loadableJson = require('../bundle_client/react-loadable.json');
 const assetsJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
 
@@ -58,21 +59,20 @@ app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 
 // Location
 app.get(`*`, (req: Request, res: Response) => {
-	const store = {};
 
 	const promises = matchRoutes(Routes as any, req.path).map(({ route }: any) => {
-		return route.loadData ? route.loadData(store) : null;
+		return route.loadData ? route.loadData() : null;
 	});
 
-	Promise.all(promises).then(() => {
+	Promise.all(promises).then(data => {
 		const context: any = {};
-		const content = renderer({ req, store, context },
+		const content = renderer({ req, context },
 			Routes,
 			loadableJson,
 			assetsJson,
 			{
 				indexRoute,
-				initialState: null,
+				initialState: data,
 				SENTRY_DSN: process.env.SENTRY_DSN,
 				GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID
 			}

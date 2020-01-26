@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { TypeBtnStyle } from '@tg/ui';
+import { TypeBtnStyle } from '@tg/elm';
 
 /**
  * Generate navigation button props

@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-yarn unlink @scc/api-proxy
-yarn unlink @scc/api-proxy-data
-yarn unlink @scc/elm
-yarn unlink @scc/form
-yarn unlink @scc/modal
-yarn unlink @scc/notify
-yarn unlink @scc/utils
 yarn unlink @tg/api-proxy-auth
 yarn unlink @tg/configs
+yarn unlink @tg/blocks
+yarn unlink @tg/config
+yarn unlink @tg/elm
+yarn unlink @tg/layout
+yarn unlink @tg/resources
+yarn unlink @tg/utils
+yarn unlink @tg/api-proxy-drafts

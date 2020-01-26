@@ -3,7 +3,7 @@
  */
 import React, { Ref } from 'react';
 
-import { Headline } from '@tg/ui';
+import { Headline } from '@tg/elm';
 import {
 	IconOfferFree,
 	IconOfferBlogger,
@@ -11,7 +11,7 @@ import {
 	IconPen,
 	IconChannel,
 	IconMember
-} from '@tg/ui/dist/resources';
+} from '@tg/resources';
 
 import { PricingCard, Props as PricingCardProps } from './PricingCard';
 import { ContentBlock } from '../../../../../components';

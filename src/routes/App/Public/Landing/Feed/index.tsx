@@ -7,9 +7,11 @@ import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
 import { uuid } from '@scc/utils';
-import { Headline, ListPostsPreview, ContextStores } from '@tg/ui';
+import { Headline } from '@tg/elm';
+import { ListPostsPreview } from '@tg/blocks';
+import { ContextStores } from '@tg/config';
 import { DataPost } from '@tg/api-proxy-drafts';
-import { resources } from '@tg/ui/dist/resources';
+import { resources } from '@tg/resources';
 
 import { ContentBlock, FeaturesSwitcher } from '../../../../../components';
 

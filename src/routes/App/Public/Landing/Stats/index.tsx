@@ -16,8 +16,8 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Headline, Btn } from '@tg/ui';
-import { IconCal } from '@tg/ui/dist/resources';
+import { Headline, Btn } from '@tg/elm';
+import { IconCal } from '@tg/resources';
 
 import { ContentBlock } from '../../../../../components';
 

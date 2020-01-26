@@ -7,7 +7,8 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes, canUseDOM } from '@scc/utils';
 
-import { Btn, expired } from '@tg/ui';
+import { Btn } from '@tg/elm';
+import { expired } from '@tg/utils';
 
 import { history } from '../../';
 import { routes } from '../../../config';

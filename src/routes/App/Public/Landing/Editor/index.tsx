@@ -7,8 +7,8 @@ import React, { Ref } from 'react';
 
 import { ContentBlock } from '../../../../../components';
 
-import { Headline } from '@tg/ui';
-import { resources, IconEye, IconTemplate, IconMd, IconHeart, IconImage } from '@tg/ui/dist/resources';
+import { Headline } from '@tg/elm';
+import { resources, IconEye, IconTemplate, IconMd, IconHeart, IconImage } from '@tg/resources';
 
 // Styles
 import importedStyles from './Editor.module.less';

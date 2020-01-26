@@ -6,7 +6,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { IconAd, IconEdit } from '@tg/ui/dist/resources';
+import { IconAd, IconEdit } from '@tg/resources';
 
 import { ContentBlock, FeatureCard, FeatureCardProps } from '../../../../../components';
 

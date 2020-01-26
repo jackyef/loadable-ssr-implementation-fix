@@ -7,7 +7,7 @@
 import React from 'react';
 import Scrollbar from 'react-scrollbars-custom';
 
-import { resources } from '@tg/ui/dist/resources';
+import { resources } from '@tg/resources';
 
 import { ContentBlock } from '../../../../../components';
 

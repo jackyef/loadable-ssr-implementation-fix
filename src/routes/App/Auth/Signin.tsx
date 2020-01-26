@@ -9,9 +9,10 @@ import Cookies from 'js-cookie';
 import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
 import { canUseDOM } from '@scc/utils';
 
-import { FieldInput, Btn, Headline, customValidators as validators } from '@tg/ui';
+import { FieldInput, Btn, Headline } from '@tg/elm';
+import { customValidators as validators } from '@tg/utils';
 import { service as authService } from '@tg/api-proxy-auth';
-import { resources } from '@tg/ui/dist/resources';
+import { resources } from '@tg/resources';
 
 import { history } from '../../';
 import { routes } from '../../../config';

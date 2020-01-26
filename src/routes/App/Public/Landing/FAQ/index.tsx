@@ -4,7 +4,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Headline } from '@tg/ui';
+import { Headline } from '@tg/elm';
 
 import { ContentBlock } from '../../../../../components';
 import { FAQItem, Props as FAQItemProps } from './FAQItem';
