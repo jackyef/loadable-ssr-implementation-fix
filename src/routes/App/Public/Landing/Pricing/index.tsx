@@ -84,7 +84,7 @@ export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 		{/* Offers (cards) */}
 		<ul>
 			<PricingCard { ...data[0] } />
-			<PricingCard { ...data[1] } />
+			<PricingCard sale { ...data[1] } />
 			<PricingCard { ...data[2] }>
 				<div>
 					<Headline h={ 2 } variation="public" title="Let's chat" />

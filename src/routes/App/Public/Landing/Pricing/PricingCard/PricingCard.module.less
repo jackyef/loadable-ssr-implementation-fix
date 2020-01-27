@@ -16,6 +16,8 @@
 }
 
 .header {
+	position: relative;
+
 	width: 100%;
 	padding-bottom: 20px;
 
@@ -73,4 +75,41 @@
 	width: 100%;
 
 	> button { width: 100%; }
+}
+
+.sale_text {
+	color: @cc-primary !important;
+}
+
+.sale_badget {
+	position: absolute;
+	top: -60px;
+	right: 0;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	// Beta sign
+	> span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		width: 64px;
+		height: 64px;
+
+		background: @cc-primary;
+
+		border-radius: 32px;
+	}
+
+	// Text
+	> p {
+		.text-action(@color: @cc-primary);
+
+		margin-top: 6px;
+
+		text-align: center;
+	}
 }

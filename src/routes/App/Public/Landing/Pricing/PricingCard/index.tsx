@@ -7,6 +7,7 @@ import React from 'react';
 import { Icon, Wrapper } from '@scc/elm';
 
 import { Btn, Headline } from '@tg/elm';
+import { IconBeta } from '@tg/resources';
 
 // Styles
 import importedStyles from './PricingCard.module.less';
@@ -17,6 +18,8 @@ type Styles = {
 	header?: string;
 	content?: string;
 	footer?: string;
+	sale_text?:  string;
+	sale_badget?:  string;
 };
 
 export type Props = {
@@ -54,6 +57,11 @@ export type Props = {
 	period?: string;
 
 	/**
+	 * Sale (add badget or not with additional styling)
+	 */
+	sale?: boolean;
+
+	/**
 	 * Features list
 	 */
 	features?: Array<{
@@ -81,6 +89,7 @@ const defaultProps: Partial<Props> = {
 	period: 'month',
 	className: '',
 	wrapper: 'li',
+	sale: false,
 	onSubmit: _.noop
 };
 
@@ -88,7 +97,8 @@ const defaultProps: Partial<Props> = {
  * Component
  */
 export const PricingCard: React.FC<Props> = ({
-	children, wrapper, icon, title, desc, price, period, features, submitTitle, onSubmit, className
+	children, wrapper, icon, title, desc, price, period, features, submitTitle, onSubmit, className,
+	sale
 }) => (
 	<Wrapper wrapper={ wrapper } styles={ `${ styles.self } ${ className }` }>
 
@@ -97,6 +107,16 @@ export const PricingCard: React.FC<Props> = ({
 			<Icon icon={ icon } />
 			<Headline h={ 3 } variation="public" title={ title } />
 			<p>{ desc }</p>
+
+			{/* Special offer */}
+			{
+				!sale ? null : (
+					<div className={ styles.sale_badget }>
+						<span><IconBeta /></span>
+						<p>{ 'Limited\n price offer' }</p>
+					</div>
+				)
+			}
 		</header>
 
 		{/* Content - custom children or predefined structure */}
@@ -105,7 +125,7 @@ export const PricingCard: React.FC<Props> = ({
 				<section className={ styles.content }>
 
 					{/* Price */}
-					<span>
+					<span className={ sale ? styles.sale_text : '' }>
 						{parseFloat(price as string) || price === 0 ? `$${ price }` : price}
 						<span>{period !== '' && `/ ${ period }`}</span>
 					</span>
