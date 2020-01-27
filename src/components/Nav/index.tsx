@@ -29,7 +29,7 @@ const defaultProps: Partial<Props> = {
  */
 export const Nav: React.FC<Props> = React.memo(({ children, className }) => {
 	return (
-		<nav className={`${ styles.self } ${ className }`}>
+		<nav className={ `${ styles.self } ${ className }` }>
 			<ul>
 				{children}
 			</ul>

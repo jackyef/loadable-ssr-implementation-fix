@@ -43,17 +43,17 @@ const defaultProps: Partial<Props> = {
 };
 
 export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
-	<FormRoot wrapper="form" inject={ storeForm } styles={`${ styles.self } ${ className }`}>
+	<FormRoot wrapper="form" inject={ storeForm } styles={ `${ styles.self } ${ className }` }>
 
 		{/* Email */}
 		<FieldInput name="email" placeholder="Your email address" kind="big"
-			validators={[validators.email.optional]}
+			validators={ [validators.email.optional] }
 		/>
 
 		{/* Validate email and redirect to sign up */}
 		<Btn title="Get started" icon={ <IconArrowReverse /> } iconPos="right"
-			style={{ main: 'general', size: 'big', detail: 'rounded' }}
-			onClick={() => {
+			style={ { main: 'general', size: 'big', detail: 'rounded' } }
+			onClick={ () => {
 
 				// Validate email
 				const { valid } = storeForm.validate();
@@ -62,7 +62,7 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 				if (valid) {
 					onClick(storeForm.getFieldValue('email'));
 				}
-			}}
+			} }
 		/>
 	</FormRoot>
 );

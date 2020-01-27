@@ -24,7 +24,9 @@ const RouteNotFound = { component: () => <Redirect to={ routes.index } /> };
 export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : null;
 
 // Loaders
-const LoaderSubRoute = (props: any) => <Loading {...props} className={styles.loading} />;
+const LoaderSubRoute: React.FC<any> = (props: any) => (
+	<Loading { ...props } className={ styles.loading } />
+);
 
 // Routes map
 export default [

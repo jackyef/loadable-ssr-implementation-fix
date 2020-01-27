@@ -47,16 +47,16 @@ const data: FAQItemProps[] = [
  * Component
  */
 export const FAQ: React.FC<{}> = () => (
-	<ContentBlock className={styles.self}>
+	<ContentBlock className={ styles.self }>
 
 		{/* Title */}
-		<Headline h={2} variation="public" title="Frequently asked questions" />
+		<Headline h={ 2 } variation="public" title="Frequently asked questions" />
 
 		{/* List of questions */}
 		<ul>
 			{
 				_.map(data, (item, index) => (
-					<FAQItem key={index} {...item} />
+					<FAQItem key={ index } { ...item } />
 				))
 			}
 		</ul>

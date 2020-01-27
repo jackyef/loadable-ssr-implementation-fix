@@ -29,18 +29,18 @@ const defaultProps: Partial<Props> = {
 };
 
 export const Demo: React.FC<Props> = ({ className }) => (
-	<ContentBlock className={`${styles.self} ${className}`}>
+	<ContentBlock className={ `${ styles.self } ${ className }` }>
 		<div>
 			{/* For desktop & tablets */}
 			<img src={ resources.demo } />
 
 			{/* For mobiles */}
 			<Scrollbar width="100%" height="400px"
-				className={styles.scrollbars}
-				trackXProps={{ className: styles.hideTrack }}
-				thumbXProps={{ className: styles.hideTrack }}
-				trackYProps={{ className: styles.hideTrack }}
-				thumbYProps={{ className: styles.hideTrack }}
+				className={ styles.scrollbars }
+				trackXProps={ { className: styles.hideTrack } }
+				thumbXProps={ { className: styles.hideTrack } }
+				trackYProps={ { className: styles.hideTrack } }
+				thumbYProps={ { className: styles.hideTrack } }
 			>
 				<img src={ resources.demo } />
 			</Scrollbar>

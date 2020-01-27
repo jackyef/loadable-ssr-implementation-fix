@@ -22,8 +22,8 @@ type Styles = {
  * Component
  */
 export const GetStarted: React.FC<{}> = () => (
-	<ContentBlock className={styles.self}>
-		<Headline h={1} variation="public">
+	<ContentBlock className={ styles.self }>
+		<Headline h={  1 } variation="public">
 			{'Ready to get started?'} <br/> {'Try it.'}
 		</Headline>
 		<p>{ 'Join now and get 3 months of free management for all your channels.' }</p>

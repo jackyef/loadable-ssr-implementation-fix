@@ -23,13 +23,13 @@ type Styles = {
  * Component
  */
 export const Footer: React.FC<{}> = () => (
-	<ContentBlock className={styles.self}>
+	<ContentBlock className={ styles.self }>
 		<Logo />
 		<span>&copy; {'2019 Tgpost LTD'}</span>
 		<div>
-			<Btn style={{ main: 'nav' }} title="Contact Us" />
-			<Btn style={{ main: 'nav' }} title="Join our Channel" />
-			<Btn style={{ main: 'nav' }} url={ routes.pp } title="Terms and Privacy" />
+			<Btn style={ { main: 'nav' } } title="Contact Us" />
+			<Btn style={ { main: 'nav' } } title="Join our Channel" />
+			<Btn style={ { main: 'nav' } } url={ routes.pp } title="Terms and Privacy" />
 		</div>
 	</ContentBlock>
 );

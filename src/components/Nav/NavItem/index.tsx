@@ -24,8 +24,8 @@ const defaultProps: Partial<Props> = {
  * Nav item
  */
 export const NavItem: React.FC<Props> = React.memo(({ children, className }) => {
-	return (
-		<li className={`${styles.self} ${className}`}>
+	return ( 
+		<li className={ `${ styles.self } ${ className }` }>
 			{children}
 		</li>
 	);

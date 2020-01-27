@@ -9,7 +9,7 @@ import React, { useState, Ref } from 'react';
 import { uuid } from '@scc/utils';
 import { Headline } from '@tg/elm';
 import { ListPostsPreview } from '@tg/blocks';
-import { ContextStores } from '@tg/config';
+import { ContextStores, CLIENT_DATEFORMAT } from '@tg/config';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { resources } from '@tg/resources';
 
@@ -49,29 +49,38 @@ const featuresData = [
  */
 const postsData = [
 	{
-		text: `After Yuan Shikai was installed as the second leader Provisional Great President of the Republic of China...`,
+		text: `
+			After Yuan Shikai was installed as the second 
+			leader Provisional Great President of the Republic of China...
+		`,
 		ad: true,
 		reactions: true,
 		uuid: uuid(4),
 		tags: ['travel', 'history'],
-		publish_at: moment().add(2, 'days').add(3, 'h').format('DD MMM YYYY [at] HH:mm'),
+		publish_at: moment().add(2, 'days').add(3, 'h').format(CLIENT_DATEFORMAT),
 		channel: { ava_small: resources.icon_user }
 	},
 	{
-		text: `The official cause of death for both was “ligature neck compression,” meaning strangulation by a cord...`,
+		text: `
+			The official cause of death for both was 
+			“ligature neck compression,” meaning strangulation by a cord...
+		`,
 		views: 1300,
 		uuid: uuid(4),
 		tags: ['travel', 'history', 'longtruestory'],
-		published_at: moment().subtract(1, 'days').subtract(6, 'h').format('DD MMM YYYY [at] HH:mm'),
+		published_at: moment().subtract(1, 'days').subtract(6, 'h').format(CLIENT_DATEFORMAT),
 		channel: { ava_small: resources.icon_user }
 	},
 	{
-		text: `After Yuan Shikai was installed as the second leader Provisional Great President of the Republic of China...`,
+		text: `
+			After Yuan Shikai was installed as the second 
+			leader Provisional Great President of the Republic of China...
+		`,
 		reactions: true,
 		views: 2400,
 		uuid: uuid(4),
 		tags: ['travel', 'history'],
-		published_at: moment().subtract(4, 'days').subtract(8, 'h').format('DD MMM YYYY [at] HH:mm'),
+		published_at: moment().subtract(4, 'days').subtract(8, 'h').format(CLIENT_DATEFORMAT),
 		channel: { ava_small: resources.icon_user },
 		// TODO: Change to custom reactions
 		likes: 302,
@@ -97,12 +106,14 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 
 			{/* Left part */}
 			<div className={ styles.left }>
-				<Headline variation="public" h={2} title="Organise posts and activities from all channels in one feed" />
+				<Headline variation="public" h={ 2 }
+					title="Organise posts and activities from all channels in one feed"
+				/>
 				<FeaturesSwitcher features={ featuresData } active={ active } onSwitch={ setActive } />
 			</div>
 
 			{/* Right part */}
-			<ContextStores.Provider value={{ posts: storePosts  }}>
+			<ContextStores.Provider value={ { posts: storePosts  } }>
 				<ul className={ styles.right }>
 					{
 						_.map(postsData, (data, index) => (

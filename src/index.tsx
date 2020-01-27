@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
@@ -22,4 +23,5 @@ Loadable.preloadReady().then(() => {
 		</Router>,
 		document.getElementById(appContainerHTMLTag)
 	);
-});
+	return null;
+}).catch(_.constant);

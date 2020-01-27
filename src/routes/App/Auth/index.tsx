@@ -50,19 +50,19 @@ const Auth: React.FC<Props> = ({ route }) => {
 
 	// Render
 	return (
-		<div className={styles.vh}>
+		<div className={ styles.vh }>
 
 			{/* Header */}
 			<Header>
 
 				{/* Logo */}
-				<Logo onClick={() => history.push(routes.home)} />
+				<Logo onClick={ () => history.push(routes.home) } />
 
 				{/* Sign in/up */}
 				<Nav>
 					<NavItem className={ styles.nav_item }>
 						<span>{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }</span>
-						<Btn style={{ main: 'nav' }} title={ path === 'in' ? 'Create account' : 'Sign in' }
+						<Btn style={ { main: 'nav' } } title={ path === 'in' ? 'Create account' : 'Sign in' }
 							url={ path === 'in' ? routes.auth.signup : routes.auth.signin }
 						/>
 					</NavItem>

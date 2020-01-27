@@ -45,8 +45,9 @@ type Props = {
 /**
  * On click redirect to sigh up form
  * and persist entered email in context store
+ * @param {string} email Email to set to sign up form
  */
-export const toSignUp = (email?: string) => {
+export const toSignUp = (email?: string): void => {
 	signUpFormStore.setData({ email: email });
 	history.push(routes.auth.signup);
 };
@@ -83,28 +84,28 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 			<Header sticky={ STICKY }>
 
 				{/* Logo */}
-				<Logo onClick={() => scroll(scroller)} />
+				<Logo onClick={ () => scroll(scroller) } />
 
 				{/* Page navigation */}
 				<Nav className={ styles.nav }>
 					<NavItem>
 						<Btn { ...commonNavBtnProps('Organise') }
-							onClick={() => scroll(scroller, refOrganize, -50)}
+							onClick={ () => scroll(scroller, refOrganize, -50) }
 						/>
 					</NavItem>
 					<NavItem>
 						<Btn { ...commonNavBtnProps('Create') }
-							onClick={() => scroll(scroller, refEditor, -70) }
+							onClick={ () => scroll(scroller, refEditor, -70) }
 						/>
 					</NavItem>
 					<NavItem>
 						<Btn { ...commonNavBtnProps('Analise') }
-							onClick={() => scroll(scroller, refStats, -100)}
+							onClick={ () => scroll(scroller, refStats, -100) }
 						/>
 					</NavItem>
 					<NavItem>
 						<Btn { ...commonNavBtnProps('Pricing') }
-							onClick={() => scroll(scroller, refPricing)}
+							onClick={ () => scroll(scroller, refPricing) }
 						/>
 					</NavItem>
 				</Nav>
@@ -115,8 +116,8 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						? (
 							<Nav className={ styles.sign_in }>
 								<NavItem>
-									<Btn title="Poster" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
-										onClick={() => canUseDOM() && window.location.assign(routes.poster)}
+									<Btn title="Poster" style={ { main: 'general', size: 'mid', detail: 'rounded' } }
+										onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 									/>
 								</NavItem>
 							</Nav>
@@ -129,7 +130,8 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 									/>
 								</NavItem>
 								<NavItem>
-									<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+									<Btn nav title="Get Started"
+										style={ { main: 'general', size: 'mid', detail: 'rounded' } }
 										url={ routes.auth.signup }
 									/>
 								</NavItem>
@@ -141,8 +143,8 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 			{/* Hack to hide header shadow when page has not been scrolled down yet */}
 			{
 				!STICKY ? null : (<>
-					<ContentBlock className={`${ styles.shadow_common } ${ styles.shadow }`}>{}</ContentBlock>
-					<ContentBlock className={`${ styles.shadow_common } ${ styles.shadow_cover }`}>{}</ContentBlock>
+					<ContentBlock className={ `${ styles.shadow_common } ${ styles.shadow }` }>{}</ContentBlock>
+					<ContentBlock className={ `${ styles.shadow_common } ${ styles.shadow_cover }` }>{}</ContentBlock>
 				</>)
 			}
 

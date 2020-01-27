@@ -42,15 +42,17 @@ type Styles = {
 	delta_negative?: string;
 };
 
+const dateFormat = 'YYYY-MM-DD';
+
 const _data = {
 	week: [
-		{ x: moment().subtract(6, 'days').format('YYYY-MM-DD'), y: 3800 },
-		{ x: moment().subtract(5, 'days').format('YYYY-MM-DD'), y: 4200 },
-		{ x: moment().subtract(4, 'days').format('YYYY-MM-DD'), y: 4000 },
-		{ x: moment().subtract(3, 'days').format('YYYY-MM-DD'), y: 4300 },
-		{ x: moment().subtract(2, 'days').format('YYYY-MM-DD'), y: 4400 },
-		{ x: moment().subtract(1, 'days').format('YYYY-MM-DD'), y: 4800 },
-		{ x: moment().format('YYYY-MM-DD'), y: 5000 }
+		{ x: moment().subtract(6, 'days').format(dateFormat), y: 3800 },
+		{ x: moment().subtract(5, 'days').format(dateFormat), y: 4200 },
+		{ x: moment().subtract(4, 'days').format(dateFormat), y: 4000 },
+		{ x: moment().subtract(3, 'days').format(dateFormat), y: 4300 },
+		{ x: moment().subtract(2, 'days').format(dateFormat), y: 4400 },
+		{ x: moment().subtract(1, 'days').format(dateFormat), y: 4800 },
+		{ x: moment().format(dateFormat), y: 5000 }
 	],
 
 	month: [
@@ -76,9 +78,11 @@ const _data = {
 
 /**
  * Format date to readable form
+ * @param v Date string to format
+ * @returns {string} Reformated date string
  */
-const formatDate = (v: string) => {
-	return moment(v, 'YYYY-MM-DD').format('MMM DD');
+const formatDate = (v: string): string => {
+	return moment(v, dateFormat).format('MMM DD');
 };
 
 /**
@@ -107,9 +111,9 @@ type PropsDot = {
  * Dot on a Line graph
  */
 const Dot: React.FC<PropsDot> = ({ active, cx, cy }) => (
-	<circle cx={cx} cy={cy} r={active ? 7 : 5}
-		stroke={colors.line} strokeWidth={2}
-		fill={active ? colors.line : colors.dotBg}
+	<circle cx={ cx } cy={ cy } r={ active ? 7 : 5 }
+		stroke={ colors.line } strokeWidth={ 2 }
+		fill={ active ? colors.line : colors.dotBg }
 	/>
 );
 
@@ -126,9 +130,9 @@ type TickProps = {
  */
 const AxisTick: React.FC<TickProps> = ({ x, y, payload, formatter, axis }) => {
 	return (
-		<g className={styles.tick} transform={`translate(${x},${y})`}>
-			<text x={axis === 'y' ? 25 : 0} y={0} dy={axis === 'x' ? 16 : 5} textAnchor="middle">
-				{formatter(payload.value)}
+		<g className={ styles.tick } transform={ `translate(${ x },${ y })` }>
+			<text x={ axis === 'y' ? 25 : 0 } y={ 0 } dy={ axis === 'x' ? 16 : 5 } textAnchor="middle">
+				{ formatter(payload.value) }
 			</text>
 		</g>
 	);
@@ -150,19 +154,19 @@ const getPrev = _.memoize((current: string, scale: 'week' | 'month' | 'year') =>
 	// Choose scale
 	switch (scale) {
 		case 'week':
-			prev = moment(current, 'YYYY-MM-DD').subtract(1, 'day').format('YYYY-MM-DD');
-			return _.filter(_data.week, v => v.x === prev)[0];
+			prev = moment(current, dateFormat).subtract(1, 'day').format(dateFormat);
+			return _.find(_data.week, v => v.x === prev);
 
 		case 'month':
-			prev = moment(current, 'YYYY-MM-DD').subtract(1, 'week').format('YYYY-MM-DD');
-			return _.filter(_data.month, v => v.x === prev)[0];
+			prev = moment(current, dateFormat).subtract(1, 'week').format(dateFormat);
+			return _.find(_data.month, v => v.x === prev);
 
 		case 'year':
-			prev = moment(current, 'YYYY-MM-DD').subtract(1, 'month').format('YYYY-MM-DD');
-			return _.filter(_data.year, v => v.x === prev)[0];
+			prev = moment(current, dateFormat).subtract(1, 'month').format(dateFormat);
+			return _.find(_data.year, v => v.x === prev);
 
 		default:
-			return {x: '', y: 0};
+			return { x: '', y: 0 };
 	}
 });
 
@@ -174,6 +178,8 @@ const scaleFrom: any = {
 
 /**
  * Tooltip
+ * @param e Mouse event
+ * @param scale Axis scale: year, month, week
  */
 const TooltipCustom: React.FC<any> = (e: any, scale: any) => {
 	if (e.active) {
@@ -195,9 +201,11 @@ const TooltipCustom: React.FC<any> = (e: any, scale: any) => {
 						!delta ? null : (
 							<li className={
 								`${ styles.delta }
-								${ delta > 0 ? styles.delta_positive : delta < 0 ? styles.delta_negative : '' }`}
+								${ delta > 0 ? styles.delta_positive : delta < 0 ? styles.delta_negative : '' }` }
 							>
-								<span>{`${ delta > 0 ? '+' : '' }${ delta }`}</span>{` from the previous ${ scaleFrom[scale] }`}
+								<span>
+									{ `${ delta > 0 ? '+' : '' }${ delta }`}
+								</span>{` from the previous ${ scaleFrom[scale] }`}
 							</li>
 						)
 					}
@@ -216,105 +224,105 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 
 	// Scale state
 	const [scale, setScale] = useState<'week' | 'month' | 'year'>('week');
-	const [data, setData] = useState<Array<{x: string, y: any}>>(_data.week);
+	const [data, setData] = useState<Array<{x: string; y: any}>>(_data.week);
 
 	// Render
 	return (
-		<ContentBlock ref={ref} className={styles.self}>
+		<ContentBlock ref={ ref } className={ styles.self }>
 
 			{/* Short description */}
-			<div className={styles.info}>
-				<Headline h={2} variation="public" title="Analise what people like and how fast your channel grows" />
+			<div className={ styles.info }>
+				<Headline h={ 2 } variation="public" title="Analise what people like and how fast your channel grows" />
 				<p>{
 					'Unleash your creativity, plan projects from all angles, ' +
 					'and create centralized hubs of information to keep everyone in the loop. '
 				}</p>
 
 				{/* Small stat */}
-				<div className={`${ styles.delta } ${ styles.delta_positive } ${ styles.small_stat }`}>
-					<span>{'+74'}</span>
+				<div className={ `${ styles.delta } ${ styles.delta_positive } ${ styles.small_stat }` }>
+					<span>{ '+74' }</span>
 				</div>
 			</div>
 
 			{/* Graph demo */}
-			<div className={styles.graph}>
+			<div className={ styles.graph }>
 
 				{/* Scale */}
-				<div className={styles.scale_container}>
+				<div className={ styles.scale_container }>
 
 					{/* Predefined scales (week, month, year) */}
 					<ul>
 						<li>
-							<Btn title="Week" style={{ main: 'inline', size: 'small', color: 'dim' }}
-								active={scale === 'week'}
+							<Btn title="Week" style={ { main: 'inline', size: 'small', color: 'dim' } }
+								active={ scale === 'week' }
 								onClick={ () => {
 									setScale('week');
 									setData(_data.week);
-								}}
+								} }
 							/>
 						</li>
 						<li>
-							<Btn title="Month" style={{ main: 'inline', size: 'small', color: 'dim' }}
-								active={scale === 'month'}
+							<Btn title="Month" style={ { main: 'inline', size: 'small', color: 'dim' } }
+								active={ scale === 'month' }
 								onClick={ () => {
 									setScale('month');
 									setData(_data.month);
-								}}
+								} }
 							/>
 						</li>
 						<li>
-							<Btn title="Year" style={{ main: 'inline', size: 'small', color: 'dim' }}
-								active={scale === 'year'}
+							<Btn title="Year" style={ { main: 'inline', size: 'small', color: 'dim' } }
+								active={ scale === 'year' }
 								onClick={ () => {
 									setScale('year');
 									setData(_data.year);
-								}}
+								} }
 							/>
 						</li>
 					</ul>
 
 					{/* Date range (calendar trigger) */}
-					<Btn style={{ main: 'general', size: 'small', color: 'white' }}
-						icon={<IconCal />}
-						title={`${formatDate(data[0].x)} - ${formatDate(data[data.length - 1].x)}`}
+					<Btn style={ { main: 'general', size: 'small', color: 'white' } }
+						icon={ <IconCal /> }
+						title={ `${ formatDate(data[0].x) } - ${ formatDate(data[data.length - 1].x) }` }
 					/>
 				</div>
 
 				{/* Chart */}
-				<ResponsiveContainer height={400} width="100%">
-					<ComposedChart data={data} margin={{ top: 10, right: 10, bottom: 10, left: 10 }}>
+				<ResponsiveContainer height={ 400 } width="100%">
+					<ComposedChart data={ data } margin={ { top: 10, right: 10, bottom: 10, left: 10 } }>
 
 						{/* Area gradient color */}
 						<defs>
 							<linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-								<stop offset="5%" stopColor={ colors.line } stopOpacity={0.1}/>
-								<stop offset="95%" stopColor={ colors.line } stopOpacity={0}/>
+								<stop offset="5%" stopColor={ colors.line } stopOpacity={ 0.1 }/>
+								<stop offset="95%" stopColor={ colors.line } stopOpacity={ 0 }/>
 							</linearGradient>
 						</defs>
 
-						{/*/!* Axis *!/*/}
-						<XAxis dataKey="x" scale="point" domain={['auto', 'auto']}
-							tick={<AxisTick formatter={v => formatDate(v)}/>}
-							axisLine={{ opacity: 0.2 }} tickLine={{ opacity: 0.2 }}
+						{/* Axis */}
+						<XAxis dataKey="x" scale="point" domain={ ['auto', 'auto'] }
+							tick={ <AxisTick formatter={ v => formatDate(v) }/> }
+							axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
 						/>
 
-						<YAxis orientation="right" domain={['auto', 'auto']} tick={<AxisTick axis="y" />}
-							axisLine={{ opacity: 0.2 }} tickLine={{ opacity: 0.2 }}
+						<YAxis orientation="right" domain={ ['auto', 'auto'] } tick={ <AxisTick axis="y" /> }
+							axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
 						/>
 
 						{/* Area gradient (under the line so goes first) */}
-						<Area dataKey="y" type="monotone" stroke={null}
-							fillOpacity={1} fill="url(#areaGradient)"
-							dot={false} activeDot={false}
+						<Area dataKey="y" type="monotone" stroke={ null }
+							fillOpacity={ 1 } fill="url(#areaGradient)"
+							dot={ false } activeDot={ false }
 						/>
 
 						{/* Tooltip */}
-						<Tooltip cursor={{ opacity: 0.4, strokeWidth: 1, strokeDasharray: '5, 5' }}
+						<Tooltip cursor={ { opacity: 0.4, strokeWidth: 1, strokeDasharray: '5, 5' }  }
 							content={ (e: any) => TooltipCustom(e, scale) }
 						/>
 
 						{/* Line */}
-						<Line dataKey="y" type="monotone" stroke={colors.line} strokeWidth={2}
+						<Line dataKey="y" type="monotone" stroke={ colors.line } strokeWidth={ 2 }
 							dot={ <Dot /> } activeDot={ <Dot active /> }
 						/>
 

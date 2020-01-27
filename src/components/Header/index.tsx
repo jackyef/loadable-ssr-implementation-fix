@@ -32,7 +32,7 @@ const defaultProps: Partial<Props> = {
  */
 export const Header: React.FC<Props> = React.memo(({ children, sticky, className }) => {
 	return (
-		<ContentBlock className={`${ styles.container } ${ sticky ? styles.sticky : '' } ${ className }`}>
+		<ContentBlock className={ `${ styles.container } ${ sticky ? styles.sticky : '' } ${ className }` }>
 			<header className={ styles.self }>
 				{ children }
 			</header>

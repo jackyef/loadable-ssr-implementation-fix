@@ -59,16 +59,16 @@ export const FeaturesSwitcher: React.FC<Props> = ({ features, onSwitch, classNam
 
 	// Render
 	return (
-		<ul className={`${ styles.self } ${ className }`}>
+		<ul className={ `${ styles.self } ${ className }` }>
 			{
 				_.map(features, (feature, index) => {
 					const current = index + 1;
 					return (
-						<li key={ index } onClick={ () => { setActive(current); onSwitch(current); }}
-							className={`
+						<li key={ index } onClick={ () => { setActive(current); onSwitch(current); } }
+							className={ `
 								${ styles.feature }
 								${ current === active ? styles.active : '' }
-							`}
+							` }
 						>
 							{ feature }
 						</li>

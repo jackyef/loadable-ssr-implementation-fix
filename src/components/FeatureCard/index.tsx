@@ -58,9 +58,9 @@ const defaultProps: Partial<Props> = {
  * Component
  */
 export const FeatureCard: React.FC<Props> = ({ wrapper, icon, title, desc, className }) => (
-	<Wrapper wrapper={wrapper} styles={`${ styles.self } ${ className }`}>
-		<Icon icon={icon} />
-		<Headline h={3} variation="public" title={title} />
+	<Wrapper wrapper={ wrapper } styles={ `${ styles.self } ${ className }` }>
+		<Icon icon={ icon } />
+		<Headline h={ 3 } variation="public" title={ title } />
 		<p>{desc}</p>
 	</Wrapper>
 );

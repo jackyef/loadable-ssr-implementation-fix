@@ -31,75 +31,75 @@ export const formStore = new StoreForm('auth', null, apiFormStore);
  */
 const SignUp: React.FC<{}> = () => {
 	return (
-	<>
-		<Helmet>
-			<title>{ 'Create account - Email & Socials' }</title>
-		</Helmet>
+		<>
+			<Helmet>
+				<title>{ 'Create account - Email & Socials' }</title>
+			</Helmet>
 
-		{/* Form */}
-		<FormRoot wrapper="form" name="signup" inject={ formStore }
-			styles={ styles.form }
-			submitMethod="POST"
-			submitURL={ authService.shot('user', 'register').options.url }
-			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
-			onSubmitFailed={ err => awakeNotification(err, formStore) }
-		>
-			{/* Title */}
-			<Headline title="Create account" h={2} variation="public" />
+			{/* Form */}
+			<FormRoot wrapper="form" name="signup" inject={ formStore }
+				styles={ styles.form }
+				submitMethod="POST"
+				submitURL={ authService.shot('user', 'register').options.url }
+				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+				onSubmitFailed={ err => awakeNotification(err, formStore) }
+			>
+				{/* Title */}
+				<Headline title="Create account" h={ 2 } variation="public" />
 
-			{/* Email*/}
-			<FieldInput name="email" placeholder="name@example.com"
-				kind="bigger"
-				errPos="right"
-				label="Email"
-				validators={[
-					validators.email.valid,
-					validators.email.required
-				]}
-			/>
+				{/* Email*/}
+				<FieldInput name="email" placeholder="name@example.com"
+					kind="bigger"
+					errPos="right"
+					label="Email"
+					validators={ [
+						validators.email.valid,
+						validators.email.required
+					] }
+				/>
 
-			{/* Password */}
-			<FieldInput name="password" placeholder="password" type="password"
-				kind="bigger"
-				errPos="right"
-				label="Password"
-				validators={[
-					validators.password.requirements,
-					validators.password.required
-				]}
-			/>
+				{/* Password */}
+				<FieldInput name="password" placeholder="password" type="password"
+					kind="bigger"
+					errPos="right"
+					label="Password"
+					validators={ [
+						validators.password.requirements,
+						validators.password.required
+					] }
+				/>
 
-			{/* Submit */}
-			<Btn submit form={ formStore } title="Create account"
-				style={{ main: 'general' }}
-			/>
+				{/* Submit */}
+				<Btn submit form={ formStore } title="Create account"
+					style={ { main: 'general' } }
+				/>
 
-			{/* Divider */}
-			<span>{ 'or' }</span>
+				{/* Divider */}
+				<span>{ 'or' }</span>
 
-			{/* Google */}
-			<Btn nav external style={{ main: 'google' }} title="Sign up with Google"
-				icon={ resources.icon_google }
-				url={`
-					${authService.axiosInstance.defaults.baseURL}
-					${authService.shot('user', 'google').options.url}
-				`}
-			/>
+				{/* Google */}
+				<Btn nav external style={ { main: 'google' } } title="Sign up with Google"
+					icon={ resources.icon_google }
+					url={ `
+						${ authService.axiosInstance.defaults.baseURL }
+						${ authService.shot('user', 'google').options.url }
+					` }
+				/>
 
-			{/* PP */}
-			<p className={ styles.pp }>
-				{ 'By signing up you agree to Platformagram ' }
-				<br/>
-				<Link to={ routes.pp }>
-					{ 'Terms and Conditions and Privacy Policy' }
-				</Link>
-			</p>
+				{/* PP */}
+				<p className={ styles.pp }>
+					{ 'By signing up you agree to Platformagram ' }
+					<br/>
+					<Link to={ routes.pp }>
+						{ 'Terms and Conditions and Privacy Policy' }
+					</Link>
+				</p>
 
-			{/* Notifications area */}
-			<NotifyBox />
+				{/* Notifications area */}
+				<NotifyBox />
 
-		</FormRoot>
-	</>
+			</FormRoot>
+		</>
 	);
 };
 

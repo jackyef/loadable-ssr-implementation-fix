@@ -15,6 +15,7 @@ import { routes } from '../../../config';
 import { Footer, Header, Logo, Nav, NavItem, ContentBlock } from '../../../components';
 
 // Styles
+// eslint-disable-next-line import/no-internal-modules
 import importedLandingStyles from '../Public/Landing/Landing.module.less';
 const stylesLanding: Styles = importedLandingStyles;
 
@@ -57,18 +58,18 @@ const PP: React.FC<{}> = () => {
 					<Header>
 
 						{/* Logo */}
-						<Logo onClick={() => history.push(routes.home)} />
+						<Logo onClick={ () => history.push(routes.home) } />
 
 						{/* Page navigation */}
 						<Nav className={ stylesLanding.nav }>
 							<NavItem>
 								<Btn { ...commonNavBtnProps('Terms and Conditions') }
-									onClick={() => scroll(scroller, refTC)}
+									onClick={ () => scroll(scroller, refTC) }
 								/>
 							</NavItem>
 							<NavItem>
 								<Btn { ...commonNavBtnProps('PrivacyPolicy') }
-									onClick={() => scroll(scroller, refPP)}
+									onClick={ () => scroll(scroller, refPP) }
 								/>
 							</NavItem>
 						</Nav>
@@ -79,8 +80,9 @@ const PP: React.FC<{}> = () => {
 								? (
 									<Nav className={ styles.sign_in }>
 										<NavItem>
-											<Btn title="Poster" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
-												onClick={() => canUseDOM() && window.location.assign(routes.poster)}
+											<Btn title="Poster"
+												style={ { main: 'general', size: 'mid', detail: 'rounded' } }
+												onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 											/>
 										</NavItem>
 									</Nav>
@@ -93,7 +95,8 @@ const PP: React.FC<{}> = () => {
 											/>
 										</NavItem>
 										<NavItem>
-											<Btn nav title="Get Started" style={{ main: 'general', size: 'mid', detail: 'rounded' }}
+											<Btn nav title="Get Started"
+												style={ { main: 'general', size: 'mid', detail: 'rounded' } }
 												url={ routes.auth.signup }
 											/>
 										</NavItem>
@@ -104,14 +107,14 @@ const PP: React.FC<{}> = () => {
 
 					{/* Top title block */}
 					<ContentBlock className={ styles.content_block }>
-						<Headline h={1} variation="public" title="Terms and Privacy" />
+						<Headline h={ 1 } variation="public" title="Terms and Privacy" />
 					</ContentBlock>
 
 					{/* Terms and Conditions */}
 					<ContentBlock ref={ refTC } className={ styles.content_block }>
 
 						{/* Title */}
-						<Headline h={2} variation="public" title="Terms and Conditions" />
+						<Headline h={ 2 } variation="public" title="Terms and Conditions" />
 						<span>{ 'Last updated: August 8, 2019' }</span>
 
 						{/* Text */}
@@ -136,7 +139,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={3} variation="public" title="1. Content" />
+						<Headline h={ 3 } variation="public" title="1. Content" />
 
 						{/* Text */}
 						<p>{
@@ -210,7 +213,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={3} variation="public" title="2. Workspaces" />
+						<Headline h={ 3 } variation="public" title="2. Workspaces" />
 
 						{/* Text */}
 						<p>{
@@ -223,7 +226,8 @@ const PP: React.FC<{}> = () => {
 
 						<ul>
 							<li>{
-								'"Personal Workspaces" that can only be accessed by the user that created the Workspace.'
+								'"Personal Workspaces" that can only be accessed ' +
+								'by the user that created the Workspace.'
 							}</li>
 							<li>{
 								'"Team Workspaces" that require a Team Subscription (as defined below) and that ' +
@@ -257,7 +261,7 @@ const PP: React.FC<{}> = () => {
 					<ContentBlock ref={ refPP } className={ styles.content_block }>
 
 						{/* Title */}
-						<Headline h={2} variation="public" title="Privacy Policy" />
+						<Headline h={ 2 } variation="public" title="Privacy Policy" />
 						<span>{ 'Last updated: August 8, 2019' }</span>
 
 						{/* Text */}
@@ -281,7 +285,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={3} variation="public" title="1. Cookies" />
+						<Headline h={ 3 } variation="public" title="1. Cookies" />
 
 						{/* Text */}
 						<p>{
@@ -299,7 +303,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={3} variation="public" title="2. Information Collection" />
+						<Headline h={ 3 } variation="public" title="2. Information Collection" />
 
 						{/* Text */}
 						<p>{

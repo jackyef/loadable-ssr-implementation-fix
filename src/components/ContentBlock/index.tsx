@@ -34,7 +34,7 @@ type Props = {
  * Component
  */
 export const ContentBlock: React.FC<Props> = React.forwardRef(({ children, className }, ref) => (
-	<section ref={ ref as any } className={`${ styles.self } ${ className || '' }`}>
+	<section ref={ ref as any } className={ `${ styles.self } ${ className || '' }` }>
 		<div>
 			{ children }
 		</div>

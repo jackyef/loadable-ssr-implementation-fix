@@ -48,7 +48,7 @@ export const Blogs: React.FC<{}> = () => (
 	<ContentBlock className={ styles.self }>
 
 		{/* Content block title */}
-		<Headline h={2} variation="public" title="For beginners, grown and large channels" />
+		<Headline h={ 2 } variation="public" title="For beginners, grown and large channels" />
 
 		{/* Features list */}
 		<ul className={ styles.features }>

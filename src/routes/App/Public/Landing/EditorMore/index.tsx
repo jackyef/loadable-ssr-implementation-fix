@@ -39,9 +39,9 @@ const featuresData: FeatureCardProps[] = [
  * Component
  */
 export const EditorMore: React.FC<{}> = () => (
-	<ContentBlock className={styles.self}>
+	<ContentBlock className={ styles.self }>
 		<ul>
-			{ _.map(featuresData, (data, index) => <FeatureCard key={index} {...data} />) }
+			{ _.map(featuresData, (data, index) => <FeatureCard key={ index } { ...data } />) }
 		</ul>
 	</ContentBlock>
 );

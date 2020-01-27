@@ -68,7 +68,7 @@ const data: PricingCardProps[] = [
 		title: 'Custom',
 		desc: 'Custom plan for your needs',
 		submitTitle: 'Contact us',
-		className: `${styles.card} ${styles.dark_card}`
+		className: `${ styles.card } ${ styles.dark_card }`
 	}
 ];
 
@@ -76,10 +76,10 @@ const data: PricingCardProps[] = [
  * Component
  */
 export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
-	<ContentBlock ref={ref} className={styles.self}>
+	<ContentBlock ref={ ref } className={ styles.self }>
 
 		{/* Title */}
-		<Headline h={2} variation="public" title="Simple pricing" />
+		<Headline h={ 2 } variation="public" title="Simple pricing" />
 
 		{/* Offers (cards) */}
 		<ul>
@@ -87,7 +87,7 @@ export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 			<PricingCard { ...data[1] } />
 			<PricingCard { ...data[2] }>
 				<div>
-					<Headline h={2} variation="public" title="Let's chat" />
+					<Headline h={ 2 } variation="public" title="Let's chat" />
 					<p>{'Unlimited channels, posts and team members and everything from Pro Plan'}</p>
 				</div>
 			</PricingCard>

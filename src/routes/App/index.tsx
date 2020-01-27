@@ -9,6 +9,7 @@ import { NotifyCommon } from '@tg/notifications';
 
 import { notifyStore } from '../../stores';
 
+// eslint-disable-next-line import/no-internal-modules
 import '../../styles/base.less';
 
 type Props = {

@@ -28,7 +28,7 @@ type Props = {
  * Component
  */
 export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
-	<ContentBlock ref={ ref } className={styles.self}>
+	<ContentBlock ref={ ref } className={ styles.self }>
 
 		{/* Illustration */}
 		<img alt="Editor features" src={ resources.editor_demo } />
@@ -37,7 +37,7 @@ export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
 		<div className={ styles.right }>
 
 			{/* Title & description */}
-			<Headline h={2} variation="public" title="Create post from draft to full post" />
+			<Headline h={ 2 } variation="public" title="Create post from draft to full post" />
 			<p>{
 				'Unleash your creativity, plan projects from all angles, and ' +
 				'create centralized hubs of information to keep everyone in the loop.'

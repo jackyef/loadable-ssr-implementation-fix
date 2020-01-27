@@ -36,7 +36,7 @@ const NewPassword: React.FC<{}> = () => {
 		const querystring = qs.parse(canUseDOM() ? window.location.search : '', { ignoreQueryPrefix: true });
 		const token = _.get(querystring, 'token');
 		formStore.submitURL =
-			`${authService.shot('user', 'reset_password').options.url}?token=${token}`
+			`${ authService.shot('user', 'reset_password').options.url }?token=${ token }`
 		;
 	}, []);
 
@@ -64,21 +64,21 @@ const NewPassword: React.FC<{}> = () => {
 					canUseDOM() && setTimeout(() => {
 						window.location.assign(routes.auth.signin);
 					}, 4000);
-				}}
+				} }
 			>
 				{/* Title */}
-				<Headline title="Create password" h={2} variation="public" />
+				<Headline title="Create password" h={ 2 } variation="public" />
 
 				{/* Password */}
 				<FieldInput name="password" placeholder="password" type="password"
 					kind="bigger"
 					errPos="right"
 					label="New password"
-					validators={[
+					validators={ [
 						validators.password.requirements,
 						v => validators.password.match(v, formStore.getFieldValue('repeat_password')),
 						validators.password.required
-					]}
+					] }
 				/>
 
 				{/* Repeat password */}
@@ -86,16 +86,16 @@ const NewPassword: React.FC<{}> = () => {
 					kind="bigger"
 					errPos="right"
 					label="Repeat password"
-					validators={[
+					validators={ [
 						validators.password.requirements,
 						v => validators.password.match(v, formStore.getFieldValue('password')),
 						validators.password.required
-					]}
+					] }
 				/>
-
+ 
 				{/* Submit */}
-				<Btn style={{ main: 'general' }} title="Change password"
-					onClick={() => formStore.submit().then()}
+				<Btn style={ { main: 'general' } } title="Change password"
+					onClick={ () => formStore.submit() }
 				/>
 
 				{/* Notifications area */}

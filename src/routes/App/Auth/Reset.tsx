@@ -45,26 +45,26 @@ const ResetPassword: React.FC<{}> = () => {
 						state: 'success',
 						delay: 6000
 					});
-				}}
+				} }
 			>
 				{/* Title */}
-				<Headline title="Reset password" h={2} variation="public" />
+				<Headline title="Reset password" h={ 2 } variation="public" />
 
 				{/* Email */}
 				<FieldInput name="email" placeholder="name@example.com"
 					kind="bigger"
 					errPos="right"
 					label="Email address"
-					validators={[
+					validators={ [
 						validators.email.valid,
 						validators.email.required
-					]}
+					] }
 				/>
 
 				{/* Submit */}
-				<Btn style={{ main: 'general' }} title="Send me instructions"
-					onClick={() => formStore.submit()}
-					asyncState={formStore.asyncState}
+				<Btn style={ { main: 'general' } } title="Send me instructions"
+					onClick={ () => formStore.submit() }
+					asyncState={ formStore.asyncState }
 				/>
 
 				{/* Notifications area */}
