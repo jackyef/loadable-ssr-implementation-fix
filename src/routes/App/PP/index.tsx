@@ -6,13 +6,13 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@scc/utils';
-import { Btn, Headline } from '@tg/elm';
+import { Btn, Headline, Logo } from '@tg/elm';
 import { Scrollbars } from '@tg/layout';
 
 import { commonNavBtnProps, scroll } from '../../../utils';
 import { history } from '../../';
 import { routes } from '../../../config';
-import { Footer, Header, Logo, Nav, NavItem, ContentBlock } from '../../../components';
+import { Footer, Header, Nav, NavItem, ContentBlock } from '../../../components';
 
 // Styles
 // eslint-disable-next-line import/no-internal-modules
@@ -28,6 +28,7 @@ type Styles = {
 	// From landing
 	nav?: string;
 	sign_in?: string;
+	logo?: string;
 };
 
 /**
@@ -58,7 +59,7 @@ const PP: React.FC<{}> = () => {
 					<Header>
 
 						{/* Logo */}
-						<Logo onClick={ () => history.push(routes.home) } />
+						<Logo className={ stylesLanding.logo } onClick={ () => history.push(routes.home) } />
 
 						{/* Page navigation */}
 						<Nav className={ stylesLanding.nav }>

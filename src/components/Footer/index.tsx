@@ -3,9 +3,8 @@
  */
 import React from 'react';
 
-import { Btn } from '@tg/elm';
+import { Btn, Logo } from '@tg/elm';
 
-import { Logo } from '../Logo';
 import { ContentBlock } from '../ContentBlock';
 import { routes } from '../../config';
 
@@ -17,14 +16,15 @@ type Styles = {
 	self?: string;
 	top?: string;
 	bottom?: string;
+	logo?: string;
 };
 
 /**
  * Component
  */
 export const Footer: React.FC<{}> = () => (
-	<ContentBlock className={ styles.self }>
-		<Logo />
+	<ContentBlock wrapper="footer" className={ styles.self }>
+		<Logo className={ styles.logo } />
 		<span>&copy; {'2019 Tgpost LTD'}</span>
 		<div>
 			<Btn style={ { main: 'nav' } } title="Contact Us" />

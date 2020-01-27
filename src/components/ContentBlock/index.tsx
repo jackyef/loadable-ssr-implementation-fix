@@ -4,6 +4,8 @@
  */
 import React, { Ref } from 'react';
 
+import { Wrapper } from '@scc/elm';
+
 // Styles
 import importedStyles from './ContentBlock.module.less';
 const styles: Styles = importedStyles;
@@ -25,18 +27,31 @@ type Props = {
 	children: any;
 
 	/**
+	 * HTML container tag
+	 * @default section
+	 */
+	wrapper?: string;
+
+	/**
 	 * Additional user's styles
 	 */
 	className?: string;
 };
 
+const defaultProps: Partial<Props> = {
+	wrapper: 'section',
+	className: ''
+};
+
 /**
  * Component
  */
-export const ContentBlock: React.FC<Props> = React.forwardRef(({ children, className }, ref) => (
-	<section ref={ ref as any } className={ `${ styles.self } ${ className || '' }` }>
+export const ContentBlock: React.FC<Props> = React.forwardRef(({ children, className, wrapper }, ref) => (
+	<Wrapper wrapper={ wrapper } getRef={ ref as any } styles={ `${ styles.self } ${ className }` }>
 		<div>
 			{ children }
 		</div>
-	</section>
+	</Wrapper>
 ));
+
+ContentBlock.defaultProps = defaultProps;

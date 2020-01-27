@@ -7,12 +7,12 @@ import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@scc/utils';
 
-import { Btn } from '@tg/elm';
+import { Btn, Logo } from '@tg/elm';
 
 import { history } from '../../../';
 import { formStore as signUpFormStore } from '../../Auth/Signup';
 import { commonNavBtnProps, scroll } from '../../../../utils';
-import { Header, Nav, Logo, NavItem, ContentBlock } from '../../../../components';
+import { Header, Nav, NavItem, ContentBlock } from '../../../../components';
 import { routes } from '../../../../config';
 
 import { Promo } from './Promo';
@@ -32,6 +32,7 @@ const styles: Styles = importedStyles;
 type Styles = {
 	demo?: string;
 	nav?: string;
+	logo?: string;
 	sign_in?: string;
 	shadow?: string;
 	shadow_cover?: string;
@@ -84,7 +85,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 			<Header sticky={ STICKY }>
 
 				{/* Logo */}
-				<Logo onClick={ () => scroll(scroller) } />
+				<Logo className={ styles.logo } onClick={ () => scroll(scroller) } />
 
 				{/* Page navigation */}
 				<Nav className={ styles.nav }>

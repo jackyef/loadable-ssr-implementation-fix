@@ -7,14 +7,18 @@ import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes, canUseDOM } from '@scc/utils';
 
-import { Btn } from '@tg/elm';
+import { Btn, Logo } from '@tg/elm';
 import { expired } from '@tg/utils';
 
 import { history } from '../../';
 import { routes } from '../../../config';
-import { Header, Logo, Nav, NavItem } from '../../../components';
+import { Header, Nav, NavItem } from '../../../components';
 
 // Styles
+// eslint-disable-next-line import/no-internal-modules
+import importedLandingStyles from '../Public/Landing/Landing.module.less';
+const stylesLanding: Styles = importedLandingStyles;
+
 import importedStyles from './Auth.module.less';
 const styles: Styles = importedStyles;
 
@@ -24,6 +28,9 @@ export type Styles = {
 	pp?: string;
 	vh?: string;
 	nav_item?: string;
+
+	// From public
+	logo?: string;
 };
 
 type Props = {
@@ -56,7 +63,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 			<Header>
 
 				{/* Logo */}
-				<Logo onClick={ () => history.push(routes.home) } />
+				<Logo className={ stylesLanding.logo } onClick={ () => history.push(routes.home) } />
 
 				{/* Sign in/up */}
 				<Nav>
