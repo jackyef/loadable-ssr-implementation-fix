@@ -22,7 +22,6 @@ jobs:
           AUTH_TOKEN=${NPM_TOKEN}
           touch .npmrc
           echo "@tg:registry=https://nexus.tgpost.me/repository/npm-private/" >> .npmrc
-          echo "@scc:registry=https://nexus.tgpost.me/repository/npm-private/" >> .npmrc
           echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.${NPM_TOKEN}" >> .npmrc
 
     - run:

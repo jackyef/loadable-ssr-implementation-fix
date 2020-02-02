@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { IStoreForm } from '@scc/form';
-import { StoreNotify, NotifyBox as UINotifyBox } from '@scc/notify';
+import { IStoreForm } from '@tg/form';
+import { StoreNotify, NotifyBox as UINotifyBox } from '@tg/notify';
 
 import { Notification } from '../Notification';
 

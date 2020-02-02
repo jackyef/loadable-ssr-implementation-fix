@@ -1,7 +1,7 @@
 /**
  * Notifications store
  */
-import { StoreNotify } from '@scc/notify';
+import { StoreNotify } from '@tg/notify';
 
 const store = new StoreNotify();
 

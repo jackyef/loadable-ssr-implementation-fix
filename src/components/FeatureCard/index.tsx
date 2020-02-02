@@ -6,7 +6,7 @@
  */
 import React from 'react';
 
-import { Wrapper, Icon } from '@scc/elm';
+import { Wrapper, Icon } from '@tg/kit-elm';
 
 import { Headline } from '@tg/elm';
 

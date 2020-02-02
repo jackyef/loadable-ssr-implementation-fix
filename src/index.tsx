@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import Loadable from 'react-loadable';
 
-import { renderRoutes } from '@scc/utils';
+import { renderRoutes } from '@tg/kit-utils';
 
 import { appContainerHTMLTag } from './config';
 import Routes, { history } from './routes';

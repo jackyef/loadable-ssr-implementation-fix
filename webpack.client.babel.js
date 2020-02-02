@@ -12,7 +12,6 @@ const merge = require('webpack-merge');
 
 // Our internal modules (For now keep them in the app)
 const appModules = [
-	'@scc',
 	'@tg'
 ];
 
@@ -30,7 +29,7 @@ module.exports = function(env, options) {
 						default: false,
 						vendors: false,
 
-						// Vendor (without @tg, @scc modules)
+						// Vendor (without @tg modules)
 						vendor: {
 							chunks: 'all',
 							name: 'vendor',

@@ -4,7 +4,7 @@
  */
 import React, { Ref } from 'react';
 
-import { Wrapper } from '@scc/elm';
+import { Wrapper } from '@tg/kit-elm';
 
 // Styles
 import importedStyles from './ContentBlock.module.less';

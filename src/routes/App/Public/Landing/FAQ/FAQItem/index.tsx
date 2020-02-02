@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import { Wrapper } from '@scc/elm';
+import { Wrapper } from '@tg/kit-elm';
 
 import { Headline } from '@tg/elm';
 

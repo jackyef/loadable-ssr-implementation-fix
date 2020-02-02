@@ -10,7 +10,6 @@
 		"src/**/*",
 
 		// Linked modules
-		"node_modules/@scc",
 		"node_modules/@tg"
 	],
 

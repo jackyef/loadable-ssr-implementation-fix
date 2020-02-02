@@ -3,8 +3,8 @@ import { RouteConfig } from 'react-router-config';
 import Cookies from 'js-cookie';
 // import Raven from 'raven-js';
 
-import { NotifyBox } from '@scc/notify';
-import { renderRoutes, canUseDOM } from '@scc/utils';
+import { NotifyBox } from '@tg/notify';
+import { renderRoutes, canUseDOM } from '@tg/kit-utils';
 import { NotifyCommon } from '@tg/notifications';
 
 import { notifyStore } from '../../stores';

@@ -5,8 +5,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
-import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
-import { canUseDOM } from '@scc/utils';
+import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
+import { canUseDOM } from '@tg/kit-utils';
 
 import { Btn, FieldInput, Headline } from '@tg/elm';
 import { customValidators as validators } from '@tg/utils';

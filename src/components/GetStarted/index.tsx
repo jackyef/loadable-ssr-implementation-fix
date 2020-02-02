@@ -5,7 +5,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
+import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { Btn, FieldInput } from '@tg/elm';
 import { customValidators as validators } from '@tg/utils';
 

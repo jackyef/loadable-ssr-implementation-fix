@@ -3,7 +3,7 @@ import { Redirect } from 'react-router';
 import Loadable from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
-import { canUseDOM } from '@scc/utils';
+import { canUseDOM } from '@tg/kit-utils';
 
 import { Loading } from '@tg/elm';
 

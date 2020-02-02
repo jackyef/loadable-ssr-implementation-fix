@@ -21,7 +21,6 @@ RUN rm -rf /root/.npmrc
 RUN rm -rf ~/.npmrc
 RUN touch ~/.npmrc
 RUN echo "@tg:registry=https://nexus.tgpost.me/repository/npm-private/\n" >> ~/.npmrc
-RUN echo "@scc:registry=https://nexus.tgpost.me/repository/npm-private/\n" >> ~/.npmrc
 RUN echo "ca = null\n" >> ~/.npmrc
 RUN echo "always-auth = true\n" >> ~/.npmrc
 RUN echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.$NPM_TOKEN\n" >> ~/.npmrc

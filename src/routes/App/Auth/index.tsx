@@ -5,10 +5,10 @@ import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { renderRoutes, canUseDOM } from '@scc/utils';
+import { renderRoutes, canUseDOM } from '@tg/kit-utils';
 
+import { jwtExpired } from '@tg/kit-utils';
 import { Btn, Logo } from '@tg/elm';
-import { expired } from '@tg/utils';
 
 import { history } from '../../';
 import { routes } from '../../../config';
@@ -50,7 +50,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 
 	// Mount
 	useEffect(() => {
-		if (canUseDOM() && !expired(localStorage.getItem('id_token'))) {
+		if (canUseDOM() && !jwtExpired(localStorage.getItem('id_token'))) {
 			window.location.assign(routes.poster);
 		}
 	}, []);

@@ -6,8 +6,8 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import qs from 'qs';
 
-import { FormRoot, StoreForm, StoreFormAPI } from '@scc/form';
-import { canUseDOM } from '@scc/utils';
+import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
+import { canUseDOM } from '@tg/kit-utils';
 
 import { Btn, FieldInput, Headline } from '@tg/elm';
 import { customValidators as validators } from '@tg/utils';
@@ -92,7 +92,7 @@ const NewPassword: React.FC<{}> = () => {
 						validators.password.required
 					] }
 				/>
- 
+
 				{/* Submit */}
 				<Btn style={ { main: 'general' } } title="Change password"
 					onClick={ () => formStore.submit() }

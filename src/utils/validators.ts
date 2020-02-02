@@ -1,4 +1,4 @@
-import { validators } from '@scc/form';
+import { validators } from '@tg/form';
 
 // Destruct imported validators
 const { required, email, regexp } = validators;

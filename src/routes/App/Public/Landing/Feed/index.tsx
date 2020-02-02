@@ -6,7 +6,7 @@ import _ from 'lodash';
 import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
-import { uuid } from '@scc/utils';
+import { uuid } from '@tg/kit-utils';
 import { Headline } from '@tg/elm';
 import { ListPostsPreview } from '@tg/blocks';
 import { ContextStores, CLIENT_DATEFORMAT } from '@tg/config';
@@ -50,7 +50,7 @@ const featuresData = [
 const postsData = [
 	{
 		text: `
-			After Yuan Shikai was installed as the second 
+			After Yuan Shikai was installed as the second
 			leader Provisional Great President of the Republic of China...
 		`,
 		ad: true,
@@ -62,7 +62,7 @@ const postsData = [
 	},
 	{
 		text: `
-			The official cause of death for both was 
+			The official cause of death for both was
 			“ligature neck compression,” meaning strangulation by a cord...
 		`,
 		views: 1300,
@@ -73,7 +73,7 @@ const postsData = [
 	},
 	{
 		text: `
-			After Yuan Shikai was installed as the second 
+			After Yuan Shikai was installed as the second
 			leader Provisional Great President of the Republic of China...
 		`,
 		reactions: true,
