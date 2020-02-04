@@ -6,9 +6,8 @@
  */
 import React from 'react';
 
-import { Wrapper, Icon } from '@tg/kit-elm';
-
-import { Headline } from '@tg/elm';
+import { Wrapper } from '@tg/wrapper';
+import { Icon, Headline } from '@tg/elm';
 
 // Styles
 import importedStyles from './FeatureCard.module.less';

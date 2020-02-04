@@ -5,9 +5,10 @@ import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
-import { canUseDOM } from '@tg/kit-utils';
+import { canUseDOM } from '@tg/utils';
 
-import { Btn, Logo } from '@tg/elm';
+import { Btn } from '@tg/app';
+import { Logo } from '@tg/elm';
 
 import { history } from '../../../';
 import { formStore as signUpFormStore } from '../../Auth/Signup';

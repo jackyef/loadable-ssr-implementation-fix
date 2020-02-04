@@ -7,10 +7,10 @@ import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
-import { canUseDOM } from '@tg/kit-utils';
+import { canUseDOM } from '@tg/utils';
 
-import { FieldInput, Btn, Headline } from '@tg/elm';
-import { customValidators as validators } from '@tg/utils';
+import { Headline } from '@tg/elm';
+import { FieldInput, Btn, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/resources';
 

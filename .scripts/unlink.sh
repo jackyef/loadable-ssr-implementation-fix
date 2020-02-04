@@ -1,11 +1,31 @@
 #!/usr/bin/env bash
 
-yarn unlink @tg/api-proxy-auth
+# Dev
 yarn unlink @tg/configs
-yarn unlink @tg/blocks
-yarn unlink @tg/config
-yarn unlink @tg/elm
-yarn unlink @tg/layout
-yarn unlink @tg/resources
+
+# Libs
 yarn unlink @tg/utils
+yarn unlink @tg/form
+yarn unlink @tg/modal
+yarn unlink @tg/media
+yarn unlink @tg/async
+yarn unlink @tg/notify
+yarn unlink @tg/wrapper
+yarn unlink @tg/exceptions
+yarn unlink @tg/api-proxy
+yarn unlink @tg/api-proxy-data
+
+# Packages (app level)
+yarn unlink @tg/elm
+yarn unlink @tg/app
+yarn unlink @tg/layout
+
+# Resources
+yarn unlink @tg/resources
+
+# API proxies
+yarn unlink @tg/api-proxy-auth
 yarn unlink @tg/api-proxy-drafts
+
+# TODO: Should not be needed (check treeshaking)
+yarn link @tg/calendar

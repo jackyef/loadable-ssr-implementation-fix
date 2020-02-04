@@ -1,5 +1,5 @@
 import { RefObject } from 'react';
-import { TypeBtnStyle } from '@tg/elm';
+import { TypeBtnStyle } from '@tg/app';
 
 type TypeNavBtn = {
 	title?: string;

@@ -1340,91 +1340,116 @@
     "@testing-library/dom" "^6.11.0"
     "@types/testing-library__react" "^9.1.2"
 
-"@tg/api-proxy-auth@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-auth/-/api-proxy-auth-3.0.0.tgz#c34fbc4cf31bd80b57c7dd23f5da196be82a7c19"
-  integrity sha512-QNYDq8z+o9h39rZlJMxnPMcj1xcp+BZYYfxG4mr8rvPeMYieuXajV9FABWYPRyrmY+oADYZD3eXdhKd/mYkcZQ==
+"@tg/api-proxy-auth@^3.0.0", "@tg/api-proxy-auth@^3.0.1":
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-auth/-/api-proxy-auth-3.0.1.tgz#6657e472d6b37ee0b839e2b83e921eea1f4e5208"
+  integrity sha512-d+TebEV0+EvI7nNAg6qHZS64SYZ155PAMCab3tAwj0OVReB9UczGdUqUY6kXU6CnvdsmPi8XkZ6gmPbTGv8AOg==
   dependencies:
-    "@tg/api-proxy" "^3.0.1"
-    "@tg/api-proxy-data" "^3.0.1"
+    "@tg/api-proxy" "^3.0.3"
+    "@tg/api-proxy-data" "^3.0.3"
     axios "^0.19.2"
     js-cookie "^2.2.1"
     lodash "4.17.15"
     mobx "^5.15.4"
 
 "@tg/api-proxy-bot@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-bot/-/api-proxy-bot-3.0.0.tgz#c2a7dbbeffdd805de6e6ec2d2074727d519a2152"
-  integrity sha512-q53Szck2f/Y82u2atsqF59/nFUY7X7O0WFnG2CbAOlklWaVQjiF8D9bUrVOdQp4gX7pYW6Uiap+LlvCEfpE6Kg==
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-bot/-/api-proxy-bot-3.0.1.tgz#9c47d74144b5380c68304979602e2ef9b9eddbf0"
+  integrity sha512-fOhGZ6WqfrJGm3rCMjtp8kPoyWQa9k5t9w4nxR6IwGQCM5aUbRxCzyG48SlcldU3OBXB6aTmwWvzYkZd2xC40w==
   dependencies:
-    "@tg/api-proxy" "^3.0.1"
-    "@tg/api-proxy-auth" "^3.0.0"
-    "@tg/api-proxy-data" "^3.0.1"
+    "@tg/api-proxy" "^3.0.3"
+    "@tg/api-proxy-auth" "^3.0.1"
+    "@tg/api-proxy-data" "^3.0.3"
     axios "^0.19.2"
     js-cookie "^2.2.1"
     lodash "4.17.15"
     mobx "^5.15.4"
 
-"@tg/api-proxy-data@^3.0.1":
-  version "3.0.1"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-data/-/api-proxy-data-3.0.1.tgz#b7fbf8b4bb8944116373874a4756c8b04ee68fff"
-  integrity sha512-Bq9GpTiQItxyRaxzMkzLGg9j7ZRKQYYCuDSz0n9oRlXY829+vq0DmoHtYJSe/cTedNkmJ9lU0Iack4og0Q6iMA==
+"@tg/api-proxy-data@^3.0.3":
+  version "3.0.3"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-data/-/api-proxy-data-3.0.3.tgz#70bf98cc7acb8f4c534507d786aab9bc66e426aa"
+  integrity sha512-+jPpD1PlcH1bhcJqIHcryNvkOHv+PErE10a554/MWyrUhC0dSSgNhWWdUOVMOFyJzI6YEyVCkoVR2xNt9vnXVg==
   dependencies:
-    "@tg/api-proxy" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
+    "@tg/api-proxy" "^3.0.3"
+    "@tg/utils" "^3.0.0"
     axios "^0.19.2"
     lodash "^4.17.15"
     mobx "^5.15.4"
 
-"@tg/api-proxy-drafts@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-drafts/-/api-proxy-drafts-3.0.0.tgz#abb0f555564bae4dc4b3acb3730f1cd835f95a29"
-  integrity sha512-aYP28qPthXgdmk4MfC3AYEZg8hb+UweFyS2BMm9vsuwVowaPM7vF7cDNnUac/pk76jBMuXK01Ic+dVNbp++uFA==
-  dependencies:
-    "@tg/api-proxy" "^3.0.1"
-    "@tg/api-proxy-auth" "^3.0.0"
-    "@tg/api-proxy-data" "^3.0.1"
-    axios "^0.19.2"
-    js-cookie "^2.2.1"
-    lodash "4.17.15"
-    mobx "^5.15.4"
-
-"@tg/api-proxy-upload@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-upload/-/api-proxy-upload-3.0.0.tgz#3050a8256c70f6a47de63fb54d66ef4d3c28a8e3"
-  integrity sha512-RA8LVI2QwZOv22HM284m3rGDj+twwpA5+FurIF8aI5pGO/eVBuxtz7H2mefqwYgHgUtkUU6BkC9f36huehm9Rg==
-  dependencies:
-    "@tg/api-proxy" "^3.0.1"
-    "@tg/api-proxy-auth" "^3.0.0"
-    "@tg/api-proxy-data" "^3.0.1"
-    axios "^0.19.2"
-    js-cookie "^2.2.1"
-    lodash "4.17.15"
-    mobx "^5.15.4"
-
-"@tg/api-proxy-url-preview@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-url-preview/-/api-proxy-url-preview-3.0.0.tgz#460ffd3af5d82ec731d0b526777c3cc35354201d"
-  integrity sha512-014k+AcYBisZ5Beva8e85uuUJY+RoSyqQUaBghjwNCLTIq3fl9r90/w8VnSJU6IQFcJbCD4g5FMA5GYoublVIw==
-  dependencies:
-    "@tg/api-proxy" "^3.0.1"
-    "@tg/api-proxy-auth" "^3.0.0"
-    "@tg/api-proxy-data" "^3.0.1"
-    axios "^0.19.2"
-    js-cookie "^2.2.1"
-    lodash "4.17.15"
-    mobx "^5.15.4"
-
-"@tg/api-proxy@^3.0.1":
+"@tg/api-proxy-drafts@^3.0.0", "@tg/api-proxy-drafts@^3.0.1":
   version "3.0.1"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy/-/api-proxy-3.0.1.tgz#bb63858097a745073f7217088c747a4d3d83f736"
-  integrity sha512-9BGYPt0qkRPb3b+/z9Hm3ZCUUgJomFUUgbPbUmHoz5YrV6hNY+dZFydyQJgySqXy7mueFriBVCqJ6GII9U4oXA==
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-drafts/-/api-proxy-drafts-3.0.1.tgz#0297e6d2e7e9f554b0705d83a8a409c9b0cd802b"
+  integrity sha512-KqMdhFXpYPp01/4Wo8kpqAgzV/8jF9q+B3RmX9Ll1425XMa0/VvFVT+nibKLA4ZnXe5xhNAvopEYQjoYpVUM6g==
   dependencies:
-    "@tg/kit-utils" "^3.0.0"
+    "@tg/api-proxy" "^3.0.3"
+    "@tg/api-proxy-auth" "^3.0.1"
+    "@tg/api-proxy-data" "^3.0.3"
+    axios "^0.19.2"
+    js-cookie "^2.2.1"
+    lodash "4.17.15"
+    mobx "^5.15.4"
+
+"@tg/api-proxy-upload@^3.0.1":
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-upload/-/api-proxy-upload-3.0.1.tgz#339786fe0fbd3d6686121817853009ff9734f28b"
+  integrity sha512-t1lHi9AUrgxLtwGEZSsJcTwX6qUcG0SLdcN2fdq6tS6/JMX5q5O5VlEjcAjwEQQnFKgBPFyYDZVUn1Z5mGyukw==
+  dependencies:
+    "@tg/api-proxy" "^3.0.3"
+    "@tg/api-proxy-auth" "^3.0.1"
+    "@tg/api-proxy-data" "^3.0.3"
+    axios "^0.19.2"
+    js-cookie "^2.2.1"
+    lodash "4.17.15"
+    mobx "^5.15.4"
+
+"@tg/api-proxy-url-preview@^3.0.1":
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy-url-preview/-/api-proxy-url-preview-3.0.1.tgz#f24719ae7076bf997b50c74ffb12cd6ff55fc482"
+  integrity sha512-4wRiJ8Dj/i08jAThjZVnzVCBD425WXOBmPKyY2PtNvruvC58FXnDiOW4+tJhDDJGLa/ktnNQxh+Hk1m2Z8uA4A==
+  dependencies:
+    "@tg/api-proxy" "^3.0.3"
+    "@tg/api-proxy-auth" "^3.0.1"
+    "@tg/api-proxy-data" "^3.0.3"
+    axios "^0.19.2"
+    js-cookie "^2.2.1"
+    lodash "4.17.15"
+    mobx "^5.15.4"
+
+"@tg/api-proxy@^3.0.3":
+  version "3.0.3"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/api-proxy/-/api-proxy-3.0.3.tgz#cc58b72ce1c381c8a803b27e13200730af172c54"
+  integrity sha512-04x2aVaf1hIyhD16/TGz16+T4HlCRWBbC6SJPTzsSL5v2DtZe2T+C21k48cBoQ06p7E7JRgwXPXODnosfl7iUg==
+  dependencies:
+    "@tg/utils" "^3.0.0"
     axios "^0.19.2"
     lodash "^4.17.15"
     qs "^6.9.1"
     stringify-object "^3.3.0"
+
+"@tg/app@^3.0.4":
+  version "3.0.4"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/app/-/app-3.0.4.tgz#93134f8b21fa24d705fe9e82cb46b0db6d2b4f41"
+  integrity sha512-D4jZAyDGo8JP6lcNcp3FXd3f2dGiY2xIVh3gJmTxem0OcsejgPARGwJLDYoaVwnMdavuIA1U7zNJR/WBQ7iYRA==
+  dependencies:
+    "@tg/api-proxy-auth" "^3.0.1"
+    "@tg/api-proxy-drafts" "^3.0.1"
+    "@tg/editor" "^3.0.1"
+    "@tg/modal" "^3.0.2"
+    axios "^0.19.2"
+    express "^4.17.1"
+    mobx "^5.15.4"
+    mobx-react "^6.1.4"
+    react "^16.12.0"
+    react-helmet "^5.2.1"
+    serialize-javascript "^2.1.2"
+
+"@tg/async@^3.0.1":
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/async/-/async-3.0.1.tgz#f24cd6d3b590fd1f97600f86825475c4de37a8db"
+  integrity sha512-QOMBsxc0W1M8dDBq149DuTklsb63mV8gybzspsDDfao+I8D4/JGiTDPQ0L0m7nBHWDfkrvt1gy/VLmXCOCxmug==
+  dependencies:
+    axios "^0.19.2"
+    lodash "^4.17.15"
 
 "@tg/blocks@^3.0.0":
   version "3.0.0"
@@ -1455,15 +1480,15 @@
     react-transition-group "^4.3.0"
     remove-markdown "^0.3.0"
 
-"@tg/calendar@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/calendar/-/calendar-3.0.0.tgz#4ec1f7afc079dc1bb79f47a4c4a6588d1dc1c2a6"
-  integrity sha512-Q1IlmZy68+3La4XZ85GsNni5PjEJERf2wjRYPOwtomZJkk0SzQG9X7KyW1ozbb5nnNJEeqxij984w+4CIRC32A==
+"@tg/calendar@^3.0.1":
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/calendar/-/calendar-3.0.1.tgz#6087c2277fa784dc10db6c2a35340c704e470125"
+  integrity sha512-FY0mydLQmRezavJNWI9JWHKhIN9BoHrwuHVPEtQK5e/yhqCXHQAfHBMfv47ZdPCU5U1sjf4EHEytlJxqlPQ5kQ==
   dependencies:
     "@tg/config" "^3.0.0"
-    "@tg/elm" "^3.0.0"
+    "@tg/elm" "^3.0.2"
     "@tg/kit-utils" "^3.0.0"
-    "@tg/resources" "^0.0.4"
+    "@tg/resources" "^3.0.0"
     flatpickr "^4.6.3"
     lodash "^4.17.15"
     mobx "^5.15.4"
@@ -1548,23 +1573,23 @@
     webpack-merge "^4.2.2"
     webpack-node-externals "^1.7.2"
 
-"@tg/editor@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/editor/-/editor-3.0.0.tgz#eeb1739cdb26aeaccead6b40f8e15d0af7bccab6"
-  integrity sha512-d/0QGQZamq7Zo01GF04MpbHN9zXfJqnW5eutteWrHq5bIJ05/zirkCA5mDfxkYxvCZ/zuPbkImDUNnytCEMF9g==
+"@tg/editor@^3.0.0", "@tg/editor@^3.0.1":
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/editor/-/editor-3.0.1.tgz#53bbdcdfb83e0afbaa4bb113b1ac62aa31ffb0b6"
+  integrity sha512-M0Oa6ftSFhto+WvVRTOptCxNzarbEbevunMs+AdRqSvGAovCC7tCsmZDqsJBjNvMmUt6H104z+0U+GCIMjWCEw==
   dependencies:
-    "@tg/api-proxy" "^3.0.1"
-    "@tg/api-proxy-drafts" "^3.0.0"
-    "@tg/api-proxy-url-preview" "^3.0.0"
+    "@tg/api-proxy" "^3.0.3"
+    "@tg/api-proxy-drafts" "^3.0.1"
+    "@tg/api-proxy-url-preview" "^3.0.1"
     "@tg/blocks" "^3.0.0"
-    "@tg/calendar" "^3.0.0"
+    "@tg/calendar" "^3.0.1"
     "@tg/config" "^3.0.0"
-    "@tg/elm" "^3.0.0"
+    "@tg/elm" "^3.0.2"
     "@tg/kit-elm" "^3.0.1"
     "@tg/kit-utils" "^3.0.0"
-    "@tg/layout" "^3.0.0"
-    "@tg/modal" "^3.0.1"
-    "@tg/resources" "^0.0.4"
+    "@tg/layout" "^3.0.2"
+    "@tg/modal" "^3.0.2"
+    "@tg/resources" "^3.0.0"
     emoji-mart "^2.11.2"
     lodash "^4.17.15"
     mobx "^5.15.4"
@@ -1582,28 +1607,32 @@
     slate-prop-types "0.5.42"
     slate-react "0.57.1"
 
-"@tg/elm@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/elm/-/elm-3.0.0.tgz#c4ba66ec28447acbff93a9d452efc8481f2e69ac"
-  integrity sha512-PSb8DY03ABBbAR4zbvKjqifk332Qun3v9rF/Awa9siovFbjOAlplhpv9lXsP9ZmmoxcDJg4dikwJggBSz84t8w==
+"@tg/elm@3.0.2", "@tg/elm@^3.0.0", "@tg/elm@^3.0.2":
+  version "3.0.2"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/elm/-/elm-3.0.2.tgz#6d4265cb348fd11c4e57ea0e8cd7f37742caf48a"
+  integrity sha512-nTI8OiRsSudZEP/4sN8uGaoQM7qwH/FBYuSzg2zVjtfjCiE2QT2Kv2RpyjyfyENPo8R4KYPI6zGSuFcJ8CfTQg==
   dependencies:
-    "@tg/config" "^3.0.0"
-    "@tg/form" "^3.0.1"
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
-    "@tg/resources" "^0.0.4"
+    "@tg/form" "^3.0.3"
+    "@tg/resources" "^3.0.0"
+    "@tg/utils" "^3.0.0"
     lodash "^4.17.15"
     npm "^6.13.7"
     react "^16.12.0"
     react-loadable "^5.5.0"
 
-"@tg/form@^3.0.1":
+"@tg/exceptions@^3.0.1":
   version "3.0.1"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/form/-/form-3.0.1.tgz#b2b9682032a769b85cc098e1a23b2c7f9bec0b79"
-  integrity sha512-eW63NxwHg8iVySIDo7f466MpHi8cgDp+hatoU3p9qCPWJmpgdr0kjwineeqGghO68pZHstfnuqA8tBl/XpHEbg==
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/exceptions/-/exceptions-3.0.1.tgz#700380cb4a98dd4d7dd1064a8299091f408eacc2"
+  integrity sha512-II6fus3DAHce45d5l/W0Iw1QEvyLTs6Qdx15mTsacWibfxI2Gas+N30EMfuy8L8Hv/Lem3BmCyJCpv0qtaQCig==
+
+"@tg/form@^3.0.1", "@tg/form@^3.0.3":
+  version "3.0.3"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/form/-/form-3.0.3.tgz#a3dfd9501361e5bc6e19f83522141a9d87950bc1"
+  integrity sha512-RjyvYLXJvNKOo6Gcy82geZVp4r4r1X1CiakSM8/fD0htM8EdhYoT1tO52ohw9pwXLFlxRiCAd8pogxEX4ioRFg==
   dependencies:
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
+    "@tg/async" "^3.0.1"
+    "@tg/utils" "^3.0.0"
+    "@tg/wrapper" "^3.0.1"
     axios "^0.19.2"
     imask "^6.0.1"
     lodash "^4.17.15"
@@ -1615,7 +1644,7 @@
     qs "^6.9.1"
     react "16.12.0"
 
-"@tg/kit-elm@3.0.1", "@tg/kit-elm@^3.0.1":
+"@tg/kit-elm@^3.0.1":
   version "3.0.1"
   resolved "https://nexus.tgpost.me/repository/npm-private/@tg/kit-elm/-/kit-elm-3.0.1.tgz#8b8ca9b469423cecb258fa2de6a491cccc51bcf2"
   integrity sha512-x0MIGuiXSk1oexBYJG6WN5Vl5R8A076oTCGYGHHO3OMvZ6vEv0Q9sa9V3GwCr2hoT61a4d3Y0RpAhnC1uhQZ5w==
@@ -1649,26 +1678,35 @@
     react "16.12.0"
     react-router "^5.1.2"
 
-"@tg/layout@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/layout/-/layout-3.0.0.tgz#849ce3d5464aadc91f34fc162831ee3a837137db"
-  integrity sha512-FIsN5cO7DY1IW4Az+X0kcI2J7wYSyLxbTOAzNjmZG7d54/7ceY9Sj9ypXrjkCvaq8feycgz2qODDhBcSiClAqg==
+"@tg/layout@^3.0.0", "@tg/layout@^3.0.2":
+  version "3.0.2"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/layout/-/layout-3.0.2.tgz#69f0f6512c1104b0ba5e2a16366c4afb3965a29e"
+  integrity sha512-mCfXg2RZrPNQUUa4/3N6jvQg1X+1G1N91boYBvBYaOKKElF/W0f6TBQmaVcdmnsfQ6AQFXWjHt3rauvaREZjHA==
   dependencies:
-    "@tg/elm" "^3.0.0"
+    "@tg/elm" "^3.0.2"
     "@tg/kit-elm" "^3.0.1"
-    "@tg/resources" "^0.0.4"
+    "@tg/resources" "^3.0.0"
     lodash "^4.17.15"
     npm "^6.13.7"
     react "^16.12.0"
     react-scrollbars-custom "^4.0.21"
 
-"@tg/modal@^3.0.1":
+"@tg/media@^3.0.1":
   version "3.0.1"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/modal/-/modal-3.0.1.tgz#3cdf0caf5cd3774d7fdfe833f241ade8657207cd"
-  integrity sha512-c07nJOpozjc53Mqut4lvYH9ETuYMd0f6qLNtvNV+itHiSSR04F+GVt6X6efX6Ak6L0rE4DG6e3lADiXiON+NQg==
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/media/-/media-3.0.1.tgz#a0977cf9382a2f2c2d2e82fae3e4708f899005bc"
+  integrity sha512-wrmvhOc3u+cCxvVqIqNxuNZorqguDIXXodeK4/0/co0VGGk9rsqEHwsJkebp8J6FPqoSpuK7GFVX+2tPNuYmTQ==
   dependencies:
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
+    axios "^0.19.2"
+    mobx "^5.15.4"
+    mobx-react "^6.1.4"
+    react "^16.12.0"
+
+"@tg/modal@^3.0.1", "@tg/modal@^3.0.2":
+  version "3.0.2"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/modal/-/modal-3.0.2.tgz#37d41e1a1ab474b9c48186262afab3a2038f2403"
+  integrity sha512-vB/ngXHSCNyTOpZmjutJ0Re+sFqikGJZnvQyuNoUdYahG2SxZ3xLI4/yV/u6f0vh4pLhM0t2BA8Ko4Pz5xYr2A==
+  dependencies:
+    "@tg/utils" "^3.0.0"
     lodash "^4.17.15"
     mobx "^5.15.4"
     mobx-react "^6.1.5"
@@ -1676,28 +1714,12 @@
     react-custom-scrollbars "^4.2.1"
     react-dom "16.12.0"
 
-"@tg/notifications@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/notifications/-/notifications-3.0.0.tgz#820d3d473c1bf1fe815e62955ebdd2447f3b9e85"
-  integrity sha512-DAAuIK9xpQxUAkCA6k3XKEprQBpKRB/boYYx1R8IpLX0n+Ig9pqqbVfuakL9c/TQ26qpL6AK+6xpjcDZwD79ZQ==
+"@tg/notify@^3.0.1", "@tg/notify@^3.0.3":
+  version "3.0.3"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/notify/-/notify-3.0.3.tgz#a2c0deae32b6a0519eab6fe626d1281c56f58ad1"
+  integrity sha512-ouFuYHUXvqGCRM9gH4A7sALvd1r7djEg8HX09+qHAItCX6RHAdAotCKzRVPY/c7iIK+1DU/LpzlIDDuKFBWnGg==
   dependencies:
-    "@tg/elm" "^3.0.0"
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
-    "@tg/resources" "^0.0.4"
-    lodash "^4.17.15"
-    mobx-react "^6.1.4"
-    npm "^6.13.7"
-    react "^16.12.0"
-    react-loadable "^5.5.0"
-
-"@tg/notify@^3.0.1":
-  version "3.0.1"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/notify/-/notify-3.0.1.tgz#4065a2d47aaf7e70b9108487ef9d72da5ac5e5f0"
-  integrity sha512-QaR/f/E2SIzIvFczQGo3iQpPzFarHBunuglVl0ZGl5c63YsEwJXTrc6Oj3dMRDGHjU+4/0ZA1A/Baq6eR08JXA==
-  dependencies:
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
+    "@tg/utils" "^3.0.0"
     lodash "^4.17.15"
     mobx "^5.15.4"
     mobx-react "^6.1.5"
@@ -1729,15 +1751,15 @@
     postcss-url "^8.0.0"
 
 "@tg/uploader@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/uploader/-/uploader-3.0.0.tgz#5421cd060f49297e4ff33166eabf143107022848"
-  integrity sha512-7IcsaPAtKox0E4HziskhghGs+C33Y8e1oEwPdwbSzjmQeHm6bteyGx53aOHPeI1lnxV2A1vtr/pgSgOsqO1H0Q==
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/uploader/-/uploader-3.0.1.tgz#f3e5d1d40556496b32591daf2d5b7f73264eff7b"
+  integrity sha512-b39S/gI3v7WhlXVa4whkwglqx3eXIb9KrCEiZIULGI5i3Eu9ibnsbenWjsHkUV8DdlfQBpN5C51hZ3asQFJh7Q==
   dependencies:
-    "@tg/api-proxy-upload" "^3.0.0"
-    "@tg/elm" "^3.0.0"
+    "@tg/api-proxy-upload" "^3.0.1"
+    "@tg/elm" "^3.0.2"
     "@tg/kit-elm" "^3.0.1"
     "@tg/kit-utils" "^3.0.0"
-    "@tg/resources" "^0.0.4"
+    "@tg/resources" "^3.0.0"
     lodash "^4.17.15"
     mobx "^5.15.4"
     mobx-react "^6.1.4"
@@ -1768,6 +1790,14 @@
     react-loadable "^5.5.0"
     react-router-dom "^5.1.2"
     serialize-javascript "2.1.2"
+
+"@tg/wrapper@^3.0.1":
+  version "3.0.1"
+  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/wrapper/-/wrapper-3.0.1.tgz#a9aac928d37ac62f25391089a1c169b032d71ab7"
+  integrity sha512-HE5X6cmrpZfCRp3Nth7GUEcIeCW8QivpiRBa/v2AB6EOXQcuTb8Fx8C4ykxDQqwk7ZWRCspW03S/Mq9K/1Da5g==
+  dependencies:
+    lodash "^4.17.15"
+    react "^16.12.0"
 
 "@types/anymatch@*":
   version "1.3.1"
@@ -2292,10 +2322,10 @@
     "@types/source-list-map" "*"
     source-map "^0.6.1"
 
-"@types/webpack@*", "@types/webpack@^4.4.31", "@types/webpack@^4.41.3":
-  version "4.41.3"
-  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.3.tgz#30c2251db1d69a45bbffd79c0577dd9baf50e7ba"
-  integrity sha512-dH+BZ6pHBZFrXpnif0YU/PbmUq3lQrvRPnqkxsciSIzvG/DE+Vm/Wrjn56T7V3+B5ryQa5fw0oGnHL8tk4ll6w==
+"@types/webpack@*", "@types/webpack@^4.4.31", "@types/webpack@^4.41.4":
+  version "4.41.4"
+  resolved "https://registry.yarnpkg.com/@types/webpack/-/webpack-4.41.4.tgz#6cd2d651d214c344640cbab1c82037289b0154cd"
+  integrity sha512-PlqTNzHzZ1UpBXKkq2wHAM8+jeMojJGfBFXjGB3/N4F4ESGeivdKsJuaS79rtbSofvjbwBIMOHP254mIq0ujiQ==
   dependencies:
     "@types/anymatch" "*"
     "@types/node" "*"
@@ -2331,47 +2361,47 @@
     "@types/yargs-parser" "*"
 
 "@typescript-eslint/eslint-plugin-tslint@^2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin-tslint/-/eslint-plugin-tslint-2.18.0.tgz#add2360e87a2f4c56484c8a19c3dbb34f73ff0de"
-  integrity sha512-nEaE1WZ/dU50TjaPLTNb/Hl4Irae0fMdMvh72XLhyPZj3WQyYbNn3XMs3Hv2Q8036CHSYZ/M7lPcPEPSf9b6Hg==
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin-tslint/-/eslint-plugin-tslint-2.19.0.tgz#94e1f105bea47660d6d439b9ed9e5b07e97a8a3e"
+  integrity sha512-a/0i6Q+GHojT2I+UccTrlBMnH7Y+evy7+Wg95Jiue4t+G+nITXV5hY5nI9tmY/L7P+SCdri9KDXj2lyn5O2F1g==
   dependencies:
-    "@typescript-eslint/experimental-utils" "2.18.0"
+    "@typescript-eslint/experimental-utils" "2.19.0"
     lodash "^4.17.15"
 
-"@typescript-eslint/eslint-plugin@^2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.18.0.tgz#f8cf272dfb057ecf1ea000fea1e0b3f06a32f9cb"
-  integrity sha512-kuO8WQjV+RCZvAXVRJfXWiJ8iYEtfHlKgcqqqXg9uUkIolEHuUaMmm8/lcO4xwCOtaw6mY0gStn2Lg4/eUXXYQ==
+"@typescript-eslint/eslint-plugin@^2.18.0", "@typescript-eslint/eslint-plugin@^2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-2.19.0.tgz#bf743448a4633e4b52bee0c40148ba072ab3adbd"
+  integrity sha512-u7IcQ9qwsB6U806LupZmINRnQjC+RJyv36sV/ugaFWMHTbFm/hlLTRx3gGYJgHisxcGSTnf+I/fPDieRMhPSQQ==
   dependencies:
-    "@typescript-eslint/experimental-utils" "2.18.0"
+    "@typescript-eslint/experimental-utils" "2.19.0"
     eslint-utils "^1.4.3"
     functional-red-black-tree "^1.0.1"
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.18.0.tgz#e4eab839082030282496c1439bbf9fdf2a4f3da8"
-  integrity sha512-J6MopKPHuJYmQUkANLip7g9I82ZLe1naCbxZZW3O2sIxTiq/9YYoOELEKY7oPg0hJ0V/AQ225h2z0Yp+RRMXhw==
+"@typescript-eslint/experimental-utils@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.19.0.tgz#d5ca732f22c009e515ba09fcceb5f2127d841568"
+  integrity sha512-zwpg6zEOPbhB3+GaQfufzlMUOO6GXCNZq6skk+b2ZkZAIoBhVoanWK255BS1g5x9bMwHpLhX0Rpn5Fc3NdCZdg==
   dependencies:
     "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.18.0"
+    "@typescript-eslint/typescript-estree" "2.19.0"
     eslint-scope "^5.0.0"
 
-"@typescript-eslint/parser@^2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.18.0.tgz#d5f7fc1839abd4a985394e40e9d2454bd56aeb1f"
-  integrity sha512-SJJPxFMEYEWkM6pGfcnjLU+NJIPo+Ko1QrCBL+i0+zV30ggLD90huEmMMhKLHBpESWy9lVEeWlQibweNQzyc+A==
+"@typescript-eslint/parser@^2.18.0", "@typescript-eslint/parser@^2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-2.19.0.tgz#912160d9425395d09857dcd5382352bc98be11ae"
+  integrity sha512-s0jZoxAWjHnuidbbN7aA+BFVXn4TCcxEVGPV8lWMxZglSs3NRnFFAlL+aIENNmzB2/1jUJuySi6GiM6uACPmpg==
   dependencies:
     "@types/eslint-visitor-keys" "^1.0.0"
-    "@typescript-eslint/experimental-utils" "2.18.0"
-    "@typescript-eslint/typescript-estree" "2.18.0"
+    "@typescript-eslint/experimental-utils" "2.19.0"
+    "@typescript-eslint/typescript-estree" "2.19.0"
     eslint-visitor-keys "^1.1.0"
 
-"@typescript-eslint/typescript-estree@2.18.0":
-  version "2.18.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.18.0.tgz#cfbd16ed1b111166617d718619c19b62764c8460"
-  integrity sha512-gVHylf7FDb8VSi2ypFuEL3hOtoC4HkZZ5dOjXvVjoyKdRrvXAOPSzpNRnKMfaUUEiSLP8UF9j9X9EDLxC0lfZg==
+"@typescript-eslint/typescript-estree@2.19.0":
+  version "2.19.0"
+  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.19.0.tgz#6bd7310b9827e04756fe712909f26956aac4b196"
+  integrity sha512-n6/Xa37k0jQdwpUszffi19AlNbVCR0sdvCs3DmSKMD7wBttKY31lhD2fug5kMD91B2qW4mQldaTEc1PEzvGu8w==
   dependencies:
     debug "^4.1.1"
     eslint-visitor-keys "^1.1.0"
@@ -3935,9 +3965,9 @@ caniuse-api@^3.0.0:
     lodash.uniq "^4.5.0"
 
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30001020, caniuse-lite@^1.0.30001023:
-  version "1.0.30001023"
-  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001023.tgz#b82155827f3f5009077bdd2df3d8968bcbcc6fc4"
-  integrity sha512-C5TDMiYG11EOhVOA62W1p3UsJ2z4DsHtMBQtjzp3ZsUglcQn62WOUgW0y795c7A5uZ+GCEIvzkMatLIlAsbNTA==
+  version "1.0.30001025"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001025.tgz#30336a8aca7f98618eb3cf38e35184e13d4e5fe6"
+  integrity sha512-SKyFdHYfXUZf5V85+PJgLYyit27q4wgvZuf8QTOk1osbypcROihMBlx9GRar2/pIcKH2r4OehdlBr9x6PXetAQ==
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -4483,9 +4513,9 @@ commander@^2.11.0, commander@^2.12.1, commander@^2.18.0, commander@^2.19.0, comm
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
 commander@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.0.tgz#545983a0603fe425bc672d66c9e3c89c42121a83"
-  integrity sha512-NIQrwvv9V39FHgGFm36+U9SMQzbiHvU79k+iADraJTpmrFFfx7Ds0IvDoAdZsDrknlkRk14OYoWXb57uTh7/sw==
+  version "4.1.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
+  integrity sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==
 
 commander@~2.19.0:
   version "2.19.0"
@@ -5256,7 +5286,7 @@ debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   dependencies:
     ms "^2.1.1"
 
-debuglog@^1.0.1:
+debuglog@*, debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -5756,9 +5786,9 @@ ejs@^2.6.1:
   integrity sha512-7vmuyh5+kuUyJKePhQfRQBhXV5Ce+RnaeeQArKu1EAMpL3WbgMt5WG6uQZpEVvYSSsxMXRKOewtDk9RaTKXRlA==
 
 electron-to-chromium@^1.3.341:
-  version "1.3.344"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.344.tgz#f1397a633c35e726730c24be1084cd25c3ee8148"
-  integrity sha512-tvbx2Wl8WBR+ym3u492D0L6/jH+8NoQXqe46+QhbWH3voVPauGuZYeb1QAXYoOAWuiP2dbSvlBx0kQ1F3hu/Mw==
+  version "1.3.345"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.345.tgz#2569d0d54a64ef0f32a4b7e8c80afa5fe57c5d98"
+  integrity sha512-f8nx53+Z9Y+SPWGg3YdHrbYYfIJAtbUjpFfW4X1RwTZ94iUG7geg9tV8HqzAXX7XTNgyWgAFvce4yce8ZKxKmg==
 
 elliptic@^6.0.0:
   version "6.5.2"
@@ -6255,10 +6285,10 @@ eslint-plugin-react@^3.4.2:
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-3.16.1.tgz#262d96b77d7c4a42af809a73c0e527a58612293c"
   integrity sha1-Ji2Wt318SkKvgJpzwOUnpYYSKTw=
 
-eslint-plugin-react@^7.18.2:
-  version "7.18.2"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.18.2.tgz#83d52cd783524cb5f6616e029c892ec08ee59e23"
-  integrity sha512-6m1zFCSB8OKVIVyGipz1TJxVuNfgvbbUa7O9fxqyyT0b15tB2X/rxMNCGQv3LTD4XOKmG/ONr52FZHur0OKFkg==
+eslint-plugin-react@^7.18.2, eslint-plugin-react@^7.18.3:
+  version "7.18.3"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.18.3.tgz#8be671b7f6be095098e79d27ac32f9580f599bc8"
+  integrity sha512-Bt56LNHAQCoou88s8ViKRjMB2+36XRejCQ1VoLj716KI1MoE99HpTVvIThJ0rvFmG4E4Gsq+UgToEjn+j044Bg==
   dependencies:
     array-includes "^3.1.1"
     doctrine "^2.1.0"
@@ -8216,7 +8246,7 @@ import-local@^3.0.2:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
 
-imurmurhash@^0.1.4:
+imurmurhash@*, imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -8986,9 +9016,9 @@ istanbul-lib-coverage@^3.0.0:
   integrity sha512-UiUIqxMgRDET6eR+o5HbfRYP1l0hqkWOs7vNxC/mggutCMUIhWMm8gAHb8tHlyfD3/l6rlgNA5cKdDzEAf6hEg==
 
 istanbul-lib-instrument@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.0.tgz#53321a7970f076262fd3292c8f9b2e4ac544aae1"
-  integrity sha512-Nm4wVHdo7ZXSG30KjZ2Wl5SU/Bw7bDx1PdaiIFzEStdjs0H12mOTncn1GVYuqQSaZxpg87VGBRsVRPGD2cD1AQ==
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.1.tgz#61f13ac2c96cfefb076fe7131156cc05907874e6"
+  integrity sha512-imIchxnodll7pvQBYOqUu88EufLCU56LMeFPZZM/fJZ1irYcYdqroaV+ACK1Ila8ls09iEYArp+nqyC6lW1Vfg==
   dependencies:
     "@babel/core" "^7.7.5"
     "@babel/parser" "^7.7.5"
@@ -10214,7 +10244,7 @@ lodash._basefor@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._basefor/-/lodash._basefor-3.0.3.tgz#7550b4e9218ef09fad24343b612021c79b4c20c2"
   integrity sha1-dVC06SGO8J+tJDQ7YSAhx5tMIMI=
 
-lodash._baseindexof@^3.0.0:
+lodash._baseindexof@*, lodash._baseindexof@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
   integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
@@ -10227,12 +10257,12 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
-lodash._bindcallback@^3.0.0:
+lodash._bindcallback@*, lodash._bindcallback@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
   integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
 
-lodash._cacheindexof@^3.0.0:
+lodash._cacheindexof@*, lodash._cacheindexof@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
   integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
@@ -10246,7 +10276,7 @@ lodash._createassigner@^3.0.0:
     lodash._isiterateecall "^3.0.0"
     lodash.restparam "^3.0.0"
 
-lodash._createcache@^3.0.0:
+lodash._createcache@*, lodash._createcache@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
   integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
@@ -10258,7 +10288,7 @@ lodash._createset@~4.0.0:
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
 
-lodash._getnative@^3.0.0:
+lodash._getnative@*, lodash._getnative@^3.0.0:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
   integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
@@ -10426,7 +10456,7 @@ lodash.pick@^3.1.0:
     lodash._pickbycallback "^3.0.0"
     lodash.restparam "^3.0.0"
 
-lodash.restparam@^3.0.0:
+lodash.restparam@*, lodash.restparam@^3.0.0:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
   integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=
@@ -11201,9 +11231,9 @@ nearley@^2.7.10:
     semver "^5.4.1"
 
 needle@^2.2.1:
-  version "2.4.0"
-  resolved "https://registry.yarnpkg.com/needle/-/needle-2.4.0.tgz#6833e74975c444642590e15a750288c5f939b57c"
-  integrity sha512-4Hnwzr3mi5L97hMYeNl8wRW/Onhy4nUKR/lVemJ8gJedxxUyBLm9kkrDColJvoSfwi0jCNhD+xCdOtiGDQiRZg==
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/needle/-/needle-2.3.2.tgz#3342dea100b7160960a450dc8c22160ac712a528"
+  integrity sha512-DUzITvPVDUy6vczKKYTnWc/pBZ0EnjMJnQ3y+Jo5zfKFimJs7S3HFCxCRZYB9FUZcrzUQr3WsmvZgddMEIZv6w==
   dependencies:
     debug "^3.2.6"
     iconv-lite "^0.4.4"
@@ -11361,6 +11391,22 @@ node-notifier@^6.0.0:
     semver "^6.3.0"
     shellwords "^0.1.1"
     which "^1.3.1"
+
+node-pre-gyp@*:
+  version "0.14.0"
+  resolved "https://registry.yarnpkg.com/node-pre-gyp/-/node-pre-gyp-0.14.0.tgz#9a0596533b877289bcad4e143982ca3d904ddc83"
+  integrity sha512-+CvDC7ZttU/sSt9rFjix/P05iS43qHCOOGzcr3Ry99bXG7VX953+vFyEuph/tfqoYu8dttBkE86JSKBO2OzcxA==
+  dependencies:
+    detect-libc "^1.0.2"
+    mkdirp "^0.5.1"
+    needle "^2.2.1"
+    nopt "^4.0.1"
+    npm-packlist "^1.1.6"
+    npmlog "^4.0.2"
+    rc "^1.2.7"
+    rimraf "^2.6.1"
+    semver "^5.3.0"
+    tar "^4.4.2"
 
 node-pre-gyp@^0.13.0:
   version "0.13.0"
@@ -13541,10 +13587,10 @@ rc-animate@^2.10.2:
     rc-util "^4.15.3"
     react-lifecycles-compat "^3.0.4"
 
-rc-slider@^9.1.0:
-  version "9.1.0"
-  resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-9.1.0.tgz#553895b74061ba6f11a944b6e0000d2f2c6692b7"
-  integrity sha512-H35c2OZ40NRhJGmIR91uTWnfUjmtDpCMorRsNp6It3BdEG7mYnQBfy+mnbaWN4FL2fbsdrDThlxzAeIP9JNhow==
+rc-slider@^9.2.0:
+  version "9.2.0"
+  resolved "https://registry.yarnpkg.com/rc-slider/-/rc-slider-9.2.0.tgz#d604ffa4487ef977b538472402329b76f222e99d"
+  integrity sha512-7AhxFFgIYtzCqopvNzgMBbn97ZrwMe5Ojv/pRLSSqyULPSc5e2grjtPPyX7Tm/2lheFS2DXP3C64KH+v7LwGnQ==
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.5"
@@ -14640,9 +14686,9 @@ rollup-plugin-node-resolve@^5.2.0:
     rollup-pluginutils "^2.8.1"
 
 rollup-plugin-postcss@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-2.0.5.tgz#93cad7b22e2647a013f3f158c2d45796e9885626"
-  integrity sha512-7z6gyeArYukoU+pyonj///KIak0lYWxhbaT6uJUESM1gBrqiXWMEHdvBcXysajtRsRBD8ZIMXD3smlFEN+sZkw==
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/rollup-plugin-postcss/-/rollup-plugin-postcss-2.0.6.tgz#7e1c4e299e42cca170de7b789ecdd405a154c5a6"
+  integrity sha512-DTfIoKoC6ljQA4MmrPVbjnumWFx9tZAylDnduIhwJy9JQsq0iiVFmHy0c4cM//h7Auhf1RGB3FLqFuyNUcnExQ==
   dependencies:
     chalk "^2.4.2"
     concat-with-sourcemaps "^1.0.5"
@@ -16001,7 +16047,7 @@ tapable@^1.0.0, tapable@^1.1.3:
   resolved "https://registry.yarnpkg.com/tapable/-/tapable-1.1.3.tgz#a1fccc06b58db61fd7a45da2da44f5f3a3e67ba2"
   integrity sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==
 
-tar@^4, tar@^4.4.10, tar@^4.4.12, tar@^4.4.13:
+tar@^4, tar@^4.4.10, tar@^4.4.12, tar@^4.4.13, tar@^4.4.2:
   version "4.4.13"
   resolved "https://registry.yarnpkg.com/tar/-/tar-4.4.13.tgz#43b364bc52888d555298637b10d60790254ab525"
   integrity sha512-w2VwSrBoHa5BsSyH+KxEqeQBAllHhccyMFVHtGtdMpF4W7IRWfZjFiQceJPChOeTsSDVUpER2T8FA93pr0L+QA==
@@ -16343,10 +16389,10 @@ tryor@~0.1.2:
   resolved "https://registry.yarnpkg.com/tryor/-/tryor-0.1.2.tgz#8145e4ca7caff40acde3ccf946e8b8bb75b4172b"
   integrity sha1-gUXkynyv9ArN48z5Rui4u3W0Fys=
 
-ts-jest@^25.1.0:
-  version "25.1.0"
-  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-25.1.0.tgz#06e776c4cce8a4da8eec4945f36a5823d0c0f9ba"
-  integrity sha512-1Lf576ulKhbxX5og+tG8udVg/5cgcMLPBxp1iCqbbf6VvUK4gEsgAtzMjl8u98izhLrzKMPB0LxCBKEZ5l19Hw==
+ts-jest@^25.2.0:
+  version "25.2.0"
+  resolved "https://registry.yarnpkg.com/ts-jest/-/ts-jest-25.2.0.tgz#dfd87c2b71ef4867f5a0a44f40cb9c67e02991ac"
+  integrity sha512-VaRdb0da46eorLfuHEFf0G3d+jeREcV+Wb/SvW71S4y9Oe8SHWU+m1WY/3RaMknrBsnvmVH0/rRjT8dkgeffNQ==
   dependencies:
     bs-logger "0.x"
     buffer-from "1.x"
@@ -16557,9 +16603,9 @@ uglify-js@3.4.x:
     source-map "~0.6.1"
 
 uglify-js@^3.1.4, uglify-js@^3.6.0:
-  version "3.7.6"
-  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.7.6.tgz#0783daa867d4bc962a37cc92f67f6e3238c47485"
-  integrity sha512-yYqjArOYSxvqeeiYH2VGjZOqq6SVmhxzaPjJC1W2F9e+bqvFL9QXQ2osQuKUFjM2hGjKG2YclQnRKWQSt/nOTQ==
+  version "3.7.7"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.7.7.tgz#21e52c7dccda80a53bf7cde69628a7e511aec9c9"
+  integrity sha512-FeSU+hi7ULYy6mn8PKio/tXsdSXN35lm4KgV2asx00kzrLU9Pi3oAslcJT70Jdj7PHX29gGUPOT6+lXGBbemhA==
   dependencies:
     commander "~2.20.3"
     source-map "~0.6.1"

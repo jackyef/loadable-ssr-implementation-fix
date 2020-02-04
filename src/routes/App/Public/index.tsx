@@ -4,7 +4,7 @@
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { renderRoutes } from '@tg/kit-utils';
+import { renderRoutes } from '@tg/utils';
 
 import { Scrollbars } from '@tg/layout';
 

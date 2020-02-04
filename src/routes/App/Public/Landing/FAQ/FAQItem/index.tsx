@@ -3,8 +3,7 @@
  */
 import React from 'react';
 
-import { Wrapper } from '@tg/kit-elm';
-
+import { Wrapper } from '@tg/wrapper';
 import { Headline } from '@tg/elm';
 
 // Styles

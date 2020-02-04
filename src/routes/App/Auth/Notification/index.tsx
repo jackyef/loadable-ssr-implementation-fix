@@ -3,9 +3,8 @@
  */
 import React from 'react';
 
-import { Btn } from '@tg/kit-elm';
+import { Btn } from '@tg/app';
 import { PropsNotify } from '@tg/notify';
-
 import { IconClose } from '@tg/resources';
 
 // Styles

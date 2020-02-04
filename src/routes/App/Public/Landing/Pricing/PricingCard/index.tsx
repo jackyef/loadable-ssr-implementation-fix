@@ -4,9 +4,9 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Icon, Wrapper } from '@tg/kit-elm';
-
-import { Btn, Headline } from '@tg/elm';
+import { Wrapper } from '@tg/wrapper';
+import { Icon, Headline } from '@tg/elm';
+import { Btn } from '@tg/app';
 import { IconBeta } from '@tg/resources';
 
 // Styles

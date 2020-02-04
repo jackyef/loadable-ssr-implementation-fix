@@ -6,10 +6,10 @@ import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
-import { canUseDOM } from '@tg/kit-utils';
+import { canUseDOM } from '@tg/utils';
 
-import { Btn, FieldInput, Headline } from '@tg/elm';
-import { customValidators as validators } from '@tg/utils';
+import { Headline } from '@tg/elm';
+import { Btn, FieldInput, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/resources';
 
@@ -70,8 +70,9 @@ const SignUp: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn submit form={ formStore } title="Create account"
+				<Btn title="Create account"
 					style={ { main: 'general' } }
+					onClick={ () => formStore.submit() }
 				/>
 
 				{/* Divider */}

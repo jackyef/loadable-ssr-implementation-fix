@@ -4,8 +4,8 @@ import Cookies from 'js-cookie';
 // import Raven from 'raven-js';
 
 import { NotifyBox } from '@tg/notify';
-import { renderRoutes, canUseDOM } from '@tg/kit-utils';
-import { NotifyCommon } from '@tg/notifications';
+import { renderRoutes, canUseDOM } from '@tg/utils';
+import { NotifyCommon } from '@tg/app';
 
 import { notifyStore } from '../../stores';
 

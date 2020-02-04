@@ -5,8 +5,9 @@ import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 
-import { renderRoutes, canUseDOM, jwtExpired } from '@tg/kit-utils';
-import { Btn, Logo } from '@tg/elm';
+import { renderRoutes, canUseDOM, jwtExpired } from '@tg/utils';
+import { Logo } from '@tg/elm';
+import { Btn } from '@tg/app';
 
 import { history } from '../../';
 import { routes } from '../../../config';

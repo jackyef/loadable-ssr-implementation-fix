@@ -5,8 +5,9 @@ import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
-import { canUseDOM } from '@tg/kit-utils';
-import { Btn, Headline, Logo } from '@tg/elm';
+import { canUseDOM } from '@tg/utils';
+import { Btn } from '@tg/app';
+import { Headline, Logo } from '@tg/elm';
 import { Scrollbars } from '@tg/layout';
 
 import { commonNavBtnProps, scroll } from '../../../utils';

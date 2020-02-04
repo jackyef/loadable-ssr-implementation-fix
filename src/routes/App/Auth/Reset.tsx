@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 
-import { FieldInput, Btn, Headline } from '@tg/elm';
-import { customValidators as validators } from '@tg/utils';
+import { Headline } from '@tg/elm';
+import { FieldInput, Btn, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { NotifyBox, awakeNotification, notifyStore } from './utils/notification';

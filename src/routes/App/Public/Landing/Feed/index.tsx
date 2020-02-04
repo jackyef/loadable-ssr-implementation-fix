@@ -6,11 +6,12 @@ import _ from 'lodash';
 import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
-import { uuid } from '@tg/kit-utils';
+import { uuid } from '@tg/utils';
 import { Headline } from '@tg/elm';
-import { ListPostsPreview } from '@tg/blocks';
-import { ContextStores, CLIENT_DATEFORMAT } from '@tg/config';
+import { StoreMedia } from '@tg/media';
+import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
+import { createAxiosInstance, authRefresher } from '@tg/api-proxy-auth';
 import { resources } from '@tg/resources';
 
 import { ContentBlock, FeaturesSwitcher } from '../../../../../components';
@@ -29,6 +30,13 @@ type Styles = {
  * Empty posts store
  */
 const storePosts = new DataPost();
+
+/**
+ * Media store
+ */
+const onRefreshFailed = (): void => localStorage.removeItem('id_token');
+const axiosInstance = createAxiosInstance({}, { ...authRefresher, onRefreshFailed });
+const media = new StoreMedia('', axiosInstance);
 
 type Props = {
 	active?: number;
@@ -113,7 +121,7 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 			</div>
 
 			{/* Right part */}
-			<ContextStores.Provider value={ { posts: storePosts  } }>
+			<ContextStores.Provider value={ { posts: storePosts, media } }>
 				<ul className={ styles.right }>
 					{
 						_.map(postsData, (data, index) => (

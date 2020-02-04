@@ -6,7 +6,7 @@ import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
 
 // SSR renderer function
-import { renderer } from '@tg/utils';
+import { renderer } from '@tg/app';
 
 // Routes
 import { indexRoute } from './config';

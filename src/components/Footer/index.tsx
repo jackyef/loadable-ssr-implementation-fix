@@ -3,7 +3,8 @@
  */
 import React from 'react';
 
-import { Btn, Logo } from '@tg/elm';
+import { Logo } from '@tg/elm';
+import { Btn } from '@tg/app';
 
 import { ContentBlock } from '../ContentBlock';
 import { routes } from '../../config';

@@ -6,9 +6,7 @@ import _ from 'lodash';
 import React from 'react';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
-import { Btn, FieldInput } from '@tg/elm';
-import { customValidators as validators } from '@tg/utils';
-
+import { validators, Btn, FieldInput } from '@tg/app';
 import { IconArrowReverse } from '@tg/resources';
 
 import importedStyles from './GetStarted.module.less';

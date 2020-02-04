@@ -7,14 +7,12 @@ import { Helmet } from 'react-helmet';
 import qs from 'qs';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
-import { canUseDOM } from '@tg/kit-utils';
-
-import { Btn, FieldInput, Headline } from '@tg/elm';
-import { customValidators as validators } from '@tg/utils';
+import { canUseDOM } from '@tg/utils';
+import { Headline } from '@tg/elm';
+import { validators, Btn, FieldInput } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from '../../../config';
-
 import { NotifyBox, awakeNotification, notifyStore } from './utils/notification';
 
 // Styles
