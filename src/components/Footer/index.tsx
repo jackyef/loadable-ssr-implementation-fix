@@ -28,9 +28,9 @@ export const Footer: React.FC<{}> = () => (
 		<Logo className={ styles.logo } />
 		<span>&copy; {'2019 prostpost'}</span>
 		<div>
-			<Btn style={ { main: 'nav' } } title="Contact Us" />
-			<Btn style={ { main: 'nav' } } title="Join our Channel" />
-			<Btn style={ { main: 'nav' } } url={ routes.pp } title="Terms and Privacy" />
+			<Btn style={ { main: 'nav', size: 'small' } } title="Contact Us" />
+			<Btn style={ { main: 'nav', size: 'small' } } title="Join our Channel" />
+			<Btn style={ { main: 'nav', size: 'small' } } url={ routes.pp } title="Terms and Privacy" />
 		</div>
 	</ContentBlock>
 );
