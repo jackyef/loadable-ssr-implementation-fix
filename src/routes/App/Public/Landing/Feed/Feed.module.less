@@ -1,6 +1,8 @@
 @import (reference) '~@tg/resources/styles/all';
 
 .self {
+	background: @cc-white;
+
 	> div {
 		display: flex;
 		justify-content: space-between;
@@ -29,7 +31,7 @@
 
 // Headline & features list
 .left {
-	width: 460px;
+	width: 400px;
 	height: 100%;
 
 	// Content block headline
@@ -39,13 +41,18 @@
 	}
 
 	// Media
+	// .media-tablet({
+	// 	width: 50%;
+	// 	max-width: 460px;
+	// 	margin-right: 30px;
+	// });
+
 	.media-tablet({
 		width: 50%;
 		max-width: 460px;
-		margin-right: 30px;
-	});
+		margin-right: 0;
+	}, 721px, 769px);
 
-	.media-tablet({ margin-right: 0; }, 700px, 769px);
 	.media-tablet({ margin-right: -50px; }, 640px, 699px);
 
 	.media-mobile({
@@ -115,8 +122,8 @@
 
 	// Media
 	.media-tablet({ margin-left: 30px; });
-	.media-tablet({ transform: scale(.9); }, 980px, 1099px);
-	.media-tablet({ transform: scale(.8); }, 880px, 979px);
+	.media-tablet({ transform: scale(.9); }, 980px, 1023px);
+	.media-tablet({ transform: scale(.8); margin-top: 50px; }, 880px, 1022px);
 	.media-tablet({ transform: scale(.7); margin-left: 0; margin-right: -30px; }, 760px, 879px);
 	.media-tablet({ transform: scale(.6); margin-left: 0; margin-right: -40px; }, 700px, 759px);
 	.media-tablet({ transform: scale(.6); margin-left: 0; margin-right: -60px; }, 640px, 699px);
@@ -136,11 +143,7 @@
 			&:last-child { margin-bottom: 80px; }
 
 			> div {
-				// TEMP
 				height: auto;
-				padding-bottom: 20px;
-				// ---
-
 				margin-top: 150px;
 
 				// Hide text lines started from third
@@ -148,7 +151,6 @@
 					> p {
 						overflow: hidden;
 
-						max-height: 40px;
 						margin-bottom: 10px;
 					}
 				}

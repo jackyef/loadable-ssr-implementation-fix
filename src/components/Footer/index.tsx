@@ -25,7 +25,7 @@ type Styles = {
  */
 export const Footer: React.FC<{}> = () => (
 	<ContentBlock wrapper="footer" className={ styles.self }>
-		<Logo className={ styles.logo } />
+		<Logo textOnly className={ styles.logo } />
 		<span>&copy; {'2019 prostpost'}</span>
 		<div>
 			<Btn style={ { main: 'nav', size: 'small' } } title="Contact Us" />

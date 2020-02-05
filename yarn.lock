@@ -1451,43 +1451,12 @@
     axios "^0.19.2"
     lodash "^4.17.15"
 
-"@tg/blocks@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/blocks/-/blocks-3.0.0.tgz#4c3acceae568b0a6fa3365d70f7c00d80ed4b81a"
-  integrity sha512-1rVmb5VaUxRShVpYxErbw12aXExiSOIdr+OLzfjP/hRJGa9PWNzZ7Wj8lHpCpeHCw+i8yLNSp9krTdtfAH+fnA==
-  dependencies:
-    "@tg/api-proxy-auth" "^3.0.0"
-    "@tg/api-proxy-bot" "^3.0.0"
-    "@tg/api-proxy-drafts" "^3.0.0"
-    "@tg/config" "^3.0.0"
-    "@tg/elm" "^3.0.0"
-    "@tg/form" "^3.0.1"
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
-    "@tg/layout" "^3.0.0"
-    "@tg/notify" "^3.0.1"
-    "@tg/resources" "^0.0.4"
-    "@tg/uploader" "^3.0.0"
-    "@tg/utils" "^3.0.0"
-    lodash "^4.17.15"
-    mobx "^5.15.4"
-    mobx-react "^6.1.4"
-    moment "^2.24.0"
-    moment-timezone "^0.5.27"
-    npm "^6.13.7"
-    react "^16.12.0"
-    react-dom "16.12.0"
-    react-transition-group "^4.3.0"
-    remove-markdown "^0.3.0"
-
 "@tg/calendar@^3.0.1":
   version "3.0.1"
   resolved "https://nexus.tgpost.me/repository/npm-private/@tg/calendar/-/calendar-3.0.1.tgz#6087c2277fa784dc10db6c2a35340c704e470125"
   integrity sha512-FY0mydLQmRezavJNWI9JWHKhIN9BoHrwuHVPEtQK5e/yhqCXHQAfHBMfv47ZdPCU5U1sjf4EHEytlJxqlPQ5kQ==
   dependencies:
-    "@tg/config" "^3.0.0"
     "@tg/elm" "^3.0.2"
-    "@tg/kit-utils" "^3.0.0"
     "@tg/resources" "^3.0.0"
     flatpickr "^4.6.3"
     lodash "^4.17.15"
@@ -1499,20 +1468,6 @@
     react "^16.12.0"
     react-dom "16.12.0"
     react-flatpickr "^3.9.1"
-
-"@tg/config@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/config/-/config-3.0.0.tgz#a1d65d045f008cc9f0a559a679bb09b1a99a6999"
-  integrity sha512-De/7vIrj5DUq68qIr39uCTQQ9o3mmUdimkKE0EB1NZd2r6Y8vdTslFnb37f8tHMGg0WlNqN4Txo/tsuTG1VdWQ==
-  dependencies:
-    "@tg/api-proxy-auth" "^3.0.0"
-    "@tg/api-proxy-drafts" "^3.0.0"
-    "@tg/editor" "^3.0.0"
-    "@tg/modal" "^3.0.1"
-    axios "^0.19.2"
-    mobx "^5.15.4"
-    mobx-react "^6.1.4"
-    react "^16.12.0"
 
 "@tg/configs@3.0.0":
   version "3.0.0"
@@ -1581,12 +1536,8 @@
     "@tg/api-proxy" "^3.0.3"
     "@tg/api-proxy-drafts" "^3.0.1"
     "@tg/api-proxy-url-preview" "^3.0.1"
-    "@tg/blocks" "^3.0.0"
     "@tg/calendar" "^3.0.1"
-    "@tg/config" "^3.0.0"
     "@tg/elm" "^3.0.2"
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
     "@tg/layout" "^3.0.2"
     "@tg/modal" "^3.0.2"
     "@tg/resources" "^3.0.0"
@@ -1644,47 +1595,12 @@
     qs "^6.9.1"
     react "16.12.0"
 
-"@tg/kit-elm@^3.0.1":
-  version "3.0.1"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/kit-elm/-/kit-elm-3.0.1.tgz#8b8ca9b469423cecb258fa2de6a491cccc51bcf2"
-  integrity sha512-x0MIGuiXSk1oexBYJG6WN5Vl5R8A076oTCGYGHHO3OMvZ6vEv0Q9sa9V3GwCr2hoT61a4d3Y0RpAhnC1uhQZ5w==
-  dependencies:
-    "@tg/kit-utils" "^3.0.0"
-    axios "^0.19.2"
-    imask "^6.0.1"
-    lodash "^4.17.15"
-    mobx-react "^6.1.5"
-    moment "^2.24.0"
-    moment-timezone "^0.5.27"
-    react "16.12.0"
-    react-custom-scrollbars "^4.2.1"
-    react-dom "16.12.0"
-    react-router "^5.1.2"
-    react-router-dom "^5.1.2"
-    react-sortable-hoc "^1.11.0"
-
-"@tg/kit-utils@^3.0.0":
-  version "3.0.0"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/kit-utils/-/kit-utils-3.0.0.tgz#76ae05d3662c9e0ff85a27c35d2f01f27c1a55ec"
-  integrity sha512-SlxmZpdiPfyrdkb+mrj2xnYjoCdA3EWwN+v66m1JP0mBhy5TS/5mrMQiM0xtmx6yAmhmWq5FHpy+eo4L5BZHYw==
-  dependencies:
-    axios "^0.19.2"
-    js-cookie "^2.2.1"
-    jwt-decode "^2.2.0"
-    lodash "^4.17.15"
-    mobx "^5.15.4"
-    moment "^2.24.0"
-    moment-timezone "^0.5.27"
-    react "16.12.0"
-    react-router "^5.1.2"
-
 "@tg/layout@^3.0.0", "@tg/layout@^3.0.2":
   version "3.0.2"
   resolved "https://nexus.tgpost.me/repository/npm-private/@tg/layout/-/layout-3.0.2.tgz#69f0f6512c1104b0ba5e2a16366c4afb3965a29e"
   integrity sha512-mCfXg2RZrPNQUUa4/3N6jvQg1X+1G1N91boYBvBYaOKKElF/W0f6TBQmaVcdmnsfQ6AQFXWjHt3rauvaREZjHA==
   dependencies:
     "@tg/elm" "^3.0.2"
-    "@tg/kit-elm" "^3.0.1"
     "@tg/resources" "^3.0.0"
     lodash "^4.17.15"
     npm "^6.13.7"
@@ -1757,8 +1673,6 @@
   dependencies:
     "@tg/api-proxy-upload" "^3.0.1"
     "@tg/elm" "^3.0.2"
-    "@tg/kit-elm" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
     "@tg/resources" "^3.0.0"
     lodash "^4.17.15"
     mobx "^5.15.4"
@@ -1777,7 +1691,6 @@
   dependencies:
     "@tg/api-proxy-drafts" "^3.0.0"
     "@tg/form" "^3.0.1"
-    "@tg/kit-utils" "^3.0.0"
     express "4.17.1"
     jwt-decode "^2.2.0"
     lodash "^4.17.15"

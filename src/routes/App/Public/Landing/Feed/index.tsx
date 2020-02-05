@@ -12,9 +12,10 @@ import { StoreMedia } from '@tg/media';
 import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { createAxiosInstance, authRefresher } from '@tg/api-proxy-auth';
-import { resources } from '@tg/resources';
+import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
 
-import { ContentBlock, FeaturesSwitcher } from '../../../../../components';
+import { ContentBlock, FeaturesSwitcher, BlockTextHint } from '../../../../../components';
+import { Feature } from '../../../../../components/FeaturesSwitcher';
 
 import importedStyles from './Feed.module.less';
 const styles: Styles = importedStyles;
@@ -24,6 +25,7 @@ type Styles = {
 	left?: string;
 	right?: string;
 	preview_selected?: string;
+	block_hint?: string;
 };
 
 /**
@@ -46,10 +48,22 @@ type Props = {
 /**
  * Features content
  */
-const featuresData = [
-	'Show what posts on what time will be broadcasted to your channels.',
-	'Be sure when post hit the Telegram. And of source you can edit your post form app too.',
-	'Access history and old posts.'
+const featuresData: Feature[] = [
+	{
+		icon: <IconTime />,
+		title: 'Scheduling',
+		desc: 'Show what posts on what time will be broadcasted to your channels'
+	},
+	{
+		icon: <IconPen />,
+		title: 'Edit post content',
+		desc: 'Be sure when post hit the Telegram. And of source you can edit your post form app too'
+	},
+	{
+		icon: <IconArchive />,
+		title: 'History',
+		desc: 'Access history and old posts'
+	}
 ];
 
 /**
@@ -114,6 +128,7 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 
 			{/* Left part */}
 			<div className={ styles.left }>
+				<BlockTextHint text="Organize" />
 				<Headline variation="public" h={ 2 }
 					title="Organise posts and activities from all channels in one feed"
 				/>

@@ -1,53 +1,63 @@
 @import (reference) '~@tg/resources/styles/all';
 
-.self {
-	border-left: 1px solid @cc-border-gray-light-color;
-}
-
 .feature {
-	.text-paragraph-small-public(@cc-text-primary-dimest);
-
 	position: relative;
 
 	width: 100%;
-	padding: 10px 25px;
+	padding: 25px 0;
 
 	cursor: pointer;
 
-	transition: color @tt @tf;
-
-	&::before {
-		content: '';
-
-		position: absolute;
-		top: 0;
-		left: -2px;
-
-		width: 3px;
-		height: 0;
-
-		background: @cc-transparent;
-
-		transition: height 400ms @tf;
+	&:hover {
+		> header,
+		> p {
+			opacity: 1;
+		}
 	}
 
-	&:hover {
-		color: @cc-text-primary-dimer;
+	.media-not-desktop({
+		padding: 12px;
+	});
+}
+
+.header {
+	display: flex;
+	align-items: center;
+
+	padding-left: 5px;
+	margin-bottom: 8px;
+
+	opacity: .4;
+
+	transition: opacity @tt @tf;
+
+	> i {
+		margin-right: 12px;
+
+		svg {
+			transform: scale(1.5);
+		}
 	}
 }
 
+.h_text {
+	color: @cc-primary-dark;
+}
+
+.desc {
+	// HACK: GET http://tgdev.me/static/public/chunks/3.css net::ERR_EMPTY_RESPONSE
+	// without having @cc-text-primary-dimest here WTF????
+	color: @cc-text-primary-dimest;
+	.text-paragraph-small-public(@cc-text-primary-dimer);
+
+	opacity: .5;
+
+	transition: opacity @tt @tf;
+}
+
 .active {
-	color: @cc-text-primary;
-
-	&:hover {
-		color: @cc-text-primary;
-	}
-
-	&::before {
-		height: 100%;
-
-		background: @cc-text-primary;
-
-		transition: height 400ms @tf;
+	> header,
+	> p {
+		opacity: 1;
 	}
 }

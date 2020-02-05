@@ -5,7 +5,7 @@
  */
 import React, { Ref } from 'react';
 
-import { ContentBlock } from '../../../../../components';
+import { ContentBlock, BlockTextHint } from '../../../../../components';
 
 import { Headline } from '@tg/elm';
 import { resources, IconEye, IconTemplate, IconMd, IconHeart, IconImage } from '@tg/resources';
@@ -37,6 +37,7 @@ export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
 		<div className={ styles.right }>
 
 			{/* Title & description */}
+			<BlockTextHint text="Create" />
 			<Headline h={ 2 } variation="public" title="Create post from draft to full post" />
 			<p>{
 				'Unleash your creativity, plan projects from all angles, and ' +

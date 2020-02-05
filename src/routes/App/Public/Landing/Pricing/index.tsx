@@ -5,16 +5,13 @@ import React, { Ref } from 'react';
 
 import { Headline } from '@tg/elm';
 import {
-	IconOfferFree,
-	IconOfferBlogger,
-	IconOfferCustom,
 	IconPen,
 	IconChannel,
 	IconMember
 } from '@tg/resources';
 
 import { PricingCard, Props as PricingCardProps } from './PricingCard';
-import { ContentBlock } from '../../../../../components';
+import { ContentBlock, BlockTextHint } from '../../../../../components';
 
 // Styles
 import importedStyles from './Pricing.module.less';
@@ -24,6 +21,8 @@ type Styles = {
 	self?: string;
 	card?: string;
 	dark_card?: string;
+	title?: string;
+	block_hint?: string;
 };
 
 type Props = {
@@ -34,7 +33,7 @@ const data: PricingCardProps[] = [
 
 	// Free
 	{
-		icon: <IconOfferFree />,
+		icon: null,
 		title: 'Free Starter',
 		desc: 'Learn, explore and create',
 		price: 0,
@@ -49,7 +48,7 @@ const data: PricingCardProps[] = [
 
 	// Main
 	{
-		icon: <IconOfferBlogger />,
+		icon: null,
 		title: 'Pro Blogger',
 		desc: 'For more complex projects',
 		price: 5,
@@ -64,7 +63,7 @@ const data: PricingCardProps[] = [
 
 	// Custom
 	{
-		icon: <IconOfferCustom />,
+		icon: null,
 		title: 'Custom',
 		desc: 'Custom plan for your needs',
 		submitTitle: 'Contact us',
@@ -79,7 +78,11 @@ export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 	<ContentBlock ref={ ref } className={ styles.self }>
 
 		{/* Title */}
-		<Headline h={ 2 } variation="public" title="Simple pricing" />
+		<BlockTextHint text="Pricing" className={ styles.block_hint } />
+		<Headline h={ 2 } title="Simple pricing"
+			variation="public"
+			styles={ styles.title }
+		/>
 
 		{/* Offers (cards) */}
 		<ul>

@@ -20,7 +20,7 @@ import { Headline } from '@tg/elm';
 import { Btn } from '@tg/app';
 import { IconCal } from '@tg/resources';
 
-import { ContentBlock } from '../../../../../components';
+import { ContentBlock, BlockTextHint } from '../../../../../components';
 
 // Styles
 import importedStyles from './Stats.module.less';
@@ -233,6 +233,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 
 			{/* Short description */}
 			<div className={ styles.info }>
+				<BlockTextHint text="Analise" />
 				<Headline h={ 2 } variation="public" title="Analise what people like and how fast your channel grows" />
 				<p>{
 					'Unleash your creativity, plan projects from all angles, ' +

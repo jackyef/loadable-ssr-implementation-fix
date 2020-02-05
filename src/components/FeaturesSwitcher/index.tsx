@@ -7,14 +7,24 @@
 import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 
+import { Icon, Headline } from '@tg/elm';
+
 // Styles
 import importedStyles from './FeaturesSwitcher.module.less';
 const styles: Styles = importedStyles;
 
 type Styles = {
-	self?: string;
 	feature?: string;
 	active?: string;
+	desc?: string;
+	header?: string;
+	h_text?: string;
+};
+
+export type Feature = {
+	title?: string;
+	desc?: string;
+	icon?: JSX.Element;
 };
 
 type Props = {
@@ -22,7 +32,7 @@ type Props = {
 	/**
 	 * Features
 	 */
-	features?: string[];
+	features?: Feature[];
 
 	/**
 	 * Currently active feature
@@ -59,18 +69,22 @@ export const FeaturesSwitcher: React.FC<Props> = ({ features, onSwitch, classNam
 
 	// Render
 	return (
-		<ul className={ `${ styles.self } ${ className }` }>
+		<ul className={ className }>
 			{
-				_.map(features, (feature, index) => {
+				_.map(features, ({ title, desc, icon }, index) => {
 					const current = index + 1;
 					return (
-						<li key={ index } onClick={ () => { setActive(current); onSwitch(current); } }
+						<li key={ title } onClick={ () => { setActive(current); onSwitch(current); } }
 							className={ `
 								${ styles.feature }
 								${ current === active ? styles.active : '' }
 							` }
 						>
-							{ feature }
+							<header className={ styles.header }>
+								<Icon icon={ icon } />
+								<Headline h={ 4 } title={ title } styles={ styles.h_text } />
+							</header>
+							<p className={ styles.desc }>{ desc }</p>
 						</li>
 					);
 				})

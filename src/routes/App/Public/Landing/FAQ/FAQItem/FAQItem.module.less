@@ -5,7 +5,8 @@
 	margin-bottom: 30px;
 
 	&:not(:last-child) {
-		border-bottom: 1px solid @cc-border-gray-light-color;
+		// as @cc-border-gray-light-color with opacity
+		border-bottom: 1px solid rgba(218, 225, 237, .2);
 	}
 
 	// Title
@@ -13,7 +14,13 @@
 		margin-bottom: 10px;
 
 		line-height: 30px;
+
+		color: @cc-white;
 	}
 
-	> p { .text-paragraph-small-public(@cc-text-primary-dim); }
+	> p {
+		.text-paragraph-small-public(@cc-white);
+
+		opacity: .6;
+	}
 }

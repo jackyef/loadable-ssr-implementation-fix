@@ -15,6 +15,7 @@ const styles: Styles = importedStyles;
 
 type Styles = {
 	self?: string;
+	title?: string;
 };
 
 const data: FAQItemProps[] = [
@@ -50,7 +51,10 @@ export const FAQ: React.FC<{}> = () => (
 	<ContentBlock className={ styles.self }>
 
 		{/* Title */}
-		<Headline h={ 2 } variation="public" title="Frequently asked questions" />
+		<Headline h={ 2 } title="Frequently asked questions"
+			variation="public"
+			styles={ styles.title }
+		/>
 
 		{/* List of questions */}
 		<ul>

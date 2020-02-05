@@ -39,7 +39,10 @@
 	// Media
 	.media-desktop-narrow({
 		padding: 20px 75px;
-		> div { padding-top: 30px; }
+		> div {
+			padding-top: 30px;
+			padding-bottom: 6px;
+		}
 	});
 
 	.media-not-desktop({
@@ -55,15 +58,21 @@
 	.media-mobile({
 		> div {
 			> span { display: none; }
-			> div:last-child {
+			> div:last-of-type {
 				flex-direction: column;
 				align-items: flex-start;
-				> a { margin-left: -20px; }
+
+				> a {
+					padding: 6px 0;
+					margin-left: 0;
+				}
 			}
 		}
 	});
 }
 
 .logo {
-	margin-top: -15px;
+	margin: 0;
+
+	opacity: .15;
 }
