@@ -19,7 +19,6 @@
 		"@tg/utils": "^3.0.0",
 		"@tg/wrapper": "^3.0.1",
 		"@tg/async": "^3.0.1",
-		"@tg/media": "^3.0.1",
 		"@tg/exceptions": "^3.0.1",
 		"axios": "0.19",
 		"babel-runtime": "^6.26.0",

@@ -7,7 +7,6 @@ yarn unlink @tg/configs
 yarn unlink @tg/utils
 yarn unlink @tg/form
 yarn unlink @tg/modal
-yarn unlink @tg/media
 yarn unlink @tg/async
 yarn unlink @tg/notify
 yarn unlink @tg/wrapper

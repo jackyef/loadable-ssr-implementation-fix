@@ -7,7 +7,6 @@ yarn link @tg/configs
 yarn link @tg/utils
 yarn link @tg/form
 yarn link @tg/modal
-yarn link @tg/media
 yarn link @tg/async
 yarn link @tg/notify
 yarn link @tg/wrapper

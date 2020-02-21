@@ -1607,16 +1607,6 @@
     react "^16.12.0"
     react-scrollbars-custom "^4.0.21"
 
-"@tg/media@^3.0.1":
-  version "3.0.1"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/media/-/media-3.0.1.tgz#a0977cf9382a2f2c2d2e82fae3e4708f899005bc"
-  integrity sha512-wrmvhOc3u+cCxvVqIqNxuNZorqguDIXXodeK4/0/co0VGGk9rsqEHwsJkebp8J6FPqoSpuK7GFVX+2tPNuYmTQ==
-  dependencies:
-    axios "^0.19.2"
-    mobx "^5.15.4"
-    mobx-react "^6.1.4"
-    react "^16.12.0"
-
 "@tg/modal@^3.0.1", "@tg/modal@^3.0.2":
   version "3.0.2"
   resolved "https://nexus.tgpost.me/repository/npm-private/@tg/modal/-/modal-3.0.2.tgz#37d41e1a1ab474b9c48186262afab3a2038f2403"
