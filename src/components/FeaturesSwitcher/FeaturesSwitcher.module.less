@@ -1,4 +1,6 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/constants/transition';
+@import (reference) '~@tg/resources/styles/media-queries/_';
 
 .feature {
 	position: relative;
@@ -41,14 +43,14 @@
 }
 
 .h_text {
-	color: @cc-primary-dark;
+	color: @cc-blue-150;
 }
 
 .desc {
 	// HACK: GET http://tgdev.me/static/public/chunks/3.css net::ERR_EMPTY_RESPONSE
-	// without having @cc-text-primary-dimest here WTF????
-	color: @cc-text-primary-dimest;
-	.text-paragraph-small-public(@cc-text-primary-dimer);
+	// without having @cc-black-50 here WTF????
+	color: @cc-black-50;
+	.text-paragraph-small-public(@cc-black-50);
 
 	opacity: .5;
 

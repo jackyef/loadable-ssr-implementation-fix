@@ -1,11 +1,11 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
 
 .self {
 	padding-bottom: 20px;
 	margin-bottom: 30px;
 
 	&:not(:last-child) {
-		// as @cc-border-gray-light-color with opacity
+		// as @cc-blue-20 with opacity
 		border-bottom: 1px solid rgba(218, 225, 237, .2);
 	}
 
@@ -15,11 +15,11 @@
 
 		line-height: 30px;
 
-		color: @cc-white;
+		color: @cc-white-100;
 	}
 
 	> p {
-		.text-paragraph-small-public(@cc-white);
+		.text-paragraph-small-public(@cc-white-100);
 
 		opacity: .6;
 	}

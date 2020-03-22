@@ -1,7 +1,8 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/media-queries/_';
 
 .self {
-	background: @cc-white;
+	background: @cc-white-100;
 
 	// Content
 	> div {
@@ -44,7 +45,7 @@
 
 	// Description
 	> p {
-		.text-paragraph-public(@cc-text-primary);
+		.text-paragraph-public(@cc-black-80);
 	}
 
 	// Media
@@ -57,7 +58,7 @@
 	margin-top: 40px;
 
 	> li {
-		.text-paragraph-small-public(@cc-text-primary);
+		.text-paragraph-small-public(@cc-black-80);
 
 		&:not(:first-child) {
 			margin-top: 20px;
@@ -68,7 +69,7 @@
 			width: 17px;
 			margin-right: 20px;
 
-			fill: @cc-text-primary-dimer;
+			fill: @cc-black-50;
 		}
 	}
 

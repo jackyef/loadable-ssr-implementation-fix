@@ -1,7 +1,7 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
 
 .content_block {
-	background: @cc-white;
+	background: @cc-white-100;
 
 	> div {
 
@@ -9,7 +9,7 @@
 
 		// Last updated
 		> span {
-			.text-paragraph-small-public(@cc-text-primary-dimer);
+			.text-paragraph-small-public(@cc-black-50);
 			margin-bottom: 40px;
 		}
 
@@ -19,7 +19,7 @@
 
 		// Text
 		> p {
-			.text-paragraph-small-public(@cc-text-primary);
+			.text-paragraph-small-public(@cc-black-80);
 			white-space: pre-line;
 		}
 
@@ -30,7 +30,7 @@
 			> li {
 				padding: 10px 0;
 
-				.text-paragraph-small-public(@cc-text-primary);
+				.text-paragraph-small-public(@cc-black-80);
 				white-space: pre-line;
 
 				list-style-type: square;

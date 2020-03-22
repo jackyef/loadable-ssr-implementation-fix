@@ -1,14 +1,16 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/constants/transition';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/media-queries/_';
 
 .mixin-btn-hover-underline {
 	> ul > li {
 		> a,
 		> button {
-			border-bottom: 2px solid @cc-transparent;
+			border-bottom: 2px solid transparent;
 			transition: border-color @tt @tf;
 
 			&:hover {
-				border-bottom: 2px solid @cc-sub;
+				border-bottom: 2px solid @cc-yellow-100;
 				transition: border-color @tt @tf;
 			}
 		}
@@ -23,7 +25,7 @@
 		padding: 0;
 		margin-top: -190px;
 
-		background: @cc-bg-dim-darker;
+		background: @cc-blue-20;
 	});
 }
 
@@ -58,7 +60,7 @@
 
 	padding: 5px 0 !important;
 
-	background: @cc-white;
+	background: @cc-white-100;
 
 	// Media
 	.media-not-desktop({

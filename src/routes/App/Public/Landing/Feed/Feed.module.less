@@ -1,7 +1,9 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/transition';
+@import (reference) '~@tg/resources/styles/media-queries/_';
 
 .self {
-	background: @cc-white;
+	background: @cc-white-100;
 
 	> div {
 		display: flex;
@@ -171,7 +173,7 @@
 				font-size: 16px;
 				font-weight: 600;
 
-				color: @cc-text-primary;
+				color: @cc-black-80;
 			}
 
 			// Content
@@ -180,7 +182,7 @@
 			&:nth-child(3) { &::before { content: '03. History'; } }
 
 			// Desc
-			&::after { .text-paragraph-small-public(@cc-text-primary); }
+			&::after { .text-paragraph-small-public(@cc-black-80); }
 
 			// Content
 			&:first-child { &::after { content: 'Show what posts on what time will be broadcasted to your channels' } }

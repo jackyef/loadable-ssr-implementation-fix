@@ -1,19 +1,20 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/media-queries/_';
 
 .title {
 	padding-bottom: 30px;
 
-	color: @cc-white;
+	color: @cc-white-100;
 }
 
 .block_hint {
-	color: @cc-sub;
+	color: @cc-yellow-100;
 }
 
 .self {
 	padding-top: 120px;
 
-	background: @cc-primary-dark;
+	background: @cc-blue-150;
 
 	> div {
 		display: flex;
@@ -126,7 +127,7 @@
 }
 
 .dark_card {
-	background: @cc-primary;
+	background: @cc-blue-100;
 
 	// Header
 	> header {
@@ -134,13 +135,13 @@
 
 		border-color: rgba(255, 255, 255, .1);
 
-		> h3 { color: @cc-text-white; }
+		> h3 { color: @cc-white; }
 		> p { color: rgba(255, 255, 255, .6); }
 	}
 
 	// Content
 	> div {
-		> h2 { color: @cc-white; }
+		> h2 { color: @cc-white-100; }
 		> p {
 			margin-top: 30px;
 			.text-paragraph-small-public(rgba(255, 255, 255, .6));

@@ -1,4 +1,5 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/constants/border';
 
 // Notify box
 .notify_box {
@@ -24,7 +25,7 @@
 	height: 100%;
 	padding: 24px 16px;
 
-	.text-notify-small(@color: @cc-white);
+	.text-notify-small(@color: @cc-white-100);
 
 	border-radius: @const-border-radius-small;
 
@@ -39,7 +40,7 @@
 
 		background: none;
 
-		> i > svg > path { fill: @cc-white; }
+		> i > svg > path { fill: @cc-white-100; }
 	}
 
 	.showAnimation {
@@ -62,9 +63,9 @@
 
 // States
 .error {
-	background: @cc-msg-fail-bg;
+	background: @cc-red-100;
 }
 
 .success {
-	background: @cc-msg-ok-bg;
+	background: @cc-green-100;
 }

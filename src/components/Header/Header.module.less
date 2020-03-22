@@ -1,4 +1,5 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/media-queries/_';
 
 .self {
 	display: flex;
@@ -8,7 +9,7 @@
 	max-width: 1366px;
 	padding: 30px 0 10px 0;
 
-	background: @cc-white;
+	background: @cc-white-100;
 
 	// Media
 	.media-tablet({
@@ -19,7 +20,7 @@
 .container {
 	padding: 0 150px;
 
-	background: @cc-white;
+	background: @cc-white-100;
 
 	// Media
 	.media-desktop-narrow({ padding: 0 75px; });

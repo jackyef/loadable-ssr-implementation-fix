@@ -1,4 +1,5 @@
-@import (reference) '~@tg/resources/styles/all';
+@import (reference) '~@tg/resources/styles/palette';
+@import (reference) '~@tg/resources/styles/media-queries/_';
 
 .mixin-card(@bg, @text) {
 	background: @bg;
@@ -10,7 +11,7 @@
 .self {
 	padding-top: 0;
 
-	background: @cc-white;
+	background: @cc-white-100;
 
 	> div {
 		> ul {
@@ -19,12 +20,12 @@
 			// Card
 			> li {
 				&:first-child {
-					.mixin-card(@cc-sub, @cc-text-primary);
+					.mixin-card(@cc-yellow-100, @cc-black-80);
 					margin-right: 15px;
 				}
 
 				&:last-child {
-					.mixin-card(@cc-primary-dark, @cc-white);
+					.mixin-card(@cc-blue-100-dark, @cc-white-100);
 					margin-left: 15px;
 				}
 			}
