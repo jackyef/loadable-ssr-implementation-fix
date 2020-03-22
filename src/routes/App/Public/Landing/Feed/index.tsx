@@ -10,7 +10,6 @@ import { uuid } from '@tg/utils';
 import { Headline } from '@tg/elm';
 import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
-import { createAxiosInstance, authRefresher } from '@tg/api-proxy-auth';
 import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
 
 import { ContentBlock, FeaturesSwitcher, BlockTextHint } from '../../../../../components';
