@@ -65,7 +65,7 @@ const NewPassword: React.FC<{}> = () => {
 				} }
 			>
 				{/* Title */}
-				<Headline title="Create password" h={ 2 } variation="public" />
+				<Headline title="Create password" h={ 2 } />
 
 				{/* Password */}
 				<FieldInput name="password" placeholder="password" type="password"

@@ -45,7 +45,7 @@ const SignUp: React.FC<{}> = () => {
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
 			>
 				{/* Title */}
-				<Headline title="Create account" h={ 2 } variation="public" />
+				<Headline title="Create account" h={ 2 } />
 
 				{/* Email*/}
 				<FieldInput name="email" placeholder="name@example.com"

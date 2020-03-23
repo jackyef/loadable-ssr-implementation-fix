@@ -35,7 +35,7 @@ export const Feature: React.FC<Props> = ({ image, hint, title, desc }) => (
 
 		{/* Content */}
 		<span>{ hint }</span>
-		<Headline h={ 3 } variation="public" title={ title } />
+		<Headline h={ 3 } title={ title } />
 		<p>{ desc }</p>
 	</li>
 );

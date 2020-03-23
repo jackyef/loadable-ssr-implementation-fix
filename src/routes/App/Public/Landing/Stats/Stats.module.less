@@ -1,5 +1,5 @@
 @import (reference) '~@tg/resources/styles/palette';
-@import (reference) '~@tg/resources/styles/text';
+@import (reference) '~@tg/resources/styles/texts';
 @import (reference) '~@tg/resources/styles/shadows';
 @import (reference) '~@tg/resources/styles/constants/border';
 @import (reference) '~@tg/resources/styles/media-queries/_';
@@ -32,7 +32,7 @@
 
 	// Description
 	> p {
-		.text-paragraph-small-public(@cc-black-80);
+		.text-paragraph-18(@cc-black-80);
 
 		// In order not to see graph tooltip cursor
 		background: #fff;
@@ -158,18 +158,16 @@
 			display: flex;
 			align-items: center;
 
-			font-size: 13px;
-
-			color: @cc-black-80;
+			.text-detail-13(@cc-black-80);
 
 			> span {
 				margin-right: 8px;
+			}
 
-				font-size: 20px;
-				font-weight: 400;
-				text-align: right;
-
-				color: @cc-black-80;
+			&:first-child {
+				> span {
+					.text-detail-26(@cc-black-80);
+				}
 			}
 
 			&:last-child:not(:first-child) { margin-top: 8px; }
@@ -177,23 +175,12 @@
 	}
 }
 
-.delta {
-	> span {
-		font-size: 20px;
-		font-weight: 400;
-	}
-}
-
 .delta_positive {
-	> span {
-		color: @cc-white-100 !important;
-	}
+	.text-detail-26(@cc-green-100);
 }
 
 .delta_negative {
-	> span {
-		color: @cc-white-100 !important;
-	}
+	.text-detail-26(@cc-red-100);
 }
 
 .tick {

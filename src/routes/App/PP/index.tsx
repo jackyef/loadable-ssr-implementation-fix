@@ -109,14 +109,14 @@ const PP: React.FC<{}> = () => {
 
 					{/* Top title block */}
 					<ContentBlock className={ styles.content_block }>
-						<Headline h={ 1 } variation="public" title="Terms and Privacy" />
+						<Headline h={ 1 } title="Terms and Privacy" />
 					</ContentBlock>
 
 					{/* Terms and Conditions */}
 					<ContentBlock ref={ refTC } className={ styles.content_block }>
 
 						{/* Title */}
-						<Headline h={ 2 } variation="public" title="Terms and Conditions" />
+						<Headline h={ 2 } title="Terms and Conditions" />
 						<span>{ 'Last updated: August 8, 2019' }</span>
 
 						{/* Text */}
@@ -141,7 +141,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } variation="public" title="1. Content" />
+						<Headline h={ 3 } title="1. Content" />
 
 						{/* Text */}
 						<p>{
@@ -215,7 +215,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } variation="public" title="2. Workspaces" />
+						<Headline h={ 3 } title="2. Workspaces" />
 
 						{/* Text */}
 						<p>{
@@ -263,7 +263,7 @@ const PP: React.FC<{}> = () => {
 					<ContentBlock ref={ refPP } className={ styles.content_block }>
 
 						{/* Title */}
-						<Headline h={ 2 } variation="public" title="Privacy Policy" />
+						<Headline h={ 2 } title="Privacy Policy" />
 						<span>{ 'Last updated: August 8, 2019' }</span>
 
 						{/* Text */}
@@ -287,7 +287,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } variation="public" title="1. Cookies" />
+						<Headline h={ 3 } title="1. Cookies" />
 
 						{/* Text */}
 						<p>{
@@ -305,7 +305,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } variation="public" title="2. Information Collection" />
+						<Headline h={ 3 } title="2. Information Collection" />
 
 						{/* Text */}
 						<p>{

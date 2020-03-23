@@ -27,7 +27,7 @@ export const Promo: React.FC<{}> = () => (
 
 			{/* Top */}
 			<div className={ styles.top }>
-				<Headline h={ 1 } variation="public"
+				<Headline h={ 1 }
 					title="Tools to manage your Telegram channels and posts with ease."
 				/>
 				<p>{`

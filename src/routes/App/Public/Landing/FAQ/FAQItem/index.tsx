@@ -29,7 +29,7 @@ const defaultProps: Partial<Props> = {
  */
 export const FAQItem: React.FC<Props> = ({ wrapper, question, answer }) => (
 	<Wrapper wrapper={ wrapper } styles={ styles.self }>
-		<Headline h={ 3 } variation="public" title={ question } />
+		<Headline h={ 3 } title={ question } />
 		<p>{ answer }</p>
 	</Wrapper>
 );

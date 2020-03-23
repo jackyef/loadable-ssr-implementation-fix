@@ -23,7 +23,7 @@ type Styles = {
  */
 export const GetStarted: React.FC<{}> = () => (
 	<ContentBlock className={ styles.self }>
-		<Headline h={  1 } variation="public">
+		<Headline h={ 1 }>
 			{'Ready to get started?'} <br/> {'Try it.'}
 		</Headline>
 		<p>{ 'Join now and get 3 months of free management for all your channels.' }</p>

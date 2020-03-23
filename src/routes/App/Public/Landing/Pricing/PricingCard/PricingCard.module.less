@@ -1,5 +1,5 @@
 @import (reference) '~@tg/resources/styles/palette';
-@import (reference) '~@tg/resources/styles/text';
+@import (reference) '~@tg/resources/styles/texts';
 @import (reference) '~@tg/resources/styles/constants/border';
 
 .self {
@@ -25,12 +25,18 @@
 	border-bottom: 1px solid @cc-blue-20;
 
 	> i > svg { transform: scale(1.5); }
-	> p { .text-paragraph-small-public(@color: @cc-black-50); }
+	> p { .text-paragraph-18(@color: @cc-black-50); }
 	> h3 {
 		margin-top: 20px;
 
 		line-height: 30px;
 	}
+}
+
+.unit {
+	.text-paragraph-18(@cc-black-50);
+
+	margin-left: 6px;
 }
 
 .content {
@@ -44,15 +50,7 @@
 	> span {
 		width: 100%;
 
-		font-size: 60px;
-		font-weight: 600;
-
-		color: @cc-black-80;
-
-		> span {
-			.text-paragraph-small-public(@cc-black-50);
-			margin-left: 6px;
-		}
+		.text-heading-h1();
 	}
 
 	// Features
@@ -67,7 +65,7 @@
 			padding: 3px 0;
 
 			> i { margin-right: 10px; }
-			> span { .text-paragraph-small-public(@cc-black-50); }
+			> span { .text-paragraph-18(@cc-black-50); }
 		}
 	}
 }
@@ -107,7 +105,7 @@
 
 	// Text
 	> p {
-		.text-action(@color: @cc-blue-100);
+		.text-detail-13(@cc-blue-100);
 
 		margin-top: 6px;
 

@@ -48,7 +48,7 @@ const ResetPassword: React.FC<{}> = () => {
 				} }
 			>
 				{/* Title */}
-				<Headline title="Reset password" h={ 2 } variation="public" />
+				<Headline title="Reset password" h={ 2 } />
 
 				{/* Email */}
 				<FieldInput name="email" placeholder="name@example.com"

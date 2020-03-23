@@ -38,7 +38,6 @@ type Styles = {
 	dot_active?: string;
 	tooltip?: string;
 	tick?: string;
-	delta?: string;
 	delta_positive?: string;
 	delta_negative?: string;
 };
@@ -200,11 +199,16 @@ const TooltipCustom: React.FC<any> = (e: any, scale: any) => {
 					<li><span>{ yValue }</span>{' members'}</li>
 					{
 						!delta ? null : (
-							<li className={
-								`${ styles.delta }
-								${ delta > 0 ? styles.delta_positive : delta < 0 ? styles.delta_negative : '' }` }
-							>
-								<span>
+							<li>
+								<span
+									className={
+										delta > 0
+											? styles.delta_positive
+											: delta < 0
+												? styles.delta_negative
+												: ''
+									}
+								>
 									{ `${ delta > 0 ? '+' : '' }${ delta }`}
 								</span>{` from the previous ${ scaleFrom[scale] }`}
 							</li>
@@ -234,14 +238,14 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 			{/* Short description */}
 			<div className={ styles.info }>
 				<BlockTextHint text="Analise" />
-				<Headline h={ 2 } variation="public" title="Analise what people like and how fast your channel grows" />
+				<Headline h={ 2 } title="Analise what people like and how fast your channel grows" />
 				<p>{
 					'Unleash your creativity, plan projects from all angles, ' +
 					'and create centralized hubs of information to keep everyone in the loop. '
 				}</p>
 
 				{/* Small stat */}
-				<div className={ `${ styles.delta } ${ styles.delta_positive } ${ styles.small_stat }` }>
+				<div className={ `${ styles.delta_positive } ${ styles.small_stat }` }>
 					<span>{ '+74' }</span>
 				</div>
 			</div>

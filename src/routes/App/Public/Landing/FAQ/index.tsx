@@ -52,7 +52,6 @@ export const FAQ: React.FC<{}> = () => (
 
 		{/* Title */}
 		<Headline h={ 2 } title="Frequently asked questions"
-			variation="public"
 			styles={ styles.title }
 		/>
 

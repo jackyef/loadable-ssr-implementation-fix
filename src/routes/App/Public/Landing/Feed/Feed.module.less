@@ -1,5 +1,5 @@
 @import (reference) '~@tg/resources/styles/palette';
-@import (reference) '~@tg/resources/styles/text';
+@import (reference) '~@tg/resources/styles/texts';
 @import (reference) '~@tg/resources/styles/constants/transition';
 @import (reference) '~@tg/resources/styles/media-queries/_';
 
@@ -108,7 +108,7 @@
 		}
 
 		&::before {
-			.text-hint-upper();
+			.text-detail-12();
 
 			content: 'Scheduled';
 
@@ -171,10 +171,7 @@
 
 			// Title
 			&::before {
-				font-size: 16px;
-				font-weight: 600;
-
-				color: @cc-black-80;
+				.text-detail-15();
 			}
 
 			// Content
@@ -183,7 +180,7 @@
 			&:nth-child(3) { &::before { content: '03. History'; } }
 
 			// Desc
-			&::after { .text-paragraph-small-public(@cc-black-80); }
+			&::after { .text-paragraph-14(@cc-black-80); }
 
 			// Content
 			&:first-child { &::after { content: 'Show what posts on what time will be broadcasted to your channels' } }

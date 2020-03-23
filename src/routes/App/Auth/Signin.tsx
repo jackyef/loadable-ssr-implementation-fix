@@ -56,7 +56,7 @@ const SignIn: React.FC<{}> = () => {
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
 			>
 				{/* Title */}
-				<Headline title="Welcome back" h={ 2 } variation="public" />
+				<Headline title="Welcome back" h={ 2 } />
 
 				{/* Email */}
 				<FieldInput name="email" placeholder="name@example.com"

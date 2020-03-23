@@ -17,6 +17,7 @@ type Styles = {
 	self?: string;
 	header?: string;
 	content?: string;
+	unit?: string;
 	footer?: string;
 	sale_text?:  string;
 	sale_badget?:  string;
@@ -105,7 +106,7 @@ export const PricingCard: React.FC<Props> = ({
 		{/* Header */}
 		<header className={ styles.header }>
 			<Icon icon={ icon } />
-			<Headline h={ 3 } variation="public" title={ title } />
+			<Headline h={ 3 } title={ title } />
 			<p>{ desc }</p>
 
 			{/* Special offer */}
@@ -127,7 +128,7 @@ export const PricingCard: React.FC<Props> = ({
 					{/* Price */}
 					<span className={ sale ? styles.sale_text : '' }>
 						{parseFloat(price as string) || price === 0 ? `$${ price }` : price}
-						<span>{period !== '' && `/ ${ period }`}</span>
+						<span className={ styles.unit }>{period !== '' && `/ ${ period }`}</span>
 					</span>
 
 					{/* Features */}

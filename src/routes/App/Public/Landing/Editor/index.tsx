@@ -38,7 +38,7 @@ export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
 
 			{/* Title & description */}
 			<BlockTextHint text="Create" />
-			<Headline h={ 2 } variation="public" title="Create post from draft to full post" />
+			<Headline h={ 2 } title="Create post from draft to full post" />
 			<p>{
 				'Unleash your creativity, plan projects from all angles, and ' +
 				'create centralized hubs of information to keep everyone in the loop.'

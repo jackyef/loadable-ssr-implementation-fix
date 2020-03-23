@@ -120,7 +120,7 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 			{/* Left part */}
 			<div className={ styles.left }>
 				<BlockTextHint text="Organize" />
-				<Headline variation="public" h={ 2 }
+				<Headline h={ 2 }
 					title="Organise posts and activities from all channels in one feed"
 				/>
 				<FeaturesSwitcher features={ featuresData } active={ active } onSwitch={ setActive } />
