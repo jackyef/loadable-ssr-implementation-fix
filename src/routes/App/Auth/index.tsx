@@ -67,7 +67,9 @@ const Auth: React.FC<Props> = ({ route }) => {
 				<Nav>
 					<NavItem className={ styles.nav_item }>
 						<span>{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }</span>
-						<Btn nav kind={ { variant: 'nav' } } title={ path === 'in' ? 'Create account' : 'Sign in' }
+						<Btn nav
+							kind={ { variant: 'nav' } }
+							title={ path === 'in' ? 'Create account' : 'Sign in' }
 							onClick={ () => path === 'in' ? routes.auth.signup : routes.auth.signin }
 						/>
 					</NavItem>

@@ -92,7 +92,8 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn kind={ { variant: 'general' } } title="Change password"
+				<Btn kind={ { variant: 'general' } }
+					title="Change password"
 					onClick={ () => formStore.submit() }
 				/>
 

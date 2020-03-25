@@ -50,7 +50,8 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 		/>
 
 		{/* Validate email and redirect to sign up */}
-		<Btn title="Get started" icon={ <IconArrowReverse /> } iconPos="right"
+		<Btn title="Get started"
+			icon={ <IconArrowReverse /> } iconPos="right"
 			kind={ { variant: 'general', size: 'big', detail: 'rounded' } }
 			onClick={ () => {
 

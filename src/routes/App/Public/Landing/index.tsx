@@ -116,7 +116,8 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						? (
 							<Nav className={ styles.sign_in }>
 								<NavItem>
-									<Btn title="Poster" kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
+									<Btn title="Poster"
+										kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
 										onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 									/>
 								</NavItem>
