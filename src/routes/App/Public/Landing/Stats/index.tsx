@@ -259,7 +259,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 					<ul>
 						<li>
 							<Btn title="Week"
-								kind={ { variant: 'inline', size: 'small', color: 'blue-20' } }
+								kind={ { variant: 'inline', size: 'small', color: 'black-50' } }
 								active={ scale === 'week' }
 								onClick={ () => {
 									setScale('week');
@@ -269,7 +269,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 						</li>
 						<li>
 							<Btn title="Month"
-								kind={ { variant: 'inline', size: 'small', color: 'blue-20' } }
+								kind={ { variant: 'inline', size: 'small', color: 'black-50' } }
 								active={ scale === 'month' }
 								onClick={ () => {
 									setScale('month');
@@ -279,7 +279,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 						</li>
 						<li>
 							<Btn title="Year"
-								kind={ { variant: 'inline', size: 'small', color: 'blue-20' } }
+								kind={ { variant: 'inline', size: 'small', color: 'black-50' } }
 								active={ scale === 'year' }
 								onClick={ () => {
 									setScale('year');
