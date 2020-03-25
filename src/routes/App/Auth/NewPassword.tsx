@@ -8,8 +8,8 @@ import qs from 'qs';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Headline } from '@tg/elm';
-import { validators, Btn, FieldInput } from '@tg/app';
+import { Btn, Headline } from '@tg/elm';
+import { validators, FieldInput } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from '../../../config';
@@ -92,7 +92,7 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn style={ { main: 'general' } } title="Change password"
+				<Btn kind={ { variant: 'general' } } title="Change password"
 					onClick={ () => formStore.submit() }
 				/>
 

@@ -16,8 +16,7 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Headline } from '@tg/elm';
-import { Btn } from '@tg/app';
+import { Btn, Headline } from '@tg/elm';
 import { IconCal } from '@tg/resources';
 
 import { ContentBlock, BlockTextHint } from '../../../../../components';
@@ -259,7 +258,8 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 					{/* Predefined scales (week, month, year) */}
 					<ul>
 						<li>
-							<Btn title="Week" style={ { main: 'inline', size: 'small', color: 'dim' } }
+							<Btn title="Week"
+								kind={ { variant: 'inline', size: 'small', color: 'blue-20' } }
 								active={ scale === 'week' }
 								onClick={ () => {
 									setScale('week');
@@ -268,7 +268,8 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 							/>
 						</li>
 						<li>
-							<Btn title="Month" style={ { main: 'inline', size: 'small', color: 'dim' } }
+							<Btn title="Month"
+								kind={ { variant: 'inline', size: 'small', color: 'blue-20' } }
 								active={ scale === 'month' }
 								onClick={ () => {
 									setScale('month');
@@ -277,7 +278,8 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 							/>
 						</li>
 						<li>
-							<Btn title="Year" style={ { main: 'inline', size: 'small', color: 'dim' } }
+							<Btn title="Year"
+								kind={ { variant: 'inline', size: 'small', color: 'blue-20' } }
 								active={ scale === 'year' }
 								onClick={ () => {
 									setScale('year');
@@ -288,7 +290,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 					</ul>
 
 					{/* Date range (calendar trigger) */}
-					<Btn style={ { main: 'general', size: 'small', color: 'white' } }
+					<Btn kind={ { variant: 'general', size: 'small', color: 'white-100' } }
 						icon={ <IconCal /> }
 						title={ `${ formatDate(data[0].x) } - ${ formatDate(data[data.length - 1].x) }` }
 					/>

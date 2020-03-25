@@ -8,8 +8,8 @@ import { Link } from 'react-router-dom';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Headline } from '@tg/elm';
-import { Btn, FieldInput, validators } from '@tg/app';
+import { Btn, Headline } from '@tg/elm';
+import { FieldInput, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/resources';
 
@@ -71,7 +71,7 @@ const SignUp: React.FC<{}> = () => {
 
 				{/* Submit */}
 				<Btn title="Create account"
-					style={ { main: 'general' } }
+					kind={ { variant: 'general' } }
 					onClick={ () => formStore.submit() }
 				/>
 
@@ -79,12 +79,13 @@ const SignUp: React.FC<{}> = () => {
 				<span>{ 'or' }</span>
 
 				{/* Google */}
-				<Btn nav external style={ { main: 'google' } } title="Sign up with Google"
+				<Btn kind={ { variant: 'general', color: 'white-100' } }
+					title="Sign up with Google"
 					icon={ resources.icon_google }
-					url={ `
+					onClick={ () => window.location.assign(`
 						${ authService.axiosInstance.defaults.baseURL }
 						${ authService.shot('user', 'google').options.url }
-					` }
+					`) }
 				/>
 
 				{/* PP */}

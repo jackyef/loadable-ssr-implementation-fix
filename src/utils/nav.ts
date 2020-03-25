@@ -1,10 +1,11 @@
 import { RefObject } from 'react';
-import { TypeBtnStyle } from '@tg/app';
+
+import { BtnKind } from '@tg/elm';
 
 type TypeNavBtn = {
 	title?: string;
 	nav?: boolean;
-	style?: TypeBtnStyle;
+	kind?: BtnKind;
 };
 
 /**
@@ -14,8 +15,8 @@ type TypeNavBtn = {
  * @returns {*} Button props
  */
 export const commonNavBtnProps = (title: string, nav: boolean = false): TypeNavBtn => {
-	const style: TypeBtnStyle = { main: 'nav' };
-	return { style, nav, title };
+	const kind: BtnKind = { variant: 'nav' };
+	return { kind, nav, title };
 };
 
 /**

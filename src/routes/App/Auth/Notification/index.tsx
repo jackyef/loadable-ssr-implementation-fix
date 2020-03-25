@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import { Btn } from '@tg/app';
+import { Btn } from '@tg/elm';
 import { PropsNotify } from '@tg/notify';
 import { IconClose } from '@tg/resources';
 

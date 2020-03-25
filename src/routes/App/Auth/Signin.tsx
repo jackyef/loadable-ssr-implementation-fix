@@ -9,8 +9,8 @@ import Cookies from 'js-cookie';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Headline } from '@tg/elm';
-import { FieldInput, Btn, validators } from '@tg/app';
+import { Btn, Headline } from '@tg/elm';
+import { FieldInput, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/resources';
 
@@ -80,7 +80,7 @@ const SignIn: React.FC<{}> = () => {
 					label={
 						<div>
 							<span>{ 'Password' }</span>
-							<Btn style={ { main: 'inline' } }
+							<Btn kind={ { variant: 'inline' } }
 								title="Forgot password?"
 								onClick={ () => { history.push(routes.auth.reset); } }
 							/>
@@ -89,7 +89,8 @@ const SignIn: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn style={ { main: 'general' } } title="Sign in"
+				<Btn kind={ { variant: 'general' } }
+					title="Sign in"
 					onClick={ () => formStore.submit() }
 				/>
 
@@ -97,12 +98,13 @@ const SignIn: React.FC<{}> = () => {
 				<span>{ 'or' }</span>
 
 				{/* Google */}
-				<Btn nav external style={ { main: 'google' } } title="Sign in with Google"
+				<Btn kind={ { variant: 'general', color: 'white-100' } }
+					title="Sign in with Google"
 					icon={ resources.icon_google }
-					url={ `
+					onClick={ () => window.location.assign(`
 						${ authService.axiosInstance.defaults.baseURL }
 						${ authService.shot('user', 'google').options.url }
-					` }
+					`) }
 				/>
 
 				{/* PP */}

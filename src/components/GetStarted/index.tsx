@@ -5,8 +5,9 @@
 import _ from 'lodash';
 import React from 'react';
 
+import { Btn } from '@tg/elm';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
-import { validators, Btn, FieldInput } from '@tg/app';
+import { validators, FieldInput } from '@tg/app';
 import { IconArrowReverse } from '@tg/resources';
 
 import importedStyles from './GetStarted.module.less';
@@ -50,7 +51,7 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 
 		{/* Validate email and redirect to sign up */}
 		<Btn title="Get started" icon={ <IconArrowReverse /> } iconPos="right"
-			style={ { main: 'general', size: 'big', detail: 'rounded' } }
+			kind={ { variant: 'general', size: 'big', detail: 'rounded' } }
 			onClick={ () => {
 
 				// Validate email

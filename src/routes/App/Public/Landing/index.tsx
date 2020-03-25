@@ -6,9 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-
-import { Btn } from '@tg/app';
-import { Logo } from '@tg/elm';
+import { Btn, Logo } from '@tg/elm';
 
 import { history } from '../../../';
 import { formStore as signUpFormStore } from '../../Auth/Signup';
@@ -118,7 +116,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						? (
 							<Nav className={ styles.sign_in }>
 								<NavItem>
-									<Btn title="Poster" style={ { main: 'general', size: 'mid', detail: 'rounded' } }
+									<Btn title="Poster" kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
 										onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 									/>
 								</NavItem>
@@ -127,14 +125,14 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						: (
 							<Nav className={ styles.sign_in }>
 								<NavItem>
-									<Btn { ...commonNavBtnProps('Sign in', true) }
-										url={ routes.auth.signin }
+									<Btn nav { ...commonNavBtnProps('Sign in', true) }
+										onClick={ () => routes.auth.signin }
 									/>
 								</NavItem>
 								<NavItem>
 									<Btn nav title="Get Started"
-										style={ { main: 'general', size: 'mid', detail: 'rounded' } }
-										url={ routes.auth.signup }
+										kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
+										onClick={ () => routes.auth.signup }
 									/>
 								</NavItem>
 							</Nav>
