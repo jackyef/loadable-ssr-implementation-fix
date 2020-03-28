@@ -42,7 +42,7 @@ const defaultProps: Partial<Props> = {
 };
 
 export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
-	<FormRoot wrapper="form" inject={ storeForm } styles={ `${ styles.self } ${ className }` }>
+	<FormRoot wrapper="form" inject={ storeForm } className={ `${ styles.self } ${ className }` }>
 
 		{/* Email */}
 		<FieldInput name="email" placeholder="Your email address" kind="big"

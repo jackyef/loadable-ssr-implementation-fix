@@ -5,7 +5,7 @@ import _ from 'lodash';
 import React from 'react';
 
 import { Wrapper } from '@tg/wrapper';
-import { Btn, Icon, Headline } from '@tg/elm';
+import { Btn, Icon, Heading } from '@tg/elm';
 import { IconBeta } from '@tg/resources';
 
 // Styles
@@ -100,12 +100,12 @@ export const PricingCard: React.FC<Props> = ({
 	children, wrapper, icon, title, desc, price, period, features, submitTitle, onSubmit, className,
 	sale
 }) => (
-	<Wrapper wrapper={ wrapper } styles={ `${ styles.self } ${ className }` }>
+	<Wrapper wrapper={ wrapper } className={ `${ styles.self } ${ className }` }>
 
 		{/* Header */}
 		<header className={ styles.header }>
 			<Icon icon={ icon } />
-			<Headline h={ 3 } title={ title } />
+			<Heading h={ 3 } title={ title } />
 			<p>{ desc }</p>
 
 			{/* Special offer */}

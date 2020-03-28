@@ -5,7 +5,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Headline } from '@tg/elm';
+import { Heading } from '@tg/elm';
 
 import { ContentBlock, Feature, FeatureProps } from '../../../../../components';
 
@@ -48,7 +48,7 @@ export const Blogs: React.FC<{}> = () => (
 	<ContentBlock className={ styles.self }>
 
 		{/* Content block title */}
-		<Headline h={ 2 } title="For beginners, grown and large channels" />
+		<Heading h={ 2 } title="For beginners, grown and large channels" />
 
 		{/* Features list */}
 		<ul className={ styles.features }>

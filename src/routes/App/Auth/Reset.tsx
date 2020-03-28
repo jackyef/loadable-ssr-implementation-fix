@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 
-import { Btn, Headline } from '@tg/elm';
+import { Btn, Heading } from '@tg/elm';
 import { FieldInput, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
@@ -34,7 +34,7 @@ const ResetPassword: React.FC<{}> = () => {
 
 			{/* Reset password form */}
 			<FormRoot wrapper="form" name="reset" inject={ formStore }
-				styles={ styles.form }
+				className={ styles.form }
 				submitMethod="POST"
 				submitURL={ authService.shot('user', 'reset_password').options.url }
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
@@ -48,7 +48,7 @@ const ResetPassword: React.FC<{}> = () => {
 				} }
 			>
 				{/* Title */}
-				<Headline title="Reset password" h={ 2 } />
+				<Heading h={ 2 } title="Reset password" />
 
 				{/* Email */}
 				<FieldInput name="email" placeholder="name@example.com"

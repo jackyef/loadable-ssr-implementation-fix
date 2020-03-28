@@ -4,7 +4,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Headline } from '@tg/elm';
+import { Heading } from '@tg/elm';
 
 import { ContentBlock } from '../../../../../components';
 import { FAQItem, Props as FAQItemProps } from './FAQItem';
@@ -15,7 +15,6 @@ const styles: Styles = importedStyles;
 
 type Styles = {
 	self?: string;
-	title?: string;
 };
 
 const data: FAQItemProps[] = [
@@ -51,9 +50,7 @@ export const FAQ: React.FC<{}> = () => (
 	<ContentBlock className={ styles.self }>
 
 		{/* Title */}
-		<Headline h={ 2 } title="Frequently asked questions"
-			styles={ styles.title }
-		/>
+		<Heading h={ 2 } color="white_100" title="Frequently asked questions" />
 
 		{/* List of questions */}
 		<ul>

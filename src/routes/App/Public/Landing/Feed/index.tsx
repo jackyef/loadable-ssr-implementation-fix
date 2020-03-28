@@ -7,7 +7,7 @@ import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
 import { uuid } from '@tg/utils';
-import { Headline } from '@tg/elm';
+import { Heading } from '@tg/elm';
 import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
@@ -120,7 +120,7 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 			{/* Left part */}
 			<div className={ styles.left }>
 				<BlockTextHint text="Organize" />
-				<Headline h={ 2 }
+				<Heading h={ 2 }
 					title="Organise posts and activities from all channels in one feed"
 				/>
 				<FeaturesSwitcher features={ featuresData } active={ active } onSwitch={ setActive } />

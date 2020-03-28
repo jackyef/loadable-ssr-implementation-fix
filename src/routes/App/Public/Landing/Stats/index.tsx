@@ -16,7 +16,7 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Btn, Headline } from '@tg/elm';
+import { Btn, Heading } from '@tg/elm';
 import { IconCal } from '@tg/resources';
 
 import { ContentBlock, BlockTextHint } from '../../../../../components';
@@ -237,7 +237,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 			{/* Short description */}
 			<div className={ styles.info }>
 				<BlockTextHint text="Analise" />
-				<Headline h={ 2 } title="Analise what people like and how fast your channel grows" />
+				<Heading h={ 2 } title="Analise what people like and how fast your channel grows" />
 				<p>{
 					'Unleash your creativity, plan projects from all angles, ' +
 					'and create centralized hubs of information to keep everyone in the loop. '

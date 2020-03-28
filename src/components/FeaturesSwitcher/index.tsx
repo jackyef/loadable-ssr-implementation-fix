@@ -7,7 +7,7 @@
 import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 
-import { Icon, Headline } from '@tg/elm';
+import { Icon, Heading } from '@tg/elm';
 
 // Styles
 import importedStyles from './FeaturesSwitcher.module.less';
@@ -82,7 +82,7 @@ export const FeaturesSwitcher: React.FC<Props> = ({ features, onSwitch, classNam
 						>
 							<header className={ styles.header }>
 								<Icon icon={ icon } />
-								<Headline h={ 4 } title={ title } styles={ styles.h_text } />
+								<Heading h={ 4 } title={ title } styles={ styles.h_text } />
 							</header>
 							<p className={ styles.desc }>{ desc }</p>
 						</li>

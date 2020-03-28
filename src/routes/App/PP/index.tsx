@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-import { Btn, Headline, Logo } from '@tg/elm';
+import { Btn, Heading, Logo } from '@tg/elm';
 import { Scrollbars } from '@tg/layout';
 
 import { commonNavBtnProps, scroll } from '../../../utils';
@@ -108,14 +108,14 @@ const PP: React.FC<{}> = () => {
 
 					{/* Top title block */}
 					<ContentBlock className={ styles.content_block }>
-						<Headline h={ 1 } title="Terms and Privacy" />
+						<Heading h={ 1 } title="Terms and Privacy" />
 					</ContentBlock>
 
 					{/* Terms and Conditions */}
 					<ContentBlock ref={ refTC } className={ styles.content_block }>
 
 						{/* Title */}
-						<Headline h={ 2 } title="Terms and Conditions" />
+						<Heading h={ 2 } title="Terms and Conditions" />
 						<span>{ 'Last updated: August 8, 2019' }</span>
 
 						{/* Text */}
@@ -140,7 +140,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } title="1. Content" />
+						<Heading h={ 3 } title="1. Content" />
 
 						{/* Text */}
 						<p>{
@@ -214,7 +214,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } title="2. Workspaces" />
+						<Heading h={ 3 } title="2. Workspaces" />
 
 						{/* Text */}
 						<p>{
@@ -262,7 +262,7 @@ const PP: React.FC<{}> = () => {
 					<ContentBlock ref={ refPP } className={ styles.content_block }>
 
 						{/* Title */}
-						<Headline h={ 2 } title="Privacy Policy" />
+						<Heading h={ 2 } title="Privacy Policy" />
 						<span>{ 'Last updated: August 8, 2019' }</span>
 
 						{/* Text */}
@@ -286,7 +286,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } title="1. Cookies" />
+						<Heading h={ 3 } title="1. Cookies" />
 
 						{/* Text */}
 						<p>{
@@ -304,7 +304,7 @@ const PP: React.FC<{}> = () => {
 						}</p>
 
 						{/* Sub title */}
-						<Headline h={ 3 } title="2. Information Collection" />
+						<Heading h={ 3 } title="2. Information Collection" />
 
 						{/* Text */}
 						<p>{

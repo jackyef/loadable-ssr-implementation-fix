@@ -3,7 +3,7 @@
  */
 import React, { Ref } from 'react';
 
-import { Headline } from '@tg/elm';
+import { Heading } from '@tg/elm';
 import {
 	IconPen,
 	IconChannel,
@@ -21,7 +21,6 @@ type Styles = {
 	self?: string;
 	card?: string;
 	dark_card?: string;
-	title?: string;
 	block_hint?: string;
 };
 
@@ -79,9 +78,7 @@ export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 
 		{/* Title */}
 		<BlockTextHint text="Pricing" className={ styles.block_hint } />
-		<Headline h={ 2 } title="Simple pricing"
-			styles={ styles.title }
-		/>
+		<Heading h={ 2 } title="Simple pricing" color="white_100" />
 
 		{/* Offers (cards) */}
 		<ul>
@@ -89,7 +86,7 @@ export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 			<PricingCard sale { ...data[1] } />
 			<PricingCard { ...data[2] }>
 				<div>
-					<Headline h={ 2 } title="Let's chat" />
+					<Heading h={ 2 } color="white_100" title="Let's chat" />
 					<p>{'Unlimited channels, posts and team members and everything from Pro Plan'}</p>
 				</div>
 			</PricingCard>

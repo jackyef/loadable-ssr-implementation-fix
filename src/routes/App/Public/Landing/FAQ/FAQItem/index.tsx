@@ -4,7 +4,7 @@
 import React from 'react';
 
 import { Wrapper } from '@tg/wrapper';
-import { Headline } from '@tg/elm';
+import { Heading } from '@tg/elm';
 
 // Styles
 import importedStyles from './FAQItem.module.less';
@@ -28,8 +28,8 @@ const defaultProps: Partial<Props> = {
  * Component
  */
 export const FAQItem: React.FC<Props> = ({ wrapper, question, answer }) => (
-	<Wrapper wrapper={ wrapper } styles={ styles.self }>
-		<Headline h={ 3 } title={ question } />
+	<Wrapper wrapper={ wrapper } className={ styles.self }>
+		<Heading h={ 3 } title={ question } />
 		<p>{ answer }</p>
 	</Wrapper>
 );

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Btn, Headline } from '@tg/elm';
+import { Btn, Heading } from '@tg/elm';
 import { FieldInput, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/resources';
@@ -38,14 +38,14 @@ const SignUp: React.FC<{}> = () => {
 
 			{/* Form */}
 			<FormRoot wrapper="form" name="signup" inject={ formStore }
-				styles={ styles.form }
+				className={ styles.form }
 				submitMethod="POST"
 				submitURL={ authService.shot('user', 'register').options.url }
 				onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
 			>
 				{/* Title */}
-				<Headline title="Create account" h={ 2 } />
+				<Heading h={ 2 } title="Create account" />
 
 				{/* Email*/}
 				<FieldInput name="email" placeholder="name@example.com"

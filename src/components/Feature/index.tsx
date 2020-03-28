@@ -4,7 +4,7 @@
  */
 import React from 'react';
 
-import { Headline } from '@tg/elm';
+import { Heading } from '@tg/elm';
 import { resources } from '@tg/resources';
 
 import importedStyles from './Feature.module.less';
@@ -35,7 +35,7 @@ export const Feature: React.FC<Props> = ({ image, hint, title, desc }) => (
 
 		{/* Content */}
 		<span>{ hint }</span>
-		<Headline h={ 3 } title={ title } />
+		<Heading h={ 3 } title={ title } />
 		<p>{ desc }</p>
 	</li>
 );

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 import Cookies from 'js-cookie';
+import { ThemeProvider } from 'styled-components';
 // import Raven from 'raven-js';
 
+import { theme } from '@tg/elm';
 import { NotifyBox } from '@tg/notify';
-import { renderRoutes, canUseDOM } from '@tg/utils';
 import { NotifyCommon } from '@tg/app';
+import { renderRoutes, canUseDOM } from '@tg/utils';
 
 import { notifyStore } from '../../stores';
 
@@ -49,10 +51,10 @@ const Container: React.FC<Props> = ({ route }) => {
 	}, []);
 
 	return (
-		<>
+		<ThemeProvider theme={ theme }>
 			<NotifyBox store={ notifyStore } notification={ NotifyCommon } />
 			{ renderRoutes(route.routes) }
-		</>
+		</ThemeProvider>
 	);
 };
 

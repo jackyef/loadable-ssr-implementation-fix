@@ -47,7 +47,7 @@ const defaultProps: Partial<Props> = {
  * Component
  */
 export const ContentBlock: React.FC<Props> = React.forwardRef(({ children, className, wrapper }, ref) => (
-	<Wrapper wrapper={ wrapper } getRef={ ref as any } styles={ `${ styles.self } ${ className }` }>
+	<Wrapper wrapper={ wrapper } getRef={ ref as any } className={ `${ styles.self } ${ className }` }>
 		<div>
 			{ children }
 		</div>

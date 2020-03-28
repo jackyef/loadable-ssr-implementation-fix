@@ -2,12 +2,6 @@
 @import (reference) '~@tg/resources/styles/texts';
 @import (reference) '~@tg/resources/styles/media-queries/_';
 
-.title {
-	padding-bottom: 30px;
-
-	color: @cc-white-100;
-}
-
 .block_hint {
 	color: @cc-yellow-100;
 }
@@ -16,6 +10,10 @@
 	padding-top: 120px;
 
 	background: @cc-blue-150;
+
+	> h2 {
+		padding-bottom: 30px;
+	}
 
 	> div {
 		display: flex;
@@ -142,7 +140,6 @@
 
 	// Content
 	> div {
-		> h2 { color: @cc-white-100; }
 		> p {
 			margin-top: 30px;
 			.text-paragraph-18(rgba(255, 255, 255, .6));

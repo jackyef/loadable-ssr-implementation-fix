@@ -7,7 +7,7 @@
 import React from 'react';
 
 import { Wrapper } from '@tg/wrapper';
-import { Icon, Headline } from '@tg/elm';
+import { Icon, Heading } from '@tg/elm';
 
 // Styles
 import importedStyles from './FeatureCard.module.less';
@@ -57,9 +57,9 @@ const defaultProps: Partial<Props> = {
  * Component
  */
 export const FeatureCard: React.FC<Props> = ({ wrapper, icon, title, desc, className }) => (
-	<Wrapper wrapper={ wrapper } styles={ `${ styles.self } ${ className }` }>
+	<Wrapper wrapper={ wrapper } className={ `${ styles.self } ${ className }` }>
 		<Icon icon={ icon } />
-		<Headline h={ 3 } title={ title } />
+		<Heading h={ 3 } title={ title } />
 		<p>{desc}</p>
 	</Wrapper>
 );

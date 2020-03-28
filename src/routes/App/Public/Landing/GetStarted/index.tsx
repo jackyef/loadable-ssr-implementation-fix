@@ -5,7 +5,7 @@
  */
 import React from 'react';
 
-import { Headline } from '@tg/elm';
+import { Heading } from '@tg/elm';
 
 import { toSignUp } from '../';
 import { ContentBlock, GetStarted as GetStartedForm } from '../../../../../components';
@@ -23,9 +23,9 @@ type Styles = {
  */
 export const GetStarted: React.FC<{}> = () => (
 	<ContentBlock className={ styles.self }>
-		<Headline h={ 1 }>
+		<Heading h={ 1 }>
 			{'Ready to get started?'} <br/> {'Try it.'}
-		</Headline>
+		</Heading>
 		<p>{ 'Join now and get 3 months of free management for all your channels.' }</p>
 		<GetStartedForm onClick={ toSignUp } />
 	</ContentBlock>

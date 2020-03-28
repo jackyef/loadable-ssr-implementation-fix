@@ -9,7 +9,7 @@ import Cookies from 'js-cookie';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Btn, Headline } from '@tg/elm';
+import { Btn, Heading } from '@tg/elm';
 import { FieldInput, validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { resources } from '@tg/resources';
@@ -40,7 +40,7 @@ const SignIn: React.FC<{}> = () => {
 
 			{/* Sign in form */}
 			<FormRoot wrapper="form" name="signin" inject={ formStore }
-				styles={ styles.form }
+				className={ styles.form }
 				submitMethod="POST"
 				submitURL={ authService.shot('user', 'login').options.url }
 				onSubmitSucceed={ () => {
@@ -56,7 +56,7 @@ const SignIn: React.FC<{}> = () => {
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
 			>
 				{/* Title */}
-				<Headline title="Welcome back" h={ 2 } />
+				<Heading h={ 2 } title="Welcome back" />
 
 				{/* Email */}
 				<FieldInput name="email" placeholder="name@example.com"

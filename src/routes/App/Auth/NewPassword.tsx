@@ -8,7 +8,7 @@ import qs from 'qs';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Btn, Headline } from '@tg/elm';
+import { Btn, Heading } from '@tg/elm';
 import { validators, FieldInput } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
@@ -47,7 +47,7 @@ const NewPassword: React.FC<{}> = () => {
 
 			{/* Form */}
 			<FormRoot wrapper="form" name="newPassword" inject={ formStore }
-				styles={ styles.form }
+				className={ styles.form }
 				submitMethod="PATCH"
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
 				onSubmitSucceed={ () => {
@@ -65,7 +65,7 @@ const NewPassword: React.FC<{}> = () => {
 				} }
 			>
 				{/* Title */}
-				<Headline title="Create password" h={ 2 } />
+				<Heading h={ 2 } title="Create password" />
 
 				{/* Password */}
 				<FieldInput name="password" placeholder="password" type="password"
