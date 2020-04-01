@@ -5,14 +5,15 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import styled from 'styled-components';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Btn, Heading } from '@tg/elm';
-import { FieldInput, validators } from '@tg/app';
+import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
-import { resources } from '@tg/resources';
+import { IconGoogle } from '@tg/resources';
 
 import { history } from '../../';
 import { routes } from '../../../config';
@@ -27,6 +28,14 @@ const styles: Styles = importedStyles;
 // Form store
 const apiFormStore = new StoreFormAPI(authService.axiosInstance);
 const formStore = new StoreForm('auth', null, apiFormStore);
+
+const StyledPasswordLabel = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+`;
 
 /**
  * Sign in authentication route
@@ -59,10 +68,9 @@ const SignIn: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Welcome back" />
 
 				{/* Email */}
-				<FieldInput name="email" placeholder="name@example.com"
-					kind="bigger"
-					errPos="right"
+				<NewFieldInput name="email" size="mid" error="top"
 					label="Email"
+					placeholder="name@example.com"
 					validators={ [
 						validators.email.valid,
 						validators.email.required
@@ -70,26 +78,26 @@ const SignIn: React.FC<{}> = () => {
 				/>
 
 				{/* Password */}
-				<FieldInput name="password" placeholder="password" type="password"
-					kind="bigger"
-					errPos="right"
+				<NewFieldInput name="password" size="mid" error="top"
+					type="password"
+					placeholder="password"
 					validators={ [
 						validators.password.requirements,
 						validators.password.required
 					] }
 					label={
-						<div>
+						<StyledPasswordLabel>
 							<span>{ 'Password' }</span>
-							<Btn kind={ { variant: 'inline' } }
+							<Button variant="inline" color="blue_100" size="mid"
 								title="Forgot password?"
 								onClick={ () => { history.push(routes.auth.reset); } }
 							/>
-						</div>
+						</StyledPasswordLabel>
 					}
 				/>
 
 				{/* Submit */}
-				<Btn kind={ { variant: 'general' } }
+				<Button variant="primary"
 					title="Sign in"
 					onClick={ () => formStore.submit() }
 				/>
@@ -98,9 +106,9 @@ const SignIn: React.FC<{}> = () => {
 				<span>{ 'or' }</span>
 
 				{/* Google */}
-				<Btn kind={ { variant: 'general', color: 'white-100' } }
+				<Button variant="secondary" iconFill={ false }
 					title="Sign in with Google"
-					icon={ resources.icon_google }
+					icon={ <IconGoogle /> }
 					onClick={ () => window.location.assign(`
 						${ authService.axiosInstance.defaults.baseURL }
 						${ authService.shot('user', 'google').options.url }

@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Btn, Heading } from '@tg/elm';
-import { FieldInput, validators } from '@tg/app';
+import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
-import { resources } from '@tg/resources';
+import { IconGoogle } from '@tg/resources';
 
 import { routes } from '../../../config';
 
@@ -48,9 +48,8 @@ const SignUp: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Create account" />
 
 				{/* Email*/}
-				<FieldInput name="email" placeholder="name@example.com"
-					kind="bigger"
-					errPos="right"
+				<NewFieldInput name="email" size="mid" error="top"
+					placeholder="name@example.com"
 					label="Email"
 					validators={ [
 						validators.email.valid,
@@ -59,9 +58,9 @@ const SignUp: React.FC<{}> = () => {
 				/>
 
 				{/* Password */}
-				<FieldInput name="password" placeholder="password" type="password"
-					kind="bigger"
-					errPos="right"
+				<NewFieldInput name="password" size="mid" error="top"
+					type="password"
+					placeholder="password"
 					label="Password"
 					validators={ [
 						validators.password.requirements,
@@ -70,8 +69,8 @@ const SignUp: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn title="Create account"
-					kind={ { variant: 'general' } }
+				<Button variant="primary"
+					title="Create account"
 					onClick={ () => formStore.submit() }
 				/>
 
@@ -79,9 +78,9 @@ const SignUp: React.FC<{}> = () => {
 				<span>{ 'or' }</span>
 
 				{/* Google */}
-				<Btn kind={ { variant: 'general', color: 'white-100' } }
+				<Button variant="secondary" iconFill={ false }
 					title="Sign up with Google"
-					icon={ resources.icon_google }
+					icon={ <IconGoogle /> }
 					onClick={ () => window.location.assign(`
 						${ authService.axiosInstance.defaults.baseURL }
 						${ authService.shot('user', 'google').options.url }

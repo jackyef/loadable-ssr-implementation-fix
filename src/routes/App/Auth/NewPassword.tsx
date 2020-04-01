@@ -8,8 +8,8 @@ import qs from 'qs';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Btn, Heading } from '@tg/elm';
-import { validators, FieldInput } from '@tg/app';
+import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from '../../../config';
@@ -68,9 +68,9 @@ const NewPassword: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Create password" />
 
 				{/* Password */}
-				<FieldInput name="password" placeholder="password" type="password"
-					kind="bigger"
-					errPos="right"
+				<NewFieldInput name="password" size="mid" error="top"
+					type="password"
+					placeholder="password"
 					label="New password"
 					validators={ [
 						validators.password.requirements,
@@ -80,9 +80,9 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Repeat password */}
-				<FieldInput name="repeat_password" placeholder="repeat" type="password"
-					kind="bigger"
-					errPos="right"
+				<NewFieldInput name="repeat_password" size="mid" error="top"
+					type="password"
+					placeholder="repeat"
 					label="Repeat password"
 					validators={ [
 						validators.password.requirements,
@@ -92,7 +92,7 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn kind={ { variant: 'general' } }
+				<Button variant="primary"
 					title="Change password"
 					onClick={ () => formStore.submit() }
 				/>

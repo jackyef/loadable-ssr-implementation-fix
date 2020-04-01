@@ -1,0 +1,3 @@
+{
+	"extends": "@tg/configs/lint/stylelint-webpack.config.js"
+}

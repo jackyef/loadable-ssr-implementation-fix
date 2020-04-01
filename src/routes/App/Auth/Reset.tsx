@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 
-import { Btn, Heading } from '@tg/elm';
-import { FieldInput, validators } from '@tg/app';
+import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { NotifyBox, awakeNotification, notifyStore } from './utils/notification';
@@ -51,9 +51,8 @@ const ResetPassword: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Reset password" />
 
 				{/* Email */}
-				<FieldInput name="email" placeholder="name@example.com"
-					kind="bigger"
-					errPos="right"
+				<NewFieldInput name="email" size="mid" error="top"
+					placeholder="name@example.com"
 					label="Email address"
 					validators={ [
 						validators.email.valid,
@@ -62,7 +61,7 @@ const ResetPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Btn kind={ { variant: 'general' } }
+				<Button variant="primary"
 					title="Send me instructions"
 					onClick={ () => formStore.submit() }
 					asyncState={ formStore.asyncState }

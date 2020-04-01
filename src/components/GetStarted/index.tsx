@@ -5,9 +5,9 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Btn } from '@tg/elm';
+import { Btn, NewFieldInput } from '@tg/elm';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
-import { validators, FieldInput } from '@tg/app';
+import { validators } from '@tg/app';
 import { IconArrowReverse } from '@tg/resources';
 
 import importedStyles from './GetStarted.module.less';
@@ -45,7 +45,8 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 	<FormRoot wrapper="form" inject={ storeForm } className={ `${ styles.self } ${ className }` }>
 
 		{/* Email */}
-		<FieldInput name="email" placeholder="Your email address" kind="big"
+		<NewFieldInput name="email" size="big" detail="rounded"
+			placeholder="Your email address"
 			validators={ [validators.email.optional] }
 		/>
 
