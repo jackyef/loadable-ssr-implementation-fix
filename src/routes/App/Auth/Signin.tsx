@@ -31,8 +31,8 @@ const formStore = new StoreForm('auth', null, apiFormStore);
 
 const StyledPasswordLabel = styled.div`
 	display: flex;
-	align-items: center;
 	justify-content: space-between;
+	align-items: center;
 
 	width: 100%;
 `;

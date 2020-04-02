@@ -5,17 +5,11 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Btn, NewFieldInput } from '@tg/elm';
-import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { validators } from '@tg/app';
+import { StoreForm, StoreFormAPI } from '@tg/form';
 import { IconArrowReverse } from '@tg/resources';
 
-import importedStyles from './GetStarted.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-};
+import { StyledButton, StyledInput, StyledForm } from './_styled';
 
 type Props = {
 
@@ -42,18 +36,18 @@ const defaultProps: Partial<Props> = {
 };
 
 export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
-	<FormRoot wrapper="form" inject={ storeForm } className={ `${ styles.self } ${ className }` }>
+	<StyledForm wrapper="form" inject={ storeForm } className={ className }>
 
 		{/* Email */}
-		<NewFieldInput name="email" size="big" detail="rounded"
+		<StyledInput size="big" name="email" detail="rounded"
 			placeholder="Your email address"
 			validators={ [validators.email.optional] }
 		/>
 
 		{/* Validate email and redirect to sign up */}
-		<Btn title="Get started"
-			icon={ <IconArrowReverse /> } iconPos="right"
-			kind={ { variant: 'general', size: 'big', detail: 'rounded' } }
+		<StyledButton size="big" iconPos="right" detail="rounded"
+			title="Get started"
+			icon={ <IconArrowReverse /> }
 			onClick={ () => {
 
 				// Validate email
@@ -65,7 +59,7 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 				}
 			} }
 		/>
-	</FormRoot>
+	</StyledForm>
 );
 
 GetStarted.defaultProps = defaultProps;
