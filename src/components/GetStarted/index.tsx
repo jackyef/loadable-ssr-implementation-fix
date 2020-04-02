@@ -49,11 +49,7 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 			title="Get started"
 			icon={ <IconArrowReverse /> }
 			onClick={ () => {
-
-				// Validate email
 				const { valid } = storeForm.validate();
-
-				// Proceed if valid
 				if (valid) {
 					onClick(storeForm.getFieldValue('email'));
 				}
