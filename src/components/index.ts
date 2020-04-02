@@ -1,6 +1,6 @@
 export { Header } from './Header';
 export { Nav } from './Nav';
-export { NavItem } from './Nav/NavItem';
+export { NavItem } from './Nav/Item';
 export { ContentBlock } from './ContentBlock';
 export { GetStarted } from './GetStarted';
 export { Feature, Props as FeatureProps } from './Feature';

@@ -5,17 +5,7 @@
  */
 import React from 'react';
 
-import { ContentBlock } from '../ContentBlock';
-
-// Styles
-import importedStyles from './Header.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-	container?: string;
-	sticky?: string;
-};
+import { StyledContainer, StyledHeader } from './_styled';
 
 type Props = {
 	children?: React.ReactNode | React.ReactNode[];
@@ -30,14 +20,12 @@ const defaultProps: Partial<Props> = {
 /**
  * Header
  */
-export const Header: React.FC<Props> = React.memo(({ children, sticky, className }) => {
-	return (
-		<ContentBlock className={ `${ styles.container } ${ sticky ? styles.sticky : '' } ${ className }` }>
-			<header className={ styles.self }>
-				{ children }
-			</header>
-		</ContentBlock>
-	);
-});
+export const Header: React.FC<Props> = React.memo(({ children, sticky, className }) => (
+	<StyledContainer sticky={ sticky } className={ className }>
+		<StyledHeader>
+			{ children }
+		</StyledHeader>
+	</StyledContainer>
+));
 
 Header.defaultProps = defaultProps;

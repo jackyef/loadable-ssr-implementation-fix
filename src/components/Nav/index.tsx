@@ -2,21 +2,10 @@
  * Main navigation (top level)
  */
 import React from 'react';
-
-// Styles
-import importedStyles from './Nav.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-};
+import styled from 'styled-components';
 
 type Props = {
 	children?: React.ReactNode | React.ReactNode[];
-
-	/**
-	 * User styles
-	 */
 	className?: string;
 };
 
@@ -24,17 +13,20 @@ const defaultProps: Partial<Props> = {
 	className: ''
 };
 
+const StyledNav = styled.ul`
+	display: flex;
+	align-items: center;
+`;
+
 /**
  * Nav
  */
-export const Nav: React.FC<Props> = React.memo(({ children, className }) => {
-	return (
-		<nav className={ `${ styles.self } ${ className }` }>
-			<ul>
-				{children}
-			</ul>
-		</nav>
-	);
-});
+export const Nav: React.FC<Props> = React.memo(({ children, className }) => (
+	<nav className={ className }>
+		<StyledNav>
+			{ children }
+		</StyledNav>
+	</nav>
+));
 
 Nav.defaultProps = defaultProps;
