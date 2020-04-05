@@ -41,18 +41,7 @@ module.exports = function(env, options) {
 									appModules.some(str => mod.context.includes(str))
 								);
 							}
-						},
-
-						// Not used modules
-						// extra: {
-						// 	chunks: 'all',
-						// 	name: 'extra',
-						// 	test(mod/* , chunk */) {
-						// 		if (!mod.context) { return true; }
-						// 		if (!mod.context.includes('node_modules')) { return false; }
-						// 		return extraModules.some(str => mod.context.includes(str));
-						// 	}
-						// }
+						}
 					}
 				}
 			}

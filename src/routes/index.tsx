@@ -5,7 +5,7 @@ import { createBrowserHistory } from 'history';
 
 import { canUseDOM } from '@tg/utils';
 
-import { Loading } from '@tg/elm';
+import { LoadingRoute } from '@tg/elm';
 
 import { routes } from '../config';
 
@@ -25,7 +25,7 @@ export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : nu
 
 // Loaders
 const LoaderSubRoute: React.FC<any> = (props: any) => (
-	<Loading { ...props } className={ styles.loading } />
+	<LoadingRoute { ...props } className={ styles.loading } />
 );
 
 // Routes map

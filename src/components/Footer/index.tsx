@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import { Logo, Btn } from '@tg/elm';
+import { Logo, Button } from '@tg/elm';
 
 import { ContentBlock } from '../ContentBlock';
 import { routes } from '../../config';
@@ -27,9 +27,9 @@ export const Footer: React.FC<{}> = () => (
 		<Logo textOnly className={ styles.logo } />
 		<span>&copy; {'2019 prostpost'}</span>
 		<div>
-			<Btn kind={ { variant: 'nav', size: 'small' } } title="Contact Us" />
-			<Btn kind={ { variant: 'nav', size: 'small' } } title="Join our Channel" />
-			<Btn nav kind={ { variant: 'nav', size: 'small' } } onClick={ () => routes.pp } title="Terms and Privacy" />
+			<Button variant="nav" size="small" title="Contact Us" />
+			<Button variant="nav" size="small" title="Join our Channel" />
+			<Button variant="nav" size="small" onClick={ () => routes.pp } title="Terms and Privacy" />
 		</div>
 	</ContentBlock>
 );

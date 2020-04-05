@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import { Btn } from '@tg/elm';
+import { Button } from '@tg/elm';
 import { PropsNotify } from '@tg/notify';
 import { IconClose } from '@tg/resources';
 
@@ -23,6 +23,6 @@ type Styles = {
 export const Notification: React.FC<PropsNotify> = ({ state, text, onHide, name }) => (
 	<div className={ `${ styles.self } ${ styles[state] }` }>
 		{ text }
-		<Btn icon={ <IconClose /> } onClick={ () => onHide(name) } />
+		<Button variant="inline" icon={ <IconClose /> } onClick={ () => onHide(name) } />
 	</div>
 );

@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-import { Btn, Heading, Logo } from '@tg/elm';
+import { Button, Heading, Logo } from '@tg/elm';
 import { Scrollbars } from '@tg/layout';
 
 import { commonNavBtnProps, scroll } from '../../../utils';
@@ -64,12 +64,12 @@ const PP: React.FC<{}> = () => {
 						{/* Page navigation */}
 						<Nav className={ stylesLanding.nav }>
 							<NavItem>
-								<Btn { ...commonNavBtnProps('Terms and Conditions') }
+								<Button { ...commonNavBtnProps('Terms and Conditions') }
 									onClick={ () => scroll(scroller, refTC) }
 								/>
 							</NavItem>
 							<NavItem>
-								<Btn { ...commonNavBtnProps('PrivacyPolicy') }
+								<Button { ...commonNavBtnProps('PrivacyPolicy') }
 									onClick={ () => scroll(scroller, refPP) }
 								/>
 							</NavItem>
@@ -81,8 +81,10 @@ const PP: React.FC<{}> = () => {
 								? (
 									<Nav className={ styles.sign_in }>
 										<NavItem>
-											<Btn title="Poster"
-												kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
+											<Button title="Poster"
+												variant="primary"
+												size="mid"
+												detail="rounded"
 												onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 											/>
 										</NavItem>
@@ -91,13 +93,16 @@ const PP: React.FC<{}> = () => {
 								: (
 									<Nav className={ stylesLanding.sign_in }>
 										<NavItem>
-											<Btn nav { ...commonNavBtnProps('Sign in', true) }
+											<Button { ...commonNavBtnProps('Sign in', true) }
+												variant="nav"
 												onClick={ () => routes.auth.signin }
 											/>
 										</NavItem>
 										<NavItem>
-											<Btn nav title="Get Started"
-												kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
+											<Button nav title="Get Started"
+												variant="primary"
+												size="mid"
+												detail="rounded"
 												onClick={ () => routes.auth.signup }
 											/>
 										</NavItem>

@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 import { FormRoot } from '@tg/form';
-import { Button, NewFieldInput, MEDIA, mediaQueries } from '@tg/elm';
-
-console.log(MEDIA.TABLET);
+import { Button, FieldInput, MEDIA, mediaQueries } from '@tg/elm';
 
 export const StyledForm = styled(FormRoot)`
 	display: flex;
@@ -18,7 +16,7 @@ export const StyledForm = styled(FormRoot)`
 	}
 `;
 
-export const StyledInput = styled(NewFieldInput)`
+export const StyledInput = styled(FieldInput)`
 	width: 420px;
 
 	${ mediaQueries[MEDIA.TABLET] } {

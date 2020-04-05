@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-import { Btn, Logo } from '@tg/elm';
+import { Button, Logo } from '@tg/elm';
 
 import { history } from '../../../';
 import { formStore as signUpFormStore } from '../../Auth/Signup';
@@ -89,22 +89,22 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 				{/* Page navigation */}
 				<Nav className={ styles.nav }>
 					<NavItem>
-						<Btn { ...commonNavBtnProps('Organise') }
+						<Button { ...commonNavBtnProps('Organise') }
 							onClick={ () => scroll(scroller, refOrganize, -50) }
 						/>
 					</NavItem>
 					<NavItem>
-						<Btn { ...commonNavBtnProps('Create') }
+						<Button { ...commonNavBtnProps('Create') }
 							onClick={ () => scroll(scroller, refEditor, -70) }
 						/>
 					</NavItem>
 					<NavItem>
-						<Btn { ...commonNavBtnProps('Analise') }
+						<Button { ...commonNavBtnProps('Analise') }
 							onClick={ () => scroll(scroller, refStats, -100) }
 						/>
 					</NavItem>
 					<NavItem>
-						<Btn { ...commonNavBtnProps('Pricing') }
+						<Button { ...commonNavBtnProps('Pricing') }
 							onClick={ () => scroll(scroller, refPricing) }
 						/>
 					</NavItem>
@@ -116,8 +116,10 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						? (
 							<Nav className={ styles.sign_in }>
 								<NavItem>
-									<Btn title="Poster"
-										kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
+									<Button title="Poster"
+										variant="primary"
+										size="mid"
+										detail="rounded"
 										onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 									/>
 								</NavItem>
@@ -126,13 +128,15 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						: (
 							<Nav className={ styles.sign_in }>
 								<NavItem>
-									<Btn nav { ...commonNavBtnProps('Sign in', true) }
+									<Button nav { ...commonNavBtnProps('Sign in', true) }
 										onClick={ () => routes.auth.signin }
 									/>
 								</NavItem>
 								<NavItem>
-									<Btn nav title="Get Started"
-										kind={ { variant: 'general', size: 'mid', detail: 'rounded' } }
+									<Button nav title="Get Started"
+										variant="primary"
+										size="mid"
+										detail="rounded"
 										onClick={ () => routes.auth.signup }
 									/>
 								</NavItem>

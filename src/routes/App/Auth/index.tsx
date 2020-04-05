@@ -6,7 +6,7 @@ import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes, canUseDOM, jwtExpired } from '@tg/utils';
-import { Btn, Logo } from '@tg/elm';
+import { Button, Logo } from '@tg/elm';
 
 import { history } from '../../';
 import { routes } from '../../../config';
@@ -67,8 +67,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 				<Nav>
 					<NavItem className={ styles.nav_item }>
 						<span>{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }</span>
-						<Btn nav
-							kind={ { variant: 'nav' } }
+						<Button variant="nav"
 							title={ path === 'in' ? 'Create account' : 'Sign in' }
 							onClick={ () => path === 'in' ? routes.auth.signup : routes.auth.signin }
 						/>

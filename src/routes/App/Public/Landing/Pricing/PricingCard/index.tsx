@@ -5,7 +5,7 @@ import _ from 'lodash';
 import React from 'react';
 
 import { Wrapper } from '@tg/wrapper';
-import { Btn, Icon, Heading } from '@tg/elm';
+import { Button, Icon, Heading } from '@tg/elm';
 import { IconBeta } from '@tg/resources';
 
 // Styles
@@ -147,7 +147,9 @@ export const PricingCard: React.FC<Props> = ({
 
 		{/* Footer */}
 		<footer className={ styles.footer }>
-			<Btn kind={ { variant: 'general', size: 'big', detail: 'rounded' } }
+			<Button variant="primary"
+				size="big"
+				detail="rounded"
 				title={ submitTitle }
 				onClick={ () => onSubmit() }
 			/>

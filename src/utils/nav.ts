@@ -1,11 +1,11 @@
 import { RefObject } from 'react';
 
-import { BtnKind } from '@tg/elm';
+import { BtnProps } from '@tg/elm';
 
 type TypeNavBtn = {
 	title?: string;
 	nav?: boolean;
-	kind?: BtnKind;
+	variant?: BtnProps['variant'];
 };
 
 /**
@@ -15,8 +15,11 @@ type TypeNavBtn = {
  * @returns {*} Button props
  */
 export const commonNavBtnProps = (title: string, nav: boolean = false): TypeNavBtn => {
-	const kind: BtnKind = { variant: 'nav' };
-	return { kind, nav, title };
+	return {
+		variant: 'nav',
+		nav,
+		title
+	};
 };
 
 /**
@@ -37,6 +40,6 @@ export const scroll = (scroller: any, ref?: RefObject<any>, offset: number = 0):
 	scrollEl.scrollTo({
 		behavior: 'smooth',
 		left: 0,
-		top: ref ? ref.current.offsetTop + offset : 0
+		top: ref && ref.current ? ref.current.offsetTop + offset : 0
 	});
 };

@@ -10,7 +10,7 @@ import styled from 'styled-components';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { Button, Heading, FieldInput } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
@@ -68,7 +68,7 @@ const SignIn: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Welcome back" />
 
 				{/* Email */}
-				<NewFieldInput name="email" size="mid" error="top"
+				<FieldInput name="email" size="mid" error="top"
 					label="Email"
 					placeholder="name@example.com"
 					validators={ [
@@ -78,7 +78,7 @@ const SignIn: React.FC<{}> = () => {
 				/>
 
 				{/* Password */}
-				<NewFieldInput name="password" size="mid" error="top"
+				<FieldInput name="password" size="mid" error="top"
 					type="password"
 					placeholder="password"
 					validators={ [

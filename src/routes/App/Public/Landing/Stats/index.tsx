@@ -16,7 +16,7 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Btn, Heading } from '@tg/elm';
+import { Button, Heading } from '@tg/elm';
 import { IconCal } from '@tg/resources';
 
 import { ContentBlock, BlockTextHint } from '../../../../../components';
@@ -258,9 +258,10 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 					{/* Predefined scales (week, month, year) */}
 					<ul>
 						<li>
-							<Btn title="Week"
-								kind={ { variant: 'inline', size: 'small', color: 'black-50' } }
-								active={ scale === 'week' }
+							<Button title="Week"
+								variant="inline"
+								size="small"
+								state={ scale === 'week' ? 'active' : null }
 								onClick={ () => {
 									setScale('week');
 									setData(_data.week);
@@ -268,9 +269,10 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 							/>
 						</li>
 						<li>
-							<Btn title="Month"
-								kind={ { variant: 'inline', size: 'small', color: 'black-50' } }
-								active={ scale === 'month' }
+							<Button title="Month"
+								variant="inline"
+								size="small"
+								state={ scale === 'month' ? 'active' : null }
 								onClick={ () => {
 									setScale('month');
 									setData(_data.month);
@@ -278,9 +280,10 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 							/>
 						</li>
 						<li>
-							<Btn title="Year"
-								kind={ { variant: 'inline', size: 'small', color: 'black-50' } }
-								active={ scale === 'year' }
+							<Button title="Year"
+								variant="inline"
+								size="small"
+								state={ scale === 'year' ? 'active' : null }
 								onClick={ () => {
 									setScale('year');
 									setData(_data.year);
@@ -290,7 +293,8 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 					</ul>
 
 					{/* Date range (calendar trigger) */}
-					<Btn kind={ { variant: 'general', size: 'small', color: 'white-100' } }
+					<Button variant="secondary"
+						size="small"
 						icon={ <IconCal /> }
 						title={ `${ formatDate(data[0].x) } - ${ formatDate(data[data.length - 1].x) }` }
 					/>

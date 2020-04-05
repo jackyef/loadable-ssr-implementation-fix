@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { Button, Heading, FieldInput } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
@@ -48,7 +48,7 @@ const SignUp: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Create account" />
 
 				{/* Email*/}
-				<NewFieldInput name="email" size="mid" error="top"
+				<FieldInput name="email" size="mid" error="top"
 					placeholder="name@example.com"
 					label="Email"
 					validators={ [
@@ -58,7 +58,7 @@ const SignUp: React.FC<{}> = () => {
 				/>
 
 				{/* Password */}
-				<NewFieldInput name="password" size="mid" error="top"
+				<FieldInput name="password" size="mid" error="top"
 					type="password"
 					placeholder="password"
 					label="Password"

@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 
-import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { Button, Heading, FieldInput } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
@@ -51,7 +51,7 @@ const ResetPassword: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Reset password" />
 
 				{/* Email */}
-				<NewFieldInput name="email" size="mid" error="top"
+				<FieldInput name="email" size="mid" error="top"
 					placeholder="name@example.com"
 					label="Email address"
 					validators={ [

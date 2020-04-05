@@ -8,7 +8,7 @@ import qs from 'qs';
 
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, NewFieldInput } from '@tg/elm';
+import { Button, Heading, FieldInput } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
@@ -68,7 +68,7 @@ const NewPassword: React.FC<{}> = () => {
 				<Heading h={ 2 } title="Create password" />
 
 				{/* Password */}
-				<NewFieldInput name="password" size="mid" error="top"
+				<FieldInput name="password" size="mid" error="top"
 					type="password"
 					placeholder="password"
 					label="New password"
@@ -80,7 +80,7 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Repeat password */}
-				<NewFieldInput name="repeat_password" size="mid" error="top"
+				<FieldInput name="repeat_password" size="mid" error="top"
 					type="password"
 					placeholder="repeat"
 					label="Repeat password"
