@@ -3,33 +3,37 @@
  */
 import React from 'react';
 
-import { Logo, Button } from '@tg/elm';
+import { Button, MEDIA } from '@tg/elm';
 
 import { ContentBlock } from '../ContentBlock';
 import { routes } from '../../config';
 
-// Styles
-import importedStyles from './Footer.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-	top?: string;
-	bottom?: string;
-	logo?: string;
-};
+import {
+	StyledContent,
+	StyledLogo,
+	StyledNav
+} from './_styled';
 
 /**
  * Component
  */
 export const Footer: React.FC<{}> = () => (
-	<ContentBlock wrapper="footer" className={ styles.self }>
-		<Logo textOnly className={ styles.logo } />
-		<span>&copy; {'2019 prostpost'}</span>
-		<div>
-			<Button variant="nav" size="small" title="Contact Us" />
-			<Button variant="nav" size="small" title="Join our Channel" />
-			<Button variant="nav" size="small" onClick={ () => routes.pp } title="Terms and Privacy" />
-		</div>
+	<ContentBlock as="footer" bg="white_100"
+		x={ 150 }
+		y={ 30 }
+		media={ {
+			[MEDIA.DESKTOP_NARROW]: { big: [75, 20] },
+			[MEDIA.TABLET]: { big: [20, 20] },
+			[MEDIA.MOBILE]: { big: [20, 20] }
+		} }
+	>
+		<StyledContent>
+			<StyledLogo textOnly />
+			<StyledNav>
+				<Button nav variant="nav" size="mid" title="Contact Us" />
+				<Button nav variant="nav" size="mid" title="Join our Channel" />
+				<Button nav variant="nav" size="mid" onClick={ () => routes.pp } title="Terms and Privacy" />
+			</StyledNav>
+		</StyledContent>
 	</ContentBlock>
 );

@@ -3,24 +3,15 @@ import styled, { css } from 'styled-components';
 import { MEDIA, mediaQueries } from '@tg/elm';
 
 import { ContentBlock } from '../ContentBlock';
-
-type Props = {
-	sticky?: boolean;
-};
+import { Props } from '.';
 
 export const StyledContainer = styled(ContentBlock)<Props>`
-	padding: 0 150px;
-
-	background: ${ ({ theme }) => theme.colors.white_100 };
-
-	${ mediaQueries[MEDIA.DESKTOP_NARROW] } { padding: 0 75px; }
-	${ mediaQueries[MEDIA.TABLET] } { padding: 0 20px; }
-	${ mediaQueries[MEDIA.MOBILE] } { padding: 0 16px; }
+	/* stylelint-disable value-keyword-case */
 
 	${ ({ sticky }) => !sticky ? '' : css`
 		${ mediaQueries[MEDIA.DESKTOP] } {
 			position: sticky;
-			top: -18px;
+			top: ${ ({ theme }) => `-${ theme.spaces[16] }` };
 			z-index: 2;
 		}
 
@@ -37,11 +28,9 @@ export const StyledHeader = styled.header`
 	align-items: center;
 
 	max-width: 1366px;
-	padding: 30px 0 10px 0;
-
-	background: ${ ({ theme }) => theme.colors.white_100 };
+	padding: ${ ({ theme }) => `29px 0 ${ theme.spaces[12] } 0` };
 
 	${ mediaQueries[MEDIA.TABLET] } {
-		padding: 16px 0 10px 0;
+		padding: ${ ({ theme }) => `${ theme.spaces[16] } 0 ${ theme.spaces[12] } 0` };
 	}
 `;

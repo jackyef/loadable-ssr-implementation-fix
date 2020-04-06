@@ -7,9 +7,9 @@ import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
 import { Button, Heading, Logo } from '@tg/elm';
-import { Scrollbars } from '@tg/layout';
+import { Scrollbars, scroll } from '@tg/layout';
 
-import { commonNavBtnProps, scroll } from '../../../utils';
+import { commonNavBtnProps } from '../nav';
 import { history } from '../../';
 import { routes } from '../../../config';
 import { Footer, Header, Nav, NavItem, ContentBlock } from '../../../components';

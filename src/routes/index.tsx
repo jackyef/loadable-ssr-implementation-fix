@@ -5,17 +5,9 @@ import { createBrowserHistory } from 'history';
 
 import { canUseDOM } from '@tg/utils';
 
-import { LoadingRoute } from '@tg/elm';
+import { LoadingRoute, Flex, theme } from '@tg/elm';
 
 import { routes } from '../config';
-
-// Styles
-import importedStyles from './Routes.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	loading?: string;
-};
 
 // Not Found Route
 const RouteNotFound = { component: () => <Redirect to={ routes.index } /> };
@@ -25,7 +17,13 @@ export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : nu
 
 // Loaders
 const LoaderSubRoute: React.FC<any> = (props: any) => (
-	<LoadingRoute { ...props } className={ styles.loading } />
+	<Flex justify="center" height="100vh">
+		<LoadingRoute { ...props }
+			height="100vh"
+			size="mid"
+			theme={ theme }
+		/>
+	</Flex>
 );
 
 // Routes map

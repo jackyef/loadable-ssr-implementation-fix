@@ -1,27 +1,21 @@
 import styled from 'styled-components';
 
-import { ContentBlock } from '../../../../../components';
-
 import { mediaQueries, MEDIA, Heading, Paragraph } from '@tg/elm';
 
 const MEDIA_CUSTOM = '@media screen and (max-width: 1200px)';
 
-export const StyledContentBlock = styled(ContentBlock)`
-	background: ${ ({ theme }) => theme.colors.white_100 };
+export const StyledContent = styled.div`
+	display: flex;
+	flex-direction: column;
 
-	> div {
-		display: flex;
-		flex-direction: column;
+	padding: ${ ({ theme }) => theme.spaces[48] } 0 250px 0;
 
-		padding: 50px 0 250px 0;
+	${ mediaQueries[MEDIA.TABLET] } {
+		padding-bottom: 200px;
+	}
 
-		${ mediaQueries[MEDIA.TABLET] } {
-			padding-bottom: 200px;
-		}
-
-		${ mediaQueries[MEDIA.MOBILE] } {
-			padding-bottom: 220px;
-		}
+	${ mediaQueries[MEDIA.MOBILE] } {
+		padding-bottom: 220px;
 	}
 `;
 

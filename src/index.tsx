@@ -8,7 +8,14 @@ import { renderRoutes } from '@tg/utils';
 
 import { appContainerHTMLTag } from './config';
 import Routes, { history } from './routes';
-import { appHeight } from './utils';
+
+/**
+ * Set document height for mobiles
+ */
+export const appHeight = (): void => {
+	const doc = document.documentElement;
+	doc.style.setProperty('--app-height', `${ window.innerHeight }px`);
+};
 
 // Mobile height
 window.addEventListener('resize', appHeight);

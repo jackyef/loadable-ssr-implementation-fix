@@ -5,10 +5,10 @@
 import React from 'react';
 
 import { toSignUp } from '../';
-import { GetStarted } from '../../../../../components';
+import { GetStarted, ContentBlock } from '../../../../../components';
 
 import {
-	StyledContentBlock,
+	StyledContent,
 	StyledHeading,
 	StyledParagraph,
 	StyledTop
@@ -18,9 +18,8 @@ import {
  * Component
  */
 export const Promo: React.FC<{}> = () => (
-	<StyledContentBlock>
-
-			{/* Top */}
+	<ContentBlock bg="white_100">
+		<StyledContent>
 			<StyledTop>
 				<StyledHeading h={ 1 }>
 					{ 'Tools to manage your Telegram channels and posts with ease.' }
@@ -29,9 +28,7 @@ export const Promo: React.FC<{}> = () => (
 					{ 'For bloggers, teams and admins of channels. Create new content faster and grow the audience.' }
 				</StyledParagraph>
 			</StyledTop>
-
-			{/* Bottom */}
 			<GetStarted onClick={ toSignUp } />
-
-	</StyledContentBlock>
+		</StyledContent>
+	</ContentBlock>
 );

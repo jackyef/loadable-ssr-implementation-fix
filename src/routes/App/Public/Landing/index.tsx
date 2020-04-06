@@ -7,10 +7,11 @@ import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
 import { Button, Logo } from '@tg/elm';
+import { scroll } from '@tg/layout';
 
 import { history } from '../../../';
 import { formStore as signUpFormStore } from '../../Auth/Signup';
-import { commonNavBtnProps, scroll } from '../../../../utils';
+import { commonNavBtnProps } from '../../nav';
 import { Header, Nav, NavItem, ContentBlock } from '../../../../components';
 import { routes } from '../../../../config';
 
