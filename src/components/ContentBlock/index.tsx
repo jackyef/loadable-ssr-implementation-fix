@@ -13,7 +13,8 @@ import {
 	Color,
 	Size,
 	Theme,
-	spacesNums as spaces
+	space,
+	Space
 } from '@tg/elm';
 
 export type Props = {
@@ -56,12 +57,12 @@ export type Props = {
 	/**
 	 * Padding X
 	 */
-	x?: number;
+	x?: string;
 
 	/**
 	 * Padding Y
 	 */
-	y?: number;
+	y?: string;
 
 	/**
 	 * Theme object
@@ -69,10 +70,10 @@ export type Props = {
 	theme?: Theme;
 };
 
-type SizeMap = { [key in Size]?: [number, number] };
+type SizeMap = { [key: string]: [Space, Space] };
 
 const sizeMap: SizeMap = {
-	big: [spaces[72], spaces[96]]
+	big: [space[9], space[10]]
 };
 
 const defaultProps: Partial<Props> = {
@@ -81,13 +82,13 @@ const defaultProps: Partial<Props> = {
 	className: '',
 	media: {
 		[MEDIA.MOBILE]: {
-			big: [spaces[48], spaces[16]]
+			big: [space[7], space[7]]
 		},
 		[MEDIA.TABLET]: {
-			big: [spaces[72], spaces[32]]
+			big: [space[9], space[8]]
 		},
 		[MEDIA.DESKTOP_NARROW]: {
-			big: [spaces[72], spaces[72]]
+			big: [space[9], space[9]]
 		}
 	}
 };
@@ -96,15 +97,15 @@ const StyledContentBlock = styled.section<Props>`
 	/* stylelint-disable declaration-colon-newline-after */
 
 	padding: ${ ({ size, x, y }) => `
-		${ y === 0 || y ? y : sizeMap[size][1] }px
-		${ x === 0 || x ? x : sizeMap[size][0] }px
+		${ y ? y : sizeMap[size][1] }
+		${ x ? x : sizeMap[size][0] }
 	` };
 
 	background: ${ ({ bg, theme }) => theme.colors[bg] };
 
 	> div {
 		width: 100%;
-		max-width: calc(1366px - ${ ({ size, x }) => `${ (x === 0 || x ? x : sizeMap[size][0]) * 2 }px` });
+		max-width: calc(1366px - ${ ({ size, x }) => `${ parseInt(x ? x : sizeMap[size][0], 10) * 2 }px` });
 		margin: 0 auto;
 	}
 
@@ -113,11 +114,11 @@ const StyledContentBlock = styled.section<Props>`
 			const comb = { ...defaultProps.media, ...media };
 			const r = comb[MEDIA.DESKTOP_NARROW][size][1];
 			const v = `${
-				(y === 0 || y) &&
+				y &&
 				r === _.get(defaultProps.media, `${ MEDIA.DESKTOP_NARROW }.${ size }.1`)
 				? y : r
 			}px`;
-			const h = `${ comb[MEDIA.DESKTOP_NARROW][size][0] }px`;
+			const h = comb[MEDIA.DESKTOP_NARROW][size][0];
 			return `${ v } ${ h }`;
 		} };
 	}
@@ -126,8 +127,8 @@ const StyledContentBlock = styled.section<Props>`
 		padding: ${ ({ media, size, y }) => {
 			const comb = { ...defaultProps.media, ...media };
 			const r = comb[MEDIA.TABLET][size][1];
-			const v = `${ (y === 0 || y) && r === _.get(defaultProps.media, `${ MEDIA.TABLET }.1`) ? y : r }px`;
-			const h = `${ comb[MEDIA.TABLET][size][0] }px`;
+			const v = y && r === _.get(defaultProps.media, `${ MEDIA.TABLET }.1`) ? y : r;
+			const h = comb[MEDIA.TABLET][size][0];
 			return `${ v } ${ h }`;
 		} };
 	}
@@ -137,8 +138,8 @@ const StyledContentBlock = styled.section<Props>`
 		padding: ${ ({ media, size, y }) => {
 			const comb = { ...defaultProps.media, ...media };
 			const r = comb[MEDIA.MOBILE][size][1];
-			const v = `${ (y === 0 || y) && r === _.get(defaultProps.media, `${ MEDIA.MOBILE }.1`) ? y : r }px`;
-			const h = `${ comb[MEDIA.MOBILE][size][0] }px`;
+			const v = y && r === _.get(defaultProps.media, `${ MEDIA.MOBILE }.1`) ? y : r;
+			const h = comb[MEDIA.MOBILE][size][0];
 			return `${ v } ${ h }`;
 		} };
 	}

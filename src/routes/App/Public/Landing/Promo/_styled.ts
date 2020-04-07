@@ -8,7 +8,7 @@ export const StyledContent = styled.div`
 	display: flex;
 	flex-direction: column;
 
-	padding: ${ ({ theme }) => theme.spaces[48] } 0 250px 0;
+	padding: ${ ({ theme }) => theme.space[7] } 0 250px 0;
 
 	${ mediaQueries[MEDIA.TABLET] } {
 		padding-bottom: 200px;
@@ -41,7 +41,7 @@ export const StyledHeading = styled(Heading)`
 
 export const StyledParagraph = styled(Paragraph)`
 	width: 311px;
-	margin-top: ${ ({ theme }) => theme.spaces[12] };
+	margin-top: ${ ({ theme }) => theme.space[3] };
 
 	/* Need custom width here */
 	${ MEDIA_CUSTOM } {

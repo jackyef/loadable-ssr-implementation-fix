@@ -9,7 +9,7 @@ export const StyledForm = styled(FormRoot)`
 	align-items: center;
 
 	width: 100%;
-	margin-top: ${ ({ theme }) => theme.spaces[32] };
+	margin-top: ${ ({ theme }) => theme.space[6] };
 
 	${ mediaQueries[MEDIA.MOBILE] } {
 		flex-direction: column;
@@ -25,15 +25,15 @@ export const StyledInput = styled(FieldInput)`
 
 	${ mediaQueries[MEDIA.MOBILE] } {
 		width: 100%;
-		margin-bottom: ${ ({ theme }) => theme.spaces[8] };
+		margin-bottom: ${ ({ theme }) => theme.space[2] };
 	}
 `;
 
 export const StyledButton = styled(Button)`
-	margin-left: ${ ({ theme }) => theme.spaces[24] };
+	margin-left: ${ ({ theme }) => theme.space[5] };
 
 	${ mediaQueries[MEDIA.TABLET] } {
-		margin-left: ${ ({ theme }) => theme.spaces[18] };
+		margin-left: ${ ({ theme }) => theme.space[4] };
 	}
 
 	${ mediaQueries[MEDIA.MOBILE] } {

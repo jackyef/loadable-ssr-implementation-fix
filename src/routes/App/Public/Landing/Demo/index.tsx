@@ -5,19 +5,22 @@
  * @module Demo
  */
 import React from 'react';
-import Scrollbar from 'react-scrollbars-custom';
 
 import { resources } from '@tg/resources';
 
-import { ContentBlock } from '../../../../../components';
+import {
+	StyledContentBlock,
+	StyledScrollbars,
+	InnerWrapper,
+	OutterWrapper,
+	StyledImg
+} from './_styled';
 
 import importedStyles from './Demo.module.less';
 const styles: Styles = importedStyles;
 
 type Styles = {
-	self?: string;
 	hideTrack?: string;
-	scrollbars?: string;
 };
 
 type Props = {
@@ -29,23 +32,26 @@ const defaultProps: Partial<Props> = {
 };
 
 export const Demo: React.FC<Props> = ({ className }) => (
-	<ContentBlock className={ `${ styles.self } ${ className }` }>
-		<div>
-			{/* For desktop & tablets */}
-			<img src={ resources.demo } />
+	<StyledContentBlock className={ className }>
+		<OutterWrapper>
+			<InnerWrapper>
+				{/* For desktop & tablets */}
+				{/* TODO: Replace with video */}
+				<StyledImg src={ resources.demo } />
 
-			{/* For mobiles */}
-			<Scrollbar width="100%" height="400px"
-				className={ styles.scrollbars }
-				trackXProps={ { className: styles.hideTrack } }
-				thumbXProps={ { className: styles.hideTrack } }
-				trackYProps={ { className: styles.hideTrack } }
-				thumbYProps={ { className: styles.hideTrack } }
-			>
-				<img src={ resources.demo } />
-			</Scrollbar>
-		</div>
-	</ContentBlock>
+				{/* For mobiles */}
+				<StyledScrollbars
+					trackXProps={ { className: styles.hideTrack } }
+					thumbXProps={ { className: styles.hideTrack } }
+					trackYProps={ { className: styles.hideTrack } }
+					thumbYProps={ { className: styles.hideTrack } }
+				>
+					{/* TODO: Replace with video */}
+					<StyledImg src={ resources.demo } />
+				</StyledScrollbars>
+			</InnerWrapper>
+		</OutterWrapper>
+	</StyledContentBlock>
 );
 
 Demo.defaultProps = defaultProps;

@@ -3,86 +3,21 @@
 @import (reference) '~@tg/resources/styles/media-queries/_';
 
 .self {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-
-	width: 30%;
-	max-width: 340px;
-	margin: 0 10px;
-
-	// Image
-	> div {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-
-		overflow: hidden;
-
-		width: 130px;
-		height: 130px;
-
-		border-radius: 65px;
-
-		> img {
-			width: 100%;
-			height: 100%;
-		}
-	}
 
 	// Hint
 	> span {
-		.text-detail-13(@cc-blue-30);
-
-		margin-top: 30px;
+		margin-top: 20px;
 
 		text-align: center;
-
-		// Media
-		.media-not-desktop({
-			margin-bottom: 8px;
-		});
 	}
 
 	// Heading
 	> h3 {
-		margin: 10px 0 10px 0;
-
 		text-align: center;
-
-		// Media
-		.media-not-desktop({
-			margin-bottom: 8px;
-		});
 	}
 
 	// Description
 	> p {
-		.text-paragraph-18(@cc-black-50);
-
 		text-align: center;
 	}
-
-	// Media
-	.media-tablet({
-
-		// Image
-		> div {
-			width: 100px;
-			height: 100px;
-
-			border-radius: 50px;
-		}
-
-		// Hint
-		> span {
-			margin-top: 10px;
-		}
-	});
-
-	.media-mobile({
-		> span {
-			margin-top: 16px;
-		}
-	});
 }

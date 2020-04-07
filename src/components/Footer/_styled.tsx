@@ -7,17 +7,17 @@ export const StyledContent = styled.div`
 	justify-content: space-between;
 	align-items: center;
 
-	padding-top: ${ ({ theme }) => theme.spaces[32] };
+	padding-top: ${ ({ theme }) => theme.space[6] };
 
 	border-top: 1px solid ${ ({ theme }) => theme.colors.blue_20 };
 
 	${ mediaQueries[MEDIA.DESKTOP_NARROW] } {
-		padding-top: ${ ({ theme }) => theme.spaces[32] };
-		padding-bottom: ${ ({ theme }) => theme.spaces[8] };
+		padding-top: ${ ({ theme }) => theme.space[6] };
+		padding-bottom: ${ ({ theme }) => theme.space[2] };
 	}
 
 	${ mediaQueries[MEDIA.NOT_DESKTOP] } {
-		padding-top: ${ ({ theme }) => theme.spaces[20] };
+		padding-top: ${ ({ theme }) => theme.space[5] };
 	}
 
 	${ mediaQueries[MEDIA.MOBILE] } {
@@ -32,7 +32,7 @@ export const StyledNav = styled.div`
 	align-items: center;
 
 	> a {
-		margin-left: ${ ({ theme }) => theme.spaces[16] };
+		margin-left: ${ ({ theme }) => theme.space[4] };
 	}
 
 	${ mediaQueries[MEDIA.MOBILE] } {
@@ -40,7 +40,7 @@ export const StyledNav = styled.div`
 		align-items: flex-start;
 
 		> a {
-			padding: ${ ({ theme }) => theme.spaces[8] } 0;
+			padding: ${ ({ theme }) => theme.space[2] } 0;
 			margin-left: 0;
 		}
 	}
@@ -51,6 +51,6 @@ export const StyledLogo = styled(Logo)`
 	opacity: .15;
 
 	${ mediaQueries[MEDIA.MOBILE] } {
-		margin-bottom: ${ ({ theme }) => theme.spaces[12] };
+		margin-bottom: ${ ({ theme }) => theme.space[3] };
 	}
 `;

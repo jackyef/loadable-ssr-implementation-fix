@@ -11,7 +11,7 @@ export const StyledContainer = styled(ContentBlock)<Props>`
 	${ ({ sticky }) => !sticky ? '' : css`
 		${ mediaQueries[MEDIA.DESKTOP] } {
 			position: sticky;
-			top: ${ ({ theme }) => `-${ theme.spaces[16] }` };
+			top: ${ ({ theme }) => `-${ theme.space[4] }` };
 			z-index: 2;
 		}
 
@@ -28,9 +28,9 @@ export const StyledHeader = styled.header`
 	align-items: center;
 
 	max-width: 1366px;
-	padding: ${ ({ theme }) => `29px 0 ${ theme.spaces[12] } 0` };
+	padding: ${ ({ theme }) => `29px 0 ${ theme.space[3] } 0` };
 
 	${ mediaQueries[MEDIA.TABLET] } {
-		padding: ${ ({ theme }) => `${ theme.spaces[16] } 0 ${ theme.spaces[12] } 0` };
+		padding: ${ ({ theme }) => `${ theme.space[4] } 0 ${ theme.space[3] } 0` };
 	}
 `;
