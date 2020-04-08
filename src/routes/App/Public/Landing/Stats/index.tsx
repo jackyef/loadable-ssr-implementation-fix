@@ -16,10 +16,10 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Button, Heading } from '@tg/elm';
+import { Button, Heading, Text } from '@tg/elm';
 import { IconCal } from '@tg/resources';
 
-import { ContentBlock, BlockTextHint } from 'app/components';
+import { ContentBlock } from 'app/components';
 
 // Styles
 import importedStyles from './Stats.module.less';
@@ -236,7 +236,7 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 
 			{/* Short description */}
 			<div className={ styles.info }>
-				<BlockTextHint text="Analise" />
+				<Text size={ 12 } color="blue_100">{ 'Analise' }</Text>
 				<Heading h={ 2 } title="Analise what people like and how fast your channel grows" />
 				<p>{
 					'Unleash your creativity, plan projects from all angles, ' +

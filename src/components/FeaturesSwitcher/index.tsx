@@ -7,32 +7,14 @@
 import _ from 'lodash';
 import React, { useState, useEffect } from 'react';
 
-import { Icon, Heading } from '@tg/elm';
-
-// Styles
-import importedStyles from './FeaturesSwitcher.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	feature?: string;
-	active?: string;
-	desc?: string;
-	header?: string;
-	h_text?: string;
-};
-
-export type Feature = {
-	title?: string;
-	desc?: string;
-	icon?: JSX.Element;
-};
+import { Feature, Props as FeatureProps } from './Feature';
 
 type Props = {
 
 	/**
 	 * Features
 	 */
-	features?: Feature[];
+	features?: FeatureProps[];
 
 	/**
 	 * Currently active feature
@@ -74,18 +56,16 @@ export const FeaturesSwitcher: React.FC<Props> = ({ features, onSwitch, classNam
 				_.map(features, ({ title, desc, icon }, index) => {
 					const current = index + 1;
 					return (
-						<li key={ title } onClick={ () => { setActive(current); onSwitch(current); } }
-							className={ `
-								${ styles.feature }
-								${ current === active ? styles.active : '' }
-							` }
-						>
-							<header className={ styles.header }>
-								<Icon icon={ icon } />
-								<Heading h={ 4 } title={ title } styles={ styles.h_text } />
-							</header>
-							<p className={ styles.desc }>{ desc }</p>
-						</li>
+						<Feature key={ title }
+							active={ current === active }
+							title={ title }
+							desc={ desc }
+							icon={ icon }
+							onClick={ () => {
+								setActive(current);
+								onSwitch(current);
+							} }
+						/>
 					);
 				})
 			}

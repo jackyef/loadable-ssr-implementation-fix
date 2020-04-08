@@ -3,7 +3,7 @@
  */
 import React, { Ref } from 'react';
 
-import { Heading } from '@tg/elm';
+import { Heading, Text } from '@tg/elm';
 import {
 	IconPen,
 	IconChannel,
@@ -11,7 +11,7 @@ import {
 } from '@tg/resources';
 
 import { PricingCard, Props as PricingCardProps } from './PricingCard';
-import { ContentBlock, BlockTextHint } from 'app/components';
+import { ContentBlock } from 'app/components';
 
 // Styles
 import importedStyles from './Pricing.module.less';
@@ -77,7 +77,7 @@ export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 	<ContentBlock ref={ ref } className={ styles.self }>
 
 		{/* Title */}
-		<BlockTextHint text="Pricing" className={ styles.block_hint } />
+		<Text size={ 12 } color="yellow_100">{ 'Pricing' }</Text>
 		<Heading h={ 2 } title="Simple pricing" color="white_100" />
 
 		{/* Offers (cards) */}

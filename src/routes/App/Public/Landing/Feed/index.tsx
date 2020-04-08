@@ -7,12 +7,13 @@ import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
 import { uuid } from '@tg/utils';
+import { Text } from '@tg/elm';
 import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
 
-import { FeaturesSwitcher, BlockTextHint } from 'app/components';
-import { Feature } from 'app/components/FeaturesSwitcher';
+import { FeaturesSwitcher } from 'app/components';
+import { Props as FeatureProps } from 'app/components/FeaturesSwitcher/Feature';
 
 import {
 	StyledContentBlock,
@@ -44,7 +45,7 @@ type Props = {
 /**
  * Features content
  */
-const featuresData: Feature[] = [
+const featuresData: FeatureProps[] = [
 	{
 		icon: <IconTime />,
 		title: 'Scheduling',
@@ -125,7 +126,7 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 
 				{/* Left part */}
 				<div className={ styles.left }>
-					<BlockTextHint text="Organize" />
+					<Text size={ 12 } color="blue_100">{ 'Organize' }</Text>
 					<StyledHeading h={ 2 }
 						title="Organise posts and activities from all channels in one feed"
 					/>
