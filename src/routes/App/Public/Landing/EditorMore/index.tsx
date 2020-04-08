@@ -8,7 +8,7 @@ import React from 'react';
 
 import { IconAd, IconEdit } from '@tg/resources';
 
-import { ContentBlock, FeatureCard, FeatureCardProps } from '../../../../../components';
+import { ContentBlock, FeatureCard, FeatureCardProps } from 'app/components';
 
 // Styles
 import importedStyles from './EditorMore.module.less';

@@ -9,10 +9,10 @@ import { canUseDOM } from '@tg/utils';
 import { Button, Heading, Logo } from '@tg/elm';
 import { Scrollbars, scroll } from '@tg/layout';
 
-import { commonNavBtnProps } from '../nav';
-import { history } from '../../';
-import { routes } from '../../../config';
-import { Footer, Header, Nav, NavItem, ContentBlock } from '../../../components';
+import { commonNavBtnProps } from 'app/routes/App/nav';
+import { history } from 'app/routes';
+import { routes } from 'app/config';
+import { Footer, Header, Nav, NavItem, ContentBlock } from 'app/components';
 
 // Styles
 // eslint-disable-next-line import/no-internal-modules

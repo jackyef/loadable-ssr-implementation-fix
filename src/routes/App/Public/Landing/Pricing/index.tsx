@@ -11,7 +11,7 @@ import {
 } from '@tg/resources';
 
 import { PricingCard, Props as PricingCardProps } from './PricingCard';
-import { ContentBlock, BlockTextHint } from '../../../../../components';
+import { ContentBlock, BlockTextHint } from 'app/components';
 
 // Styles
 import importedStyles from './Pricing.module.less';

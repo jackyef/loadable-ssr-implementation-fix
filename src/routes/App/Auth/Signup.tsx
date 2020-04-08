@@ -13,7 +13,7 @@ import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
 
-import { routes } from '../../../config';
+import { routes } from 'app/config';
 
 import { NotifyBox, awakeNotification } from './utils/notification';
 

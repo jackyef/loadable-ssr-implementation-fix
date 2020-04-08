@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
 import { FormRoot } from '@tg/form';
-import { Button, FieldInput, MEDIA, mediaQueries } from '@tg/elm';
+import { Button, FieldInput, MEDIA, mediaQueries, flex } from '@tg/elm';
 
 export const StyledForm = styled(FormRoot)`
-	display: flex;
-	flex-direction: row;
-	align-items: center;
+	/* stylelint-disable value-keyword-case */
 
-	width: 100%;
+	${ flex({
+		align: 'center',
+		width: '100%'
+	}) }
+
 	margin-top: ${ ({ theme }) => theme.space[6] };
 
 	${ mediaQueries[MEDIA.MOBILE] } {

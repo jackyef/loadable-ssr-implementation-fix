@@ -19,7 +19,7 @@ import {
 import { Button, Heading } from '@tg/elm';
 import { IconCal } from '@tg/resources';
 
-import { ContentBlock, BlockTextHint } from '../../../../../components';
+import { ContentBlock, BlockTextHint } from 'app/components';
 
 // Styles
 import importedStyles from './Stats.module.less';

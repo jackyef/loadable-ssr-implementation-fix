@@ -7,13 +7,18 @@ import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
 import { uuid } from '@tg/utils';
-import { Heading } from '@tg/elm';
 import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
 
-import { ContentBlock, FeaturesSwitcher, BlockTextHint } from '../../../../../components';
-import { Feature } from '../../../../../components/FeaturesSwitcher';
+import { FeaturesSwitcher, BlockTextHint } from 'app/components';
+import { Feature } from 'app/components/FeaturesSwitcher';
+
+import {
+	StyledContentBlock,
+	StyledHeading,
+	StyledWrapper
+} from './_styled';
 
 import importedStyles from './Feed.module.less';
 const styles: Styles = importedStyles;
@@ -115,33 +120,35 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 
 	// Render
 	return (
-		<ContentBlock ref={ ref } className={ styles.self }>
+		<StyledContentBlock ref={ ref } bg="white_100">
+			<StyledWrapper>
 
-			{/* Left part */}
-			<div className={ styles.left }>
-				<BlockTextHint text="Organize" />
-				<Heading h={ 2 }
-					title="Organise posts and activities from all channels in one feed"
-				/>
-				<FeaturesSwitcher features={ featuresData } active={ active } onSwitch={ setActive } />
-			</div>
+				{/* Left part */}
+				<div className={ styles.left }>
+					<BlockTextHint text="Organize" />
+					<StyledHeading h={ 2 }
+						title="Organise posts and activities from all channels in one feed"
+					/>
+					<FeaturesSwitcher features={ featuresData } active={ active } onSwitch={ setActive } />
+				</div>
 
-			{/* Right part */}
-			<ContextStores.Provider value={ { posts: storePosts } }>
-				<ul className={ styles.right }>
-					{
-						_.map(postsData, (data, index) => (
-							<ListPostsPreview key={ index } wrapper="li" post={ data }
-								onClick={ () => setActive(index + 1) }
-								showEditTooltip={ index === 1 }
-								className={ active === (index + 1) ? styles.preview_selected : '' }
-							/>
-						))
-					}
-				</ul>
-			</ContextStores.Provider>
+				{/* Right part */}
+				<ContextStores.Provider value={ { posts: storePosts } }>
+					<ul className={ styles.right }>
+						{
+							_.map(postsData, (data, index) => (
+								<ListPostsPreview key={ index } wrapper="li" post={ data }
+									onClick={ () => setActive(index + 1) }
+									showEditTooltip={ index === 1 }
+									className={ active === (index + 1) ? styles.preview_selected : '' }
+								/>
+							))
+						}
+					</ul>
+				</ContextStores.Provider>
 
-		</ContentBlock>
+			</StyledWrapper>
+		</StyledContentBlock>
 	);
 });
 

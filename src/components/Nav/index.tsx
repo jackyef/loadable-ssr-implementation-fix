@@ -4,6 +4,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { flex } from '@tg/elm';
+
 type Props = {
 	children?: React.ReactNode | React.ReactNode[];
 	className?: string;
@@ -14,8 +16,11 @@ const defaultProps: Partial<Props> = {
 };
 
 const StyledNav = styled.ul`
-	display: flex;
-	align-items: center;
+	/* stylelint-disable value-keyword-case */
+
+	${ flex({
+		align: 'center'
+	}) }
 `;
 
 /**

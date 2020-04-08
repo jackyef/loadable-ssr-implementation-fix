@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Heading, MEDIA, mediaQueries } from '@tg/elm';
+import { Heading, MEDIA, mediaQueries, flex } from '@tg/elm';
 
 export const StyledHeading = styled(Heading)`
 	width: 440px;
@@ -16,10 +16,12 @@ export const StyledHeading = styled(Heading)`
 `;
 
 export const StyledList = styled.ul`
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: flex-start;
+	/* stylelint-disable value-keyword-case */
+
+	${ flex({
+		align: 'flex-start',
+		justify: 'space-between'
+	}) }
 
 	${ mediaQueries[MEDIA.TABLET] } {
 		flex-wrap: wrap;

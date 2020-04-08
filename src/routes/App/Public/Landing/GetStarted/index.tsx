@@ -8,7 +8,7 @@ import React from 'react';
 import { Heading } from '@tg/elm';
 
 import { toSignUp } from '../';
-import { ContentBlock, GetStarted as GetStartedForm } from '../../../../../components';
+import { ContentBlock, GetStarted as GetStartedForm } from 'app/components';
 
 // Styles
 import importedStyles from './GetStarted.module.less';

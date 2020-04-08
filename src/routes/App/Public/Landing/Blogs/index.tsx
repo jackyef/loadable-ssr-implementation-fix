@@ -8,7 +8,7 @@ import React from 'react';
 import { Flex } from '@tg/elm';
 
 import { StyledHeading, StyledList } from './_styled';
-import { ContentBlock, Feature, FeatureProps } from '../../../../../components';
+import { ContentBlock, Feature, FeatureProps } from 'app/components';
 
 /**
  * Blog types data

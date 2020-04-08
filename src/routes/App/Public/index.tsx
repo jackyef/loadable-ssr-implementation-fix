@@ -5,11 +5,9 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/utils';
-
 import { Scrollbars } from '@tg/layout';
 
-// Components
-import { Footer } from '../../../components';
+import { Footer } from 'app/components';
 
 type Props = {
 	route: RouteConfig & { render?: any };

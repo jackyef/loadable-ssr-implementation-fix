@@ -9,7 +9,7 @@ import { NotifyBox } from '@tg/notify';
 import { NotifyCommon } from '@tg/app';
 import { renderRoutes, canUseDOM } from '@tg/utils';
 
-import { notifyStore } from '../../stores';
+import { notifyStore } from 'app/stores';
 
 // eslint-disable-next-line import/no-internal-modules
 import '../../styles/base.less';

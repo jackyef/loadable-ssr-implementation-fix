@@ -8,9 +8,9 @@ import { RouteConfig } from 'react-router-config';
 import { renderRoutes, canUseDOM, jwtExpired } from '@tg/utils';
 import { Button, Logo } from '@tg/elm';
 
-import { history } from '../../';
-import { routes } from '../../../config';
-import { Header, Nav, NavItem } from '../../../components';
+import { history } from 'app/routes';
+import { routes } from 'app/config';
+import { Header, Nav, NavItem } from 'app/components';
 
 // Styles
 // eslint-disable-next-line import/no-internal-modules

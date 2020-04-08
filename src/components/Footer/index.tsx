@@ -6,8 +6,8 @@ import { useTheme } from 'styled-components';
 
 import { Button, MEDIA, Theme } from '@tg/elm';
 
-import { ContentBlock } from '../ContentBlock';
-import { routes } from '../../config';
+import { ContentBlock } from 'app/components/ContentBlock';
+import { routes } from 'app/config';
 
 import {
 	StyledContent,

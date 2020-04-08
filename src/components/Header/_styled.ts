@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 
-import { MEDIA, mediaQueries } from '@tg/elm';
+import { MEDIA, mediaQueries, flex } from '@tg/elm';
 
-import { ContentBlock } from '../ContentBlock';
+import { ContentBlock } from 'app/components/ContentBlock';
 import { Props } from '.';
 
 export const StyledContainer = styled(ContentBlock)<Props>`
@@ -23,9 +23,11 @@ export const StyledContainer = styled(ContentBlock)<Props>`
 `;
 
 export const StyledHeader = styled.header`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+
+	${ flex({
+		justify: 'space-between',
+		align: 'center'
+	}) }
 
 	max-width: 1366px;
 	padding: ${ ({ theme }) => `29px 0 ${ theme.space[3] } 0` };

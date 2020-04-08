@@ -5,7 +5,7 @@
  */
 import React, { Ref } from 'react';
 
-import { ContentBlock, BlockTextHint } from '../../../../../components';
+import { ContentBlock, BlockTextHint } from 'app/components';
 
 import { Heading } from '@tg/elm';
 import { resources, IconEye, IconTemplate, IconMd, IconHeart, IconImage } from '@tg/resources';

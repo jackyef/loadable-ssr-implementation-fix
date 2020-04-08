@@ -5,7 +5,7 @@
 import React from 'react';
 
 import { toSignUp } from '../';
-import { GetStarted, ContentBlock } from '../../../../../components';
+import { GetStarted, ContentBlock } from 'app/components';
 
 import {
 	StyledContent,

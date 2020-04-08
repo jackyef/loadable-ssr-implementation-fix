@@ -3,35 +3,6 @@
 @import (reference) '~@tg/resources/styles/constants/transition';
 @import (reference) '~@tg/resources/styles/media-queries/_';
 
-.self {
-	background: @cc-white-100;
-
-	> div {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-
-		width: 100%;
-		padding-top: 75px;
-
-		// Media
-		.media-tablet({ justify-content: center; });
-		.media-tablet({ padding-top: 0; }, 640px, 1099px);
-	}
-
-	// Media
-	.media-tablet({ padding-top: 0; }, 640px, 1023px);
-	.media-tablet({ padding-bottom: 0; }, 640px, 879px);
-
-	.media-mobile({
-		> div {
-			flex-direction: column;
-
-			padding-top: 0;
-		}
-	});
-}
-
 // Headline & features list
 .left {
 	width: 400px;

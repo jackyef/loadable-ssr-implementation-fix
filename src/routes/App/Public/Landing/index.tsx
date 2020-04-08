@@ -9,11 +9,11 @@ import { canUseDOM } from '@tg/utils';
 import { Button, Logo } from '@tg/elm';
 import { scroll } from '@tg/layout';
 
-import { history } from '../../../';
-import { formStore as signUpFormStore } from '../../Auth/Signup';
-import { commonNavBtnProps } from '../../nav';
-import { Header, Nav, NavItem, ContentBlock } from '../../../../components';
-import { routes } from '../../../../config';
+import { history } from 'app/routes';
+import { formStore as signUpFormStore } from 'app/routes/App/Auth/Signup';
+import { commonNavBtnProps } from 'app/routes/App/nav';
+import { Header, Nav, NavItem, ContentBlock } from 'app/components';
+import { routes } from 'app/config';
 
 import { Promo } from './Promo';
 import { Demo } from './Demo';

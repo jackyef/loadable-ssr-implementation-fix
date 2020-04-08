@@ -1,11 +1,14 @@
 import styled from 'styled-components';
 
-import { Logo, MEDIA, mediaQueries } from '@tg/elm';
+import { Logo, MEDIA, mediaQueries, flex } from '@tg/elm';
 
 export const StyledContent = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	/* stylelint-disable value-keyword-case */
+
+	${ flex({
+		justify: 'space-between',
+		align: 'center'
+	}) }
 
 	padding-top: ${ ({ theme }) => theme.space[6] };
 
@@ -27,9 +30,11 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledNav = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+
+	${ flex({
+		justify: 'space-between',
+		align: 'center'
+	}) }
 
 	> a {
 		margin-left: ${ ({ theme }) => theme.space[4] };

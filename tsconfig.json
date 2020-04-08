@@ -1,7 +1,18 @@
 {
 	"extends": "@tg/configs/tsconfig/app.json",
 	"compilerOptions": {
-		"baseUrl": "./"
+		"baseUrl": "./",
+		"jsx": "react",
+		"paths": {
+			"app/config/*": ["src/config/*"],
+			"app/config": ["src/config/index.ts"],
+			"app/stores/*": ["src/stores/*"],
+			"app/stores": ["src/stores/index.ts"],
+			"app/routes/*": ["src/routes/*"],
+			"app/routes": ["src/routes/index.tsx"],
+			"app/components/*": ["src/components/*"],
+			"app/components": ["src/components/index.ts"]
+		}
 	},
 
 	"include": [

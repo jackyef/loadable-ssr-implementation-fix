@@ -6,7 +6,7 @@ import React from 'react';
 
 import { Heading } from '@tg/elm';
 
-import { ContentBlock } from '../../../../../components';
+import { ContentBlock } from 'app/components';
 import { FAQItem, Props as FAQItemProps } from './FAQItem';
 
 // Styles

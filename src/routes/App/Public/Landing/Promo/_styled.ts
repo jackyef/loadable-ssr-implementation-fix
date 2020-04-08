@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 
-import { mediaQueries, MEDIA, Heading, Paragraph } from '@tg/elm';
+import { mediaQueries, MEDIA, Heading, Paragraph, flex } from '@tg/elm';
 
 const MEDIA_CUSTOM = '@media screen and (max-width: 1200px)';
 
 export const StyledContent = styled.div`
-	display: flex;
-	flex-direction: column;
+	/* stylelint-disable value-keyword-case */
+
+	${ flex({
+		dir: 'column'
+	}) }
 
 	padding: ${ ({ theme }) => theme.space[7] } 0 250px 0;
 
@@ -20,8 +23,10 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledTop = styled.div`
-	display: flex;
-	justify-content: space-between;
+
+	${ flex({
+		justify: 'space-between'
+	}) }
 
 	/* Need custom width here */
 	${ MEDIA_CUSTOM } {

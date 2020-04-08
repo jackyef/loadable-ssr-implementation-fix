@@ -12,7 +12,7 @@ import { Button, Heading, FieldInput } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
-import { routes } from '../../../config';
+import { routes } from 'app/config';
 import { NotifyBox, awakeNotification, notifyStore } from './utils/notification';
 
 // Styles

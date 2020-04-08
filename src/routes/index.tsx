@@ -7,7 +7,7 @@ import { canUseDOM } from '@tg/utils';
 
 import { LoadingRoute, Flex, theme } from '@tg/elm';
 
-import { routes } from '../config';
+import { routes } from 'app/config';
 
 // Not Found Route
 const RouteNotFound = { component: () => <Redirect to={ routes.index } /> };

@@ -10,13 +10,13 @@ import styled from 'styled-components';
 import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
 
-import { Button, Heading, FieldInput } from '@tg/elm';
+import { Button, Heading, FieldInput, flex } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
 
-import { history } from '../../';
-import { routes } from '../../../config';
+import { history } from 'app/routes';
+import { routes } from 'app/config';
 
 import { NotifyBox, awakeNotification } from './utils/notification';
 
@@ -30,11 +30,13 @@ const apiFormStore = new StoreFormAPI(authService.axiosInstance);
 const formStore = new StoreForm('auth', null, apiFormStore);
 
 const StyledPasswordLabel = styled.div`
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	/* stylelint-disable value-keyword-case */
 
-	width: 100%;
+	${ flex({
+		align: 'center',
+		justify: 'space-between',
+		width: '100%'
+	}) }
 `;
 
 /**
