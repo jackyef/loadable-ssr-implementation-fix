@@ -2,34 +2,32 @@
  * Privacy Policy page
  */
 import React, { useRef } from 'react';
+import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Logo } from '@tg/elm';
+import { Button, Heading, Text, Paragraph } from '@tg/elm';
 import { Scrollbars, scroll } from '@tg/layout';
 
 import { commonNavBtnProps } from 'app/routes/App/nav';
 import { history } from 'app/routes';
 import { routes } from 'app/config';
-import { Footer, Header, Nav, NavItem, ContentBlock } from 'app/components';
+import { Footer, Header, NavItem, ContentBlock } from 'app/components';
 
-// Styles
-// eslint-disable-next-line import/no-internal-modules
-import importedLandingStyles from '../Public/Landing/Landing.module.less';
-const stylesLanding: Styles = importedLandingStyles;
+import {
+	StyledLogo,
+	StyledNav,
+	StyledNavSign
+} from '../Public/Landing/_styled';
 
-import importedStyles from './PP.module.less';
-const styles: Styles = importedStyles;
+const StyledList = styled.ul`
+	padding: 30px 40px;
 
-type Styles = {
-	content_block?: string;
-
-	// From landing
-	nav?: string;
-	sign_in?: string;
-	logo?: string;
-};
+	> li {
+		list-style-type: square;
+	}
+`;
 
 /**
  * Component
@@ -59,10 +57,10 @@ const PP: React.FC<{}> = () => {
 					<Header>
 
 						{/* Logo */}
-						<Logo className={ stylesLanding.logo } onClick={ () => history.push(routes.home) } />
+						<StyledLogo onClick={ () => history.push(routes.home) } />
 
 						{/* Page navigation */}
-						<Nav className={ stylesLanding.nav }>
+						<StyledNav>
 							<NavItem>
 								<Button { ...commonNavBtnProps('Terms and Conditions') }
 									onClick={ () => scroll(scroller, refTC) }
@@ -73,13 +71,13 @@ const PP: React.FC<{}> = () => {
 									onClick={ () => scroll(scroller, refPP) }
 								/>
 							</NavItem>
-						</Nav>
+						</StyledNav>
 
 						{/* Sign in/up (logout) */}
 						{
 							localStore.authenticated
 								? (
-									<Nav className={ styles.sign_in }>
+									<StyledNavSign>
 										<NavItem>
 											<Button title="Poster"
 												variant="primary"
@@ -88,10 +86,10 @@ const PP: React.FC<{}> = () => {
 												onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 											/>
 										</NavItem>
-									</Nav>
+									</StyledNavSign>
 								)
 								: (
-									<Nav className={ stylesLanding.sign_in }>
+									<StyledNavSign>
 										<NavItem>
 											<Button { ...commonNavBtnProps('Sign in', true) }
 												variant="nav"
@@ -106,25 +104,27 @@ const PP: React.FC<{}> = () => {
 												onClick={ () => routes.auth.signup }
 											/>
 										</NavItem>
-									</Nav>
+									</StyledNavSign>
 								)
 						}
 					</Header>
 
 					{/* Top title block */}
-					<ContentBlock className={ styles.content_block }>
+					<ContentBlock>
 						<Heading h={ 1 } title="Terms and Privacy" />
 					</ContentBlock>
 
 					{/* Terms and Conditions */}
-					<ContentBlock ref={ refTC } className={ styles.content_block }>
+					<ContentBlock ref={ refTC }>
 
 						{/* Title */}
 						<Heading h={ 2 } title="Terms and Conditions" />
-						<span>{ 'Last updated: August 8, 2019' }</span>
+						<Text ml={ 1 } size={ 13 } color="blue_30">
+							{ 'Last updated: August 8, 2019' }
+						</Text>
 
 						{/* Text */}
-						<p>{
+						<Paragraph mt={ 7 } size={ 18 }>{
 							'Please read these Terms and Conditions ("Terms" or "Terms and Conditions") ' +
 							'carefully before using the website, the Notion desktop application and the ' +
 							'Notion mobile application (together, or individually, the "Service") operated ' +
@@ -142,13 +142,13 @@ const PP: React.FC<{}> = () => {
 							'responsible for your access to and use of the Service as well as for the use of ' +
 							'your account by others affiliated with your entity, including any employees, ' +
 							'agents or contractors.'
-						}</p>
+						}</Paragraph>
 
 						{/* Sub title */}
-						<Heading h={ 3 } title="1. Content" />
+						<Heading h={ 3 } pt={ 7 } pb={ 3 } title="1. Content" />
 
 						{/* Text */}
-						<p>{
+						<Paragraph size={ 18 }>{
 							'Our Service allows you to post, link, store, share and otherwise make available certain ' +
 							'information, text, graphics, videos, or other material ("Content") on the Service. ' +
 							'You are responsible for the Content that you post on or through the Service, ' +
@@ -216,39 +216,39 @@ const PP: React.FC<{}> = () => {
 							'Any content stored on the Service will be stored indefinitely, unless it is ' +
 							'explicitly deleted or unless otherwise set forth in a separate agreement with an ' +
 							'Enterprise (as defined below). This process is described under "Termination".'
-						}</p>
+						}</Paragraph>
 
 						{/* Sub title */}
-						<Heading h={ 3 } title="2. Workspaces" />
+						<Heading h={ 3 } pt={ 7 } pb={ 3 } title="2. Workspaces" />
 
 						{/* Text */}
-						<p>{
+						<Paragraph size={ 18 }>{
 							'Content submitted, posted or modified by users ' +
 							'in the Service is organized into ' +
 							'separated sections we refer to as “Workspaces.”\n\n' +
 
 							'There are three general types of Workspaces on the Service:'
-						}</p>
+						}</Paragraph>
 
-						<ul>
-							<li>{
+						<StyledList>
+							<li><Paragraph size={ 18 }>{
 								'"Personal Workspaces" that can only be accessed ' +
 								'by the user that created the Workspace.'
-							}</li>
-							<li>{
+							}</Paragraph></li>
+							<li><Paragraph size={ 18 }>{
 								'"Team Workspaces" that require a Team Subscription (as defined below) and that ' +
 								'can be accessed by multiple users that form the members of the Team. Further ' +
 								'details on Team Workspaces are outlined below.'
-							}</li>
-							<li>{
+							}</Paragraph></li>
+							<li><Paragraph size={ 18 }>{
 								'“Enterprise Workspaces” that require an Enterprise Subscription ' +
 								'(as defined below) and that are designed for large-scale usage by ' +
 								'Enterprises who require tools managing all Content within such Workspaces. ' +
 								'Further details on Enterprise Workspaces are outlined below.'
-							}</li>
-						</ul>
+							}</Paragraph></li>
+						</StyledList>
 
-						<p>{
+						<Paragraph size={ 18 }>{
 							'In the Service, you can work across multiple Workspaces at once, meaning your single ' +
 							'account can access your own Personal Workspace(s), different Team Workspace(s), and ' +
 							'your employer’s Enterprise Workspace. Workspaces are completely separate, and you ' +
@@ -259,19 +259,21 @@ const PP: React.FC<{}> = () => {
 							'from an Enterprise’s Workspace will be managed by the applicable Enterprise ' +
 							'administrator, which may or may not allow you to use our export or transfer tools ' +
 							'for Content from such Enterprise’s Workspace.'
-						}</p>
+						}</Paragraph>
 
 					</ContentBlock>
 
 					{/* Privacy Policy */}
-					<ContentBlock ref={ refPP } className={ styles.content_block }>
+					<ContentBlock ref={ refPP }>
 
 						{/* Title */}
 						<Heading h={ 2 } title="Privacy Policy" />
-						<span>{ 'Last updated: August 8, 2019' }</span>
+						<Text ml={ 1 } size={ 13 } color="blue_30">
+							{ 'Last updated: August 8, 2019' }
+						</Text>
 
 						{/* Text */}
-						<p>{
+						<Paragraph mt={ 7 } size={ 18 }>{
 							'Notion Labs, Inc. ("Notion", "us", "we", or "our") operates the website, ' +
 							'the Notion desktop application and the Notion mobile application ' +
 							'(the "Service").\n\n' +
@@ -288,13 +290,13 @@ const PP: React.FC<{}> = () => {
 							'accordance with this policy. Unless otherwise defined in this Privacy Policy, ' +
 							'capitalized terms used in this Privacy Policy have the same meanings as in our ' +
 							'Terms and Conditions.'
-						}</p>
+						}</Paragraph>
 
 						{/* Sub title */}
-						<Heading h={ 3 } title="1. Cookies" />
+						<Heading h={ 3 } pt={ 7 } pb={ 3 } title="1. Cookies" />
 
 						{/* Text */}
-						<p>{
+						<Paragraph size={ 18 }>{
 							'Cookies are files with a small amount of data, which may include an anonymous unique ' +
 							'identifier. Cookies are sent to your browser from a web site and transferred to your ' +
 							'device. We use cookies to collect information in order to improve our ' +
@@ -306,13 +308,13 @@ const PP: React.FC<{}> = () => {
 
 							'If you do not accept cookies, you may not be able to use some ' +
 							'features of our Service and we recommend that you leave them turned on.'
-						}</p>
+						}</Paragraph>
 
 						{/* Sub title */}
-						<Heading h={ 3 } title="2. Information Collection" />
+						<Heading h={ 3 } pt={ 7 } pb={ 3 } title="2. Information Collection" />
 
 						{/* Text */}
-						<p>{
+						<Paragraph size={ 18 }>{
 							'While using our Service, we may ask you to provide us with certain information ' +
 							'that can be used to contact or identify you. This information may include, but is ' +
 							'not limited to, your name, email address and profile photo ("Personal Information").\n\n' +
@@ -350,7 +352,7 @@ const PP: React.FC<{}> = () => {
 							'have their own privacy policies addressing how they use Log Data. If you wish to opt ' +
 							'out of the collection of such Log Data, please send us an email at the contact ' +
 							'information below, or install a browser analytics blocker plug-in (e.g., Ghostery).'
-						}</p>
+						}</Paragraph>
 
 					</ContentBlock>
 

@@ -6,16 +6,13 @@ import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes, canUseDOM, jwtExpired } from '@tg/utils';
-import { Button, Logo } from '@tg/elm';
+import { Button } from '@tg/elm';
 
 import { history } from 'app/routes';
 import { routes } from 'app/config';
 import { Header, Nav, NavItem } from 'app/components';
 
-// Styles
-// eslint-disable-next-line import/no-internal-modules
-import importedLandingStyles from '../Public/Landing/Landing.module.less';
-const stylesLanding: Styles = importedLandingStyles;
+import { StyledLogo } from '../Public/Landing/_styled';
 
 import importedStyles from './Auth.module.less';
 const styles: Styles = importedStyles;
@@ -61,7 +58,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 			<Header>
 
 				{/* Logo */}
-				<Logo className={ stylesLanding.logo } onClick={ () => history.push(routes.home) } />
+				<StyledLogo onClick={ () => history.push(routes.home) } />
 
 				{/* Sign in/up */}
 				<Nav>

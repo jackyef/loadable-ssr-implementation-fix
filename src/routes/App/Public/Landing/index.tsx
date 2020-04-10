@@ -6,17 +6,16 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-import { Button, Logo } from '@tg/elm';
+import { Button } from '@tg/elm';
 import { scroll } from '@tg/layout';
 
 import { history } from 'app/routes';
 import { formStore as signUpFormStore } from 'app/routes/App/Auth/Signup';
 import { commonNavBtnProps } from 'app/routes/App/nav';
-import { Header, Nav, NavItem, ContentBlock } from 'app/components';
+import { Header, NavItem } from 'app/components';
 import { routes } from 'app/config';
 
 import { Promo } from './Promo';
-import { Demo } from './Demo';
 import { Blogs } from './Blogs';
 import { Feed } from './Feed';
 import { Editor } from './Editor';
@@ -26,18 +25,13 @@ import { Pricing } from './Pricing';
 import { FAQ } from './FAQ';
 import { GetStarted } from './GetStarted';
 
-import importedStyles from './Landing.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	demo?: string;
-	nav?: string;
-	logo?: string;
-	sign_in?: string;
-	shadow?: string;
-	shadow_cover?: string;
-	shadow_common?: string;
-};
+import {
+	Shadow,
+	StyledLogo,
+	StyledNav,
+	StyledNavSign,
+	StyledDemo
+} from './_styled';
 
 type Props = {
 	scroller?: any;
@@ -85,10 +79,10 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 			<Header sticky={ STICKY }>
 
 				{/* Logo */}
-				<Logo className={ styles.logo } onClick={ () => scroll(scroller) } />
+				<StyledLogo onClick={ () => scroll(scroller) } />
 
 				{/* Page navigation */}
-				<Nav className={ styles.nav }>
+				<StyledNav>
 					<NavItem>
 						<Button { ...commonNavBtnProps('Organise') }
 							onClick={ () => scroll(scroller, refOrganize, -50) }
@@ -109,13 +103,13 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 							onClick={ () => scroll(scroller, refPricing) }
 						/>
 					</NavItem>
-				</Nav>
+				</StyledNav>
 
 				{/* Sign in/up (logout) */}
 				{
 					localStore.authenticated
 						? (
-							<Nav className={ styles.sign_in }>
+							<StyledNavSign>
 								<NavItem>
 									<Button title="Poster"
 										variant="primary"
@@ -124,10 +118,10 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 										onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
 									/>
 								</NavItem>
-							</Nav>
+							</StyledNavSign>
 						)
 						: (
-							<Nav className={ styles.sign_in }>
+							<StyledNavSign>
 								<NavItem>
 									<Button nav { ...commonNavBtnProps('Sign in', true) }
 										onClick={ () => routes.auth.signin }
@@ -141,7 +135,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 										onClick={ () => routes.auth.signup }
 									/>
 								</NavItem>
-							</Nav>
+							</StyledNavSign>
 						)
 				}
 			</Header>
@@ -149,8 +143,8 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 			{/* Hack to hide header shadow when page has not been scrolled down yet */}
 			{
 				!STICKY ? null : (<>
-					<ContentBlock className={ `${ styles.shadow_common } ${ styles.shadow }` }>{}</ContentBlock>
-					<ContentBlock className={ `${ styles.shadow_common } ${ styles.shadow_cover }` }>{}</ContentBlock>
+					<Shadow>{}</Shadow>
+					<Shadow cover>{}</Shadow>
 				</>)
 			}
 
@@ -159,7 +153,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 
 				{/* Top */}
 				<Promo />
-				<Demo className={ styles.demo } />
+				<StyledDemo />
 				<Blogs />
 
 				{/* Center */}
