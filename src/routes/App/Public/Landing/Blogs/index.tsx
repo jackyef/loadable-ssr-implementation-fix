@@ -41,7 +41,7 @@ const featuresData: FeatureProps[] = [
  * Component
  */
 export const Blogs: React.FC<{}> = () => (
-	<ContentBlock>
+	<ContentBlock bg="blue_10">
 		<Flex dir="column" align="center">
 			<StyledHeading h={ 2 } title="For beginners, grown and large channels" />
 			<StyledList>

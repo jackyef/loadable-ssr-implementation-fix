@@ -121,7 +121,7 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 
 	// Render
 	return (
-		<StyledContentBlock ref={ ref } bg="white_100">
+		<StyledContentBlock ref={ ref } bg="blue_10">
 			<StyledWrapper>
 
 				{/* Left part */}

@@ -4,29 +4,49 @@
  * @module GetStarted
  */
 import React from 'react';
+import styled from 'styled-components';
 
-import { Heading } from '@tg/elm';
+import { Heading, Paragraph, flex, mediaQueries, MEDIA } from '@tg/elm';
 
 import { toSignUp } from '../';
 import { ContentBlock, GetStarted as GetStartedForm } from 'app/components';
 
-// Styles
-import importedStyles from './GetStarted.module.less';
-const styles: Styles = importedStyles;
+const StyledContainer = styled.div`
+	/* stylelint-disable value-keyword-case */
 
-type Styles = {
-	self?: string;
-};
+	${ flex({
+		dir: 'column',
+		align: 'center'
+	}) }
+
+	padding: ${ ({ theme }) => theme.space[7] } 0;
+
+	${ mediaQueries[MEDIA.TABLET] } {
+		padding: 0 0 ${ ({ theme }) => theme.space[7] } 0;
+	}
+
+	${ mediaQueries[MEDIA.MOBILE] } {
+		padding-top: 0;
+	}
+`;
+
+const StyledForm = styled(GetStartedForm)`
+	justify-content: center;
+`;
 
 /**
  * Component
  */
 export const GetStarted: React.FC<{}> = () => (
-	<ContentBlock className={ styles.self }>
-		<Heading h={ 1 }>
-			{'Ready to get started?'} <br/> {'Try it.'}
-		</Heading>
-		<p>{ 'Join now and get 3 months of free management for all your channels.' }</p>
-		<GetStartedForm onClick={ toSignUp } />
+	<ContentBlock>
+		<StyledContainer>
+			<Heading centered h={ 1 }>
+				{'Ready to get started?'} <br/> {'Try it.'}
+			</Heading>
+			<Paragraph centered size={ 18 } color="black_50" mt={ 7 }>
+				{ 'Join now and get 3 months of free management for all your channels.' }
+			</Paragraph>
+			<StyledForm onClick={ toSignUp } />
+		</StyledContainer>
 	</ContentBlock>
 );

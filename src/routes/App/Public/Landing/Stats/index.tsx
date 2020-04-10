@@ -233,113 +233,115 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 	// Render
 	return (
 		<ContentBlock ref={ ref } className={ styles.self }>
+			<div>
 
-			{/* Short description */}
-			<div className={ styles.info }>
-				<Text size={ 12 } color="blue_100">{ 'Analise' }</Text>
-				<Heading h={ 2 } title="Analise what people like and how fast your channel grows" />
-				<p>{
-					'Unleash your creativity, plan projects from all angles, ' +
-					'and create centralized hubs of information to keep everyone in the loop. '
-				}</p>
+				{/* Short description */}
+				<div className={ styles.info }>
+					<Text size={ 12 } color="blue_100">{ 'Analise' }</Text>
+					<Heading h={ 2 } title="Analise what people like and how fast your channel grows" />
+					<p>{
+						'Unleash your creativity, plan projects from all angles, ' +
+						'and create centralized hubs of information to keep everyone in the loop. '
+					}</p>
 
-				{/* Small stat */}
-				<div className={ `${ styles.delta_positive } ${ styles.small_stat }` }>
-					<span>{ '+74' }</span>
-				</div>
-			</div>
-
-			{/* Graph demo */}
-			<div className={ styles.graph }>
-
-				{/* Scale */}
-				<div className={ styles.scale_container }>
-
-					{/* Predefined scales (week, month, year) */}
-					<ul>
-						<li>
-							<Button title="Week"
-								variant="inline"
-								size="small"
-								state={ scale === 'week' ? 'active' : null }
-								onClick={ () => {
-									setScale('week');
-									setData(_data.week);
-								} }
-							/>
-						</li>
-						<li>
-							<Button title="Month"
-								variant="inline"
-								size="small"
-								state={ scale === 'month' ? 'active' : null }
-								onClick={ () => {
-									setScale('month');
-									setData(_data.month);
-								} }
-							/>
-						</li>
-						<li>
-							<Button title="Year"
-								variant="inline"
-								size="small"
-								state={ scale === 'year' ? 'active' : null }
-								onClick={ () => {
-									setScale('year');
-									setData(_data.year);
-								} }
-							/>
-						</li>
-					</ul>
-
-					{/* Date range (calendar trigger) */}
-					<Button variant="secondary"
-						size="small"
-						icon={ <IconCal /> }
-						title={ `${ formatDate(data[0].x) } - ${ formatDate(data[data.length - 1].x) }` }
-					/>
+					{/* Small stat */}
+					<div className={ `${ styles.delta_positive } ${ styles.small_stat }` }>
+						<span>{ '+74' }</span>
+					</div>
 				</div>
 
-				{/* Chart */}
-				<ResponsiveContainer height={ 400 } width="100%">
-					<ComposedChart data={ data } margin={ { top: 10, right: 10, bottom: 10, left: 10 } }>
+				{/* Graph demo */}
+				<div className={ styles.graph }>
 
-						{/* Area gradient color */}
-						<defs>
-							<linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-								<stop offset="5%" stopColor={ colors.line } stopOpacity={ 0.1 }/>
-								<stop offset="95%" stopColor={ colors.line } stopOpacity={ 0 }/>
-							</linearGradient>
-						</defs>
+					{/* Scale */}
+					<div className={ styles.scale_container }>
 
-						{/* Axis */}
-						<XAxis dataKey="x" scale="point" domain={ ['auto', 'auto'] }
-							tick={ <AxisTick formatter={ v => formatDate(v) }/> }
-							axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
+						{/* Predefined scales (week, month, year) */}
+						<ul>
+							<li>
+								<Button title="Week"
+									variant="inline"
+									size="small"
+									state={ scale === 'week' ? 'active' : null }
+									onClick={ () => {
+										setScale('week');
+										setData(_data.week);
+									} }
+								/>
+							</li>
+							<li>
+								<Button title="Month"
+									variant="inline"
+									size="small"
+									state={ scale === 'month' ? 'active' : null }
+									onClick={ () => {
+										setScale('month');
+										setData(_data.month);
+									} }
+								/>
+							</li>
+							<li>
+								<Button title="Year"
+									variant="inline"
+									size="small"
+									state={ scale === 'year' ? 'active' : null }
+									onClick={ () => {
+										setScale('year');
+										setData(_data.year);
+									} }
+								/>
+							</li>
+						</ul>
+
+						{/* Date range (calendar trigger) */}
+						<Button variant="secondary"
+							size="small"
+							icon={ <IconCal /> }
+							title={ `${ formatDate(data[0].x) } - ${ formatDate(data[data.length - 1].x) }` }
 						/>
+					</div>
 
-						<YAxis orientation="right" domain={ ['auto', 'auto'] } tick={ <AxisTick axis="y" /> }
-							axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
-						/>
+					{/* Chart */}
+					<ResponsiveContainer height={ 400 } width="100%">
+						<ComposedChart data={ data } margin={ { top: 10, right: 10, bottom: 10, left: 10 } }>
 
-						{/* Area gradient (under the line so goes first) */}
-						<Area dataKey="y" type="monotone" stroke={ null }
-							fillOpacity={ 1 } fill="url(#areaGradient)"
-							dot={ false } activeDot={ false }
-						/>
+							{/* Area gradient color */}
+							<defs>
+								<linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
+									<stop offset="5%" stopColor={ colors.line } stopOpacity={ 0.1 }/>
+									<stop offset="95%" stopColor={ colors.line } stopOpacity={ 0 }/>
+								</linearGradient>
+							</defs>
 
-						{/* Tooltip */}
-						<Tooltip cursor={ { opacity: 0.4, strokeWidth: 1, strokeDasharray: '5, 5' }  }
-							content={ (e: any) => TooltipCustom(e, scale) }
-						/>
+							{/* Axis */}
+							<XAxis dataKey="x" scale="point" domain={ ['auto', 'auto'] }
+								tick={ <AxisTick formatter={ v => formatDate(v) }/> }
+								axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
+							/>
 
-						{/* Line */}
-						<Line dataKey="y" type="monotone" stroke={ colors.line } strokeWidth={ 2 }
-							dot={ <Dot /> } activeDot={ <Dot active /> }
-						/>
+							<YAxis orientation="right" domain={ ['auto', 'auto'] } tick={ <AxisTick axis="y" /> }
+								axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
+							/>
 
-					</ComposedChart>
-				</ResponsiveContainer>
+							{/* Area gradient (under the line so goes first) */}
+							<Area dataKey="y" type="monotone" stroke={ null }
+								fillOpacity={ 1 } fill="url(#areaGradient)"
+								dot={ false } activeDot={ false }
+							/>
+
+							{/* Tooltip */}
+							<Tooltip cursor={ { opacity: 0.4, strokeWidth: 1, strokeDasharray: '5, 5' }  }
+								content={ (e: any) => TooltipCustom(e, scale) }
+							/>
+
+							{/* Line */}
+							<Line dataKey="y" type="monotone" stroke={ colors.line } strokeWidth={ 2 }
+								dot={ <Dot /> } activeDot={ <Dot active /> }
+							/>
+
+						</ComposedChart>
+					</ResponsiveContainer>
+				</div>
 			</div>
 		</ContentBlock>
 	);

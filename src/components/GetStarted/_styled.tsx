@@ -22,7 +22,7 @@ export const StyledInput = styled(FieldInput)`
 	width: 420px;
 
 	${ mediaQueries[MEDIA.TABLET] } {
-		width: 310px;
+		width: 55%;
 	}
 
 	${ mediaQueries[MEDIA.MOBILE] } {

@@ -18,6 +18,9 @@ export const StyledContainer = styled(ContentBlock)<Props>`
 		${ mediaQueries[MEDIA.NOT_DESKTOP] } {
 			position: relative;
 			top: 0;
+
+			padding-top: ${ ({ theme }) => theme.space[6] };
+			padding-bottom: ${ ({ theme }) => theme.space[6] };
 		}
 	` }
 `;
@@ -32,7 +35,7 @@ export const StyledHeader = styled.header`
 	max-width: 1366px;
 	padding: ${ ({ theme }) => `29px 0 ${ theme.space[3] } 0` };
 
-	${ mediaQueries[MEDIA.TABLET] } {
-		padding: ${ ({ theme }) => `${ theme.space[4] } 0 ${ theme.space[3] } 0` };
+	${ mediaQueries[MEDIA.NOT_DESKTOP] } {
+		padding: 0;
 	}
 `;

@@ -2,36 +2,26 @@
  * @module FAQItem
  */
 import React from 'react';
+import styled from 'styled-components';
 
-import { Wrapper } from '@tg/wrapper';
-import { Heading } from '@tg/elm';
-
-// Styles
-import importedStyles from './FAQItem.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-};
+import { Heading, Paragraph } from '@tg/elm';
 
 export type Props = {
-	wrapper?: string;
 	question?: string;
 	answer?: string;
 };
 
-const defaultProps: Partial<Props> = {
-	wrapper: 'li'
-};
+const StyledContainer = styled.li`
+	padding-bottom: 20px;
+	margin-bottom: 30px;
+`;
 
 /**
  * Component
  */
-export const FAQItem: React.FC<Props> = ({ wrapper, question, answer }) => (
-	<Wrapper wrapper={ wrapper } className={ styles.self }>
-		<Heading h={ 3 } title={ question } />
-		<p>{ answer }</p>
-	</Wrapper>
+export const FAQItem: React.FC<Props> = ({ question, answer }) => (
+	<StyledContainer>
+		<Heading h={ 3 } mb={ 3 } title={ question } color="white_100" />
+		<Paragraph size={ 18 } color="blue_20_opaque">{ answer }</Paragraph>
+	</StyledContainer>
 );
-
-FAQItem.defaultProps = defaultProps;

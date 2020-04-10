@@ -4,32 +4,21 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Wrapper } from '@tg/wrapper';
-import { Button, Icon, Heading } from '@tg/elm';
+import { Button, Icon, Heading, Paragraph, Flex, Text } from '@tg/elm';
 import { IconBeta } from '@tg/resources';
 
-// Styles
-import importedStyles from './PricingCard.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-	header?: string;
-	content?: string;
-	unit?: string;
-	footer?: string;
-	sale_text?:  string;
-	sale_badget?:  string;
-};
+import {
+	StyledContainer,
+	StyledHeader,
+	StyledFeaturesList,
+	StyledFeature,
+	StyledBetaContainer,
+	StyledBetaIcon
+} from './_styled';
 
 export type Props = {
 
 	children?: any;
-
-	/**
-	 * Wrapper tag for card block
-	 */
-	wrapper?: string;
 
 	/**
 	 * Icon
@@ -66,6 +55,7 @@ export type Props = {
 	 */
 	features?: Array<{
 		icon?: React.ReactElement | string;
+		iconScale?: number;
 		title?: string;
 	}>;
 
@@ -73,6 +63,11 @@ export type Props = {
 	 * Action button title
 	 */
 	submitTitle?: string;
+
+	/**
+	 * Variant
+	 */
+	variant?: 'light' | 'dark';
 
 	/**
 	 * On submit action
@@ -88,7 +83,7 @@ export type Props = {
 const defaultProps: Partial<Props> = {
 	period: 'month',
 	className: '',
-	wrapper: 'li',
+	variant: 'light',
 	sale: false,
 	onSubmit: _.noop
 };
@@ -97,65 +92,95 @@ const defaultProps: Partial<Props> = {
  * Component
  */
 export const PricingCard: React.FC<Props> = ({
-	children, wrapper, icon, title, desc, price, period, features, submitTitle, onSubmit, className,
+	children,
+	title,
+	desc,
+	price,
+	period,
+	features,
+	submitTitle,
+	onSubmit,
+	className,
+	variant,
 	sale
 }) => (
-	<Wrapper wrapper={ wrapper } className={ `${ styles.self } ${ className }` }>
+	<StyledContainer variant={ variant } className={ className }>
 
 		{/* Header */}
-		<header className={ styles.header }>
-			<Icon icon={ icon } />
-			<Heading h={ 3 } title={ title } />
-			<p>{ desc }</p>
+		<StyledHeader variant={ variant }>
+			<Heading h={ 3 } mt={ 5 }
+				title={ title }
+				color={ variant === 'dark' ? 'white_100' : 'black_80' }
+			/>
+			<Paragraph size={ 18 }
+				color={ variant === 'dark' ? 'blue_20_opaque' : 'blue_30' }
+			>
+				{ desc }
+			</Paragraph>
 
 			{/* Special offer */}
 			{
 				!sale ? null : (
-					<div className={ styles.sale_badget }>
-						<span><IconBeta /></span>
-						<p>{ 'Limited\n price offer' }</p>
-					</div>
+					<StyledBetaContainer>
+						<StyledBetaIcon>
+							<IconBeta />
+						</StyledBetaIcon>
+						<Text centered size={ 13 } mt={ 2 } color="blue_100">
+							{ 'Limited offer' }
+						</Text>
+					</StyledBetaContainer>
 				)
 			}
-		</header>
+		</StyledHeader>
 
 		{/* Content - custom children or predefined structure */}
 		{
 			children || (
-				<section className={ styles.content }>
+				<Flex as="section" dir="column" align="center">
 
 					{/* Price */}
-					<span className={ sale ? styles.sale_text : '' }>
-						{parseFloat(price as string) || price === 0 ? `$${ price }` : price}
-						<span className={ styles.unit }>{period !== '' && `/ ${ period }`}</span>
-					</span>
+					<Flex as="span" align="flex-end" mt={ 6 }>
+						<Heading h={ 1 } color="blue_150">
+							{ parseFloat(price as string) || price === 0 ? `$${ price }` : price }
+						</Heading>
+						<Paragraph color="blue_30" pb={ 2 } pl={ 2 }>
+							{ period !== '' && `/ ${ period }` }
+						</Paragraph>
+					</Flex>
 
 					{/* Features */}
-					<ul >
+					<StyledFeaturesList>
 						{
-							_.map(features, ({ icon, title }) => (
-								<li key={ title }>
-									<Icon icon={ icon } />
-									<span>{ title }</span>
-								</li>
+							_.map(features, ({ icon, iconScale, title }) => (
+								<StyledFeature key={ title }>
+									<Icon mr={ 3 } width={ '12px' }
+										color="blue_30"
+										icon={ icon }
+										scale={ iconScale }
+									/>
+									<Paragraph size={ 14 } color="blue_30">
+										{ title }
+									</Paragraph>
+								</StyledFeature>
 							))
 						}
-					</ul>
-				</section>
+					</StyledFeaturesList>
+				</Flex>
 			)
 		}
 
 		{/* Footer */}
-		<footer className={ styles.footer }>
-			<Button variant="primary"
+		<Flex as="footer" justify="center" width="100%" mt={ 7 }>
+			<Button variant={ variant === 'dark' ? 'secondary' : 'primary' }
 				size="big"
+				width="100%"
 				detail="rounded"
 				title={ submitTitle }
 				onClick={ () => onSubmit() }
 			/>
-		</footer>
+		</Flex>
 
-	</Wrapper>
+	</StyledContainer>
 );
 
 PricingCard.defaultProps = defaultProps;

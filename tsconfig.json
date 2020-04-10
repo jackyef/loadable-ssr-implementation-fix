@@ -3,6 +3,7 @@
 	"compilerOptions": {
 		"baseUrl": "./",
 		"jsx": "react",
+		"declaration": false,
 		"paths": {
 			"app/config/*": ["src/config/*"],
 			"app/config": ["src/config/index.ts"],
@@ -11,7 +12,12 @@
 			"app/routes/*": ["src/routes/*"],
 			"app/routes": ["src/routes/index.tsx"],
 			"app/components/*": ["src/components/*"],
-			"app/components": ["src/components/index.ts"]
+			"app/components": ["src/components/index.ts"],
+			"*": [
+				"node_modules/@types/*",
+				"typings/*",
+				"*"
+			]
 		}
 	},
 

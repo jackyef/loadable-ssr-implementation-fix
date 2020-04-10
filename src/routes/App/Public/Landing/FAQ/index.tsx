@@ -3,19 +3,12 @@
  */
 import _ from 'lodash';
 import React from 'react';
+import styled from 'styled-components';
 
-import { Heading } from '@tg/elm';
+import { Heading, flex, MEDIA, mediaQueries } from '@tg/elm';
 
 import { ContentBlock } from 'app/components';
 import { FAQItem, Props as FAQItemProps } from './FAQItem';
-
-// Styles
-import importedStyles from './FAQ.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	self?: string;
-};
 
 const data: FAQItemProps[] = [
 	{
@@ -43,22 +36,59 @@ const data: FAQItemProps[] = [
 	}
 ];
 
+const StyledContainer = styled.div`
+	/* stylelint-disable value-keyword-case */
+
+	${ flex({
+		justify: 'space-between',
+		align: 'flex-start'
+	}) }
+
+	${ mediaQueries[MEDIA.NOT_DESKTOP] } {
+		${ flex({
+			dir: 'column',
+			justify: 'flex-start',
+			align: 'flex-start'
+		}) }
+	}
+`;
+
+const StyledHeading = styled(Heading)`
+	width: 310px;
+	margin-right: 60px;
+
+	${ mediaQueries[MEDIA.NOT_DESKTOP] } {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+`;
+
+const StyledList = styled.ul`
+	width: 60%;
+	max-width: 660px;
+
+	${ mediaQueries[MEDIA.NOT_DESKTOP] } {
+		width: 100%;
+	}
+`;
+
 /**
  * Component
  */
 export const FAQ: React.FC<{}> = () => (
-	<ContentBlock className={ styles.self }>
-
-		{/* Title */}
-		<Heading h={ 2 } color="white_100" title="Frequently asked questions" />
-
-		{/* List of questions */}
-		<ul>
-			{
-				_.map(data, (item, index) => (
-					<FAQItem key={ index } { ...item } />
-				))
-			}
-		</ul>
+	<ContentBlock bg="blue_150">
+		<StyledContainer>
+			<StyledHeading h={ 2 }
+				color="white_100"
+				title="Frequently asked questions"
+			/>
+			<StyledList>
+				{
+					_.map(data, (item, index) => (
+						<FAQItem key={ index } { ...item } />
+					))
+				}
+			</StyledList>
+		</StyledContainer>
 	</ContentBlock>
 );

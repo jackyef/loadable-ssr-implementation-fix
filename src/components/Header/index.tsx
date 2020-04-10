@@ -40,7 +40,7 @@ const defaultProps: Partial<Props> = {
  * Header
  */
 export const Header: React.FC<Props> = React.memo(({ children, ...props }) => (
-	<StyledContainer y={ '0' } { ...props } >
+	<StyledContainer { ...props } y={ '0' }>
 		<StyledHeader>
 			{ children }
 		</StyledHeader>
