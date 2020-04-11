@@ -10,7 +10,7 @@ import { Button } from '@tg/elm';
 import { scroll } from '@tg/layout';
 
 import { history } from 'app/routes';
-import { formStore as signUpFormStore } from 'app/routes/App/Auth/Signup';
+import { formStore as signUpFormStore } from 'app/routes/App/Auth/pages/Signup';
 import { commonNavBtnProps } from 'app/routes/App/nav';
 import { Header, NavItem } from 'app/components';
 import { routes } from 'app/config';

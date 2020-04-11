@@ -2,18 +2,10 @@ import _ from 'lodash';
 import React from 'react';
 
 import { IStoreForm } from '@tg/form';
-import { StoreNotify, NotifyBox as UINotifyBox } from '@tg/notify';
+import { StoreNotify } from '@tg/notify';
 
-import { Notification } from '../Notification';
-
-// Styles
-// eslint-disable-next-line import/no-internal-modules
-import importedStyles from '../Notification/Notification.module.less';
-const styles: Styles = importedStyles;
-
-type Styles = {
-	notify_box?: string;
-};
+import { Notification } from '.';
+import { StyledNotifyBox } from './_styled';
 
 // Local notifications store (for form level errors)
 export const notifyStore = new StoreNotify();
@@ -61,7 +53,8 @@ export const awakeNotification = (err: any, store: IStoreForm): void => {
  * Component
  */
 export const NotifyBox: React.FC<{}> = () => (
-	<UINotifyBox keepBox store={ notifyStore } className={ styles.notify_box }
+	<StyledNotifyBox keepBox
+		store={ notifyStore }
 		notification={ Notification }
 	/>
 );

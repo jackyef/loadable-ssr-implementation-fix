@@ -89,7 +89,7 @@ export default [
 					{
 						path: routes.auth.signup,
 						component: Loadable({
-							loader: () => import('./App/Auth/Signup'),
+							loader: () => import('./App/Auth/pages/Signup'),
 							loading: LoaderSubRoute
 						})
 					},
@@ -99,7 +99,7 @@ export default [
 						exact: true,
 						path: routes.auth.signin,
 						component: Loadable({
-							loader: () => import('./App/Auth/Signin'),
+							loader: () => import('./App/Auth/pages/Signin'),
 							loading: LoaderSubRoute
 						})
 					},
@@ -109,7 +109,7 @@ export default [
 						exact: true,
 						path: routes.auth.reset,
 						component: Loadable({
-							loader: () => import('./App/Auth/Reset'),
+							loader: () => import('./App/Auth/pages/Reset'),
 							loading: LoaderSubRoute
 						})
 					},
@@ -119,7 +119,7 @@ export default [
 						exact: true,
 						path: routes.auth.password,
 						component: Loadable({
-							loader: () => import('./App/Auth/NewPassword'),
+							loader: () => import('./App/Auth/pages/NewPassword'),
 							loading: LoaderSubRoute
 						})
 					},

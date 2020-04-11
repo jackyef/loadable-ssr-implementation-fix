@@ -6,19 +6,15 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import qs from 'qs';
 
-import { FormRoot, StoreForm, StoreFormAPI } from '@tg/form';
+import { StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, FieldInput } from '@tg/elm';
+import { Button, Heading } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from 'app/config';
-import { NotifyBox, awakeNotification, notifyStore } from './utils/notification';
-
-// Styles
-import { Styles } from './';
-import importedStyles from './Auth.module.less';
-const styles: Styles = importedStyles;
+import { NotifyBox, awakeNotification, notifyStore } from '../Notification/utils';
+import { StyledForm, StyledInput } from './_styled';
 
 // Form store
 const apiFormStore = new StoreFormAPI(authService.axiosInstance);
@@ -46,8 +42,7 @@ const NewPassword: React.FC<{}> = () => {
 			</Helmet>
 
 			{/* Form */}
-			<FormRoot wrapper="form" name="newPassword" inject={ formStore }
-				className={ styles.form }
+			<StyledForm wrapper="form" name="newPassword" inject={ formStore }
 				submitMethod="PATCH"
 				onSubmitFailed={ err => awakeNotification(err, formStore) }
 				onSubmitSucceed={ () => {
@@ -65,10 +60,10 @@ const NewPassword: React.FC<{}> = () => {
 				} }
 			>
 				{/* Title */}
-				<Heading h={ 2 } title="Create password" />
+				<Heading h={ 2 } mb={ 7 } title="Create password" />
 
 				{/* Password */}
-				<FieldInput name="password" size="mid" error="top"
+				<StyledInput name="password" size="mid" error="top"
 					type="password"
 					placeholder="password"
 					label="New password"
@@ -80,7 +75,7 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Repeat password */}
-				<FieldInput name="repeat_password" size="mid" error="top"
+				<StyledInput name="repeat_password" size="mid" error="top"
 					type="password"
 					placeholder="repeat"
 					label="Repeat password"
@@ -92,7 +87,7 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Submit */}
-				<Button variant="primary"
+				<Button width="100%" mt={ 3 } variant="primary"
 					title="Change password"
 					onClick={ () => formStore.submit() }
 				/>
@@ -100,7 +95,7 @@ const NewPassword: React.FC<{}> = () => {
 				{/* Notifications area */}
 				<NotifyBox />
 
-			</FormRoot>
+			</StyledForm>
 		</>
 	);
 };

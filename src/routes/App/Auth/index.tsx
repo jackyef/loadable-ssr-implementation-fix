@@ -6,27 +6,18 @@ import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes, canUseDOM, jwtExpired } from '@tg/utils';
-import { Button } from '@tg/elm';
+import { Button, Text } from '@tg/elm';
 
 import { history } from 'app/routes';
 import { routes } from 'app/config';
-import { Header, Nav, NavItem } from 'app/components';
+import { Header, Nav } from 'app/components';
 
 import { StyledLogo } from '../Public/Landing/_styled';
-
-import importedStyles from './Auth.module.less';
-const styles: Styles = importedStyles;
-
-export type Styles = {
-	self?: string;
-	form?: string;
-	pp?: string;
-	vh?: string;
-	nav_item?: string;
-
-	// From public
-	logo?: string;
-};
+import {
+	StyledMain,
+	StyledNavItem,
+	StyledVh
+} from './_styled';
 
 type Props = {
 	route: RouteConfig & { render?: any };
@@ -52,7 +43,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 
 	// Render
 	return (
-		<div className={ styles.vh }>
+		<StyledVh>
 
 			{/* Header */}
 			<Header>
@@ -62,22 +53,24 @@ const Auth: React.FC<Props> = ({ route }) => {
 
 				{/* Sign in/up */}
 				<Nav>
-					<NavItem className={ styles.nav_item }>
-						<span>{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }</span>
-						<Button variant="nav"
+					<StyledNavItem>
+						<Text size={ 13 } mr={ 4 } color="blue_30">
+							{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }
+						</Text>
+						<Button nav variant="nav"
 							title={ path === 'in' ? 'Create account' : 'Sign in' }
 							onClick={ () => path === 'in' ? routes.auth.signup : routes.auth.signin }
 						/>
-					</NavItem>
+					</StyledNavItem>
 				</Nav>
 			</Header>
 
 			{/* Content */}
-			<main className={ styles.self }>
+			<StyledMain>
 				{ renderRoutes(route.routes) }
-			</main>
+			</StyledMain>
 
-		</div>
+		</StyledVh>
 	);
 };
 
