@@ -14,7 +14,7 @@ export const StyledNotifyBox = styled(NotifyBox)`
 
 	width: 100%;
 	height: ${ ({ theme }) => theme.space[8] };
-	margin-top: ${ ({ theme }) => theme.space[8] };
+	margin-top: ${ ({ theme }) => theme.space[5] };
 `;
 
 export const StyledCloseButton = styled(Button)`

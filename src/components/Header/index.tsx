@@ -7,7 +7,7 @@ import React from 'react';
 
 import { Theme } from '@tg/elm';
 
-import { StyledContainer, StyledHeader } from './_styled';
+import { StyledContainer, StyledHeader, Shadow } from './_styled';
 
 export type Props = {
 
@@ -40,11 +40,21 @@ const defaultProps: Partial<Props> = {
  * Header
  */
 export const Header: React.FC<Props> = React.memo(({ children, ...props }) => (
-	<StyledContainer { ...props } y={ '0' }>
-		<StyledHeader>
-			{ children }
-		</StyledHeader>
-	</StyledContainer>
+	<>
+		<StyledContainer { ...props } y={ '0' }>
+			<StyledHeader>
+				{ children }
+			</StyledHeader>
+		</StyledContainer>
+
+		{/* Hack to hide header shadow when page has not been scrolled down yet */}
+		{
+			!props.sticky ? null : (<>
+				<Shadow>{}</Shadow>
+				<Shadow cover>{}</Shadow>
+			</>)
+		}
+	</>
 ));
 
 Header.defaultProps = defaultProps;

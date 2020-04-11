@@ -26,7 +26,6 @@ import { FAQ } from './FAQ';
 import { GetStarted } from './GetStarted';
 
 import {
-	Shadow,
 	StyledLogo,
 	StyledNav,
 	StyledNavSign,
@@ -46,11 +45,6 @@ export const toSignUp = (email?: string): void => {
 	signUpFormStore.setData({ email: email });
 	history.push(routes.auth.signup);
 };
-
-/**
- * Make header sticky
- */
-const STICKY = true; // false
 
 /**
  * Landing route
@@ -76,7 +70,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 			</Helmet>
 
 			{/* Header */}
-			<Header sticky={ STICKY }>
+			<Header sticky>
 
 				{/* Logo */}
 				<StyledLogo onClick={ () => scroll(scroller) } />
@@ -139,14 +133,6 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						)
 				}
 			</Header>
-
-			{/* Hack to hide header shadow when page has not been scrolled down yet */}
-			{
-				!STICKY ? null : (<>
-					<Shadow>{}</Shadow>
-					<Shadow cover>{}</Shadow>
-				</>)
-			}
 
 			{/* Content cards */}
 			<main>
