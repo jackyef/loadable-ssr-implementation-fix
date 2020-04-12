@@ -3,7 +3,7 @@
  */
 import React, { Ref } from 'react';
 
-import { Heading, Text, Flex, Paragraph } from '@tg/elm';
+import { Heading, Text, Flex, Paragraph, ContentBlock } from '@tg/elm';
 import {
 	IconPen,
 	IconChannel,
@@ -11,7 +11,6 @@ import {
 } from '@tg/resources';
 
 import { PricingCard, Props as PricingCardProps } from './PricingCard';
-import { ContentBlock } from 'app/components';
 
 import { StyledList } from './_styled';
 

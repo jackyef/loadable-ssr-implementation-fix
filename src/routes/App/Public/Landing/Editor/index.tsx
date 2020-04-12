@@ -6,9 +6,7 @@
 import React, { Ref } from 'react';
 import styled from 'styled-components';
 
-import { ContentBlock } from 'app/components';
-
-import { Heading, Text, Img, flex, mediaQueries, MEDIA, Paragraph, Icon } from '@tg/elm';
+import { Heading, Text, Img, flex, mediaQueries, MEDIA, Paragraph, Icon, ContentBlock } from '@tg/elm';
 import { resources, IconEye, IconTemplate, IconMd, IconHeart, IconImage } from '@tg/resources';
 
 type Props = {

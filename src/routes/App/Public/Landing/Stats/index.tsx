@@ -16,10 +16,8 @@ import {
 	Tooltip
 } from 'recharts';
 
-import { Button, Heading, Text } from '@tg/elm';
+import { Button, Heading, Text, ContentBlock } from '@tg/elm';
 import { IconCal } from '@tg/resources';
-
-import { ContentBlock } from 'app/components';
 
 // Styles
 import importedStyles from './Stats.module.less';

@@ -8,12 +8,11 @@ import qs from 'qs';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading } from '@tg/elm';
+import { Button, Heading, NotifyBox, awakeNotification, notifyStore } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 
 import { routes } from 'app/config';
-import { NotifyBox, awakeNotification, notifyStore } from '../Notification/utils';
 import { StyledForm, StyledInput } from './_styled';
 
 // Form store

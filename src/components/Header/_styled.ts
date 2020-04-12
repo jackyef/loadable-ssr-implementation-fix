@@ -1,8 +1,7 @@
 import styled, { css } from 'styled-components';
 
-import { MEDIA, mediaQueries, flex } from '@tg/elm';
+import { MEDIA, mediaQueries, flex, ContentBlock, ContentBlockProps } from '@tg/elm';
 
-import { ContentBlock, Props as ContentBlockProps } from 'app/components/ContentBlock';
 import { Props } from '.';
 
 export const StyledContainer = styled(ContentBlock)<Props>`

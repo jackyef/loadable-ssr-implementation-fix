@@ -4,9 +4,8 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
 
-import { Button, MEDIA, Theme } from '@tg/elm';
+import { Button, MEDIA, Theme, ContentBlock } from '@tg/elm';
 
-import { ContentBlock } from 'app/components/ContentBlock';
 import { routes } from 'app/config';
 
 import {

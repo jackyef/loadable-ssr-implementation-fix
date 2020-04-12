@@ -5,9 +5,8 @@ import _ from 'lodash';
 import React from 'react';
 import styled from 'styled-components';
 
-import { Heading, flex, MEDIA, mediaQueries } from '@tg/elm';
+import { Heading, flex, MEDIA, mediaQueries, ContentBlock } from '@tg/elm';
 
-import { ContentBlock } from 'app/components';
 import { FAQItem, Props as FAQItemProps } from './FAQItem';
 
 const data: FAQItemProps[] = [

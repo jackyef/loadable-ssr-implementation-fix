@@ -7,10 +7,8 @@ import _ from 'lodash';
 import React from 'react';
 import styled, { useTheme } from 'styled-components';
 
-import { MEDIA, mediaQueries, Theme, flex } from '@tg/elm';
+import { MEDIA, mediaQueries, Theme, flex, ContentBlock, FeatureCard, FeatureCardProps } from '@tg/elm';
 import { IconAd, IconEdit } from '@tg/resources';
-
-import { ContentBlock, FeatureCard, FeatureCardProps } from 'app/components';
 
 const featuresData: FeatureCardProps[] = [
 	{

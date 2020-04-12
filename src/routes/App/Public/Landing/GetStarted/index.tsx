@@ -6,10 +6,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Heading, Paragraph, flex, mediaQueries, MEDIA } from '@tg/elm';
+import { Heading, Paragraph, flex, mediaQueries, MEDIA, ContentBlock } from '@tg/elm';
 
 import { toSignUp } from '../';
-import { ContentBlock, GetStarted as GetStartedForm } from 'app/components';
+import { GetStarted as GetStartedForm } from 'app/components';
 
 const StyledContainer = styled.div`
 	/* stylelint-disable value-keyword-case */

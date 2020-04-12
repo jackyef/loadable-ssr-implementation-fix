@@ -1,8 +1,6 @@
 import styled from 'styled-components';
 
-import { MEDIA, mediaQueries, flex, Heading } from '@tg/elm';
-
-import { ContentBlock } from 'app/components';
+import { MEDIA, mediaQueries, flex, Heading, ContentBlock } from '@tg/elm';
 
 export const StyledContentBlock = styled(ContentBlock)`
 	/* stylelint-disable value-keyword-case */

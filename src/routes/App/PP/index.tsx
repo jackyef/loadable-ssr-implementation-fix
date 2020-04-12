@@ -7,13 +7,13 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Text, Paragraph } from '@tg/elm';
+import { Button, Heading, Text, Paragraph, ContentBlock } from '@tg/elm';
 import { Scrollbars, scroll } from '@tg/layout';
 
 import { commonNavBtnProps } from 'app/routes/App/nav';
 import { history } from 'app/routes';
 import { routes } from 'app/config';
-import { Footer, Header, NavItem, ContentBlock } from 'app/components';
+import { Footer, Header, NavItem } from 'app/components';
 
 import {
 	StyledLogo,

@@ -8,12 +8,11 @@ import { Helmet } from 'react-helmet';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
 
-import { Button, Heading } from '@tg/elm';
+import { Button, Heading, NotifyBox, awakeNotification, notifyStore } from '@tg/elm';
 import { validators } from '@tg/app';
 import { IconArrow } from '@tg/resources';
 import { service as authService } from '@tg/api-proxy-auth';
 
-import { NotifyBox, awakeNotification, notifyStore } from '../Notification/utils';
 import { StyledForm, StyledInput } from './_styled';
 
 // Form store

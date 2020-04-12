@@ -6,14 +6,13 @@ import { Helmet } from 'react-helmet';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Paragraph } from '@tg/elm';
+import { Button, Heading, Paragraph, NotifyBox, awakeNotification } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
 
 import { routes } from 'app/config';
 
-import { NotifyBox, awakeNotification } from '../Notification/utils';
 import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 
 // Form store

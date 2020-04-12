@@ -7,13 +7,10 @@ import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
 import { uuid } from '@tg/utils';
-import { Text } from '@tg/elm';
+import { Text, FeaturesSwitcher, FeaturesSwitcherProps } from '@tg/elm';
 import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
-
-import { FeaturesSwitcher } from 'app/components';
-import { Props as FeatureProps } from 'app/components/FeaturesSwitcher/Feature';
 
 import {
 	StyledContentBlock,
@@ -45,7 +42,7 @@ type Props = {
 /**
  * Features content
  */
-const featuresData: FeatureProps[] = [
+const featuresData: FeaturesSwitcherProps[] = [
 	{
 		icon: <IconTime />,
 		title: 'Scheduling',

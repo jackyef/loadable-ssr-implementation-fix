@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Paragraph, Text, flex } from '@tg/elm';
+import { Button, Heading, Paragraph, Text, flex, NotifyBox, awakeNotification } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
@@ -16,7 +16,6 @@ import { IconGoogle } from '@tg/resources';
 import { history } from 'app/routes';
 import { routes } from 'app/config';
 
-import { NotifyBox, awakeNotification } from '../Notification/utils';
 import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 
 // Form store
