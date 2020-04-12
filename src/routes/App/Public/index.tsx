@@ -5,7 +5,7 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes } from '@tg/utils';
-import { Scrollbars } from '@tg/layout';
+import { Scrollbars } from '@tg/elm';
 
 import { Footer } from 'app/components';
 

@@ -6,8 +6,7 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 
 import { canUseDOM } from '@tg/utils';
-import { Button } from '@tg/elm';
-import { scroll } from '@tg/layout';
+import { Button, scroll } from '@tg/elm';
 
 import { history } from 'app/routes';
 import { formStore as signUpFormStore } from 'app/routes/App/Auth/pages/Signup';
