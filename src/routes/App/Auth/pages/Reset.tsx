@@ -38,7 +38,7 @@ const ResetPassword: React.FC<{}> = () => (
 					name: 'resetPasswordPostSuccess',
 					text: _.get(data, 'message', 'We sent you instructions'),
 					state: 'success',
-					delay: 6000000
+					delay: 6000
 				});
 			} }
 		>
