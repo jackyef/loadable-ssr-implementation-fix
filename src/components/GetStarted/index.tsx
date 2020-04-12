@@ -6,10 +6,11 @@ import _ from 'lodash';
 import React from 'react';
 
 import { validators } from '@tg/app';
+import { FieldInput } from '@tg/elm';
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { IconArrowReverse } from '@tg/resources';
 
-import { StyledButton, StyledInput, StyledForm } from './_styled';
+import { StyledButton, StyledInputContainer, StyledForm } from './_styled';
 
 type Props = {
 
@@ -39,10 +40,12 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 	<StyledForm wrapper="form" inject={ storeForm } className={ className }>
 
 		{/* Email */}
-		<StyledInput size="big" name="email" detail="rounded"
-			placeholder="Your email address"
-			validators={ [validators.email.optional] }
-		/>
+		<StyledInputContainer>
+			<FieldInput size="big" name="email" detail="rounded"
+				placeholder="Your email address"
+				validators={ [validators.email.optional] }
+			/>
+		</StyledInputContainer>
 
 		{/* Validate email and redirect to sign up */}
 		<StyledButton size="big" iconPos="right" detail="rounded"

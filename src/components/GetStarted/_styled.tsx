@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { FormRoot } from '@tg/form';
-import { Button, FieldInput, MEDIA, mediaQueries, flex } from '@tg/elm';
+import { Button, MEDIA, mediaQueries, flex } from '@tg/elm';
 
 export const StyledForm = styled(FormRoot)`
 	/* stylelint-disable value-keyword-case */
@@ -18,7 +18,7 @@ export const StyledForm = styled(FormRoot)`
 	}
 `;
 
-export const StyledInput = styled(FieldInput)`
+export const StyledInputContainer = styled.div`
 	width: 420px;
 
 	${ mediaQueries[MEDIA.TABLET] } {
