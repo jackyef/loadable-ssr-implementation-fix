@@ -46,7 +46,7 @@ const ResetPassword: React.FC<{}> = () => (
 			<Heading h={ 2 } mb={ 7 } title="Reset password" />
 
 			{/* Email */}
-			<StyledInput name="email" size="mid" error="top"
+			<StyledInput name="email" size="mid" errPos="top"
 				placeholder="name@example.com"
 				label="Email address"
 				validators={ [

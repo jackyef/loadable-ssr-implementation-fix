@@ -62,7 +62,7 @@ const NewPassword: React.FC<{}> = () => {
 				<Heading h={ 2 } mb={ 7 } title="Create password" />
 
 				{/* Password */}
-				<StyledInput name="password" size="mid" error="top"
+				<StyledInput name="password" size="mid" errPos="top"
 					type="password"
 					placeholder="password"
 					label="New password"
@@ -74,7 +74,7 @@ const NewPassword: React.FC<{}> = () => {
 				/>
 
 				{/* Repeat password */}
-				<StyledInput name="repeat_password" size="mid" error="top"
+				<StyledInput name="repeat_password" size="mid" errPos="top"
 					type="password"
 					placeholder="repeat"
 					label="Repeat password"

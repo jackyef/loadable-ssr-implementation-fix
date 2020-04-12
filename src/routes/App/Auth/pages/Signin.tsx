@@ -4,11 +4,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import Cookies from 'js-cookie';
-import styled from 'styled-components';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Paragraph, Text, flex, NotifyBox, awakeNotification } from '@tg/elm';
+import { Button, Heading, Paragraph, FieldLabel, NotifyBox, awakeNotification } from '@tg/elm';
 import { validators } from '@tg/app';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
@@ -21,16 +20,6 @@ import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 // Form store
 const apiFormStore = new StoreFormAPI(authService.axiosInstance);
 const formStore = new StoreForm('auth', null, apiFormStore);
-
-const StyledPasswordLabel = styled.div`
-	/* stylelint-disable value-keyword-case */
-
-	${ flex({
-		align: 'center',
-		justify: 'space-between',
-		width: '100%'
-	}) }
-`;
 
 /**
  * Sign in authentication route
@@ -61,7 +50,7 @@ const SignIn: React.FC<{}> = () => (
 			<Heading h={ 2 } mb={ 7 } title="Welcome back" />
 
 			{/* Email */}
-			<StyledInput name="email" size="mid" error="top"
+			<StyledInput name="email" size="mid" errPos="top"
 				label="Email"
 				placeholder="name@example.com"
 				validators={ [
@@ -71,22 +60,22 @@ const SignIn: React.FC<{}> = () => (
 			/>
 
 			{/* Password */}
-			<StyledInput name="password" size="mid" error="top"
+			<StyledInput name="password" size="mid" errPos="top"
 				type="password"
 				placeholder="password"
 				validators={ [
 					validators.password.requirements,
 					validators.password.required
 				] }
-				label={
-					<StyledPasswordLabel>
-						<Text size={ 13 }>{ 'Password' }</Text>
+				label="Password"
+				labelComp={ ({ label, id }) => (
+					<FieldLabel label={ label } id={ id }>
 						<Button variant="inline" color="blue_100" size="mid"
 							title="Forgot password?"
 							onClick={ () => { history.push(routes.auth.reset); } }
 						/>
-					</StyledPasswordLabel>
-				}
+					</FieldLabel>
+				) }
 			/>
 
 			{/* Submit */}

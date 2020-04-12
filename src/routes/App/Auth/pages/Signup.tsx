@@ -39,7 +39,7 @@ const SignUp: React.FC<{}> = () => (
 			<Heading h={ 2 } mb={ 7 } title="Create account" />
 
 			{/* Email*/}
-			<StyledInput name="email" size="mid" error="top"
+			<StyledInput name="email" size="mid" errPos="top"
 				placeholder="name@example.com"
 				label="Email"
 				validators={ [
@@ -49,7 +49,7 @@ const SignUp: React.FC<{}> = () => (
 			/>
 
 			{/* Password */}
-			<StyledInput name="password" size="mid" error="top"
+			<StyledInput name="password" size="mid" errPos="top"
 				type="password"
 				placeholder="password"
 				label="Password"
