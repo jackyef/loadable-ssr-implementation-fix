@@ -7,13 +7,13 @@ import Cookies from 'js-cookie';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Paragraph, FieldLabel, NotifyBox, awakeNotification } from '@tg/elm';
-import { validators } from '@tg/app';
+import { Button, Heading, Paragraph, FieldLabel, validators } from '@tg/elm';
 import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
 
 import { history } from 'app/routes';
 import { routes } from 'app/config';
+import { awakeFormNotify, FormNotifyBox } from 'app/stores';
 
 import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 
@@ -44,7 +44,7 @@ const SignIn: React.FC<{}> = () => (
 					window.location.assign(routes.poster);
 				}
 			} }
-			onSubmitFailed={ err => awakeNotification(err, formStore) }
+			onSubmitFailed={ err => awakeFormNotify(err, formStore) }
 		>
 			{/* Title */}
 			<Heading h={ 2 } mb={ 7 } title="Welcome back" />
@@ -107,8 +107,7 @@ const SignIn: React.FC<{}> = () => (
 				</StyledLink>
 			</Paragraph>
 
-			{/* Notifications area */}
-			<NotifyBox />
+			<FormNotifyBox />
 
 		</StyledForm>
 	</>

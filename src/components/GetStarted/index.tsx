@@ -5,8 +5,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { validators } from '@tg/app';
-import { FieldInput } from '@tg/elm';
+import { FieldInput, validators } from '@tg/elm';
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { IconArrowReverse } from '@tg/resources';
 

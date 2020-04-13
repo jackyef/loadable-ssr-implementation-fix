@@ -4,9 +4,8 @@ import Cookies from 'js-cookie';
 import { ThemeProvider } from 'styled-components';
 // import Raven from 'raven-js';
 
-import { theme } from '@tg/elm';
 import { NotifyBox } from '@tg/notify';
-import { NotifyCommon } from '@tg/app';
+import { theme, Notification } from '@tg/elm';
 import { renderRoutes, canUseDOM } from '@tg/utils';
 
 import { notifyStore } from 'app/stores';
@@ -52,7 +51,7 @@ const Container: React.FC<Props> = ({ route }) => {
 
 	return (
 		<ThemeProvider theme={ theme }>
-			<NotifyBox store={ notifyStore } notification={ NotifyCommon } />
+			<NotifyBox store={ notifyStore } notification={ Notification } />
 			{ renderRoutes(route.routes) }
 		</ThemeProvider>
 	);

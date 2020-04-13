@@ -7,8 +7,8 @@ import moment from 'moment';
 import React, { useState, Ref } from 'react';
 
 import { uuid } from '@tg/utils';
-import { Text, FeaturesSwitcher, FeaturesSwitcherProps } from '@tg/elm';
-import { ContextStores, CLIENT_DATEFORMAT, ListPostsPreview } from '@tg/app';
+import { Text, FeaturesSwitcher, FeaturesSwitcherProps, CLIENT_DATEFORMAT } from '@tg/elm';
+import { ContextStores, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
 

@@ -5,8 +5,7 @@ import { matchRoutes } from 'react-router-config';
 import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
 
-// SSR renderer function
-import { renderer } from '@tg/app';
+import { renderer } from '@tg/elm';
 
 // Routes
 import { indexRoute } from './config';

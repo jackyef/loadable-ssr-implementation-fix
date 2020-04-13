@@ -8,11 +8,12 @@ import qs from 'qs';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
 import { canUseDOM } from '@tg/utils';
-import { Button, Heading, NotifyBox, awakeNotification, notifyStore } from '@tg/elm';
-import { validators } from '@tg/app';
+import { Button, Heading, validators } from '@tg/elm';
 import { service as authService } from '@tg/api-proxy-auth';
 
+import { notifyFormStore, awakeFormNotify, FormNotifyBox } from 'app/stores';
 import { routes } from 'app/config';
+
 import { StyledForm, StyledInput } from './_styled';
 
 // Form store
@@ -43,9 +44,9 @@ const NewPassword: React.FC<{}> = () => {
 			{/* Form */}
 			<StyledForm wrapper="form" name="newPassword" inject={ formStore }
 				submitMethod="PATCH"
-				onSubmitFailed={ err => awakeNotification(err, formStore) }
+				onSubmitFailed={ err => awakeFormNotify(err, formStore) }
 				onSubmitSucceed={ () => {
-					notifyStore.awake({
+					notifyFormStore.awake({
 						name: 'resetPwdLinkSent',
 						text: 'Password was successfully restored. You can use it to login.',
 						state: 'success',
@@ -91,8 +92,7 @@ const NewPassword: React.FC<{}> = () => {
 					onClick={ () => formStore.submit() }
 				/>
 
-				{/* Notifications area */}
-				<NotifyBox />
+				<FormNotifyBox />
 
 			</StyledForm>
 		</>

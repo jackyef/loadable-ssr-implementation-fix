@@ -7,11 +7,11 @@ import { Observer } from 'mobx-react';
 import { Helmet } from 'react-helmet';
 
 import { StoreForm, StoreFormAPI } from '@tg/form';
-
-import { Button, Heading, NotifyBox, awakeNotification, notifyStore } from '@tg/elm';
-import { validators } from '@tg/app';
+import { Button, Heading, validators } from '@tg/elm';
 import { IconArrow } from '@tg/resources';
 import { service as authService } from '@tg/api-proxy-auth';
+
+import { notifyFormStore, awakeFormNotify, FormNotifyBox } from 'app/stores';
 
 import { StyledForm, StyledInput } from './_styled';
 
@@ -32,9 +32,9 @@ const ResetPassword: React.FC<{}> = () => (
 		<StyledForm wrapper="form" name="reset" inject={ formStore }
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'reset_password').options.url }
-			onSubmitFailed={ err => awakeNotification(err, formStore) }
+			onSubmitFailed={ err => awakeFormNotify(err, formStore) }
 			onSubmitSucceed={ data => {
-				notifyStore.awake({
+				notifyFormStore.awake({
 					name: 'resetPasswordPostSuccess',
 					text: _.get(data, 'message', 'We sent you instructions'),
 					state: 'success',
@@ -67,8 +67,7 @@ const ResetPassword: React.FC<{}> = () => (
 				/>
 			) }</Observer>
 
-			{/* Notifications area */}
-			<NotifyBox />
+			<FormNotifyBox />
 
 		</StyledForm>
 	</>
