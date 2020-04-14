@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import express, { Request, Response } from 'express';
+import express, { Response } from 'express'; // Request
 import { matchRoutes } from 'react-router-config';
 import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
@@ -57,7 +57,8 @@ app.get('/readyz', (req, res) => {
 app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 
 // Location
-app.get(`*`, (req: Request, res: Response) => {
+// any -> Request
+app.get('*', (req: any, res: Response) => {
 
 	const promises = matchRoutes(Routes as any, req.path).map(({ route }: any) => {
 		return route.loadData ? route.loadData() : null;
