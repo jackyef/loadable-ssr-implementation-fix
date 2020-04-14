@@ -17,7 +17,6 @@ yarn unlink @tg/api-proxy-data
 # Packages (app level)
 yarn unlink @tg/elm
 yarn unlink @tg/app
-yarn unlink @tg/layout
 
 # Resources
 yarn unlink @tg/resources

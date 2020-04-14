@@ -8,7 +8,6 @@ import React, { useState, Ref } from 'react';
 
 import { uuid } from '@tg/utils';
 import { Text, FeaturesSwitcher, FeaturesSwitcherProps, CLIENT_DATEFORMAT } from '@tg/elm';
-import { ContextStores, ListPostsPreview } from '@tg/app';
 import { DataPost } from '@tg/api-proxy-drafts';
 import { resources, IconArchive, IconPen, IconTime } from '@tg/resources';
 
@@ -30,9 +29,10 @@ type Styles = {
 };
 
 /**
- * Empty posts store
+ * Empty posts store and context
  */
 const storePosts = new DataPost();
+const ContextStores = React.createContext({ posts: storePosts });
 
 type Props = {
 	active?: number;
@@ -135,11 +135,12 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 					<ul className={ styles.right }>
 						{
 							_.map(postsData, (data, index) => (
-								<ListPostsPreview key={ index } wrapper="li" post={ data }
-									onClick={ () => setActive(index + 1) }
-									showEditTooltip={ index === 1 }
-									className={ active === (index + 1) ? styles.preview_selected : '' }
-								/>
+								<span />
+								// <ListPostsPreview key={ index } wrapper="li" post={ data }
+								// 	onClick={ () => setActive(index + 1) }
+								// 	showEditTooltip={ index === 1 }
+								// 	className={ active === (index + 1) ? styles.preview_selected : '' }
+								// />
 							))
 						}
 					</ul>
