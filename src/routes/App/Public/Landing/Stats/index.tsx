@@ -6,15 +6,15 @@
 import _ from 'lodash';
 import React, { Ref, useState } from 'react';
 import moment from 'moment';
-import {
-	ResponsiveContainer,
-	ComposedChart,
-	Line,
-	Area,
-	XAxis,
-	YAxis,
-	Tooltip
-} from 'recharts';
+// import {
+// 	ResponsiveContainer,
+// 	ComposedChart,
+// 	Line,
+// 	Area,
+// 	XAxis,
+// 	YAxis,
+// 	Tooltip
+// } from 'recharts';
 
 import { Button, Heading, Text, ContentBlock } from '@tg/elm';
 import { IconCal } from '@tg/resources';
@@ -93,26 +93,26 @@ type Props = {
  * Graph colors to be set in JSX
  * neither in CSS file
  */
-const colors = {
-	line: '#0E35C4',
-	dotBg: '#fff'
-};
+// const colors = {
+// 	line: '#0E35C4',
+// 	dotBg: '#fff'
+// };
 
-type PropsDot = {
-	active?: boolean;
-	cx?: number;
-	cy?: number;
-};
+// type PropsDot = {
+// 	active?: boolean;
+// 	cx?: number;
+// 	cy?: number;
+// };
 
 /**
  * Dot on a Line graph
  */
-const Dot: React.FC<PropsDot> = ({ active, cx, cy }) => (
-	<circle cx={ cx } cy={ cy } r={ active ? 7 : 5 }
-		stroke={ colors.line } strokeWidth={ 2 }
-		fill={ active ? colors.line : colors.dotBg }
-	/>
-);
+// const Dot: React.FC<PropsDot> = ({ active, cx, cy }) => (
+// 	<circle cx={ cx } cy={ cy } r={ active ? 7 : 5 }
+// 		stroke={ colors.line } strokeWidth={ 2 }
+// 		fill={ active ? colors.line : colors.dotBg }
+// 	/>
+// );
 
 type TickProps = {
 	x?: number;
@@ -143,81 +143,81 @@ AxisTick.defaultProps = {
 /**
  * Get previous value (moment date)
  */
-const getPrev = _.memoize((current: string, scale: 'week' | 'month' | 'year') => {
+// const getPrev = _.memoize((current: string, scale: 'week' | 'month' | 'year') => {
 
-	// Prev value container
-	let prev: string = null;
+// 	// Prev value container
+// 	let prev: string = null;
 
-	// Choose scale
-	switch (scale) {
-		case 'week':
-			prev = moment(current, dateFormat).subtract(1, 'day').format(dateFormat);
-			return _.find(_data.week, v => v.x === prev);
+// 	// Choose scale
+// 	switch (scale) {
+// 		case 'week':
+// 			prev = moment(current, dateFormat).subtract(1, 'day').format(dateFormat);
+// 			return _.find(_data.week, v => v.x === prev);
 
-		case 'month':
-			prev = moment(current, dateFormat).subtract(1, 'week').format(dateFormat);
-			return _.find(_data.month, v => v.x === prev);
+// 		case 'month':
+// 			prev = moment(current, dateFormat).subtract(1, 'week').format(dateFormat);
+// 			return _.find(_data.month, v => v.x === prev);
 
-		case 'year':
-			prev = moment(current, dateFormat).subtract(1, 'month').format(dateFormat);
-			return _.find(_data.year, v => v.x === prev);
+// 		case 'year':
+// 			prev = moment(current, dateFormat).subtract(1, 'month').format(dateFormat);
+// 			return _.find(_data.year, v => v.x === prev);
 
-		default:
-			return { x: '', y: 0 };
-	}
-});
+// 		default:
+// 			return { x: '', y: 0 };
+// 	}
+// });
 
-const scaleFrom: any = {
-	week: 'day',
-	month: 'week',
-	year: 'month'
-};
+// const scaleFrom: any = {
+// 	week: 'day',
+// 	month: 'week',
+// 	year: 'month'
+// };
 
 /**
  * Tooltip
  * @param e Mouse event
  * @param scale Axis scale: year, month, week
  */
-const TooltipCustom: React.FC<any> = (e: any, scale: any) => {
-	if (e.active) {
+// const TooltipCustom: React.FC<any> = (e: any, scale: any) => {
+// 	if (e.active) {
 
-		// Values
-		const xValue = _.get(e.payload, '1.payload.x');
-		const yValue = _.get(e.payload, '1.payload.y');
+// 		// Values
+// 		const xValue = _.get(e.payload, '1.payload.x');
+// 		const yValue = _.get(e.payload, '1.payload.y');
 
-		// Prev day
-		const prevPair = getPrev(xValue, scale);
-		const delta = prevPair && (yValue - prevPair.y);
+// 		// Prev day
+// 		const prevPair = getPrev(xValue, scale);
+// 		const delta = prevPair && (yValue - prevPair.y);
 
-		// Render
-		return (
-			<div className={ styles.tooltip }>
-				<ul>
-					<li><span>{ yValue }</span>{' members'}</li>
-					{
-						!delta ? null : (
-							<li>
-								<span
-									className={
-										delta > 0
-											? styles.delta_positive
-											: delta < 0
-												? styles.delta_negative
-												: ''
-									}
-								>
-									{ `${ delta > 0 ? '+' : '' }${ delta }`}
-								</span>{` from the previous ${ scaleFrom[scale] }`}
-							</li>
-						)
-					}
-				</ul>
-			</div>
-		);
-	}
+// 		// Render
+// 		return (
+// 			<div className={ styles.tooltip }>
+// 				<ul>
+// 					<li><span>{ yValue }</span>{' members'}</li>
+// 					{
+// 						!delta ? null : (
+// 							<li>
+// 								<span
+// 									className={
+// 										delta > 0
+// 											? styles.delta_positive
+// 											: delta < 0
+// 												? styles.delta_negative
+// 												: ''
+// 									}
+// 								>
+// 									{ `${ delta > 0 ? '+' : '' }${ delta }`}
+// 								</span>{` from the previous ${ scaleFrom[scale] }`}
+// 							</li>
+// 						)
+// 					}
+// 				</ul>
+// 			</div>
+// 		);
+// 	}
 
-	return null;
-};
+// 	return null;
+// };
 
 /**
  * Component
@@ -300,10 +300,10 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 					</div>
 
 					{/* Chart */}
+					{/*
 					<ResponsiveContainer height={ 400 } width="100%">
 						<ComposedChart data={ data } margin={ { top: 10, right: 10, bottom: 10, left: 10 } }>
 
-							{/* Area gradient color */}
 							<defs>
 								<linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
 									<stop offset="5%" stopColor={ colors.line } stopOpacity={ 0.1 }/>
@@ -311,7 +311,6 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 								</linearGradient>
 							</defs>
 
-							{/* Axis */}
 							<XAxis dataKey="x" scale="point" domain={ ['auto', 'auto'] }
 								tick={ <AxisTick formatter={ v => formatDate(v) }/> }
 								axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
@@ -321,24 +320,22 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 								axisLine={ { opacity: 0.2 } } tickLine={ { opacity: 0.2 } }
 							/>
 
-							{/* Area gradient (under the line so goes first) */}
 							<Area dataKey="y" type="monotone" stroke={ null }
 								fillOpacity={ 1 } fill="url(#areaGradient)"
 								dot={ false } activeDot={ false }
 							/>
 
-							{/* Tooltip */}
 							<Tooltip cursor={ { opacity: 0.4, strokeWidth: 1, strokeDasharray: '5, 5' }  }
 								content={ (e: any) => TooltipCustom(e, scale) }
 							/>
 
-							{/* Line */}
 							<Line dataKey="y" type="monotone" stroke={ colors.line } strokeWidth={ 2 }
 								dot={ <Dot /> } activeDot={ <Dot active /> }
 							/>
 
 						</ComposedChart>
 					</ResponsiveContainer>
+					*/}
 				</div>
 			</div>
 		</ContentBlock>

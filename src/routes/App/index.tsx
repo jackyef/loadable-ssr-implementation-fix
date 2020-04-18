@@ -2,13 +2,15 @@ import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 import Cookies from 'js-cookie';
 import { ThemeProvider } from 'styled-components';
-// import Raven from 'raven-js';
 
 import { NotifyBox } from '@tg/notify';
 import { theme, Notification } from '@tg/elm';
 import { renderRoutes, canUseDOM } from '@tg/utils';
 
 import { notifyStore } from 'app/stores';
+import { history } from 'app/routes';
+
+import { initGA, trackPageView } from './ga';
 
 // eslint-disable-next-line import/no-internal-modules
 import '../../styles/base.less';
@@ -21,6 +23,12 @@ const Container: React.FC<Props> = ({ route }) => {
 
 	// did mount
 	useEffect(() => {
+
+		// GA
+		if (canUseDOM() && history) {
+			initGA(history);
+			trackPageView(history);
+		}
 
 		// Check if we want to clear id_token from local storage
 		if (canUseDOM() && Cookies.get('remove_id_token')) {

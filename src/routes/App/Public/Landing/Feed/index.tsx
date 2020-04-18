@@ -135,7 +135,7 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 					<ul className={ styles.right }>
 						{
 							_.map(postsData, (data, index) => (
-								<span />
+								<span key={ index } />
 								// <ListPostsPreview key={ index } wrapper="li" post={ data }
 								// 	onClick={ () => setActive(index + 1) }
 								// 	showEditTooltip={ index === 1 }
