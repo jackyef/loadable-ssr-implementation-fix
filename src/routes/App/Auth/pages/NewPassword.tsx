@@ -47,7 +47,6 @@ const NewPassword: React.FC<{}> = () => {
 				onSubmitFailed={ err => awakeFormNotify(err, formStore) }
 				onSubmitSucceed={ () => {
 					notifyFormStore.awake({
-						name: 'resetPwdLinkSent',
 						text: 'Password was successfully restored. You can use it to login.',
 						state: 'success',
 						delay: 4000

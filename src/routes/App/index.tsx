@@ -45,7 +45,6 @@ const Container: React.FC<Props> = ({ route }) => {
 		if (notification) {
 			setTimeout(() => {
 				notifyStore.awake({
-					name: 'cookieNotification',
 					header: notification,
 					state: 'success',
 					delay: 8000

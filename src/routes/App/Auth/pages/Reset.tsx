@@ -35,7 +35,6 @@ const ResetPassword: React.FC<{}> = () => (
 			onSubmitFailed={ err => awakeFormNotify(err, formStore) }
 			onSubmitSucceed={ data => {
 				notifyFormStore.awake({
-					name: 'resetPasswordPostSuccess',
 					text: _.get(data, 'message', 'We sent you instructions'),
 					state: 'success',
 					delay: 6000

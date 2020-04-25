@@ -67,7 +67,6 @@ export const awakeFormNotify = (err: any, store: IStoreForm): void => {
 	// Schema level errors (notification)
 	if (errors.schema) {
 		notifyFormStore.awake({
-			name: 'signInError',
 			text: _.get(errors, 'schema.0', 'Unknown server error'),
 			state: 'error',
 			delay: 10000
