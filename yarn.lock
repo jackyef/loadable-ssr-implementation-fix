@@ -1548,22 +1548,6 @@
     qs "^6.9.1"
     stringify-object "^3.3.0"
 
-"@tg/app@^3.0.7":
-  version "3.0.7"
-  resolved "https://nexus.tgpost.me/repository/npm-private/@tg/app/-/app-3.0.7.tgz#9b0237a83835c0d11d786a35cb590c537513400d"
-  integrity sha512-YikDhnIUWQ/pjKF+i7WkMRCg+cZcRFin9cSOXE3pPcMTGUmDUvxJHkVJndhKeXw2PfXEQqaFgGMzszBUiXUWQw==
-  dependencies:
-    "@tg/api-proxy-auth" "^3.0.3"
-    "@tg/api-proxy-drafts" "^3.0.3"
-    "@tg/modal" "^3.0.4"
-    axios "^0.19.2"
-    express "^4.17.1"
-    mobx "^5.15.4"
-    mobx-react "^6.1.4"
-    react "^16.12.0"
-    react-helmet "^5.2.1"
-    serialize-javascript "^2.1.2"
-
 "@tg/async@^3.0.2":
   version "3.0.2"
   resolved "https://nexus.tgpost.me/repository/npm-private/@tg/async/-/async-3.0.2.tgz#0d6eac9f3f377807470a67da657763f62106db99"

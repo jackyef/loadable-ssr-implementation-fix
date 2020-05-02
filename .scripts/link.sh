@@ -16,7 +16,6 @@ yarn link @tg/api-proxy-upload
 
 # Packages (app level)
 yarn link @tg/elm
-yarn link @tg/app
 yarn link @tg/uploader
 
 # Resources

@@ -9,7 +9,6 @@
 		"@tg/api-proxy": "^3.0.5",
 		"@tg/api-proxy-auth": "^3.0.3",
 		"@tg/api-proxy-data": "^3.0.5",
-		"@tg/app": "^3.0.7",
 		"@tg/async": "^3.0.2",
 		"@tg/elm": "3.0.5",
 		"@tg/exceptions": "^3.0.2",
