@@ -45,7 +45,7 @@ const Container: React.FC<Props> = ({ route }) => {
 		if (notification) {
 			setTimeout(() => {
 				notifyStore.awake({
-					header: notification,
+					text: notification,
 					state: 'success',
 					delay: 8000
 				});
