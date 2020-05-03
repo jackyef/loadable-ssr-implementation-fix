@@ -2049,13 +2049,6 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-dropzone@^5.1.0":
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/@types/react-dropzone/-/react-dropzone-5.1.0.tgz#5e27eb0b1ccadd7964ce4d328e1926fcd1c1f1ef"
-  integrity sha512-VCdDCwSsr1MT2frsVl5p8qH+LWwUGzsaNtGkEQekHviZqK0dmTbiIp2Pzfb8lTkH4oTE2JtBbWnbuM6B4FH80A==
-  dependencies:
-    react-dropzone "*"
-
 "@types/react-ga@^2.3.0":
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/@types/react-ga/-/react-ga-2.3.0.tgz#dbd56dd622cabb5baebc896e3ee67dfdc29babc1"
