@@ -30,7 +30,7 @@ spec:
 
         # Container
         - name: tg-app-ssr-public
-          image: nexus.tgpost.me:18080/app_ssr_public:latest # $COMMIT_SHA1
+          image: nexus.prostpost.me:18080/app_ssr_public:latest # $COMMIT_SHA1
           # https://github.com/kubernetes/website/pull/17141
           # imagePullPolicy: IfNotPresent
           ports:

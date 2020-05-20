@@ -21,8 +21,8 @@ jobs:
         command: |
           AUTH_TOKEN=${NPM_TOKEN}
           touch .npmrc
-          echo "@tg:registry=https://nexus.tgpost.me/repository/npm-private/" >> .npmrc
-          echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.${NPM_TOKEN}" >> .npmrc
+          echo "@tg:registry=https://nexus.prostpost.me/repository/npm-private/" >> .npmrc
+          echo "//nexus.prostpost.me/repository/npm-private/:_authToken=NpmToken.${NPM_TOKEN}" >> .npmrc
 
     - run:
         name: Install packages
@@ -65,7 +65,7 @@ jobs:
 
     - run:
        name: Download script to upload artifact to DO Spaces
-       command: curl -o ~/app/upload.py https://cdn.tgpost.me/scripts/upload-to-spaces.py
+       command: curl -o ~/app/upload.py https://cdn.prostpost.me/scripts/upload-to-spaces.py
 
     - restore_cache:
         keys:
