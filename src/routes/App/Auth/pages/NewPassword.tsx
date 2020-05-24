@@ -42,7 +42,7 @@ const NewPassword: React.FC<{}> = () => {
 			</Helmet>
 
 			{/* Form */}
-			<StyledForm wrapper="form" name="newPassword" inject={ formStore }
+			<StyledForm name="newPassword" inject={ formStore }
 				submitMethod="PATCH"
 				onSubmitFailed={ err => awakeFormNotify(err, formStore) }
 				onSubmitSucceed={ () => {

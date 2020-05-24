@@ -29,7 +29,7 @@ const ResetPassword: React.FC<{}> = () => (
 		</Helmet>
 
 		{/* Reset password form */}
-		<StyledForm wrapper="form" name="reset" inject={ formStore }
+		<StyledForm name="reset" inject={ formStore }
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'reset_password').options.url }
 			onSubmitFailed={ err => awakeFormNotify(err, formStore) }

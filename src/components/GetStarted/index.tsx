@@ -36,7 +36,7 @@ const defaultProps: Partial<Props> = {
 };
 
 export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
-	<StyledForm wrapper="form" inject={ storeForm } className={ className }>
+	<StyledForm inject={ storeForm } className={ className }>
 
 		{/* Email */}
 		<StyledInputContainer>

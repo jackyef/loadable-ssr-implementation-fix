@@ -31,7 +31,7 @@ const SignIn: React.FC<{}> = () => (
 		</Helmet>
 
 		{/* Sign in form */}
-		<StyledForm wrapper="form" name="signin" inject={ formStore }
+		<StyledForm name="signin" inject={ formStore }
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'login').options.url }
 			onSubmitSucceed={ () => {

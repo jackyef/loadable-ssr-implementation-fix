@@ -29,7 +29,7 @@ const SignUp: React.FC<{}> = () => (
 		</Helmet>
 
 		{/* Form */}
-		<StyledForm wrapper="form" name="signup" inject={ formStore }
+		<StyledForm name="signup" inject={ formStore }
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'register').options.url }
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
