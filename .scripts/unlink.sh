@@ -9,7 +9,6 @@ yarn unlink @tg/form
 yarn unlink @tg/modal
 yarn unlink @tg/async
 yarn unlink @tg/notify
-yarn unlink @tg/wrapper
 yarn unlink @tg/exceptions
 yarn unlink @tg/api-proxy
 yarn unlink @tg/api-proxy-data

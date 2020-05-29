@@ -17,7 +17,6 @@
 		"@tg/notify": "^4.0.2",
 		"@tg/resources": "^4.0.3",
 		"@tg/utils": "^4.0.2",
-		"@tg/wrapper": "^4.0.2",
 		"@types/react-ga": "^2.3.0",
 		"axios": "0.19",
 		"axios-cache-adapter": "^2.5.0",

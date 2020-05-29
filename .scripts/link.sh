@@ -9,7 +9,6 @@ yarn link @tg/form
 yarn link @tg/modal
 yarn link @tg/async
 yarn link @tg/notify
-yarn link @tg/wrapper
 yarn link @tg/api-proxy
 yarn link @tg/api-proxy-data
 yarn link @tg/api-proxy-upload
