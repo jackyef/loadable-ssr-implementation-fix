@@ -2,9 +2,8 @@
  * @module FAQItem
  */
 import React from 'react';
-import styled from 'styled-components';
 
-import { Heading, Paragraph } from '@tg/elm';
+import { Heading, Paragraph, styled } from '@tg/elm';
 
 export type Props = {
 	question?: string;
@@ -16,9 +15,6 @@ const StyledContainer = styled.li`
 	margin-bottom: 30px;
 `;
 
-/**
- * Component
- */
 export const FAQItem: React.FC<Props> = ({ question, answer }) => (
 	<StyledContainer>
 		<Heading h={ 3 } mb={ 3 } title={ question } color="white_100" />

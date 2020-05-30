@@ -1,5 +1,6 @@
 /**
  * Subscribe/login mini form with input field & one button
+ *
  * @module GetStarted
  */
 import _ from 'lodash';
@@ -53,7 +54,7 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 			onClick={ () => {
 				const { valid } = storeForm.validate();
 				if (valid) {
-					onClick(storeForm.getFieldValue('email'));
+					onClick(storeForm.getFieldValue<string>('email'));
 				}
 			} }
 		/>

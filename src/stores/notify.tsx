@@ -3,10 +3,9 @@
  */
 import _ from 'lodash';
 import React from 'react';
-import styled from 'styled-components';
 
-import { flex, Notification } from '@tg/elm';
-import { IStoreForm } from '@tg/form';
+import { flex, styled, Notification } from '@tg/elm';
+import { StoreFormInterface } from '@tg/form';
 import { StoreNotify, NotifyBox as BaseNotifyBox } from '@tg/notify';
 
 export const notifyStore = new StoreNotify();
@@ -26,21 +25,24 @@ const StyledNotifyBox = styled(BaseNotifyBox)`
 	margin-top: ${ ({ theme }) => theme.space[5] };
 `;
 
-/**
- * Component
- */
-export const FormNotifyBox: React.FC<{}> = () => (
+export const FormNotifyBox: React.FC = () => (
 	<StyledNotifyBox keepBox
 		store={ notifyFormStore }
 		notification={ Notification }
 	/>
 );
 
+export type Errors = {
+	errors: Array<{
+		[key: string]: string
+	}>
+};
+
 // Awake error notification (form notification)
-export const awakeFormNotify = (err: any, store: IStoreForm): void => {
+export const awakeFormNotify = (err: Errors, store: StoreFormInterface): void => {
 
 	// Get errors from response with a default error message
-	let errors = _.get(err, 'errors');
+	const errors = _.get(err, 'errors');
 
 	// Form fields
 	const fields = [
@@ -60,12 +62,13 @@ export const awakeFormNotify = (err: any, store: IStoreForm): void => {
 	}
 
 	// Default error if server respond with general (not schema) format
+	let parsedErrors = null;
 	if (errors && !fieldErrors && !_.get(errors, 'schema.0')) {
-		errors = { schema: [_.get(errors, '0.detail', 'Unknown server error')] };
+		parsedErrors = { schema: [_.get(errors, '0.detail', 'Unknown server error')] };
 	}
 
 	// Schema level errors (notification)
-	if (errors.schema) {
+	if (parsedErrors?.schema) {
 		notifyFormStore.awake({
 			text: _.get(errors, 'schema.0', 'Unknown server error'),
 			state: 'error',

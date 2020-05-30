@@ -1,6 +1,7 @@
 /**
  * Block at the bottom of the landing page
  * that repeat
+ *
  * @module GetStarted
  */
 import React from 'react';
@@ -34,10 +35,7 @@ const StyledForm = styled(GetStartedForm)`
 	justify-content: center;
 `;
 
-/**
- * Component
- */
-export const GetStarted: React.FC<{}> = () => (
+export const GetStarted: React.FC = () => (
 	<ContentBlock>
 		<StyledContainer>
 			<Heading centered h={ 1 }>

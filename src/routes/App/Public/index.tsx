@@ -3,6 +3,7 @@
  */
 import React from 'react';
 import { RouteConfig } from 'react-router-config';
+import { Scrollbar } from 'react-scrollbars-custom';
 
 import { renderRoutes } from '@tg/utils';
 import { Scrollbars } from '@tg/elm';
@@ -10,17 +11,14 @@ import { Scrollbars } from '@tg/elm';
 import { Footer } from 'app/components';
 
 type Props = {
-	route: RouteConfig & { render?: any };
+	route: RouteConfig;
 };
 
-/**
- * Public container
- */
 const Container: React.FC<Props> = ({ route }) => {
 	return (
 		<Scrollbars getScroller position="absolute">
 		{
-			(scroller: any) => {
+			(scroller: Scrollbar) => {
 				return (
 					<>
 

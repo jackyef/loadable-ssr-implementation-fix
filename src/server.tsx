@@ -1,7 +1,10 @@
+/* eslint-disable */
+// @ts-nocheck
 import fs from 'fs';
 import path from 'path';
-import express, { Response } from 'express'; // Request
-import { matchRoutes } from 'react-router-config';
+import _ from 'lodash';
+import express, { Response, Request } from 'express';
+import { matchRoutes, RouteConfig } from 'react-router-config';
 import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
 
@@ -23,6 +26,9 @@ const fluentConfig = {
 	requireAckResponse: true // Add this option to wait response from Fluentd certainly
 };
 
+// NO TYPES FOR FLUENTD LOGGER
+/* eslint @typescript-eslint/no-unsafe-call: 0 */
+/* eslint @typescript-eslint/no-unsafe-member-access: 0 */
 const fluentTransport = support.winstonTransport();
 const fluent = new fluentTransport('service_ssr_public', fluentConfig);
 
@@ -33,6 +39,7 @@ const logger = winston.createLogger({
 
 // Get bundle json maps
 // eslint-disable-next-line import/no-internal-modules
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const loadableJson = require('../bundle_client/react-loadable.json');
 const assetsJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
 
@@ -58,15 +65,19 @@ app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 
 // Location
 // any -> Request
-app.get('*', (req: any, res: Response) => {
+app.get('*', (req: Request, res: Response) => {
 
-	const promises = matchRoutes(Routes as any, req.path).map(({ route }: any) => {
-		return route.loadData ? route.loadData() : null;
-	});
+	const promises = _.map(
+		matchRoutes(Routes, req.path),
+		({ route }: RouteConfig) => (
+			route.loadData ? route.loadData() : null
+		)
+	);
 
 	Promise.all(promises).then(data => {
-		const context: any = {};
-		const content = renderer({ req, context },
+		const context: unknown = {};
+		const content = renderer(
+			{ req, context },
 			Routes,
 			loadableJson,
 			assetsJson,

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router';
-import Loadable from 'react-loadable';
+import { RouteConfig } from 'react-router-config';
+import Loadable, { LoadingComponentProps } from 'react-loadable';
 import { createBrowserHistory } from 'history';
 
 import { canUseDOM } from '@tg/utils';
@@ -10,13 +11,17 @@ import { LoadingRoute, Flex, theme } from '@tg/elm';
 import { routes } from 'app/config';
 
 // Not Found Route
-const RouteNotFound = { component: () => <Redirect to={ routes.index } /> };
+const RouteNotFoundComponent = () => <Redirect to={ routes.index } />;
+const RouteNotFound = { component: RouteNotFoundComponent };
+
+// Redirect to sign in
+const RouteRedirectSignInComponent = () => <Redirect to={ routes.auth.signin } />;
 
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : null;
 
 // Loaders
-const LoaderSubRoute: React.FC<any> = (props: any) => (
+const LoaderSubRoute: React.FC<LoadingComponentProps> = props => (
 	<Flex justify="center" height="100vh">
 		<LoadingRoute { ...props }
 			height="100vh"
@@ -27,7 +32,7 @@ const LoaderSubRoute: React.FC<any> = (props: any) => (
 );
 
 // Routes map
-export default [
+const r: RouteConfig[] = [
 	{
 		path: routes.index,
 		component: Loadable({
@@ -80,7 +85,7 @@ export default [
 
 					// Root
 					{
-						component: () => <Redirect to={ routes.auth.signin } />,
+						component: RouteRedirectSignInComponent,
 						path: routes.auth.self,
 						exact: true
 					},
@@ -134,3 +139,5 @@ export default [
 		]
 	}
 ];
+
+export default r;

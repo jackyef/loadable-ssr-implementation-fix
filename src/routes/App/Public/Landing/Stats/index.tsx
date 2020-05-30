@@ -1,9 +1,10 @@
 /**
  * Block that describes channel's statistics
  * feature with short description and demo
+ *
  * @module Stats
  */
-import React from 'react';
+import React, { Ref } from 'react';
 
 import { Heading, Text, Paragraph, Box, ContentBlock } from '@tg/elm';
 
@@ -41,7 +42,10 @@ import { Heading, Text, Paragraph, Box, ContentBlock } from '@tg/elm';
 // 	]
 // };
 
-type Props = { children: any };
+type Props = {
+	children?: React.ReactNode;
+	ref?: Ref<HTMLElement>;
+};
 
 /**
  * Component
@@ -50,8 +54,8 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 	return (
 		<ContentBlock ref={ ref } bg="white_100">
 			<Box>
-				<Text size={ 12 } color="blue_100">{ 'Analise' }</Text>
-				<Heading h={ 2 } mb={ 5 } title="Analise what people like and how fast your channel grows" />
+				<Text size={ 12 } color="blue_100">{ 'Analyse' }</Text>
+				<Heading h={ 2 } mb={ 5 } title="Analyse what people like and how fast your channel grows" />
 				<Paragraph size={ 18 } color="black_80">{
 					'Unleash your creativity, plan projects from all angles, ' +
 					'and create centralized hubs of information to keep everyone in the loop. '
@@ -60,3 +64,5 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 		</ContentBlock>
 	);
 });
+
+Stats.displayName = 'Stats';

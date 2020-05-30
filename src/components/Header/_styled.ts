@@ -1,6 +1,13 @@
-import styled, { css } from 'styled-components';
-
-import { MEDIA, mediaQueries, flex, ContentBlock, ContentBlockProps } from '@tg/elm';
+import {
+	styled,
+	css,
+	CSS,
+	MEDIA,
+	mediaQueries,
+	flex,
+	ContentBlock,
+	ContentBlockProps
+} from '@tg/elm';
 
 import { Props } from '.';
 
@@ -11,10 +18,10 @@ export const StyledContainer = styled(ContentBlock)<Props>`
 		justify: 'center'
 	}) }
 
-	${ ({ sticky }) => !sticky ? '' : css`
+	${ ({ sticky }): CSS => !sticky ? '' : css`
 		${ mediaQueries[MEDIA.DESKTOP] } {
 			position: sticky;
-			top: ${ ({ theme }) => `-${ theme.space[4] }` };
+			top: ${ ({ theme }): CSS => `-${ theme.space[4] }` };
 			z-index: 2;
 		}
 
@@ -22,8 +29,8 @@ export const StyledContainer = styled(ContentBlock)<Props>`
 			position: relative;
 			top: 0;
 
-			padding-top: ${ ({ theme }) => theme.space[6] };
-			padding-bottom: ${ ({ theme }) => theme.space[6] };
+			padding-top: ${ ({ theme }): CSS => theme.space[6] };
+			padding-bottom: ${ ({ theme }): CSS => theme.space[6] };
 		}
 	` }
 `;
@@ -37,7 +44,7 @@ export const StyledHeader = styled.header`
 
 	width: 100%;
 	max-width: 1366px;
-	padding: ${ ({ theme }) => `29px 0 ${ theme.space[3] } 0` };
+	padding: ${ ({ theme }): CSS => `29px 0 ${ theme.space[3] } 0` };
 
 	${ mediaQueries[MEDIA.NOT_DESKTOP] } {
 		padding: 0;
@@ -56,14 +63,14 @@ export const Shadow = styled(ContentBlock)<ShadowProps>`
 
 	padding: 5px 0 !important;
 
-	background: ${ ({ theme }) => theme.colors.white_100 };
+	background: ${ ({ theme }): CSS => theme.colors.white_100 };
 
-	${ ({ cover }) => cover
+	${ ({ cover }): CSS => cover
 		? css`
 			margin-top: -5px;
 		`
 		: css`
-			${ ({ theme }) => theme.shadows.small }
+			${ ({ theme }): CSS => theme.shadows.small }
 		`
 	}
 

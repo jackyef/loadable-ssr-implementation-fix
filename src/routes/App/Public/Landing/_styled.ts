@@ -1,16 +1,14 @@
-import styled from 'styled-components';
-
-import { Logo, MEDIA, mediaQueries } from '@tg/elm';
+import { Logo, MEDIA, mediaQueries, styled, CSS } from '@tg/elm';
 
 import { Nav } from 'app/components';
 
 import { Demo } from './Demo';
 
 export const StyledLogo = styled(Logo)`
-	margin-top: ${ ({ theme }) => `-${ theme.space[3] }` };
+	margin-top: ${ ({ theme }): CSS => `-${ theme.space[3] }` };
 
 	${ mediaQueries[MEDIA.DESKTOP] } {
-		margin-left: ${ ({ theme }) => `-${ theme.space[6] }` };
+		margin-left: ${ ({ theme }): CSS => `-${ theme.space[6] }` };
 	}
 `;
 

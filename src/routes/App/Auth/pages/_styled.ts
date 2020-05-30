@@ -1,8 +1,15 @@
-import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import { flex, MEDIA, mediaQueries, Text, FieldInput } from '@tg/elm';
 import { FormRoot } from '@tg/form';
+import {
+	flex,
+	MEDIA,
+	mediaQueries,
+	Text,
+	FieldInput,
+	styled,
+	CSS
+} from '@tg/elm';
 
 export const StyledForm = styled(FormRoot)`
 	/* stylelint-disable value-keyword-case */
@@ -12,18 +19,18 @@ export const StyledForm = styled(FormRoot)`
 	}) }
 
 	width: 420px;
-	padding: ${ ({ theme }) => `${ theme.space[7] } ${ theme.space[7] } 0 ${ theme.space[7] }` };
+	padding: ${ ({ theme }): CSS => `${ theme.space[7] } ${ theme.space[7] } 0 ${ theme.space[7] }` };
 
 	/* Text */
 	${ mediaQueries[MEDIA.MOBILE] } {
-		padding: ${ ({ theme }) => theme.space[4] };
+		padding: ${ ({ theme }): CSS => theme.space[4] };
 	}
 `;
 
 export const StyledInput = styled(FieldInput)`
 
 	width: 100%;
-	margin-bottom: ${ ({ theme }) => theme.space[3] };
+	margin-bottom: ${ ({ theme }): CSS => theme.space[3] };
 
 	> label {
 		> div {
@@ -42,9 +49,9 @@ export const StyledText = styled(Text)`
 	}) }
 
 	width: 100%;
-	margin: ${ ({ theme }) => `${ theme.space[3] } 0 0 ${ theme.space[2] }` };
+	margin: ${ ({ theme }): CSS => `${ theme.space[3] } 0 0 ${ theme.space[2] }` };
 `;
 
 export const StyledLink = styled(Link)`
-	color: ${ ({ theme }) => theme.colors.blue_30 };
+	color: ${ ({ theme }): CSS => theme.colors.blue_30 };
 `;

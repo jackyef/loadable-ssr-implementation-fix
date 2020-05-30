@@ -1,17 +1,15 @@
-import styled from 'styled-components';
-
-import { Heading, MEDIA, mediaQueries, flex } from '@tg/elm';
+import { Heading, MEDIA, mediaQueries, flex, styled, CSS } from '@tg/elm';
 
 export const StyledHeading = styled(Heading)`
 	width: 440px;
-	margin-bottom: ${ ({ theme }) => theme.space[10] };
+	margin-bottom: ${ ({ theme }): CSS => theme.space[10] };
 
 	text-align: center;
 
 	${ mediaQueries[MEDIA.MOBILE] } {
 		width: 100%;
 		max-width: 440px;
-		margin: ${ ({ theme }) => `${ theme.space[10] } 0 ${ theme.space[7] } 0` };
+		margin: ${ ({ theme }): CSS => `${ theme.space[10] } 0 ${ theme.space[7] } 0` };
 	}
 `;
 
@@ -30,18 +28,18 @@ export const StyledList = styled.ul`
 		max-width: 600px;
 
 		> li:first-child {
-			width: calc(50% - ${ ({ theme }) => theme.space[6] });
-			margin: 0 ${ ({ theme }) => theme.space[6] } 0 0;
+			width: calc(50% - ${ ({ theme }): CSS => theme.space[6] });
+			margin: 0 ${ ({ theme }): CSS => theme.space[6] } 0 0;
 		}
 
 		> li:nth-child(2) {
-			width: calc(50% - ${ ({ theme }) => theme.space[6] });
-			margin: 0 0 0 ${ ({ theme }) => theme.space[6] };
+			width: calc(50% - ${ ({ theme }): CSS => theme.space[6] });
+			margin: 0 0 0 ${ ({ theme }): CSS => theme.space[6] };
 		}
 
 		> li:last-child {
 			width: 100%;
-			margin: ${ ({ theme }) => theme.space[7] } 0 0 0;
+			margin: ${ ({ theme }): CSS => theme.space[7] } 0 0 0;
 		}
 	}
 
@@ -53,6 +51,6 @@ export const StyledList = styled.ul`
 		width: 100%;
 
 		> li { width: 100%; }
-		> li:not(:last-child) { margin: 0 0 ${ ({ theme }) => theme.space[7] } 0; }
+		> li:not(:last-child) { margin: 0 0 ${ ({ theme }): CSS => theme.space[7] } 0; }
 	}
 `;

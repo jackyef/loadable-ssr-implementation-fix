@@ -1,6 +1,12 @@
-import styled from 'styled-components';
-
-import { MEDIA, mediaQueries, flex, Heading, ContentBlock } from '@tg/elm';
+import {
+	MEDIA,
+	mediaQueries,
+	flex,
+	Heading,
+	ContentBlock,
+	styled,
+	CSS
+} from '@tg/elm';
 
 export const StyledContentBlock = styled(ContentBlock)`
 	/* stylelint-disable value-keyword-case */
@@ -22,7 +28,7 @@ export const StyledWrapper = styled.div`
 		width: '100%'
 	}) }
 
-	padding-top: ${ ({ theme }) => theme.space[9] };
+	padding-top: ${ ({ theme }): CSS => theme.space[9] };
 
 	${ mediaQueries[MEDIA.TABLET] } {
 		justify-content: center;

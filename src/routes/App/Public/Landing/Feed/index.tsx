@@ -1,5 +1,6 @@
 /**
  * Show Feed mechanics and possibilities
+ *
  * @module Feed
  */
 import React, { useState, Ref } from 'react';
@@ -21,7 +22,7 @@ import {
 
 type Props = {
 	active?: number;
-	ref?: Ref<any>;
+	ref?: Ref<HTMLElement>;
 };
 
 /**
@@ -111,3 +112,4 @@ export const Feed: React.FC<Props> = React.forwardRef(({ active: _active }, ref)
 });
 
 Feed.defaultProps = defaultProps;
+Feed.displayName = 'Feed';

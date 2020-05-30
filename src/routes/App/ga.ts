@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import ReactGA from 'react-ga';
 import { History, Location } from 'history';
 
@@ -8,9 +9,9 @@ export const trackPageView = (history?: History, location?: Location): void => {
 	// Generic URLs
 	const _location = location || (history && history.location);
 	// TODO: Remove from here to tg-app-drafts and adjust
-	if (_location.pathname.includes('/draft/')) {
-		const base = _location.pathname.split('/')[1];
-		const sub = _location.pathname.split('/')[3];
+	if (_.includes(_location.pathname, '/draft/')) {
+		const base = _.split(_location.pathname, '/')[1];
+		const sub = _.split(_location.pathname, '/')[3];
 		const urlToTrack = `${ base }/${ sub }`;
 		ReactGA.pageview(urlToTrack);
 	}

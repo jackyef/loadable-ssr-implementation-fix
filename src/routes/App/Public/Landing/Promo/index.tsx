@@ -16,10 +16,7 @@ import {
 	StyledTop
 } from './_styled';
 
-/**
- * Component
- */
-export const Promo: React.FC<{}> = () => (
+export const Promo: React.FC = () => (
 	<ContentBlock bg="white_100">
 		<StyledContent>
 			<StyledTop>

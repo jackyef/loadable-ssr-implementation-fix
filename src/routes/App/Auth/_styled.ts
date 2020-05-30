@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-import { flex, MEDIA, mediaQueries } from '@tg/elm';
+import { flex, MEDIA, mediaQueries, styled, CSS } from '@tg/elm';
 
 import { NavItem } from 'app/components';
 
@@ -14,7 +12,7 @@ export const StyledMain = styled.main`
 		width: '100vw'
 	}) }
 
-	background: ${ ({ theme }) => theme.colors.white_100 };
+	background: ${ ({ theme }): CSS => theme.colors.white_100 };
 `;
 
 export const StyledVh = styled.div`

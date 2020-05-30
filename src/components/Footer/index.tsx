@@ -14,10 +14,7 @@ import {
 	StyledNav
 } from './_styled';
 
-/**
- * Component
- */
-export const Footer: React.FC<{}> = () => {
+export const Footer: React.FC = () => {
 	const theme = useTheme() as Theme;
 	return (
 		<ContentBlock as="footer" bg="white_100" x={ theme.space[11] } y={ theme.space[6] }

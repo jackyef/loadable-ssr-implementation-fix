@@ -4,6 +4,7 @@
 import React, { useRef } from 'react';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
+import { Scrollbar } from 'react-scrollbars-custom';
 
 import { canUseDOM } from '@tg/utils';
 import { Button, scroll } from '@tg/elm';
@@ -32,12 +33,13 @@ import {
 } from './_styled';
 
 type Props = {
-	scroller?: any;
+	scroller?: Scrollbar;
 };
 
 /**
  * On click redirect to sigh up form
  * and persist entered email in context store
+ *
  * @param {string} email Email to set to sign up form
  */
 export const toSignUp = (email?: string): void => {
@@ -45,9 +47,6 @@ export const toSignUp = (email?: string): void => {
 	history.push(routes.auth.signup);
 };
 
-/**
- * Landing route
- */
 const Landing: React.FC<Props> = ({ scroller }) => {
 
 	// Refs to scroll to
@@ -77,7 +76,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 				{/* Page navigation */}
 				<StyledNav>
 					<NavItem>
-						<Button { ...commonNavBtnProps('Organise') }
+						<Button { ...commonNavBtnProps('Organize') }
 							onClick={ () => scroll(scroller, refOrganize, -50) }
 						/>
 					</NavItem>
@@ -87,7 +86,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 						/>
 					</NavItem>
 					<NavItem>
-						<Button { ...commonNavBtnProps('Analise') }
+						<Button { ...commonNavBtnProps('Analyse') }
 							onClick={ () => scroll(scroller, refStats, -100) }
 						/>
 					</NavItem>

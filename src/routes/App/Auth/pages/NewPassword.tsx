@@ -1,7 +1,6 @@
 /**
  * Authentication process the very first route (Sign up)
  */
-import _ from 'lodash';
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import qs from 'qs';
@@ -11,8 +10,13 @@ import { canUseDOM } from '@tg/utils';
 import { Button, Heading, validators } from '@tg/elm';
 import { service as authService } from '@tg/api-proxy-auth';
 
-import { notifyFormStore, awakeFormNotify, FormNotifyBox } from 'app/stores';
 import { routes } from 'app/config';
+import {
+	notifyFormStore,
+	awakeFormNotify,
+	FormNotifyBox,
+	Errors
+} from 'app/stores';
 
 import { StyledForm, StyledInput } from './_styled';
 
@@ -20,15 +24,12 @@ import { StyledForm, StyledInput } from './_styled';
 const apiFormStore = new StoreFormAPI(authService.axiosInstance);
 const formStore = new StoreForm('auth', null, apiFormStore);
 
-/**
- * Create new password
- */
-const NewPassword: React.FC<{}> = () => {
+const NewPassword: React.FC = () => {
 
 	// mount
 	useEffect(() => {
 		const querystring = qs.parse(canUseDOM() ? window.location.search : '', { ignoreQueryPrefix: true });
-		const token = _.get(querystring, 'token');
+		const token = querystring?.token as string;
 		formStore.submitURL =
 			`${ authService.shot('user', 'reset_password').options.url }?token=${ token }`
 		;
@@ -44,8 +45,8 @@ const NewPassword: React.FC<{}> = () => {
 			{/* Form */}
 			<StyledForm name="newPassword" inject={ formStore }
 				submitMethod="PATCH"
-				onSubmitFailed={ err => awakeFormNotify(err, formStore) }
-				onSubmitSucceed={ () => {
+				onSubmitFailed={ (err: Errors) => awakeFormNotify(err, formStore) }
+				onSubmitSucceed={ (): void => {
 					notifyFormStore.awake({
 						text: 'Password was successfully restored. You can use it to login.',
 						state: 'success',
@@ -68,7 +69,7 @@ const NewPassword: React.FC<{}> = () => {
 					label="New password"
 					validators={ [
 						validators.password.requirements,
-						v => validators.password.match(v, formStore.getFieldValue('repeat_password')),
+						(v: string) => validators.password.match(v, formStore.getFieldValue('repeat_password')),
 						validators.password.required
 					] }
 				/>
@@ -80,7 +81,7 @@ const NewPassword: React.FC<{}> = () => {
 					label="Repeat password"
 					validators={ [
 						validators.password.requirements,
-						v => validators.password.match(v, formStore.getFieldValue('password')),
+						(v: string) => validators.password.match(v, formStore.getFieldValue('password')),
 						validators.password.required
 					] }
 				/>
@@ -88,7 +89,11 @@ const NewPassword: React.FC<{}> = () => {
 				{/* Submit */}
 				<Button width="100%" mt={ 3 } variant="primary"
 					title="Change password"
-					onClick={ () => formStore.submit() }
+					onClick={ () => {
+						formStore.submit()
+							.catch(err => { throw(err) })
+						;
+					} }
 				/>
 
 				<FormNotifyBox />

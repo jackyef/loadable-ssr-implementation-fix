@@ -31,5 +31,5 @@ declare module 'react-flatpickr' {
 		children?: any;
 	}
 
-	export default class DatePicker extends Component<DateTimePickerProps> {}
+	export default class DatePicker extends Component<DateTimePickerProps> { }
 }

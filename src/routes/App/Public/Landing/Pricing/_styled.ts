@@ -1,6 +1,4 @@
-import styled from 'styled-components';
-
-import { flex, mediaQueries, MEDIA } from '@tg/elm';
+import { flex, mediaQueries, MEDIA, styled, CSS } from '@tg/elm';
 
 export const StyledList = styled.ul`
 	/* stylelint-disable value-keyword-case */
@@ -11,7 +9,7 @@ export const StyledList = styled.ul`
 	}) }
 
 	max-width: 1100px;
-	margin-top: ${ ({ theme }) => theme.space[9] };
+	margin-top: ${ ({ theme }): CSS => theme.space[9] };
 
 	${ mediaQueries[MEDIA.TABLET] } {
 		flex-wrap: wrap;

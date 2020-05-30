@@ -1,6 +1,12 @@
-import styled from 'styled-components';
-
-import { mediaQueries, MEDIA, Heading, Paragraph, flex } from '@tg/elm';
+import {
+	mediaQueries,
+	MEDIA,
+	Heading,
+	Paragraph,
+	flex,
+	styled,
+	CSS
+} from '@tg/elm';
 
 const MEDIA_CUSTOM = '@media screen and (max-width: 1200px)';
 
@@ -11,7 +17,7 @@ export const StyledContent = styled.div`
 		dir: 'column'
 	}) }
 
-	padding: ${ ({ theme }) => theme.space[7] } 0 250px 0;
+	padding: ${ ({ theme }): CSS => theme.space[7] } 0 250px 0;
 
 	${ mediaQueries[MEDIA.TABLET] } {
 		padding-bottom: 200px;
@@ -46,7 +52,7 @@ export const StyledHeading = styled(Heading)`
 
 export const StyledParagraph = styled(Paragraph)`
 	width: 311px;
-	margin-top: ${ ({ theme }) => theme.space[3] };
+	margin-top: ${ ({ theme }): CSS => theme.space[3] };
 
 	/* Need custom width here */
 	${ MEDIA_CUSTOM } {

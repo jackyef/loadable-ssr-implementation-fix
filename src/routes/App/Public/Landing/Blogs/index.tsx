@@ -1,5 +1,6 @@
 /**
  * Blog types block. What blog can use the tool and how
+ *
  * @module Blog
  */
 import _ from 'lodash';
@@ -36,10 +37,7 @@ const featuresData: FeatureProps[] = [
 	}
 ];
 
-/**
- * Component
- */
-export const Blogs: React.FC<{}> = () => (
+export const Blogs: React.FC = () => (
 	<ContentBlock bg="blue_10">
 		<Flex dir="column" align="center">
 			<StyledHeading h={ 2 } title="For beginners, grown and large channels" />

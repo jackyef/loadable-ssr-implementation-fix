@@ -5,6 +5,7 @@ import React, { useRef } from 'react';
 import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
+import { Scrollbar } from 'react-scrollbars-custom';
 
 import { canUseDOM } from '@tg/utils';
 import { Button, Heading, Text, Paragraph, ContentBlock, Scrollbars, scroll } from '@tg/elm';
@@ -28,10 +29,7 @@ const StyledList = styled.ul`
 	}
 `;
 
-/**
- * Component
- */
-const PP: React.FC<{}> = () => {
+const PP: React.FC = () => {
 
 	// Content block refs
 	const refTC = useRef(null);
@@ -46,7 +44,7 @@ const PP: React.FC<{}> = () => {
 	return (
 		<Scrollbars getScroller position="absolute">
 			{
-				(scroller: any) => (<>
+				(scroller: Scrollbar) => (<>
 
 					<Helmet>
 						<title>{ 'Terms of Use & Privacy Policy' }</title>
@@ -181,7 +179,7 @@ const PP: React.FC<{}> = () => {
 							'or privately available.\n\n' +
 
 							'As a condition of your use of the Service, you grant Notion a nonexclusive, ' +
-							'perpetual, irrevocable, royalty-free, worldwide, transferable, sub-licenseable ' +
+							'perpetual, irrevocable, royalty-free, worldwide, transferable, sub-licensable ' +
 							'license to access, use, host, cache, store, reproduce, transmit, display, publish, ' +
 							'distribute, modify and adapt and create derivative works (either alone or as part of ' +
 							'a collective work) from your Content. As part of the foregoing license grant you agree ' +

@@ -22,7 +22,7 @@ import {
 import { StyledList } from './_styled';
 
 type Props = {
-	ref?: Ref<any>;
+	ref?: Ref<HTMLElement>;
 };
 
 const data: PricingCardProps[] = [
@@ -65,9 +65,6 @@ const data: PricingCardProps[] = [
 	}
 ];
 
-/**
- * Component
- */
 export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 	<ContentBlock ref={ ref } bg="blue_150">
 		<Flex dir="column" justify="space-between" align="center" mt={ 8 }>
@@ -93,3 +90,5 @@ export const Pricing: React.FC<Props> = React.forwardRef((props, ref) => (
 		</Flex>
 	</ContentBlock>
 ));
+
+Pricing.displayName = 'Pricing';

@@ -1,16 +1,35 @@
 /**
  * Editor illustration with short description
  * and main features list
+ *
  * @module Editor
  */
 import React, { Ref } from 'react';
-import styled from 'styled-components';
 
-import { Heading, Text, Img, flex, mediaQueries, MEDIA, Paragraph, Icon, ContentBlock } from '@tg/elm';
-import { resources, IconEye, IconTemplate, IconMd, IconHeart, IconImage } from '@tg/resources';
+import {
+	Heading,
+	Text,
+	Img,
+	flex,
+	mediaQueries,
+	MEDIA,
+	Paragraph,
+	Icon,
+	ContentBlock,
+	styled
+} from '@tg/elm';
+
+import {
+	resources,
+	IconEye,
+	IconTemplate,
+	IconMd,
+	IconHeart,
+	IconImage
+} from '@tg/resources';
 
 type Props = {
-	ref?: Ref<any>;
+	ref?: Ref<HTMLElement>;
 };
 
 const StyledContainer = styled.div`
@@ -125,3 +144,5 @@ export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
 		</StyledContainer>
 	</ContentBlock>
 ));
+
+Editor.displayName = 'Editor';

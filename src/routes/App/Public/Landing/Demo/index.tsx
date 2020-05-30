@@ -2,6 +2,7 @@
  * Demo section for Landing page.
  * Should include short video/gif demonstration
  * (maybe with tabs for different product sections)
+ *
  * @module Demo
  */
 import React from 'react';
@@ -12,7 +13,7 @@ import {
 	StyledContentBlock,
 	StyledScrollbars,
 	InnerWrapper,
-	OutterWrapper,
+	OuterWrapper,
 	StyledImg
 } from './_styled';
 
@@ -33,7 +34,7 @@ const defaultProps: Partial<Props> = {
 
 export const Demo: React.FC<Props> = ({ className }) => (
 	<StyledContentBlock className={ className }>
-		<OutterWrapper>
+		<OuterWrapper>
 			<InnerWrapper>
 				{/* For desktop & tablets */}
 				{/* TODO: Replace with video */}
@@ -50,7 +51,7 @@ export const Demo: React.FC<Props> = ({ className }) => (
 					<StyledImg src={ resources.demo } />
 				</StyledScrollbars>
 			</InnerWrapper>
-		</OutterWrapper>
+		</OuterWrapper>
 	</StyledContentBlock>
 );
 

@@ -58,3 +58,4 @@ export const Header: React.FC<Props> = React.memo(({ children, ...props }) => (
 ));
 
 Header.defaultProps = defaultProps;
+Header.displayName = 'Header';

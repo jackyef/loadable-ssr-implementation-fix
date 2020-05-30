@@ -40,6 +40,7 @@ const StyledContainer = styled.div`
 
 	${ flex({
 		justify: 'space-between',
+		// eslint-disable-next-line sonarjs/no-duplicate-string
 		align: 'flex-start'
 	}) }
 
@@ -71,10 +72,7 @@ const StyledList = styled.ul`
 	}
 `;
 
-/**
- * Component
- */
-export const FAQ: React.FC<{}> = () => (
+export const FAQ: React.FC = () => (
 	<ContentBlock bg="blue_150">
 		<StyledContainer>
 			<StyledHeading h={ 2 }

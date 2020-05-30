@@ -1,7 +1,6 @@
 /**
  * Authentication process the very first route (Sign in)
  */
-import _ from 'lodash';
 import React from 'react';
 import { Observer } from 'mobx-react';
 import { Helmet } from 'react-helmet';
@@ -11,7 +10,12 @@ import { Button, Heading, validators } from '@tg/elm';
 import { IconArrow } from '@tg/resources';
 import { service as authService } from '@tg/api-proxy-auth';
 
-import { notifyFormStore, awakeFormNotify, FormNotifyBox } from 'app/stores';
+import {
+	notifyFormStore,
+	awakeFormNotify,
+	FormNotifyBox,
+	Errors
+} from 'app/stores';
 
 import { StyledForm, StyledInput } from './_styled';
 
@@ -19,10 +23,7 @@ import { StyledForm, StyledInput } from './_styled';
 const apiFormStore = new StoreFormAPI(authService.axiosInstance);
 const formStore = new StoreForm('auth', null, apiFormStore);
 
-/**
- * Reset user password
- */
-const ResetPassword: React.FC<{}> = () => (
+const ResetPassword: React.FC = () => (
 	<>
 		<Helmet>
 			<title>{ 'Reset password' }</title>
@@ -32,10 +33,10 @@ const ResetPassword: React.FC<{}> = () => (
 		<StyledForm name="reset" inject={ formStore }
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'reset_password').options.url }
-			onSubmitFailed={ err => awakeFormNotify(err, formStore) }
-			onSubmitSucceed={ data => {
+			onSubmitFailed={(err: Errors) => awakeFormNotify(err, formStore) }
+			onSubmitSucceed={ ({ message }: { message: string }) => {
 				notifyFormStore.awake({
-					text: _.get(data, 'message', 'We sent you instructions'),
+					text: message || 'We sent you instructions',
 					state: 'success',
 					delay: 6000
 				});
@@ -61,8 +62,12 @@ const ResetPassword: React.FC<{}> = () => (
 					iconPos="right"
 					iconScale={ -1 }
 					title="Send me instructions"
-					onClick={ () => formStore.submit() }
 					asyncState={ formStore.asyncState }
+					onClick={ () => {
+						formStore.submit()
+							.catch(err => { throw(err) })
+						;
+					} }
 				/>
 			) }</Observer>
 

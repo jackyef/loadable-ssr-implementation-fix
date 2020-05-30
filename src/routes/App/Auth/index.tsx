@@ -3,6 +3,7 @@
  */
 import _ from 'lodash';
 import React, { useEffect } from 'react';
+import { Location } from 'history';
 import { RouteConfig } from 'react-router-config';
 
 import { renderRoutes, canUseDOM, jwtExpired } from '@tg/utils';
@@ -20,19 +21,16 @@ import {
 } from './_styled';
 
 type Props = {
-	route: RouteConfig & { render?: any };
-	location: any; // TODO: Provide a correct type
+	route: RouteConfig;
+	location: Location;
 };
 
-/**
- * Authentication container
- */
 const Auth: React.FC<Props> = ({ route }) => {
 
 	// Get path that we currently on to pass to a Header component
 	// - in - Create new account (button)
 	// - up - Log in (button)
-	const path = canUseDOM() && _.last(location.pathname.split('/')) === 'up' ? 'up' : 'in';
+	const path = canUseDOM() && _.last(_.split(location.pathname, '/')) === 'up' ? 'up' : 'in';
 
 	// Mount
 	useEffect(() => {

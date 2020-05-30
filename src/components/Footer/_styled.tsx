@@ -1,6 +1,11 @@
-import styled from 'styled-components';
-
-import { Logo, MEDIA, mediaQueries, flex } from '@tg/elm';
+import {
+	Logo,
+	MEDIA,
+	mediaQueries,
+	flex,
+	styled,
+	CSS
+} from '@tg/elm';
 
 export const StyledContent = styled.div`
 	/* stylelint-disable value-keyword-case */
@@ -10,17 +15,17 @@ export const StyledContent = styled.div`
 		align: 'center'
 	}) }
 
-	padding-top: ${ ({ theme }) => theme.space[6] };
+	padding-top: ${ ({ theme }): CSS => theme.space[6] };
 
-	border-top: 1px solid ${ ({ theme }) => theme.colors.blue_20 };
+	border-top: 1px solid ${ ({ theme }): CSS => theme.colors.blue_20 };
 
 	${ mediaQueries[MEDIA.DESKTOP_NARROW] } {
-		padding-top: ${ ({ theme }) => theme.space[6] };
-		padding-bottom: ${ ({ theme }) => theme.space[2] };
+		padding-top: ${ ({ theme }): CSS => theme.space[6] };
+		padding-bottom: ${ ({ theme }): CSS => theme.space[2] };
 	}
 
 	${ mediaQueries[MEDIA.NOT_DESKTOP] } {
-		padding-top: ${ ({ theme }) => theme.space[5] };
+		padding-top: ${ ({ theme }): CSS => theme.space[5] };
 	}
 
 	${ mediaQueries[MEDIA.MOBILE] } {
@@ -37,7 +42,7 @@ export const StyledNav = styled.div`
 	}) }
 
 	> a {
-		margin-left: ${ ({ theme }) => theme.space[4] };
+		margin-left: ${ ({ theme }): CSS => theme.space[4] };
 	}
 
 	${ mediaQueries[MEDIA.MOBILE] } {
@@ -45,7 +50,7 @@ export const StyledNav = styled.div`
 		align-items: flex-start;
 
 		> a {
-			padding: ${ ({ theme }) => theme.space[2] } 0;
+			padding: ${ ({ theme }): CSS => theme.space[2] } 0;
 			margin-left: 0;
 		}
 	}
@@ -56,6 +61,6 @@ export const StyledLogo = styled(Logo)`
 	opacity: .15;
 
 	${ mediaQueries[MEDIA.MOBILE] } {
-		margin-bottom: ${ ({ theme }) => theme.space[3] };
+		margin-bottom: ${ ({ theme }): CSS => theme.space[3] };
 	}
 `;

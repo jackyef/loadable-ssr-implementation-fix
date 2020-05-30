@@ -1,7 +1,6 @@
-import styled from 'styled-components';
 import Scrollbar from 'react-scrollbars-custom';
 
-import { MEDIA, mediaQueries, ContentBlock } from '@tg/elm';
+import { MEDIA, mediaQueries, ContentBlock, styled, CSS } from '@tg/elm';
 
 export const StyledImg = styled.img`
 	width: 100%;
@@ -23,15 +22,15 @@ export const StyledContentBlock = styled(ContentBlock)`
 		padding-right: 0;
 		padding-left: 0;
 
-		background: ${ ({ theme }) => theme.colors.white_100 } !important;
+		background: ${ ({ theme }): CSS => theme.colors.white_100 } !important;
 	}
 `;
 
-export const OutterWrapper = styled.div`
+export const OuterWrapper = styled.div`
 	/* stylelint-disable value-keyword-case */
 	position: relative;
 
-	${ ({ theme }) => theme.shadows.deep };
+	${ ({ theme }): CSS => theme.shadows.deep };
 
 	${ mediaQueries[MEDIA.MOBILE] } {
 		&::before {
@@ -56,7 +55,7 @@ export const InnerWrapper = styled.div`
 			img {
 				width: auto;
 				height: 500px;
-				padding: ${ ({ theme }) => `${ theme.space[3] } ${ theme.space[8] }` };
+				padding: ${ ({ theme }): CSS => `${ theme.space[3] } ${ theme.space[8] }` };
 			}
 		}
 	}

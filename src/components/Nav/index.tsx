@@ -2,9 +2,8 @@
  * Main navigation (top level)
  */
 import React from 'react';
-import styled from 'styled-components';
 
-import { flex } from '@tg/elm';
+import { flex, styled } from '@tg/elm';
 
 type Props = {
 	children?: React.ReactNode | React.ReactNode[];
@@ -35,3 +34,4 @@ export const Nav: React.FC<Props> = React.memo(({ children, className }) => (
 ));
 
 Nav.defaultProps = defaultProps;
+Nav.displayName = 'Nav';

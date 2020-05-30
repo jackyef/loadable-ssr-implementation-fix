@@ -29,3 +29,4 @@ export const NavItem: React.FC<Props> = React.memo(({ children, className }) => 
 ));
 
 NavItem.defaultProps = defaultProps;
+NavItem.displayName = 'NavItem';

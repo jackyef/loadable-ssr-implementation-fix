@@ -16,7 +16,7 @@ import { initGA, trackPageView } from './ga';
 import '../../styles/base.less';
 
 type Props = {
-	route: RouteConfig & { render?: any };
+	route: RouteConfig;
 };
 
 const Container: React.FC<Props> = ({ route }) => {

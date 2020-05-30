@@ -11,7 +11,7 @@ import { service as authService } from '@tg/api-proxy-auth';
 import { IconGoogle } from '@tg/resources';
 
 import { routes } from 'app/config';
-import { awakeFormNotify, FormNotifyBox } from 'app/stores';
+import { awakeFormNotify, FormNotifyBox, Errors } from 'app/stores';
 
 import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 
@@ -19,10 +19,7 @@ import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 const apiFormStore = new StoreFormAPI(authService.axiosInstance);
 export const formStore = new StoreForm('auth', null, apiFormStore);
 
-/**
- * Sign up authentication route container
- */
-const SignUp: React.FC<{}> = () => (
+const SignUp: React.FC = () => (
 	<>
 		<Helmet>
 			<title>{ 'Create account - Email & Socials' }</title>
@@ -33,7 +30,7 @@ const SignUp: React.FC<{}> = () => (
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'register').options.url }
 			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
-			onSubmitFailed={ err => awakeFormNotify(err, formStore) }
+			onSubmitFailed={ (err: Errors) => awakeFormNotify(err, formStore) }
 		>
 			{/* Title */}
 			<Heading h={ 2 } mb={ 7 } title="Create account" />
@@ -62,7 +59,11 @@ const SignUp: React.FC<{}> = () => (
 			{/* Submit */}
 			<Button width="100%" mt={ 3 } variant="primary"
 				title="Create account"
-				onClick={ () => formStore.submit() }
+				onClick={ () => {
+					formStore.submit()
+						.catch(err => { throw(err) })
+					;
+				} }
 			/>
 
 			{/* Divider */}
@@ -81,7 +82,7 @@ const SignUp: React.FC<{}> = () => (
 
 			{/* PP */}
 			<Paragraph centered size={ 14 } mt={ 6 } color="blue_30">
-				{ 'By signing up you agree to Platformagram ' }
+				{ 'By signing up you agree to Prostpost ' }
 				<br/>
 				<StyledLink to={ routes.pp }>
 					{ 'Terms and Conditions and Privacy Policy' }

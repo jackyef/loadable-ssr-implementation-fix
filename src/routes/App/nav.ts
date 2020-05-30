@@ -9,11 +9,12 @@ type TypeNavBtn = {
 
 /**
  * Generate navigation button props
+ *
  * @param {string} title Button's title
  * @param {boolean} nav Navigation or not
  * @returns {*} Button props
  */
-export const commonNavBtnProps = (title: string, nav: boolean = false): TypeNavBtn => {
+export const commonNavBtnProps = (title: string, nav = false): TypeNavBtn => {
 	return {
 		variant: 'nav',
 		size: 'big',

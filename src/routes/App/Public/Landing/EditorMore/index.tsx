@@ -1,14 +1,24 @@
 /**
  * Additional Editor's features displayed
  * as a grid of boxes
+ *
  * @module EditorMore
  */
 import _ from 'lodash';
 import React from 'react';
-import styled, { useTheme } from 'styled-components';
+import { useTheme } from 'styled-components';
 
-import { MEDIA, mediaQueries, Theme, flex, ContentBlock, FeatureCard, FeatureCardProps } from '@tg/elm';
 import { IconAd, IconEdit } from '@tg/resources';
+import {
+	MEDIA,
+	mediaQueries,
+	Theme,
+	flex,
+	ContentBlock,
+	FeatureCard,
+	FeatureCardProps,
+	styled
+} from '@tg/elm';
 
 const featuresData: FeatureCardProps[] = [
 	{
@@ -49,10 +59,7 @@ const StyledFeatureCard = styled(FeatureCard)`
 	}
 `;
 
-/**
- * Component
- */
-export const EditorMore: React.FC<{}> = () => {
+export const EditorMore: React.FC = () => {
 
 	const theme = useTheme() as Theme;
 
@@ -61,6 +68,8 @@ export const EditorMore: React.FC<{}> = () => {
 			<StyledWrapper>
 				{
 					_.map(featuresData, (data, index) => (
+						// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+						// @ts-ignore
 						<StyledFeatureCard key={ index } { ...data } />
 					))
 				}

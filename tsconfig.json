@@ -4,6 +4,7 @@
 		"baseUrl": "./",
 		"jsx": "react",
 		"declaration": false,
+		"esModuleInterop": true,
 		"paths": {
 			"app/config/*": ["src/config/*"],
 			"app/config": ["src/config/index.ts"],

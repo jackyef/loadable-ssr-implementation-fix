@@ -13,7 +13,7 @@ import { IconGoogle } from '@tg/resources';
 
 import { history } from 'app/routes';
 import { routes } from 'app/config';
-import { awakeFormNotify, FormNotifyBox } from 'app/stores';
+import { awakeFormNotify, FormNotifyBox, Errors } from 'app/stores';
 
 import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 
@@ -21,10 +21,7 @@ import { StyledForm, StyledInput, StyledText, StyledLink } from './_styled';
 const apiFormStore = new StoreFormAPI(authService.axiosInstance);
 const formStore = new StoreForm('auth', null, apiFormStore);
 
-/**
- * Sign in authentication route
- */
-const SignIn: React.FC<{}> = () => (
+const SignIn: React.FC = () => (
 	<>
 		<Helmet>
 			<title>{ 'Sign in' }</title>
@@ -44,7 +41,7 @@ const SignIn: React.FC<{}> = () => (
 					window.location.assign(routes.poster);
 				}
 			} }
-			onSubmitFailed={ err => awakeFormNotify(err, formStore) }
+			onSubmitFailed={ (err: Errors) => awakeFormNotify(err, formStore) }
 		>
 			{/* Title */}
 			<Heading h={ 2 } mb={ 7 } title="Welcome back" />
@@ -81,7 +78,11 @@ const SignIn: React.FC<{}> = () => (
 			{/* Submit */}
 			<Button width="100%" mt={ 3 } variant="primary"
 				title="Sign in"
-				onClick={ () => formStore.submit() }
+				onClick={ () => {
+					formStore.submit()
+						.catch(err => { throw(err) })
+					;
+				} }
 			/>
 
 			{/* Divider */}
@@ -100,7 +101,7 @@ const SignIn: React.FC<{}> = () => (
 
 			{/* PP */}
 			<Paragraph centered size={ 14 } mt={ 6 } color="blue_30">
-				{ 'By signing in you agree to Platformagram ' }
+				{ 'By signing in you agree to Prostpost ' }
 				<br/>
 				<StyledLink to={ routes.pp }>
 					{ 'Terms and Conditions and Privacy Policy' }
