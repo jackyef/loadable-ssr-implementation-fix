@@ -4,7 +4,8 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { flex, styled, Notification } from '@tg/elm';
+import styled, { CSS } from '@tg/styled';
+import { flex, Notification } from '@tg/elm';
 import { StoreFormInterface } from '@tg/form';
 import { StoreNotify, NotifyBox as BaseNotifyBox } from '@tg/notify';
 
@@ -21,8 +22,8 @@ const StyledNotifyBox = styled(BaseNotifyBox)`
 	position: relative;
 
 	width: 100%;
-	height: ${ ({ theme }) => theme.space[8] };
-	margin-top: ${ ({ theme }) => theme.space[5] };
+	height: ${ ({ theme }): CSS => theme.space[8] };
+	margin-top: ${ ({ theme }): CSS => theme.space[5] };
 `;
 
 export const FormNotifyBox: React.FC = () => (

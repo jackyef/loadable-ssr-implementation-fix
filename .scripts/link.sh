@@ -5,6 +5,7 @@ yarn link @tg/configs
 
 # Libs
 yarn link @tg/utils
+yarn link @tg/styled
 yarn link @tg/form
 yarn link @tg/modal
 yarn link @tg/async

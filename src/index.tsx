@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
 import Loadable from 'react-loadable';
+import 'mobx-react-lite/batchingForReactDom';
 
 import { renderRoutes } from '@tg/utils';
 

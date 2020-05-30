@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 import Cookies from 'js-cookie';
-import { ThemeProvider } from 'styled-components';
 
+import { ThemeProvider } from '@tg/styled';
 import { NotifyBox } from '@tg/notify';
 import { theme, Notification } from '@tg/elm';
 import { renderRoutes, canUseDOM } from '@tg/utils';

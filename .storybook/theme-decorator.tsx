@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '@tg/styled';
 
 import { theme } from '@tg/elm';
 

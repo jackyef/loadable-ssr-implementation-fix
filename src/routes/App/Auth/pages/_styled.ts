@@ -1,14 +1,13 @@
 import { Link } from 'react-router-dom';
 
+import styled, { CSS } from '@tg/styled';
 import { FormRoot } from '@tg/form';
 import {
 	flex,
 	MEDIA,
 	mediaQueries,
 	Text,
-	FieldInput,
-	styled,
-	CSS
+	FieldInput
 } from '@tg/elm';
 
 export const StyledForm = styled(FormRoot)`

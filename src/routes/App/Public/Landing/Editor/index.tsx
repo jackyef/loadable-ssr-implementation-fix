@@ -6,6 +6,8 @@
  */
 import React, { Ref } from 'react';
 
+import styled, { CSS } from '@tg/styled';
+
 import {
 	Heading,
 	Text,
@@ -15,8 +17,7 @@ import {
 	MEDIA,
 	Paragraph,
 	Icon,
-	ContentBlock,
-	styled
+	ContentBlock
 } from '@tg/elm';
 
 import {
@@ -51,11 +52,11 @@ const StyledContainer = styled.div`
 
 const StyledImg = styled(Img)`
 	width: 50%;
-	margin-right: ${ ({ theme }) => theme.space[7] };
+	margin-right: ${ ({ theme }): CSS => theme.space[7] };
 
 	${ mediaQueries[MEDIA.MOBILE] } {
 		width: 100%;
-		margin-top: ${ ({ theme }) => theme.space[7] };
+		margin-top: ${ ({ theme }): CSS => theme.space[7] };
 	}
 `;
 
@@ -68,16 +69,16 @@ const StyledList = styled.div`
 `;
 
 const StyledFeaturesContainer = styled.div`
-	margin-top: ${ ({ theme }) => theme.space[7] };
+	margin-top: ${ ({ theme }): CSS => theme.space[7] };
 
 	${ mediaQueries[MEDIA.MOBILE] } {
-		margin-top: ${ ({ theme }) => theme.space[5] };
+		margin-top: ${ ({ theme }): CSS => theme.space[5] };
 	}
 `;
 
 const StyledLiFeature = styled.li`
 
-	margin-bottom: ${ ({ theme }) => theme.space[3] };
+	margin-bottom: ${ ({ theme }): CSS => theme.space[3] };
 
 	list-style: none;
 

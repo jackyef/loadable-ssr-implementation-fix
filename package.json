@@ -16,6 +16,7 @@
 		"@tg/modal": "^4.1.0",
 		"@tg/notify": "^4.1.0",
 		"@tg/resources": "^4.1.0",
+		"@tg/styled": "^4.0.0",
 		"@tg/utils": "^4.1.0",
 		"@types/react-ga": "^2.3.0",
 		"axios": "0.19",
@@ -150,6 +151,7 @@
 		"axios-mock-adapter": "^1.18.1",
 		"babel-loader": "8",
 		"babel-plugin-inline-react-svg": "^1.1.1",
+		"babel-plugin-macros": "^2.8.0",
 		"babel-plugin-styled-components": "^1.10.7",
 		"bundle-loader": "^0.5.6",
 		"circular-dependency-plugin": "^5.2.0",
@@ -242,6 +244,11 @@
 		"test:watch": "jest --watch",
 		"test:coverage": "jest --coverage",
 		"test:watchFull": "jest --watch --coverage"
+	},
+	"babelMacros": {
+		"styledComponents": {
+			"pure": true
+		}
 	},
 	"husky": {
 		"hooks": {

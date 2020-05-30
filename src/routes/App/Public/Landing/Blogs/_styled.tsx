@@ -1,4 +1,5 @@
-import { Heading, MEDIA, mediaQueries, flex, styled, CSS } from '@tg/elm';
+import styled, { CSS } from '@tg/styled';
+import { Heading, MEDIA, mediaQueries, flex } from '@tg/elm';
 
 export const StyledHeading = styled(Heading)`
 	width: 440px;

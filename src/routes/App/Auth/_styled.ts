@@ -1,4 +1,5 @@
-import { flex, MEDIA, mediaQueries, styled, CSS } from '@tg/elm';
+import styled, { CSS } from '@tg/styled';
+import { flex, MEDIA, mediaQueries } from '@tg/elm';
 
 import { NavItem } from 'app/components';
 

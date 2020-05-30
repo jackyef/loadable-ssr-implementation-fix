@@ -2,10 +2,9 @@ import {
 	Logo,
 	MEDIA,
 	mediaQueries,
-	flex,
-	styled,
-	CSS
+	flex
 } from '@tg/elm';
+import styled, { CSS } from '@tg/styled';
 
 export const StyledContent = styled.div`
 	/* stylelint-disable value-keyword-case */

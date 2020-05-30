@@ -2,11 +2,11 @@
  * Privacy Policy page
  */
 import React, { useRef } from 'react';
-import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 import { Scrollbar } from 'react-scrollbars-custom';
 
+import styled from '@tg/styled';
 import { canUseDOM } from '@tg/utils';
 import { Button, Heading, Text, Paragraph, ContentBlock, Scrollbars, scroll } from '@tg/elm';
 

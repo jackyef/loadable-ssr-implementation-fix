@@ -1,6 +1,7 @@
 import Scrollbar from 'react-scrollbars-custom';
 
-import { MEDIA, mediaQueries, ContentBlock, styled, CSS } from '@tg/elm';
+import styled, { CSS } from '@tg/styled';
+import { MEDIA, mediaQueries, ContentBlock } from '@tg/elm';
 
 export const StyledImg = styled.img`
 	width: 100%;

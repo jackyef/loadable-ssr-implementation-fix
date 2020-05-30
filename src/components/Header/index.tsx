@@ -5,7 +5,7 @@
  */
 import React from 'react';
 
-import { Theme } from '@tg/elm';
+import { Theme } from '@tg/styled';
 
 import { StyledContainer, StyledHeader, Shadow } from './_styled';
 

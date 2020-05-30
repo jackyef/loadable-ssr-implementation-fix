@@ -1,4 +1,5 @@
-import { flex, mediaQueries, MEDIA, styled, CSS } from '@tg/elm';
+import styled, { CSS } from '@tg/styled';
+import { flex, mediaQueries, MEDIA } from '@tg/elm';
 
 export const StyledList = styled.ul`
 	/* stylelint-disable value-keyword-case */

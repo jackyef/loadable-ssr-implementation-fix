@@ -3,8 +3,8 @@
  */
 import _ from 'lodash';
 import React from 'react';
-import styled from 'styled-components';
 
+import styled from '@tg/styled';
 import { Heading, flex, MEDIA, mediaQueries, ContentBlock } from '@tg/elm';
 
 import { FAQItem, Props as FAQItemProps } from './FAQItem';

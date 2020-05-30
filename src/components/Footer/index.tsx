@@ -2,9 +2,9 @@
  * @module Footer
  */
 import React from 'react';
-import { useTheme } from 'styled-components';
 
-import { Button, MEDIA, Theme, ContentBlock } from '@tg/elm';
+import { useTheme } from '@tg/styled';
+import { Button, MEDIA, ContentBlock } from '@tg/elm';
 
 import { routes } from 'app/config';
 
@@ -15,7 +15,7 @@ import {
 } from './_styled';
 
 export const Footer: React.FC = () => {
-	const theme = useTheme() as Theme;
+	const theme = useTheme();
 	return (
 		<ContentBlock as="footer" bg="white_100" x={ theme.space[11] } y={ theme.space[6] }
 			media={ {

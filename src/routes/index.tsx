@@ -11,11 +11,11 @@ import { LoadingRoute, Flex, theme } from '@tg/elm';
 import { routes } from 'app/config';
 
 // Not Found Route
-const RouteNotFoundComponent = () => <Redirect to={ routes.index } />;
+const RouteNotFoundComponent: React.FC = () => <Redirect to={ routes.index } />;
 const RouteNotFound = { component: RouteNotFoundComponent };
 
 // Redirect to sign in
-const RouteRedirectSignInComponent = () => <Redirect to={ routes.auth.signin } />;
+const RouteRedirectSignInComponent = (): React.ReactElement => <Redirect to={ routes.auth.signin } />;
 
 // Browser history
 export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : null;

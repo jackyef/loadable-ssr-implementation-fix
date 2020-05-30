@@ -1,11 +1,10 @@
 import { FormRoot } from '@tg/form';
+import styled, { CSS } from '@tg/styled';
 import {
 	Button,
 	MEDIA,
 	mediaQueries,
-	flex,
-	styled,
-	CSS
+	flex
 } from '@tg/elm';
 
 export const StyledForm = styled(FormRoot)`

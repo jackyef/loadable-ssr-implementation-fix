@@ -1,4 +1,5 @@
-import { BtnProps, Size } from '@tg/elm';
+import { BtnProps } from '@tg/elm';
+import { Size } from '@tg/styled';
 
 type TypeNavBtn = {
 	title?: string;

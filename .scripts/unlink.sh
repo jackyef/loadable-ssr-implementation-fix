@@ -5,6 +5,7 @@ yarn unlink @tg/configs
 
 # Libs
 yarn unlink @tg/utils
+yarn unlink @tg/styled
 yarn unlink @tg/form
 yarn unlink @tg/modal
 yarn unlink @tg/async

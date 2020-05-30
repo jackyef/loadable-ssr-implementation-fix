@@ -1,7 +1,5 @@
+import styled, { css, CSS } from '@tg/styled';
 import {
-	styled,
-	css,
-	CSS,
 	MEDIA,
 	mediaQueries,
 	flex,

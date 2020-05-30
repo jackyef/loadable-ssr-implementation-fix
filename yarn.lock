@@ -1121,6 +1121,13 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+"@babel/runtime@^7.7.2":
+  version "7.10.2"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.2.tgz#d103f21f2602497d38348a32e008637d506db839"
+  integrity sha512-6sF3uQw2ivImfVIl62RZ7MXhO2tap69WeWK57vAaimT6AZbE4FbqjdEJIN1UqoD6wI6B+1n9UiagafH1sxjOtg==
+  dependencies:
+    regenerator-runtime "^0.13.4"
+
 "@babel/template@^7.0.0", "@babel/template@^7.10.1", "@babel/template@^7.3.3":
   version "7.10.1"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.10.1.tgz#e167154a94cb5f14b28dc58f5356d2162f539811"
@@ -1743,6 +1750,11 @@
   integrity sha512-+KzUek1tbdR8cMoFHp1Ha+00/psI988Xgu+rmVuvX6ol4J+Y+drpJrhY6x0wstSHT/H5rXF8t6ZxCEpZPvP10A==
   dependencies:
     postcss-url "^8.0.0"
+
+"@tg/styled@^4.0.0":
+  version "4.0.1"
+  resolved "https://nexus.prostpost.me/repository/npm-private/@tg/styled/-/styled-4.0.1.tgz#4765e9b7f8976d7c5b2264e5c4d524f4380a02f4"
+  integrity sha512-2MTjUgUN8K7jo/m0VbrqlFaj8uGGd3OTxBzvsm4E4L2fIwDy/KtGyYnsR0bbJWH3snSpUL4aGhFcwkEYf7h/xg==
 
 "@tg/utils@^4.1.0":
   version "4.1.0"
@@ -3335,6 +3347,15 @@ babel-plugin-jscript@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/babel-plugin-jscript/-/babel-plugin-jscript-1.0.4.tgz#8f342c38276e87a47d5fa0a8bd3d5eb6ccad8fcc"
   integrity sha1-jzQsOCduh6R9X6CovT1etsytj8w=
+
+babel-plugin-macros@^2.8.0:
+  version "2.8.0"
+  resolved "https://registry.yarnpkg.com/babel-plugin-macros/-/babel-plugin-macros-2.8.0.tgz#0f958a7cc6556b1e65344465d99111a1e5e10138"
+  integrity sha512-SEP5kJpfGYqYKpBrj5XU3ahw5p5GOHJ0U5ssOSQ/WBVdwkD2Dzlce95exQTs3jOVWPPKLBN2rlEWkCK7dSmLvg==
+  dependencies:
+    "@babel/runtime" "^7.7.2"
+    cosmiconfig "^6.0.0"
+    resolve "^1.12.0"
 
 babel-plugin-member-expression-literals@^1.0.1:
   version "1.0.1"

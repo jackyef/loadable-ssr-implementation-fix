@@ -6,18 +6,16 @@
  */
 import _ from 'lodash';
 import React from 'react';
-import { useTheme } from 'styled-components';
 
+import styled, { CSS, useTheme } from '@tg/styled';
 import { IconAd, IconEdit } from '@tg/resources';
 import {
 	MEDIA,
 	mediaQueries,
-	Theme,
 	flex,
 	ContentBlock,
 	FeatureCard,
-	FeatureCardProps,
-	styled
+	FeatureCardProps
 } from '@tg/elm';
 
 const featuresData: FeatureCardProps[] = [
@@ -50,18 +48,18 @@ const StyledWrapper = styled.ul`
 
 const StyledFeatureCard = styled(FeatureCard)`
 
-	&:first-child { margin-right: ${ ({ theme }) => theme.space[3] }; }
-	&:last-child { margin-left: ${ ({ theme }) => theme.space[3] }; }
+	&:first-child { margin-right: ${ ({ theme }): CSS => theme.space[3] }; }
+	&:last-child { margin-left: ${ ({ theme }): CSS => theme.space[3] }; }
 
 	${ mediaQueries[MEDIA.MOBILE] } {
 		width: 100%;
-		margin: ${ ({ theme }) => theme.space[2] } 0 !important;
+		margin: ${ ({ theme }): CSS => theme.space[2] } 0 !important;
 	}
 `;
 
 export const EditorMore: React.FC = () => {
 
-	const theme = useTheme() as Theme;
+	const theme = useTheme();
 
 	return (
 		<ContentBlock y={ theme.space[8] }>

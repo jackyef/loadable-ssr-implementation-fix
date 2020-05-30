@@ -3,7 +3,8 @@
  */
 import React from 'react';
 
-import { Heading, Paragraph, styled } from '@tg/elm';
+import styled from '@tg/styled';
+import { Heading, Paragraph } from '@tg/elm';
 
 export type Props = {
 	question?: string;

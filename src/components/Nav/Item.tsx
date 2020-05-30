@@ -2,7 +2,8 @@
  * Navigation item container
  */
 import React from 'react';
-import styled from 'styled-components';
+
+import styled from '@tg/styled';
 
 type Props = {
 	className?: string;

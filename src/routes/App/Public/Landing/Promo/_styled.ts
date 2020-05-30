@@ -1,11 +1,10 @@
+import styled, { CSS } from '@tg/styled';
 import {
 	mediaQueries,
 	MEDIA,
 	Heading,
 	Paragraph,
-	flex,
-	styled,
-	CSS
+	flex
 } from '@tg/elm';
 
 const MEDIA_CUSTOM = '@media screen and (max-width: 1200px)';

@@ -1,11 +1,10 @@
+import styled, { CSS } from '@tg/styled';
 import {
 	MEDIA,
 	mediaQueries,
 	flex,
 	Heading,
-	ContentBlock,
-	styled,
-	CSS
+	ContentBlock
 } from '@tg/elm';
 
 export const StyledContentBlock = styled(ContentBlock)`

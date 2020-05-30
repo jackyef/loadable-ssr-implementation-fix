@@ -5,8 +5,8 @@
  * @module GetStarted
  */
 import React from 'react';
-import styled from 'styled-components';
 
+import styled, { CSS } from '@tg/styled';
 import { Heading, Paragraph, flex, mediaQueries, MEDIA, ContentBlock } from '@tg/elm';
 
 import { toSignUp } from '../';
@@ -20,10 +20,10 @@ const StyledContainer = styled.div`
 		align: 'center'
 	}) }
 
-	padding: ${ ({ theme }) => theme.space[7] } 0;
+	padding: ${ ({ theme }): CSS => theme.space[7] } 0;
 
 	${ mediaQueries[MEDIA.TABLET] } {
-		padding: 0 0 ${ ({ theme }) => theme.space[7] } 0;
+		padding: 0 0 ${ ({ theme }): CSS => theme.space[7] } 0;
 	}
 
 	${ mediaQueries[MEDIA.MOBILE] } {
