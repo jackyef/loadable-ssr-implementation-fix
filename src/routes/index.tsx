@@ -1,12 +1,12 @@
 import React from 'react';
 import { Redirect } from 'react-router';
 import { RouteConfig } from 'react-router-config';
-import Loadable, { LoadingComponentProps } from 'react-loadable';
 import { createBrowserHistory } from 'history';
+import loadable from '@loadable/component';
 
 import { canUseDOM } from '@tg/utils';
 
-import { LoadingRoute, Flex, theme } from '@tg/elm';
+import { Loading, Flex, theme } from '@tg/elm';
 
 import { routes } from 'app/config';
 
@@ -21,9 +21,9 @@ const RouteRedirectSignInComponent = (): React.ReactElement => <Redirect to={ ro
 export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : null;
 
 // Loaders
-const LoaderSubRoute: React.FC<LoadingComponentProps> = props => (
+const LoaderSubRoute = (
 	<Flex justify="center" height="100vh">
-		<LoadingRoute { ...props }
+		<Loading
 			height="100vh"
 			size="mid"
 			theme={ theme }
@@ -35,9 +35,8 @@ const LoaderSubRoute: React.FC<LoadingComponentProps> = props => (
 const r: RouteConfig[] = [
 	{
 		path: routes.index,
-		component: Loadable({
-			loader: () => import('./App'),
-			loading: LoaderSubRoute
+		component: loadable(() => import('./App'), {
+			fallback: LoaderSubRoute
 		}),
 
 		routes: [
@@ -46,9 +45,8 @@ const r: RouteConfig[] = [
 			{
 				exact: true,
 				path: routes.index,
-				component: Loadable({
-					loader: () => import('./App/Public'),
-					loading: LoaderSubRoute
+				component: loadable(() => import('./App/Public'), {
+					fallback: LoaderSubRoute
 				}),
 
 				// Landing
@@ -56,9 +54,8 @@ const r: RouteConfig[] = [
 					{
 						exact: true,
 						path: routes.index,
-						component: Loadable({
-							loader: () => import('./App/Public/Landing'),
-							loading: LoaderSubRoute
+						component: loadable(() => import('./App/Public/Landing'), {
+							fallback: LoaderSubRoute
 						})
 					}
 				]
@@ -67,18 +64,16 @@ const r: RouteConfig[] = [
 			// Terms and Conditions & Privacy Policy
 			{
 				path: routes.pp,
-				component: Loadable({
-					loader: () => import('./App/PP'),
-					loading: LoaderSubRoute
+				component: loadable(() => import('./App/PP'), {
+					fallback: LoaderSubRoute
 				})
 			},
 
 			// Auth
 			{
 				path: routes.auth.self,
-				component: Loadable({
-					loader: () => import('./App/Auth'),
-					loading: LoaderSubRoute
+				component: loadable(() => import('./App/Auth'), {
+					fallback: LoaderSubRoute
 				}),
 
 				routes: [
@@ -93,9 +88,8 @@ const r: RouteConfig[] = [
 					// Sign Up
 					{
 						path: routes.auth.signup,
-						component: Loadable({
-							loader: () => import('./App/Auth/pages/Signup'),
-							loading: LoaderSubRoute
+						component: loadable(() => import('./App/Auth/pages/Signup'), {
+							fallback: LoaderSubRoute
 						})
 					},
 
@@ -103,9 +97,8 @@ const r: RouteConfig[] = [
 					{
 						exact: true,
 						path: routes.auth.signin,
-						component: Loadable({
-							loader: () => import('./App/Auth/pages/Signin'),
-							loading: LoaderSubRoute
+						component: loadable(() => import('./App/Auth/pages/Signin'), {
+							fallback: LoaderSubRoute
 						})
 					},
 
@@ -113,9 +106,8 @@ const r: RouteConfig[] = [
 					{
 						exact: true,
 						path: routes.auth.reset,
-						component: Loadable({
-							loader: () => import('./App/Auth/pages/Reset'),
-							loading: LoaderSubRoute
+						component: loadable(() => import('./App/Auth/pages/Reset'), {
+							fallback: LoaderSubRoute
 						})
 					},
 
@@ -123,9 +115,8 @@ const r: RouteConfig[] = [
 					{
 						exact: true,
 						path: routes.auth.password,
-						component: Loadable({
-							loader: () => import('./App/Auth/pages/NewPassword'),
-							loading: LoaderSubRoute
+						component: loadable(() => import('./App/Auth/pages/NewPassword'), {
+							fallback: LoaderSubRoute
 						})
 					},
 

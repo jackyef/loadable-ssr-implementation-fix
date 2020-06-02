@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Router } from 'react-router-dom';
-import Loadable from 'react-loadable';
+import { loadableReady } from '@loadable/component';
 import 'mobx-react-lite/batchingForReactDom';
 
 import { renderRoutes } from '@tg/utils';
@@ -24,12 +24,11 @@ window.addEventListener('orientationchange', appHeight);
 appHeight();
 
 // Render
-Loadable.preloadReady().then(() => {
+loadableReady(() => {
 	ReactDOM.hydrate(
 		<Router history={ history }>
 			{ renderRoutes(Routes) }
 		</Router>,
 		document.getElementById(appContainerHTMLTag)
-	);
-	return null;
+	)
 }).catch(_.constant);

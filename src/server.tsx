@@ -2,7 +2,6 @@
 // @ts-nocheck
 import fs from 'fs';
 import path from 'path';
-import _ from 'lodash';
 import express, { Response, Request } from 'express';
 import { matchRoutes, RouteConfig } from 'react-router-config';
 import Loadable from 'react-loadable';
@@ -40,7 +39,7 @@ const logger = winston.createLogger({
 // Get bundle json maps
 // eslint-disable-next-line import/no-internal-modules
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const loadableJson = require('../bundle_client/react-loadable.json');
+const loadableJson = require('../bundle_client/loadable-stats.json');
 const assetsJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
 
 useStaticRendering(true);
@@ -67,8 +66,7 @@ app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 // any -> Request
 app.get('*', (req: Request, res: Response) => {
 
-	const promises = _.map(
-		matchRoutes(Routes, req.path),
+	const promises = matchRoutes(Routes, req.path).map(
 		({ route }: RouteConfig) => (
 			route.loadData ? route.loadData() : null
 		)

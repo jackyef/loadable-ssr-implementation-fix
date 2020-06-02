@@ -1,5 +1,5 @@
 # Stage 1 - build express app
-FROM node:11
+FROM node:13.8.0
 # as bundle
 
 LABEL maintainer="vashchukmaksim@gmail.com"
@@ -47,7 +47,8 @@ WORKDIR /usr/src
 # WORKDIR /usr/src
 
 # Install
-RUN yarn install --production=true
+# --production=true
+RUN yarn install
 
 # Expose port
 EXPOSE 3000
