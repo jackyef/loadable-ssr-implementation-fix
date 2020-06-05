@@ -55,7 +55,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 						<Text size={ 13 } mr={ 4 } color="blue_30">
 							{ path === 'in' ? 'Don’t have an account?' : 'Already have an account?' }
 						</Text>
-						<Button nav variant="nav"
+						<Button nav variant="nav" size="big"
 							title={ path === 'in' ? 'Create account' : 'Sign in' }
 							onClick={ () => path === 'in' ? routes.auth.signup : routes.auth.signin }
 						/>
