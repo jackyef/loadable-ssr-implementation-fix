@@ -1,4 +1,5 @@
 import React from 'react';
+import qs from 'qs';
 import { Redirect } from 'react-router';
 import { RouteConfig } from 'react-router-config';
 import { createBrowserHistory } from 'history';
@@ -31,6 +32,14 @@ const LoaderSubRoute = (
 	</Flex>
 );
 
+// Route to redirect to the application
+const RedirectInApp: React.FC = () => {
+	const signup = qs.parse(canUseDOM() ? window.location.search : '', { ignoreQueryPrefix: true })?.initial;
+	if (signup) { window.location.assign(routes.poster.addchannel); }
+	else { window.location.assign(routes.poster.dashboard); }
+	return null;
+};
+
 // Routes map
 const r: RouteConfig[] = [
 	{
@@ -59,6 +68,12 @@ const r: RouteConfig[] = [
 						})
 					}
 				]
+			},
+
+			// Redirect in app
+			{
+				path: routes.inapp,
+				component: RedirectInApp
 			},
 
 			// Terms and Conditions & Privacy Policy

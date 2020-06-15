@@ -11,9 +11,13 @@ export const routes = {
 	// Home
 	index: '/',
 	home: '/',
+	inapp: '/inapp',
 
 	// Products (external)
-	poster: '/post/dashboard',
+	poster: {
+		addchannel: '/post/addchannel',
+		dashboard: '/post/dashboard'
+	},
 
 	// Privacy Policy (and Terms of use)
 	pp: '/pp',

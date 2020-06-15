@@ -29,7 +29,7 @@ const SignUp: React.FC = () => (
 		<StyledForm name="signup" inject={ formStore }
 			submitMethod="POST"
 			submitURL={ authService.shot('user', 'register').options.url }
-			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster) }
+			onSubmitSucceed={ () => canUseDOM() && window.location.assign(routes.poster.addchannel) }
 			onSubmitFailed={ (err: Errors) => awakeFormNotify(err, formStore) }
 		>
 			{/* Title */}

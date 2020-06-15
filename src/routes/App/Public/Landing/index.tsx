@@ -107,7 +107,7 @@ const Landing: React.FC<Props> = ({ scroller }) => {
 										variant="primary"
 										size="mid"
 										detail="rounded"
-										onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
+										onClick={ () => canUseDOM() && window.location.assign(routes.poster.dashboard) }
 									/>
 								</NavItem>
 							</StyledNavSign>

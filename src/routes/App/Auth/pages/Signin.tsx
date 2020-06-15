@@ -38,10 +38,12 @@ const SignIn: React.FC = () => (
 				if (canUseDOM()) {
 					localStorage.setItem('id_token', Cookies.get('id_token'));
 					Cookies.remove('id_token');
-					window.location.assign(routes.poster);
+					window.location.assign(routes.poster.dashboard);
 				}
 			} }
-			onSubmitFailed={ (err: Errors) => awakeFormNotify(err, formStore) }
+			onSubmitFailed={ (err: Errors) => {
+				awakeFormNotify(err, formStore);
+			} }
 		>
 			{/* Title */}
 			<Heading h={ 2 } mb={ 7 } title="Welcome back" />
@@ -60,10 +62,7 @@ const SignIn: React.FC = () => (
 			<StyledInput name="password" size="mid" errPos="top"
 				type="password"
 				placeholder="password"
-				validators={ [
-					validators.password.requirements,
-					validators.password.required
-				] }
+				validators={ [validators.password.required] }
 				label="Password"
 				labelComp={ ({ label, id }) => (
 					<FieldLabel label={ label } id={ id }>

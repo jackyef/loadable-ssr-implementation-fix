@@ -38,6 +38,11 @@ export const StyledInput = styled(FieldInput)`
 				align: 'center'
 			}) }
 		}
+
+		> button {
+			position: absolute;
+			right: 0;
+		}
 	}
 `;
 

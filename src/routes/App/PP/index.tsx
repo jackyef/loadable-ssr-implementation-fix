@@ -80,7 +80,7 @@ const PP: React.FC = () => {
 												variant="primary"
 												size="mid"
 												detail="rounded"
-												onClick={ () => canUseDOM() && window.location.assign(routes.poster) }
+												onClick={ () => canUseDOM() && window.location.assign(routes.poster.dashboard) }
 											/>
 										</NavItem>
 									</StyledNavSign>

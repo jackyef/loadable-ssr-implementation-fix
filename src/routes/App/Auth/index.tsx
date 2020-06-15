@@ -35,7 +35,7 @@ const Auth: React.FC<Props> = ({ route }) => {
 	// Mount
 	useEffect(() => {
 		if (canUseDOM() && !jwtExpired(localStorage.getItem('id_token'))) {
-			window.location.assign(routes.poster);
+			window.location.assign(routes.poster.dashboard);
 		}
 	}, []);
 
