@@ -49,8 +49,7 @@ const NewPassword: React.FC = () => {
 				onSubmitSucceed={ (): void => {
 					notifyFormStore.awake({
 						text: 'Password was successfully restored. You can use it to login.',
-						state: 'success',
-						delay: 4000
+						state: 'success'
 					});
 
 					// Redirect after notification

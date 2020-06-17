@@ -72,8 +72,7 @@ export const awakeFormNotify = (err: Errors, store: StoreFormInterface): void =>
 	if (parsedErrors?.schema) {
 		notifyFormStore.awake({
 			text: _.get(errors, 'schema.0', 'Unknown server error'),
-			state: 'error',
-			delay: 10000
+			state: 'error'
 		});
 	}
 };

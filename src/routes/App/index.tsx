@@ -46,8 +46,7 @@ const Container: React.FC<Props> = ({ route }) => {
 			setTimeout(() => {
 				notifyStore.awake({
 					text: notification,
-					state: 'success',
-					delay: 8000
+					state: 'success'
 				});
 
 				// Remove cookie afterwards
