@@ -1,4 +1,4 @@
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 
 // Webpack config
 module.exports = function(env, options) {
