@@ -6,7 +6,7 @@
  */
 import React, { Ref } from 'react';
 
-import styled, { CSS } from '@tg/styled';
+import styled, { CSS } from '@prostpost/styled';
 
 import {
 	Heading,
@@ -18,7 +18,7 @@ import {
 	Paragraph,
 	Icon,
 	ContentBlock
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 import {
 	resources,
@@ -27,7 +27,7 @@ import {
 	IconMd,
 	IconHeart,
 	IconImage
-} from '@tg/resources';
+} from '@prostpost/resources';
 
 type Props = {
 	ref?: Ref<HTMLElement>;

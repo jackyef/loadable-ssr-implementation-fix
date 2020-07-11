@@ -6,7 +6,7 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { Flex, ContentBlock, Feature, FeatureProps } from '@tg/elm';
+import { Flex, ContentBlock, Feature, FeatureProps } from '@prostpost/elm';
 
 import { StyledHeading, StyledList } from './_styled';
 

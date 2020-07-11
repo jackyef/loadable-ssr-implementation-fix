@@ -1,5 +1,5 @@
 {
-	"extends": "@tg/configs/tsconfig/app.json",
+	"extends": "@prostpost/configs/tsconfig/app.json",
 	"compilerOptions": {
 		"baseUrl": "./",
 		"jsx": "react",
@@ -28,7 +28,7 @@
 		"src/**/*",
 
 		// Linked modules
-		"node_modules/@tg"
+		"node_modules/@prostpost"
 	],
 
 	"exclude": [

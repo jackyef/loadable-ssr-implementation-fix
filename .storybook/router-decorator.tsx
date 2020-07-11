@@ -2,7 +2,7 @@ import React from 'react';
 import { Router } from 'react-router-dom';
 import { createBrowserHistory } from 'history';
 
-import { canUseDOM } from '@tg/utils';
+import { canUseDOM } from '@prostpost/utils';
 
 export const history = canUseDOM() ? createBrowserHistory({ basename: '' }) : null;
 

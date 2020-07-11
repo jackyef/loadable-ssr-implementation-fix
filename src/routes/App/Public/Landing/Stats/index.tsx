@@ -9,8 +9,8 @@ import moment from 'moment';
 import { useMedia } from 'use-media';
 
 // IconUser
-import { IconArrow } from '@tg/resources';
-import styled, { css } from '@tg/styled';
+import { IconArrow } from '@prostpost/resources';
+import styled, { css } from '@prostpost/styled';
 import {
 	Heading,
 	Text,
@@ -25,7 +25,7 @@ import {
 	Toggle,
 	mediaQueries,
 	MEDIA
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 const dateFormat = 'YYYY-MM-DD';
 

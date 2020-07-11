@@ -1,11 +1,11 @@
-import styled, { CSS } from '@tg/styled';
+import styled, { CSS } from '@prostpost/styled';
 import {
 	mediaQueries,
 	MEDIA,
 	Heading,
 	Paragraph,
 	flex
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 const MEDIA_CUSTOM = '@media screen and (max-width: 1200px)';
 

@@ -1,11 +1,11 @@
-import { FormRoot } from '@tg/form';
-import styled, { CSS } from '@tg/styled';
+import { FormRoot } from '@prostpost/form';
+import styled, { CSS } from '@prostpost/styled';
 import {
 	Button,
 	MEDIA,
 	mediaQueries,
 	flex
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 export const StyledForm = styled(FormRoot)`
 	/* stylelint-disable value-keyword-case */

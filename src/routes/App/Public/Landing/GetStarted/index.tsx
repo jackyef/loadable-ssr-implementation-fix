@@ -6,8 +6,8 @@
  */
 import React from 'react';
 
-import styled, { CSS } from '@tg/styled';
-import { Heading, Paragraph, flex, mediaQueries, MEDIA, ContentBlock } from '@tg/elm';
+import styled, { CSS } from '@prostpost/styled';
+import { Heading, Paragraph, flex, mediaQueries, MEDIA, ContentBlock } from '@prostpost/elm';
 
 import { toSignUp } from '../';
 import { GetStarted as GetStartedForm } from 'app/components';

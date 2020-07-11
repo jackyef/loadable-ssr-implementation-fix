@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import styled from '@tg/styled';
+import styled from '@prostpost/styled';
 
 type Props = {
 	className?: string;

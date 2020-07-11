@@ -4,10 +4,10 @@
 import _ from 'lodash';
 import React from 'react';
 
-import styled, { CSS } from '@tg/styled';
-import { flex, Notification } from '@tg/elm';
-import { StoreFormInterface } from '@tg/form';
-import { StoreNotify, NotifyBox as BaseNotifyBox } from '@tg/notify';
+import styled, { CSS } from '@prostpost/styled';
+import { flex, Notification } from '@prostpost/elm';
+import { StoreFormInterface } from '@prostpost/form';
+import { StoreNotify, NotifyBox as BaseNotifyBox } from '@prostpost/notify';
 
 export const notifyStore = new StoreNotify();
 export const notifyFormStore = new StoreNotify();

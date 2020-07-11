@@ -6,9 +6,9 @@
 import _ from 'lodash';
 import React from 'react';
 
-import { FieldInput, validators } from '@tg/elm';
-import { StoreForm, StoreFormAPI } from '@tg/form';
-import { IconArrowReverse } from '@tg/resources';
+import { FieldInput, validators } from '@prostpost/elm';
+import { StoreForm, StoreFormAPI } from '@prostpost/form';
+import { IconArrowReverse } from '@prostpost/resources';
 
 import { StyledButton, StyledInputContainer, StyledForm } from './_styled';
 

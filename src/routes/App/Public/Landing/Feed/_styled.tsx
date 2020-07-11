@@ -1,11 +1,11 @@
-import styled, { CSS } from '@tg/styled';
+import styled, { CSS } from '@prostpost/styled';
 import {
 	MEDIA,
 	mediaQueries,
 	flex,
 	Heading,
 	ContentBlock
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 export const StyledContentBlock = styled(ContentBlock)`
 	/* stylelint-disable value-keyword-case */

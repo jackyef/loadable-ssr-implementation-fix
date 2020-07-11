@@ -5,10 +5,10 @@ import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import qs from 'qs';
 
-import { StoreForm, StoreFormAPI } from '@tg/form';
-import { canUseDOM } from '@tg/utils';
-import { Button, Heading, validators } from '@tg/elm';
-import { service as authService } from '@tg/api-proxy-auth';
+import { StoreForm, StoreFormAPI } from '@prostpost/form';
+import { canUseDOM } from '@prostpost/utils';
+import { Button, Heading, validators } from '@prostpost/elm';
+import { service as authService } from '@prostpost/api-proxy-auth';
 
 import { routes } from 'app/config';
 import {

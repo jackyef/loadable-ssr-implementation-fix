@@ -1,8 +1,8 @@
 const path = require('path');
 
 const IMAGES_DIRS = [
-	path.resolve("node_modules/@tg/resources/src/images"),
-	path.resolve("node_modules/@tg/resources/src/inline")
+	path.resolve("node_modules/@prostpost/resources/src/images"),
+	path.resolve("node_modules/@prostpost/resources/src/inline")
 ];
 
 module.exports = {

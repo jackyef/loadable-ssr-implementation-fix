@@ -7,7 +7,7 @@
  */
 import React from 'react';
 
-import { resources } from '@tg/resources';
+import { resources } from '@prostpost/resources';
 
 import {
 	StyledContentBlock,

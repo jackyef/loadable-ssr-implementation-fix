@@ -3,8 +3,8 @@ import {
 	MEDIA,
 	mediaQueries,
 	flex
-} from '@tg/elm';
-import styled, { CSS } from '@tg/styled';
+} from '@prostpost/elm';
+import styled, { CSS } from '@prostpost/styled';
 
 export const StyledContent = styled.div`
 	/* stylelint-disable value-keyword-case */

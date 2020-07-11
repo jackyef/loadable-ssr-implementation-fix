@@ -5,8 +5,8 @@
  */
 import React, { useState, Ref } from 'react';
 
-import { Text, FeaturesSwitcher, FeaturesSwitcherProps } from '@tg/elm';
-import { IconArchive, IconPen, IconTime } from '@tg/resources';
+import { Text, FeaturesSwitcher, FeaturesSwitcherProps } from '@prostpost/elm';
+import { IconArchive, IconPen, IconTime } from '@prostpost/resources';
 
 import {
 	StyledContentBlock,

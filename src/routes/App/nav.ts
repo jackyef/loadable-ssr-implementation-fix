@@ -1,5 +1,5 @@
-import { BtnProps } from '@tg/elm';
-import { Size } from '@tg/styled';
+import { BtnProps } from '@prostpost/elm';
+import { Size } from '@prostpost/styled';
 
 type TypeNavBtn = {
 	title?: string;

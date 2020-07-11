@@ -5,11 +5,11 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import Cookies from 'js-cookie';
 
-import { StoreForm, StoreFormAPI } from '@tg/form';
-import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Paragraph, FieldLabel, validators } from '@tg/elm';
-import { service as authService } from '@tg/api-proxy-auth';
-import { IconGoogle } from '@tg/resources';
+import { StoreForm, StoreFormAPI } from '@prostpost/form';
+import { canUseDOM } from '@prostpost/utils';
+import { Button, Heading, Paragraph, FieldLabel, validators } from '@prostpost/elm';
+import { service as authService } from '@prostpost/api-proxy-auth';
+import { IconGoogle } from '@prostpost/resources';
 
 import { history } from 'app/routes';
 import { routes } from 'app/config';

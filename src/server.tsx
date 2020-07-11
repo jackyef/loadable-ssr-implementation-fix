@@ -7,7 +7,7 @@ import { matchRoutes, RouteConfig } from 'react-router-config';
 import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
 
-import { renderer } from '@tg/elm';
+import { renderer } from '@prostpost/elm';
 
 // Routes
 import { indexRoute } from './config';

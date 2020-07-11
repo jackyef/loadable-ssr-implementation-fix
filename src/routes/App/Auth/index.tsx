@@ -6,8 +6,8 @@ import React, { useEffect } from 'react';
 import { Location } from 'history';
 import { RouteConfig } from 'react-router-config';
 
-import { renderRoutes, canUseDOM, jwtExpired } from '@tg/utils';
-import { Button, Text } from '@tg/elm';
+import { renderRoutes, canUseDOM, jwtExpired } from '@prostpost/utils';
+import { Button, Text } from '@prostpost/elm';
 
 import { history } from 'app/routes';
 import { routes } from 'app/config';

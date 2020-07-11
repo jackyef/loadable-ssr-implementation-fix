@@ -5,10 +5,10 @@ import React from 'react';
 import { Observer } from 'mobx-react';
 import { Helmet } from 'react-helmet';
 
-import { StoreForm, StoreFormAPI } from '@tg/form';
-import { Button, Heading, validators } from '@tg/elm';
-import { IconArrow } from '@tg/resources';
-import { service as authService } from '@tg/api-proxy-auth';
+import { StoreForm, StoreFormAPI } from '@prostpost/form';
+import { Button, Heading, validators } from '@prostpost/elm';
+import { IconArrow } from '@prostpost/resources';
+import { service as authService } from '@prostpost/api-proxy-auth';
 
 import {
 	notifyFormStore,

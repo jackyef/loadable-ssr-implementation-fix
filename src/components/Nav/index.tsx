@@ -3,8 +3,8 @@
  */
 import React from 'react';
 
-import styled from '@tg/styled';
-import { flex } from '@tg/elm';
+import styled from '@prostpost/styled';
+import { flex } from '@prostpost/elm';
 
 type Props = {
 	children?: React.ReactNode | React.ReactNode[];

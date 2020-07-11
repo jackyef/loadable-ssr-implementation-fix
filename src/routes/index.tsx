@@ -5,9 +5,9 @@ import { RouteConfig } from 'react-router-config';
 import { createBrowserHistory } from 'history';
 import loadable from '@loadable/component';
 
-import { canUseDOM } from '@tg/utils';
+import { canUseDOM } from '@prostpost/utils';
 
-import { Loading, Flex, theme } from '@tg/elm';
+import { Loading, Flex, theme } from '@prostpost/elm';
 
 import { routes } from 'app/config';
 

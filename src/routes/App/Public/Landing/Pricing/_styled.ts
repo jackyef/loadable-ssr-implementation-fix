@@ -1,5 +1,5 @@
-import styled, { CSS } from '@tg/styled';
-import { flex, mediaQueries, MEDIA } from '@tg/elm';
+import styled, { CSS } from '@prostpost/styled';
+import { flex, mediaQueries, MEDIA } from '@prostpost/elm';
 
 export const StyledList = styled.ul`
 	/* stylelint-disable value-keyword-case */

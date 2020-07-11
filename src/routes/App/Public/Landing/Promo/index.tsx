@@ -4,7 +4,7 @@
  */
 import React from 'react';
 
-import { ContentBlock } from '@tg/elm';
+import { ContentBlock } from '@prostpost/elm';
 
 import { toSignUp } from '../';
 import { GetStarted } from 'app/components';

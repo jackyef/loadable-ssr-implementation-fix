@@ -21,7 +21,7 @@ jobs:
         command: |
           AUTH_TOKEN=${NPM_TOKEN}
           touch .npmrc
-          echo "@tg:registry=https://nexus.prostpost.me/repository/npm-private/" >> .npmrc
+          echo "@prostpost:registry=https://nexus.prostpost.me/repository/npm-private/" >> .npmrc
           echo "//nexus.prostpost.me/repository/npm-private/:_authToken=NpmToken.${NPM_TOKEN}" >> .npmrc
 
     - run:

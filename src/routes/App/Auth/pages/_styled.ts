@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom';
 
-import styled, { CSS } from '@tg/styled';
-import { FormRoot } from '@tg/form';
+import styled, { CSS } from '@prostpost/styled';
+import { FormRoot } from '@prostpost/form';
 import {
 	flex,
 	MEDIA,
 	mediaQueries,
 	Text,
 	FieldInput
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 export const StyledForm = styled(FormRoot)`
 	/* stylelint-disable value-keyword-case */

@@ -1,7 +1,7 @@
 import React from 'react';
-import { ThemeProvider } from '@tg/styled';
+import { ThemeProvider } from '@prostpost/styled';
 
-import { theme } from '@tg/elm';
+import { theme } from '@prostpost/elm';
 
 const ThemeDecorator = (storyFn: any) => (
 	<ThemeProvider theme={ theme }>

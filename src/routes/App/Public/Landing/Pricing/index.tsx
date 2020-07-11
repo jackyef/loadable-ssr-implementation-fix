@@ -11,13 +11,13 @@ import {
 	ContentBlock,
 	PricingCard,
 	PricingCardProps
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 import {
 	IconPen,
 	IconChannel,
 	IconMember
-} from '@tg/resources';
+} from '@prostpost/resources';
 
 import { StyledList } from './_styled';
 

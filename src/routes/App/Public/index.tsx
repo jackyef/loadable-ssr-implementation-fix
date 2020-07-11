@@ -5,8 +5,8 @@ import React from 'react';
 import { RouteConfig } from 'react-router-config';
 import { Scrollbar } from 'react-scrollbars-custom';
 
-import { renderRoutes } from '@tg/utils';
-import { Scrollbars } from '@tg/elm';
+import { renderRoutes } from '@prostpost/utils';
+import { Scrollbars } from '@prostpost/elm';
 
 import { Footer } from 'app/components';
 

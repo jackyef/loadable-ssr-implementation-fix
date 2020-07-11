@@ -1,11 +1,11 @@
-import styled, { css, CSS } from '@tg/styled';
+import styled, { css, CSS } from '@prostpost/styled';
 import {
 	MEDIA,
 	mediaQueries,
 	flex,
 	ContentBlock,
 	ContentBlockProps
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 import { Props } from '.';
 

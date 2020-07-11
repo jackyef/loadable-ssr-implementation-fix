@@ -6,8 +6,8 @@ import { Helmet } from 'react-helmet';
 import { useLocalStore } from 'mobx-react';
 import { Scrollbar } from 'react-scrollbars-custom';
 
-import { canUseDOM } from '@tg/utils';
-import { Button, scroll } from '@tg/elm';
+import { canUseDOM } from '@prostpost/utils';
+import { Button, scroll } from '@prostpost/elm';
 
 import { history } from 'app/routes';
 import { formStore as signUpFormStore } from 'app/routes/App/Auth/pages/Signup';

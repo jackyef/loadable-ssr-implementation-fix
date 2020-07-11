@@ -5,7 +5,7 @@ import { Router } from 'react-router-dom';
 import { loadableReady } from '@loadable/component';
 import 'mobx-react-lite/batchingForReactDom';
 
-import { renderRoutes } from '@tg/utils';
+import { renderRoutes } from '@prostpost/utils';
 
 import { appContainerHTMLTag } from './config';
 import Routes, { history } from './routes';

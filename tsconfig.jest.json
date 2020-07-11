@@ -1,3 +1,3 @@
 {
-	"extends": "@tg/configs/tsconfig/jest.app.json"
+	"extends": "@prostpost/configs/tsconfig/jest.app.json"
 }

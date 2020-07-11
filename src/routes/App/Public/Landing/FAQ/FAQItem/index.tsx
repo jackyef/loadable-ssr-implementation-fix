@@ -3,8 +3,8 @@
  */
 import React from 'react';
 
-import styled from '@tg/styled';
-import { Heading, Paragraph } from '@tg/elm';
+import styled from '@prostpost/styled';
+import { Heading, Paragraph } from '@prostpost/elm';
 
 export type Props = {
 	question?: string;

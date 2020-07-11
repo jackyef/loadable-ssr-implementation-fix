@@ -1,30 +1,30 @@
 #!/usr/bin/env bash
 
 # Dev
-yarn unlink @tg/configs
+yarn unlink @prostpost/configs
 
 # Libs
-yarn unlink @tg/utils
-yarn unlink @tg/styled
-yarn unlink @tg/form
-yarn unlink @tg/modal
-yarn unlink @tg/async
-yarn unlink @tg/notify
-yarn unlink @tg/exceptions
-yarn unlink @tg/api-proxy
-yarn unlink @tg/api-proxy-data
+yarn unlink @prostpost/utils
+yarn unlink @prostpost/styled
+yarn unlink @prostpost/form
+yarn unlink @prostpost/modal
+yarn unlink @prostpost/async
+yarn unlink @prostpost/notify
+yarn unlink @prostpost/exceptions
+yarn unlink @prostpost/api-proxy
+yarn unlink @prostpost/api-proxy-data
 
 # Packages (app level)
-yarn unlink @tg/elm
-yarn link @tg/uploader
+yarn unlink @prostpost/elm
+yarn link @prostpost/uploader
 
 # Resources
-yarn unlink @tg/resources
+yarn unlink @prostpost/resources
 
 # API proxies
-yarn unlink @tg/api-proxy-auth
-yarn unlink @tg/api-proxy-drafts
-yarn link @tg/api-proxy-bot
+yarn unlink @prostpost/api-proxy-auth
+yarn unlink @prostpost/api-proxy-drafts
+yarn link @prostpost/api-proxy-bot
 
 # TODO: Should not be needed (check treeshaking)
-yarn link @tg/calendar
+yarn link @prostpost/calendar

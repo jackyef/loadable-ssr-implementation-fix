@@ -1,5 +1,5 @@
-import styled, { CSS } from '@tg/styled';
-import { Heading, MEDIA, mediaQueries, flex } from '@tg/elm';
+import styled, { CSS } from '@prostpost/styled';
+import { Heading, MEDIA, mediaQueries, flex } from '@prostpost/elm';
 
 export const StyledHeading = styled(Heading)`
 	width: 440px;

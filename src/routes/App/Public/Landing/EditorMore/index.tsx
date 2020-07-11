@@ -7,8 +7,8 @@
 import _ from 'lodash';
 import React from 'react';
 
-import styled, { CSS, useTheme } from '@tg/styled';
-import { IconAd, IconEdit } from '@tg/resources';
+import styled, { CSS, useTheme } from '@prostpost/styled';
+import { IconAd, IconEdit } from '@prostpost/resources';
 import {
 	MEDIA,
 	mediaQueries,
@@ -16,7 +16,7 @@ import {
 	ContentBlock,
 	FeatureCard,
 	FeatureCardProps
-} from '@tg/elm';
+} from '@prostpost/elm';
 
 const featuresData: FeatureCardProps[] = [
 	{

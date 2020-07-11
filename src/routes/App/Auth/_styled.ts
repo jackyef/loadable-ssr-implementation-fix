@@ -1,5 +1,5 @@
-import styled, { CSS } from '@tg/styled';
-import { flex, MEDIA, mediaQueries } from '@tg/elm';
+import styled, { CSS } from '@prostpost/styled';
+import { flex, MEDIA, mediaQueries } from '@prostpost/elm';
 
 import { NavItem } from 'app/components';
 

@@ -2,10 +2,10 @@ import React, { useEffect } from 'react';
 import { RouteConfig } from 'react-router-config';
 import Cookies from 'js-cookie';
 
-import { ThemeProvider } from '@tg/styled';
-import { NotifyBox } from '@tg/notify';
-import { theme, Notification } from '@tg/elm';
-import { renderRoutes, canUseDOM } from '@tg/utils';
+import { ThemeProvider } from '@prostpost/styled';
+import { NotifyBox } from '@prostpost/notify';
+import { theme, Notification } from '@prostpost/elm';
+import { renderRoutes, canUseDOM } from '@prostpost/utils';
 
 import { notifyStore } from 'app/stores';
 import { history } from 'app/routes';

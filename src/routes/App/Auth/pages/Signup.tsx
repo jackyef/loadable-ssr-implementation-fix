@@ -4,11 +4,11 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-import { StoreForm, StoreFormAPI } from '@tg/form';
-import { canUseDOM } from '@tg/utils';
-import { Button, Heading, Paragraph, validators } from '@tg/elm';
-import { service as authService } from '@tg/api-proxy-auth';
-import { IconGoogle } from '@tg/resources';
+import { StoreForm, StoreFormAPI } from '@prostpost/form';
+import { canUseDOM } from '@prostpost/utils';
+import { Button, Heading, Paragraph, validators } from '@prostpost/elm';
+import { service as authService } from '@prostpost/api-proxy-auth';
+import { IconGoogle } from '@prostpost/resources';
 
 import { routes } from 'app/config';
 import { awakeFormNotify, FormNotifyBox, Errors } from 'app/stores';

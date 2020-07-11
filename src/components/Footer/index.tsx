@@ -3,8 +3,8 @@
  */
 import React from 'react';
 
-import { useTheme } from '@tg/styled';
-import { Button, MEDIA, ContentBlock } from '@tg/elm';
+import { useTheme } from '@prostpost/styled';
+import { Button, MEDIA, ContentBlock } from '@prostpost/elm';
 
 import { routes } from 'app/config';
 
