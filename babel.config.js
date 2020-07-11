@@ -1,1 +1,1 @@
-module.exports = require('@tg/configs/build/babel.config.js');
+module.exports = require('@prostpost/configs/build/babel.config.js');

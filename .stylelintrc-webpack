@@ -1,3 +1,3 @@
 {
-	"extends": "@tg/configs/lint/stylelint-webpack.config.js"
+	"extends": "@prostpost/configs/lint/stylelint-webpack.config.js"
 }

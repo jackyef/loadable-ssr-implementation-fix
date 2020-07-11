@@ -13,13 +13,13 @@ const { merge } = require('webpack-merge');
 
 // Our internal modules (For now keep them in the app)
 const appModules = [
-	'@tg'
+	'@prostpost'
 ];
 
 // Webpack config
 module.exports = function(env, options) {
 	return merge(
-		require('@tg/configs/build/webpack/client.js')(env, options, {
+		require('@prostpost/configs/build/webpack/client.js')(env, options, {
 			publicPath: '/static/public/',
 			excludeFromHTML: ['resources', 'extra']
 		}),
@@ -39,7 +39,7 @@ module.exports = function(env, options) {
 						default: false,
 						vendors: false,
 
-						// Vendor (without @tg modules)
+						// Vendor (without @prostpost modules)
 						vendor: {
 							chunks: 'all',
 							name: 'vendor',

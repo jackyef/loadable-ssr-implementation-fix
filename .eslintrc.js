@@ -1,5 +1,5 @@
 const path = require('path');
-const config = require('@tg/configs/lint/common.eslintrc');
+const config = require('@prostpost/configs/lint/common.eslintrc');
 
 module.exports = {
 	...config,

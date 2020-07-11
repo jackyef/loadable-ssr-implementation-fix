@@ -20,7 +20,7 @@ ENV GOOGLE_ANALYTICS_ID=$GOOGLE_ANALYTICS_ID
 RUN rm -rf /root/.npmrc
 RUN rm -rf ~/.npmrc
 RUN touch ~/.npmrc
-RUN echo "@tg:registry=https://nexus.tgpost.me/repository/npm-private/\n" >> ~/.npmrc
+RUN echo "@prostpost:registry=https:///\n" >> ~/.npmrc
 RUN echo "ca = null\n" >> ~/.npmrc
 RUN echo "always-auth = true\n" >> ~/.npmrc
 RUN echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.$NPM_TOKEN\n" >> ~/.npmrc

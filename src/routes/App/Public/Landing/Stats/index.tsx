@@ -152,19 +152,19 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 						</Box>
 
 						<Button mr={ 3 } variant="secondary"
-							state={ scale === 'day' && 'active' }
+							state={ scale === 'day' ? 'active' : 'normal' }
 							size="small"
 							title="Week"
 							onClick={ () => setScale('day') }
 						/>
 						<Button mr={ 3 } variant="secondary"
-							state={ scale === 'week' && 'active' }
+							state={ scale === 'week' ? 'active' : 'normal' }
 							size="small"
 							title="Month"
 							onClick={ () => setScale('week') }
 						/>
 						<Button mr={ 3 } variant="secondary"
-							state={ scale === 'month' && 'active' }
+							state={ scale === 'month' ? 'active' : 'normal' }
 							size="small"
 							title="Year"
 							onClick={ () => setScale('month') }
