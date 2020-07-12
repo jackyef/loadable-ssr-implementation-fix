@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: master
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Setup Node ${{ matrix.node_version }}
+      uses: actions/setup-node@v1
+      with:
+        node_version: 12
+        registry-url: 'https://npm.pkg.github.com'
+
+    - name: Cache node_modules
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: node_modules-${{ hashFiles('yarn.lock') }}
+        restore-keys: |
+          node_modules-
+
+    - name: Install
+      run: yarn
+  
+    - name: Build
+      run: yarn prd:build-client
