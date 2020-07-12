@@ -11,8 +11,8 @@
 		"@prostpost/api-proxy-auth": "^4.1.17",
 		"@prostpost/api-proxy-data": "^4.1.16",
 		"@prostpost/async": "^4.1.15",
-		"@prostpost/calendar": "^4.1.24",
-		"@prostpost/elm": "4.1.27",
+		"@prostpost/calendar": "^4.1.25",
+		"@prostpost/elm": "4.1.28",
 		"@prostpost/exceptions": "^4.1.7",
 		"@prostpost/form": "^4.1.18",
 		"@prostpost/modal": "^4.1.17",
@@ -110,7 +110,7 @@
 		"@loadable/webpack-plugin": "^5.13.0",
 		"@styled-system/css": "^5.1.5",
 		"@testing-library/react": "^10.4.5",
-		"@prostpost/configs": "4.1.24",
+		"@prostpost/configs": "4.1.25",
 		"@types/clipboard": "^2.0.1",
 		"@types/emoji-mart": "^3.0.2",
 		"@types/enzyme": "^3.10.5",
@@ -236,7 +236,7 @@
 		"webpack-livereload-plugin": "^2.3.0",
 		"webpack-manifest-plugin": "^2.2.0",
 		"webpack-merge": "^5.0.9",
-		"webpack-node-externals": "2.3.0"
+		"webpack-node-externals": "2.5.0"
 	},
 	"author": "vashchukmaksim",
 	"license": "UNLICENSED",

@@ -23,7 +23,7 @@ RUN touch ~/.npmrc
 RUN echo "@prostpost:registry=https:///\n" >> ~/.npmrc
 RUN echo "ca = null\n" >> ~/.npmrc
 RUN echo "always-auth = true\n" >> ~/.npmrc
-RUN echo "//nexus.tgpost.me/repository/npm-private/:_authToken=NpmToken.$NPM_TOKEN\n" >> ~/.npmrc
+RUN echo "//nexus.prostpost.me/repository/npm-private/:_authToken=NpmToken.$NPM_TOKEN\n" >> ~/.npmrc
 
 # Copy source
 COPY . /usr/src
