@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: 12
-        registry-url: 'https://npm.pkg.github.com'
+        registry-url: 'https://nexus.prostpost.me/repository/npm-private/'
         scope: '@prostpost'
 
     - name: Cache node_modules
@@ -28,7 +28,7 @@ jobs:
           node_modules-
 
     - name: Setup npmrc
-      run: echo "//npm.pkg.github.com/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > .npmrc
+      run: echo "//nexus.prostpost.me/repository/npm-private/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}" > .npmrc
 
     - name: Install
       run: yarn
