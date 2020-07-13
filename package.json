@@ -245,6 +245,7 @@
 		"dev:server": "nodemon --watch build --exec \"node bundle_server/server.js\"",
 		"dev:build-server": "NODE_ENV=development webpack --mode development --config webpack.server.babel.js --watch",
 		"dev:build-client": "NODE_OPTIONS=--max-old-space-size=4096 NODE_ENV=development webpack --mode development --config webpack.client.babel.js --watch",
+		"dev": "NODE_OPTIONS=--max-old-space-size=4096 NODE_ENV=development webpack --mode development --config webpack.client.babel.js --watch",
 		"prd:build-client": "NODE_ENV=production BABEL_ENV=production webpack --mode production --config webpack.client.babel.js",
 		"prd:build-client-stats": "NODE_ENV=production BABEL_ENV=production STATS=true webpack --mode production --config webpack.client.babel.js",
 		"prd:build-server": "NODE_ENV=production BABEL_ENV=production webpack --mode production --config webpack.server.babel.js",
