@@ -4,7 +4,7 @@ import fs from 'fs';
 import path from 'path';
 import express, { Response, Request } from 'express';
 import { matchRoutes, RouteConfig } from 'react-router-config';
-import Loadable from 'react-loadable';
+// import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
 
 import { renderer } from '@prostpost/elm';
@@ -78,7 +78,7 @@ app.get('*', (req: Request, res: Response) => {
 			{ req, context },
 			Routes,
 			loadableJson,
-			assetsJson,
+			// assetsJson,
 			{
 				indexRoute,
 				initialState: data,
@@ -90,14 +90,12 @@ app.get('*', (req: Request, res: Response) => {
 		if (context.notFound) { res.status(404); }
 
 		res.send(content);
-	})
-
-		.catch(e => console.warn(e));
+	}).catch(e => console.warn(e));
 });
 
 // Run server
-Loadable.preloadAll().then(() => {
-	app.listen(EXPRESS_SSR_PORT, () => {
-		logger.info(`Listening on port ${ EXPRESS_SSR_PORT }`);
-	});
+// Loadable.preloadAll().then(() => {
+app.listen(EXPRESS_SSR_PORT, () => {
+	logger.info(`Listening on port ${ EXPRESS_SSR_PORT }`);
 });
+// });

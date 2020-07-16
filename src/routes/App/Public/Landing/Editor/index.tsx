@@ -94,7 +94,7 @@ export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
 	<ContentBlock ref={ ref }>
 		<StyledContainer>
 
-			{/* Illustration */}
+			{/* Illustration  */}
 			<StyledImg src={ resources.editor_demo } />
 
 			{/* Info */}
