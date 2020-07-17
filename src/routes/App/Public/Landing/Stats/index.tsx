@@ -7,9 +7,8 @@
 import React, { Ref, useState } from 'react';
 import moment from 'moment';
 import { useMedia } from 'use-media';
+import { ArrowUp, User } from 'react-feather';
 
-// IconUser
-import { IconArrow } from '@prostpost/resources';
 import styled, { css } from '@prostpost/styled';
 import {
 	Heading,
@@ -134,11 +133,11 @@ export const Stats: React.FC<Props> = React.forwardRef((props, ref) => {
 					<Flex width="auto">
 						<StatNumber value={ 5000 }
 							label="members"
-							icon={ { icon: <IconArrow /> } }
+							icon={ { icon: User, strokeWidth: 2 } }
 						/>
 						<StatNumber value={ 1200 }
 							label="last week"
-							icon={ { icon: <IconArrow /> } }
+							icon={ { icon: ArrowUp } }
 						/>
 					</Flex>
 

@@ -7,7 +7,7 @@ import Cookies from 'js-cookie';
 
 import { StoreForm, StoreFormAPI } from '@prostpost/form';
 import { canUseDOM } from '@prostpost/utils';
-import { Button, Heading, Paragraph, FieldLabel, validators } from '@prostpost/elm';
+import { Button, Heading, Text, Paragraph, Icon, FieldLabel, validators } from '@prostpost/elm';
 import { service as authService } from '@prostpost/api-proxy-auth';
 import { IconGoogle } from '@prostpost/resources';
 
@@ -66,10 +66,12 @@ const SignIn: React.FC = () => (
 				label="Password"
 				labelComp={ ({ label, id }) => (
 					<FieldLabel label={ label } id={ id }>
-						<Button variant="inline" color="blue_100" size="mid"
-							title="Forgot password?"
+						<Text size={ 13 }
+							color="blue_100"
 							onClick={ () => { history.push(routes.auth.reset); } }
-						/>
+						>
+							{ 'Forgot password?' }
+						</Text>
 					</FieldLabel>
 				) }
 			/>
@@ -90,8 +92,7 @@ const SignIn: React.FC = () => (
 			{/* Google */}
 			<Button width="100%" mt={ 3 } variant="secondary"
 				title="Sign in with Google"
-				icon={ <IconGoogle /> }
-				iconFill={ false }
+				icon={ <Icon iconFill={ false } icon={ <IconGoogle /> } /> }
 				onClick={ () => window.location.assign(`
 					${ authService.axiosInstance.defaults.baseURL }
 					${ authService.shot('user', 'google').options.url }

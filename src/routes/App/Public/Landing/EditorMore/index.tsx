@@ -6,9 +6,9 @@
  */
 import _ from 'lodash';
 import React from 'react';
+import { Edit3, DollarSign } from 'react-feather';
 
 import styled, { CSS, useTheme } from '@prostpost/styled';
-import { IconAd, IconEdit } from '@prostpost/resources';
 import {
 	MEDIA,
 	mediaQueries,
@@ -20,13 +20,13 @@ import {
 
 const featuresData: FeatureCardProps[] = [
 	{
-		icon: <IconAd />,
+		icon: Edit3,
 		title: 'Advertising tags',
 		desc: 'Unleash your creativity, plan projects from all angles and create',
 		variant: 'light'
 	},
 	{
-		icon: <IconEdit />,
+		icon: DollarSign,
 		title: 'Bot preview',
 		desc: 'Unleash your creativity, plan projects from all angles and create',
 		variant: 'dark'

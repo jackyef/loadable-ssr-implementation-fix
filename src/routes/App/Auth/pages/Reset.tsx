@@ -4,10 +4,10 @@
 import React from 'react';
 import { Observer } from 'mobx-react';
 import { Helmet } from 'react-helmet';
+import { ArrowRight } from 'react-feather';
 
 import { StoreForm, StoreFormAPI } from '@prostpost/form';
 import { Button, Heading, validators } from '@prostpost/elm';
-import { IconArrow } from '@prostpost/resources';
 import { service as authService } from '@prostpost/api-proxy-auth';
 
 import {
@@ -57,9 +57,8 @@ const ResetPassword: React.FC = () => (
 			{/* Submit */}
 			<Observer>{ () => (
 				<Button width="100%" mt={ 3 } variant="primary"
-					icon={ <IconArrow /> }
+					icon={ <ArrowRight strokeWidth={ 2 } /> }
 					iconPos="right"
-					iconScale={ -1 }
 					title="Send me instructions"
 					asyncState={ formStore.asyncState }
 					onClick={ () => {

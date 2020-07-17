@@ -2,6 +2,7 @@
  * @module Pricing
  */
 import React, { Ref } from 'react';
+import { Users, Edit2, Send } from 'react-feather';
 
 import {
 	Heading,
@@ -12,12 +13,6 @@ import {
 	PricingCard,
 	PricingCardProps
 } from '@prostpost/elm';
-
-import {
-	IconPen,
-	IconChannel,
-	IconMember
-} from '@prostpost/resources';
 
 import { StyledList } from './_styled';
 
@@ -35,9 +30,9 @@ const data: PricingCardProps[] = [
 		price: 0,
 		submitTitle: 'Free',
 		features: [
-			{ icon: <IconChannel />, iconScale: 0.8, title: '1 Channel' },
-			{ icon: <IconPen />, title: '20 Posts/month' },
-			{ icon: <IconMember />, title: '1 Team member' }
+			{ icon: Send, title: '1 Channel' },
+			{ icon: Edit2, title: '20 Posts/month' },
+			{ icon: Users, title: '1 Team member' }
 		]
 	},
 
@@ -49,9 +44,9 @@ const data: PricingCardProps[] = [
 		price: 5,
 		submitTitle: 'Join Pro',
 		features: [
-			{ icon: <IconChannel />, iconScale: 0.8, title: 'Up to 3 channels' },
-			{ icon: <IconPen />, title: 'Unlimited posts' },
-			{ icon: <IconMember />, title: 'Up to 3 members' }
+			{ icon: Send, title: 'Up to 3 channels' },
+			{ icon: Edit2, title: 'Unlimited posts' },
+			{ icon: Users, title: 'Up to 3 members' }
 		]
 	},
 

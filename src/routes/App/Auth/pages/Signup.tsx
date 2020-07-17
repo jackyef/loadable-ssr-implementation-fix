@@ -6,7 +6,7 @@ import { Helmet } from 'react-helmet';
 
 import { StoreForm, StoreFormAPI } from '@prostpost/form';
 import { canUseDOM } from '@prostpost/utils';
-import { Button, Heading, Paragraph, validators } from '@prostpost/elm';
+import { Button, Heading, Paragraph, Icon, validators } from '@prostpost/elm';
 import { service as authService } from '@prostpost/api-proxy-auth';
 import { IconGoogle } from '@prostpost/resources';
 
@@ -72,8 +72,7 @@ const SignUp: React.FC = () => (
 			{/* Google */}
 			<Button width="100%" mt={ 3 } variant="secondary"
 				title="Sign up with Google"
-				icon={ <IconGoogle /> }
-				iconFill={ false }
+				icon={ <Icon iconFill={ false } icon={ <IconGoogle /> } /> }
 				onClick={ () => window.location.assign(`
 					${ authService.axiosInstance.defaults.baseURL }
 					${ authService.shot('user', 'google').options.url }

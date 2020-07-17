@@ -5,10 +5,10 @@
  */
 import _ from 'lodash';
 import React from 'react';
+import { ArrowRight } from 'react-feather';
 
 import { FieldInput, validators } from '@prostpost/elm';
 import { StoreForm, StoreFormAPI } from '@prostpost/form';
-import { IconArrowReverse } from '@prostpost/resources';
 
 import { StyledButton, StyledInputContainer, StyledForm } from './_styled';
 
@@ -50,7 +50,7 @@ export const GetStarted: React.FC<Props> = ({ onClick, className }) => (
 		{/* Validate email and redirect to sign up */}
 		<StyledButton size="big" iconPos="right" detail="rounded"
 			title="Get started"
-			icon={ <IconArrowReverse /> }
+			icon={ <ArrowRight strokeWidth={ 2.5 } /> }
 			onClick={ () => {
 				const { valid } = storeForm.validate();
 				if (valid) {

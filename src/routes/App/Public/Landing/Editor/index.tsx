@@ -5,10 +5,12 @@
  * @module Editor
  */
 import React, { Ref } from 'react';
+import { Code, Eye, Heart, Image, File } from 'react-feather';
 
 import styled, { CSS } from '@prostpost/styled';
 
 import {
+	colors,
 	Heading,
 	Text,
 	Img,
@@ -16,18 +18,10 @@ import {
 	mediaQueries,
 	MEDIA,
 	Paragraph,
-	Icon,
 	ContentBlock
 } from '@prostpost/elm';
 
-import {
-	resources,
-	IconEye,
-	IconTemplate,
-	IconMd,
-	IconHeart,
-	IconImage
-} from '@prostpost/resources';
+import { resources } from '@prostpost/resources';
 
 type Props = {
 	ref?: Ref<HTMLElement>;
@@ -111,32 +105,32 @@ export const Editor: React.FC<Props> = React.forwardRef((props, ref) => (
 				{/* List of features */}
 				<StyledFeaturesContainer>
 					<StyledLiFeature>
-						<Icon color="blue_30" width="17px" mr="20px" icon={ <IconMd /> } />
-						<Paragraph size={ 18 } color="blue_30">
+						<Code size={ 18 } color={ colors.blue_30 } />
+						<Paragraph ml={ 4 } size={ 18 } color="blue_30">
 							{ 'Text editor with markup' }
 						</Paragraph>
 					</StyledLiFeature>
 					<StyledLiFeature>
-						<Icon color="blue_30" width="17px" mr="20px" icon={ <IconEye /> } />
-						<Paragraph size={ 18 } color="blue_30">
+						<Eye size={ 18 } color={ colors.blue_30 } />
+						<Paragraph ml={ 4 } size={ 18 } color="blue_30">
 							{ 'Link preview settings' }
 						</Paragraph>
 					</StyledLiFeature>
 					<StyledLiFeature>
-						<Icon color="blue_30" width="17px" mr="20px" icon={ <IconHeart /> } />
-						<Paragraph size={ 18 } color="blue_30">
+						<Heart size={ 18 } color={ colors.blue_30 } />
+						<Paragraph ml={ 4 } size={ 18 } color="blue_30">
 							{ 'Reaction buttons' }
 						</Paragraph>
 					</StyledLiFeature>
 					<StyledLiFeature>
-						<Icon color="blue_30" width="17px" mr="20px" icon={ <IconImage /> } />
-						<Paragraph size={ 18 } color="blue_30">
+						<Image size={ 18 } color={ colors.blue_30 } />
+						<Paragraph ml={ 4 } size={ 18 } color="blue_30">
 							{ 'Images and galleries' }
 						</Paragraph>
 					</StyledLiFeature>
 					<StyledLiFeature>
-						<Icon color="blue_30" width="17px" mr="20px" icon={ <IconTemplate /> } />
-						<Paragraph size={ 18 } color="blue_30">
+						<File size={ 18 } color={ colors.blue_30 } />
+						<Paragraph ml={ 4 } size={ 18 } color="blue_30">
 							{ 'Create post from template' }
 						</Paragraph>
 					</StyledLiFeature>

@@ -4,9 +4,9 @@
  * @module Feed
  */
 import React, { useState, Ref } from 'react';
+import { Clock, Edit, Archive } from 'react-feather';
 
 import { Text, FeaturesSwitcher, FeaturesSwitcherProps } from '@prostpost/elm';
-import { IconArchive, IconPen, IconTime } from '@prostpost/resources';
 
 import {
 	StyledContentBlock,
@@ -30,17 +30,17 @@ type Props = {
  */
 const featuresData: FeaturesSwitcherProps[] = [
 	{
-		icon: <IconTime />,
+		icon: <Clock />,
 		title: 'Scheduling',
 		desc: 'Show what posts on what time will be broadcasted to your channels'
 	},
 	{
-		icon: <IconPen />,
+		icon: <Edit />,
 		title: 'Edit post content',
 		desc: 'Be sure when post hit the Telegram. And of source you can edit your post form app too'
 	},
 	{
-		icon: <IconArchive />,
+		icon: <Archive />,
 		title: 'History',
 		desc: 'Access history and old posts'
 	}
