@@ -1513,12 +1513,12 @@
     axios "^0.19.2"
     lodash "^4.17.19"
 
-"@prostpost/calendar@^4.1.32":
-  version "4.1.32"
-  resolved "https://nexus.prostpost.me/repository/npm-private/@prostpost/calendar/-/calendar-4.1.32.tgz#ae672572554d8803684d7dbde4d381102623c23e"
-  integrity sha512-gpVnfFMsxQ4yiPia/W0jmOxHojUtlGEXVYgH6zd2cRCK43xrm0r+6S4KccNAYk+HxBGPABtRQ4eCw4fx4sF38Q==
+"@prostpost/calendar@^4.1.33":
+  version "4.1.33"
+  resolved "https://nexus.prostpost.me/repository/npm-private/@prostpost/calendar/-/calendar-4.1.33.tgz#f30a2a39e126f79f0056a2af3a893f22cc6d276a"
+  integrity sha512-YXsq6f84bwWeh9g81//n3AWiA0FT5J6UTxxlco00t1RI3PMTmMcxOUe84kgsXdN8Syk3wGkf87uJAywP25ppYw==
   dependencies:
-    "@prostpost/elm" "^4.1.35"
+    "@prostpost/elm" "^4.1.36"
     "@prostpost/resources" "^4.2.14"
     "@prostpost/styled" "^4.0.12"
     "@prostpost/utils" "^4.1.14"
@@ -1591,10 +1591,10 @@
     webpack-node-externals "^2.5.0"
     webpackbar "^4.0.0"
 
-"@prostpost/elm@4.1.35", "@prostpost/elm@^4.1.35":
-  version "4.1.35"
-  resolved "https://nexus.prostpost.me/repository/npm-private/@prostpost/elm/-/elm-4.1.35.tgz#9afe91b62c0be540f35770681d99fb35b454ce21"
-  integrity sha512-8qY6ayzIb27Z9BLNqoSq3jcBK3GjHrV02vldp8OPzoaMRMF8oWluBnfXZHjZHF7dkN+XLZYp8M9shX1T+bGaFg==
+"@prostpost/elm@4.1.36", "@prostpost/elm@^4.1.36":
+  version "4.1.36"
+  resolved "https://nexus.prostpost.me/repository/npm-private/@prostpost/elm/-/elm-4.1.36.tgz#33909fdc139ed2014b35c8e22d5f581dea80b378"
+  integrity sha512-zgMhQJp/hPUKCvrL18+7y+RkyFdNzGuyRq7RM6eCCmEMOF4jqkYQqGcTtG/BQb32YsJzYAVzVrlZ3t7BzkIcSw==
   dependencies:
     "@prostpost/form" "^4.1.20"
     "@prostpost/resources" "^4.2.14"
@@ -3288,10 +3288,10 @@ axios-cache-adapter@^2.5.0:
     cache-control-esm "1.0.0"
     lodash "^4.17.11"
 
-axios-mock-adapter@^1.18.1:
-  version "1.18.1"
-  resolved "https://registry.yarnpkg.com/axios-mock-adapter/-/axios-mock-adapter-1.18.1.tgz#a2ba2638ef513d954793f96bde3e26bd4a1b7940"
-  integrity sha512-kFBZsG1Ma5yxjRGHq5KuuL55mPb7WzFULhypquEhzPg8SH5CXICb+qwC2CCA5u+GQVpiqGPwKSRkd3mBCs6gdw==
+axios-mock-adapter@^1.18.2:
+  version "1.18.2"
+  resolved "https://registry.yarnpkg.com/axios-mock-adapter/-/axios-mock-adapter-1.18.2.tgz#01fa9e88e692e8f1bbc1ad1200dde672486e03c7"
+  integrity sha512-e5aTsPy2Viov22zNpFTlid76W1Scz82pXeEwwCXdtO85LROhHAF8pHF2qDhiyMONLxKyY3lQ+S4UCsKgrlx8Hw==
   dependencies:
     fast-deep-equal "^3.1.1"
     is-buffer "^2.0.3"
@@ -5540,7 +5540,7 @@ debug@^4.0.1, debug@^4.1.0, debug@^4.1.1:
   dependencies:
     ms "^2.1.1"
 
-debuglog@*, debuglog@^1.0.1:
+debuglog@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/debuglog/-/debuglog-1.0.1.tgz#aa24ffb9ac3df9a2351837cfb2d279360cd78492"
   integrity sha1-qiT/uaw9+aI1GDfPstJ5NgzXhJI=
@@ -8607,7 +8607,7 @@ import-local@^3.0.2:
     pkg-dir "^4.2.0"
     resolve-cwd "^3.0.0"
 
-imurmurhash@*, imurmurhash@^0.1.4:
+imurmurhash@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
   integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
@@ -10641,7 +10641,7 @@ lodash._basefor@^3.0.0:
   resolved "https://registry.yarnpkg.com/lodash._basefor/-/lodash._basefor-3.0.3.tgz#7550b4e9218ef09fad24343b612021c79b4c20c2"
   integrity sha1-dVC06SGO8J+tJDQ7YSAhx5tMIMI=
 
-lodash._baseindexof@*, lodash._baseindexof@^3.0.0:
+lodash._baseindexof@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/lodash._baseindexof/-/lodash._baseindexof-3.1.0.tgz#fe52b53a1c6761e42618d654e4a25789ed61822c"
   integrity sha1-/lK1OhxnYeQmGNZU5KJXie1hgiw=
@@ -10654,12 +10654,12 @@ lodash._baseuniq@~4.6.0:
     lodash._createset "~4.0.0"
     lodash._root "~3.0.0"
 
-lodash._bindcallback@*, lodash._bindcallback@^3.0.0:
+lodash._bindcallback@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/lodash._bindcallback/-/lodash._bindcallback-3.0.1.tgz#e531c27644cf8b57a99e17ed95b35c748789392e"
   integrity sha1-5THCdkTPi1epnhftlbNcdIeJOS4=
 
-lodash._cacheindexof@*, lodash._cacheindexof@^3.0.0:
+lodash._cacheindexof@^3.0.0:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/lodash._cacheindexof/-/lodash._cacheindexof-3.0.2.tgz#3dc69ac82498d2ee5e3ce56091bafd2adc7bde92"
   integrity sha1-PcaayCSY0u5ePOVgkbr9Ktx73pI=
@@ -10673,7 +10673,7 @@ lodash._createassigner@^3.0.0:
     lodash._isiterateecall "^3.0.0"
     lodash.restparam "^3.0.0"
 
-lodash._createcache@*, lodash._createcache@^3.0.0:
+lodash._createcache@^3.0.0:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/lodash._createcache/-/lodash._createcache-3.1.2.tgz#56d6a064017625e79ebca6b8018e17440bdcf093"
   integrity sha1-VtagZAF2JeeevKa4AY4XRAvc8JM=
@@ -10685,7 +10685,7 @@ lodash._createset@~4.0.0:
   resolved "https://registry.yarnpkg.com/lodash._createset/-/lodash._createset-4.0.3.tgz#0f4659fbb09d75194fa9e2b88a6644d363c9fe26"
   integrity sha1-D0ZZ+7CddRlPqeK4imZE02PJ/iY=
 
-lodash._getnative@*, lodash._getnative@^3.0.0:
+lodash._getnative@^3.0.0:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
   integrity sha1-VwvH3t5G1hzc3mh9ZdPuy6o6r/U=
@@ -10853,7 +10853,7 @@ lodash.pick@^3.1.0:
     lodash._pickbycallback "^3.0.0"
     lodash.restparam "^3.0.0"
 
-lodash.restparam@*, lodash.restparam@^3.0.0:
+lodash.restparam@^3.0.0:
   version "3.6.1"
   resolved "https://registry.yarnpkg.com/lodash.restparam/-/lodash.restparam-3.6.1.tgz#936a4e309ef330a7645ed4145986c85ae5b20805"
   integrity sha1-k2pOMJ7zMKdkXtQUWYbIWuWyCAU=

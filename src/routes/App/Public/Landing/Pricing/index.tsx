@@ -24,7 +24,6 @@ const data: PricingCardProps[] = [
 
 	// Free
 	{
-		icon: null,
 		title: 'Free Starter',
 		desc: 'Learn, explore and create',
 		price: 0,
@@ -38,7 +37,6 @@ const data: PricingCardProps[] = [
 
 	// Main
 	{
-		icon: null,
 		title: 'Pro Blogger',
 		desc: 'For more complex projects',
 		price: 5,
@@ -52,7 +50,6 @@ const data: PricingCardProps[] = [
 
 	// Custom
 	{
-		icon: null,
 		title: 'Custom',
 		desc: 'Custom plan that suits your needs',
 		submitTitle: 'Contact us',
