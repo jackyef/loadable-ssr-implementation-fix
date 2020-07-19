@@ -6,7 +6,7 @@
  */
 import _ from 'lodash';
 import React from 'react';
-import { Edit3, DollarSign } from 'react-feather';
+import { Eye, DollarSign } from 'react-feather';
 
 import styled, { CSS, useTheme } from '@prostpost/styled';
 import {
@@ -20,13 +20,13 @@ import {
 
 const featuresData: FeatureCardProps[] = [
 	{
-		icon: Edit3,
+		icon: DollarSign,
 		title: 'Advertising tags',
 		desc: 'Unleash your creativity, plan projects from all angles and create',
 		variant: 'light'
 	},
 	{
-		icon: DollarSign,
+		icon: Eye,
 		title: 'Bot preview',
 		desc: 'Unleash your creativity, plan projects from all angles and create',
 		variant: 'dark'

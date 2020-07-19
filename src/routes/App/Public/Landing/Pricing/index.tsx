@@ -2,7 +2,7 @@
  * @module Pricing
  */
 import React, { Ref } from 'react';
-import { Users, Edit2, Send } from 'react-feather';
+import { User, Users, Edit3, Send } from 'react-feather';
 
 import {
 	Heading,
@@ -30,8 +30,8 @@ const data: PricingCardProps[] = [
 		submitTitle: 'Free',
 		features: [
 			{ icon: Send, title: '1 Channel' },
-			{ icon: Edit2, title: '20 Posts/month' },
-			{ icon: Users, title: '1 Team member' }
+			{ icon: Edit3, title: '20 Posts/month' },
+			{ icon: User, title: '1 Team member' }
 		]
 	},
 
@@ -43,7 +43,7 @@ const data: PricingCardProps[] = [
 		submitTitle: 'Join Pro',
 		features: [
 			{ icon: Send, title: 'Up to 3 channels' },
-			{ icon: Edit2, title: 'Unlimited posts' },
+			{ icon: Edit3, title: 'Unlimited posts' },
 			{ icon: Users, title: 'Up to 3 members' }
 		]
 	},
