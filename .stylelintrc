@@ -1,3 +1,0 @@
-{
-	"extends": "@prostpost/configs/lint/stylelint.config.js"
-}

@@ -8,7 +8,4 @@ npm-debug.log
 coverage/
 .DS_Store
 *.iml
-local.dev.js
-id_rsa
-old_bundle/
 index.html.gz

@@ -1,46 +1,22 @@
 /* eslint-disable */
 // @ts-nocheck
-import fs from 'fs';
-import path from 'path';
+import winston from 'winston';
 import express, { Response, Request } from 'express';
 import { matchRoutes, RouteConfig } from 'react-router-config';
-// import Loadable from 'react-loadable';
 import { useStaticRendering } from 'mobx-react';
 
-import { renderer } from '@prostpost/elm';
-
-// Routes
+import { renderer } from './renderer';
 import { indexRoute } from './config';
 import Routes from './routes';
 
-// Logger
-import winston from 'winston';
-import { support } from 'fluent-logger';
-
-// Fluent
-const fluentConfig = {
-	host: 'fluentd-es.logging.svc.cluster.local',
-	port: 24224,
-	timeout: 3.0,
-	requireAckResponse: true // Add this option to wait response from Fluentd certainly
-};
-
-// NO TYPES FOR FLUENTD LOGGER
-/* eslint @typescript-eslint/no-unsafe-call: 0 */
-/* eslint @typescript-eslint/no-unsafe-member-access: 0 */
-const fluentTransport = support.winstonTransport();
-const fluent = new fluentTransport('service_ssr_public', fluentConfig);
-
-// Logger
 const logger = winston.createLogger({
-	transports: [fluent, new (winston.transports.Console)()]
+	transports: [new (winston.transports.Console)()]
 });
 
 // Get bundle json maps
 // eslint-disable-next-line import/no-internal-modules
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const loadableJson = require('../bundle_client/loadable-stats.json');
-const assetsJson = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'bundle_client', 'assets.json'), 'utf-8'));
 
 useStaticRendering(true);
 
@@ -62,8 +38,6 @@ app.get('/readyz', (req, res) => {
 // Static
 app.use(`/static/${ indexRoute }`, express.static('bundle_client'));
 
-// Location
-// any -> Request
 app.get('*', (req: Request, res: Response) => {
 
 	const promises = matchRoutes(Routes, req.path).map(
@@ -78,7 +52,6 @@ app.get('*', (req: Request, res: Response) => {
 			{ req, context },
 			Routes,
 			loadableJson,
-			// assetsJson,
 			{
 				indexRoute,
 				initialState: data,
@@ -93,9 +66,6 @@ app.get('*', (req: Request, res: Response) => {
 	}).catch(e => console.warn(e));
 });
 
-// Run server
-// Loadable.preloadAll().then(() => {
 app.listen(EXPRESS_SSR_PORT, () => {
 	logger.info(`Listening on port ${ EXPRESS_SSR_PORT }`);
 });
-// });

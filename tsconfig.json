@@ -1,19 +1,36 @@
 {
-	"extends": "@prostpost/configs/tsconfig/app.json",
 	"compilerOptions": {
-		"baseUrl": "./",
-		"jsx": "react",
+		"baseUrl": ".",
+		"outDir": "dist/",
+		"skipLibCheck": true,
 		"declaration": false,
+		"allowSyntheticDefaultImports": true,
+		"checkJs": false,
+		"emitDecoratorMetadata": false,
+		"experimentalDecorators": true,
+		"forceConsistentCasingInFileNames": true,
+		"importHelpers": true,
+		"noEmitHelpers": true,
+		"jsx": "react",
+		"lib": [
+			"dom",
+			"es2017"
+		],
+		"target": "esnext",
+		"module": "esnext",
 		"esModuleInterop": true,
+		"moduleResolution": "node",
+		"noEmitOnError": false,
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitAny": true,
+		"noImplicitReturns": true,
+		"noImplicitThis": true,
+		"noUnusedLocals": true,
+		"strictNullChecks": false,
+		"pretty": true,
+		"removeComments": true,
+		"sourceMap": true,
 		"paths": {
-			"app/config/*": ["src/config/*"],
-			"app/config": ["src/config/index.ts"],
-			"app/stores/*": ["src/stores/*"],
-			"app/stores": ["src/stores/index.ts"],
-			"app/routes/*": ["src/routes/*"],
-			"app/routes": ["src/routes/index.tsx"],
-			"app/components/*": ["src/components/*"],
-			"app/components": ["src/components/index.ts"],
 			"*": [
 				"node_modules/@types/*",
 				"typings/*",
@@ -22,26 +39,15 @@
 		}
 	},
 
-	"include": [
-
-		// App
-		"src/**/*",
-
-		// Linked modules
-		"node_modules/@prostpost"
+	"files": [
+		"./typings/global.d.ts"
 	],
 
-	"exclude": [
+	"compileOnSave": false,
+	"buildOnSave": false,
 
-		// App
-		"__tests__/**/*",
-		"bundle_*/**/*",
-		"coverage/**/*",
-		"jest_setup/**/*",
-		"resources/**/*",
-
-		// Linked modules tests
-		"**/_tests/**/*",
-		"**/_stories/**/*"
+	"include": [
+		"src/**/*",
+		"__tests__/**/*"
 	]
 }
