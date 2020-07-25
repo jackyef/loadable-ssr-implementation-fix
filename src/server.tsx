@@ -4,6 +4,7 @@ import winston from 'winston';
 import express, { Response, Request } from 'express';
 import { matchRoutes, RouteConfig } from 'react-router-config';
 import { useStaticRendering } from 'mobx-react';
+import path from 'path';
 
 import { renderer } from './renderer';
 import { indexRoute } from './config';
@@ -16,7 +17,7 @@ const logger = winston.createLogger({
 // Get bundle json maps
 // eslint-disable-next-line import/no-internal-modules
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const loadableJson = require('../bundle_client/loadable-stats.json');
+const loadableJson = path.resolve(__dirname, '../bundle_client/loadable-stats.json');
 
 useStaticRendering(true);
 

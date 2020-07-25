@@ -81,7 +81,8 @@ export const renderer = (
 ): string => {
 
 	const extractor = new ChunkExtractor({
-		statsFile: loadableJson
+		statsFile: loadableJson,
+		entrypoints: ["app"], // name of your entry chunk
 	});
 
 	// Render route
