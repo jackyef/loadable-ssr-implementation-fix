@@ -31,7 +31,7 @@
 		"fluent-logger": "^3.4.1",
 		"fs": "^0.0.2",
 		"js-cookie": "^2.2.1",
-		"jsdom": "^16.3.0",
+		"jsdom": "^16.5.0",
 		"localforage": "^1.7.4",
 		"lodash": "^4.17.19",
 		"mobx": "^5.15.4",
